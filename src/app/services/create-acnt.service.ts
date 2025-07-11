@@ -36,7 +36,12 @@ export class CreateAcntService {
   createMerchant(body: any, headers: any): Observable<any> {
     return this.http
       .post(`${environment.Onboarding_URL}/merchant`, body, { headers })
-      .pipe(catchError((err) => of(err)));
+      .pipe(
+        catchError((err) => {
+          console.error("Error in createMerchant:", err);
+          return throwError(err);
+        }),
+      );
   }
   updateMerchant(body: any, headers: any): Observable<any> {
     return this.http.put(`${environment.Onboarding_URL}/merchant`, body, {
