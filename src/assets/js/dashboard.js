@@ -247,7 +247,10 @@ $(function () {
     options: pieOptions,
   });
 
-  // Sales graph chart
+  // Sales graph chart - only initialize if element exists
+  if ($("#line-chart").length === 0) {
+    return; // Exit early if chart elements don't exist
+  }
   var salesGraphChartCanvas = $("#line-chart").get(0).getContext("2d");
   // $('#revenue-chart').get(0).getContext('2d');
 
