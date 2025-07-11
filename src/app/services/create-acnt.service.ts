@@ -17,7 +17,12 @@ export class CreateAcntService {
   createPayrowId(body: any, headers: any): Observable<any> {
     return this.http
       .put(`${environment.Onboarding_URL}/payrowId`, body, { headers })
-      .pipe(catchError((err) => of(err)));
+      .pipe(
+        catchError((err) => {
+          console.error("Error in createPayrowId:", err);
+          return throwError(err);
+        }),
+      );
   }
   getPrid(headers: any): Observable<any> {
     return this.http.get(`${environment.Onboarding_URL}/payrowId`, { headers });
