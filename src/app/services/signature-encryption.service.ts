@@ -164,7 +164,8 @@ export class SignatureEncryptionService {
     });
     const jsonString = JSON.stringify(data);
     const keys = this.getUserData();
-    const iv = CryptoJS.enc.Base64.parse(`${keys.iv}`); // Initialization vector (IV)
+    const ivValue = keys?.iv || "gaOr3uvhZEwFeSbRHwlHcg=="; // Default IV if keys is null
+    const iv = CryptoJS.enc.Base64.parse(`${ivValue}`); // Initialization vector (IV)
     // const key = CryptoJS.enc.Base64.parse("12345678901234567890123456789012"); // Base64-encoded secret key
     const secretkey = CryptoJS.enc.Base64.parse(key);
     const encrypted = CryptoJS.AES.encrypt(JSON.stringify(data), secretkey, {
