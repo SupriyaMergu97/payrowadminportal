@@ -190,6 +190,7 @@ export class SignatureEncryptionService {
     // Convert the Base64-encoded key and IV to the required format
     const key = CryptoJS.enc.Base64.parse(secretKey); // Base64 encoded secret key from the backend
     const keys = this.getUserData();
+    // Use default IV if keys is null or doesn't have iv property
     const ivHex = CryptoJS.enc.Base64.parse("gaOr3uvhZEwFeSbRHwlHcg=="); // IV in hexadecimal format (shared between backend and frontend)
     const cipherParams = CryptoJS.lib.CipherParams.create({
       ciphertext: CryptoJS.enc.Hex.parse(encryptedData), // Convert hex to WordArray and assign to ciphertext
