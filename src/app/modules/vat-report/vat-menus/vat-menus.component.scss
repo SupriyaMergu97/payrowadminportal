@@ -1,0 +1,37 @@
+// Modern VAT Menus Styles - Now integrated into main component
+// This component's styles are handled in the parent vat-report component
+
+// Legacy styles for backward compatibility
+.nav-tabs {
+  border: none;
+  background: transparent;
+}
+
+.nav-link {
+  border: none;
+  color: #718096;
+
+  &.active {
+    background: linear-gradient(135deg, #72ac47, #5a8a37);
+    color: white;
+    border-radius: 12px;
+  }
+
+  &:hover {
+    border: none;
+    color: #72ac47;
+  }
+}
+
+.menuIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  filter: brightness(0) saturate(100%) invert(47%) sepia(0%) saturate(0%)
+    hue-rotate(233deg) brightness(95%) contrast(88%);
+}
+
+.nav-link.active .menuIcon {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%)
+    hue-rotate(109deg) brightness(107%) contrast(107%);
+}
