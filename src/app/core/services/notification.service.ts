@@ -41,10 +41,14 @@ export class NotificationService {
   }
 
   showInfo(message: any, title: any) {
-    this.toastr.info(message, title);
+    const infoMessage =
+      typeof message === "string" ? message : message?.message || "Information";
+    this.toastr.info(infoMessage, title);
   }
 
   showWarning(message: any, title: any) {
-    this.toastr.warning(message, title);
+    const warningMessage =
+      typeof message === "string" ? message : message?.message || "Warning";
+    this.toastr.warning(warningMessage, title);
   }
 }
