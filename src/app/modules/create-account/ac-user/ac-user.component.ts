@@ -2284,7 +2284,10 @@ export class AcUserComponent implements OnInit {
         });
       },
       (err) => {
-        console.log(err);
+        console.error(
+          "Error fetching TID list:",
+          err?.message || err?.error?.message || err,
+        );
         this.isDevice = !this.isDevice;
         this.isMIDActive = !this.isMIDActive;
         let result = [
