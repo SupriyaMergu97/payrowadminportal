@@ -7,7 +7,9 @@ export class NotificationService {
   constructor(private toastr: ToastrService) {}
 
   showSuccess(message: any, title: any) {
-    this.toastr.success(message, title);
+    const successMessage =
+      typeof message === "string" ? message : message?.message || "Success";
+    this.toastr.success(successMessage, title);
   }
 
   showError(message: any, title: any) {
