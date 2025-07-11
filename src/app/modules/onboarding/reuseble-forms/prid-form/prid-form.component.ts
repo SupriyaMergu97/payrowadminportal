@@ -166,7 +166,11 @@ export class PridFormComponent
     console.log("#################", this.pridForm);
   }
   uploadPassportfile(event: any) {
-    console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", event.target.files);
+    console.log(
+      "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+      event.target.files.length,
+      "files selected",
+    );
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.pridForm.get("passportDocument")?.setValue(file);
