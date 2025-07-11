@@ -14,7 +14,8 @@ export class SignatureEncryptionService {
     const keys = this.getUserData();
     // const key = CryptoJS.enc.Utf8.parse('12345678901234567890123456789012'); // AES 256-bit key
     // const iv = CryptoJS.enc.Utf8.parse('1234567890123456'); // 16-byte IV
-    const iv = CryptoJS.enc.Base64.parse(`${keys.iv}`); // Initialization vector (IV)
+    const ivValue = keys?.iv || "gaOr3uvhZEwFeSbRHwlHcg=="; // Default IV if keys is null
+    const iv = CryptoJS.enc.Base64.parse(`${ivValue}`); // Initialization vector (IV)
     // const key = CryptoJS.enc.Base64.parse("12345678901234567890123456789012"); // Base64-encoded secret key
     const secretkey = CryptoJS.enc.Base64.parse(key);
     // console.log(secretkey,iv,'test')
