@@ -136,16 +136,20 @@ $(function () {
     sparkline3.draw([15, 19, 20, 22, 33, 27, 31, 27, 19, 30, 21]);
   }
 
-  // The Calender
-  $("#calendar").datetimepicker({
-    format: "L",
-    inline: true,
-  });
+  // The Calendar - only initialize if element exists
+  if ($("#calendar").length > 0) {
+    $("#calendar").datetimepicker({
+      format: "L",
+      inline: true,
+    });
+  }
 
-  // SLIMSCROLL FOR CHAT WIDGET
-  $("#chat-box").overlayScrollbars({
-    height: "250px",
-  });
+  // SLIMSCROLL FOR CHAT WIDGET - only initialize if element exists
+  if ($("#chat-box").length > 0) {
+    $("#chat-box").overlayScrollbars({
+      height: "250px",
+    });
+  }
 
   /* Chart.js Charts */
   // Sales chart - only initialize if element exists
