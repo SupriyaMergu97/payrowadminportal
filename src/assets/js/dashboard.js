@@ -10,28 +10,37 @@
 $(function () {
   "use strict";
 
-  $(".knob").knob();
+  // Initialize knob elements if they exist
+  if ($(".knob").length > 0) {
+    $(".knob").knob();
+  }
 
-  // Make the dashboard widgets sortable Using jquery UI
-  $(".connectedSortable").sortable({
-    placeholder: "sort-highlight",
-    connectWith: ".connectedSortable",
-    handle: ".card-header, .nav-tabs",
-    forcePlaceholderSize: true,
-    zIndex: 999999,
-  });
-  $(".connectedSortable .card-header").css("cursor", "move");
+  // Make the dashboard widgets sortable Using jquery UI - only if elements exist
+  if ($(".connectedSortable").length > 0) {
+    $(".connectedSortable").sortable({
+      placeholder: "sort-highlight",
+      connectWith: ".connectedSortable",
+      handle: ".card-header, .nav-tabs",
+      forcePlaceholderSize: true,
+      zIndex: 999999,
+    });
+    $(".connectedSortable .card-header").css("cursor", "move");
+  }
 
-  // jQuery UI sortable for the todo list
-  $(".todo-list").sortable({
-    placeholder: "sort-highlight",
-    handle: ".handle",
-    forcePlaceholderSize: true,
-    zIndex: 999999,
-  });
+  // jQuery UI sortable for the todo list - only if elements exist
+  if ($(".todo-list").length > 0) {
+    $(".todo-list").sortable({
+      placeholder: "sort-highlight",
+      handle: ".handle",
+      forcePlaceholderSize: true,
+      zIndex: 999999,
+    });
+  }
 
-  // bootstrap WYSIHTML5 - text editor
-  $(".textarea").summernote();
+  // bootstrap WYSIHTML5 - text editor - only if elements exist
+  if ($(".textarea").length > 0) {
+    $(".textarea").summernote();
+  }
 
   $(".daterange").daterangepicker(
     {
