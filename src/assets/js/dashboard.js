@@ -42,35 +42,43 @@ $(function () {
     $(".textarea").summernote();
   }
 
-  $(".daterange").daterangepicker(
-    {
-      ranges: {
-        Today: [moment(), moment()],
-        Yesterday: [moment().subtract(1, "days"), moment().subtract(1, "days")],
-        "Last 7 Days": [moment().subtract(6, "days"), moment()],
-        "Last 30 Days": [moment().subtract(29, "days"), moment()],
-        "This Month": [moment().startOf("month"), moment().endOf("month")],
-        "Last Month": [
-          moment().subtract(1, "month").startOf("month"),
-          moment().subtract(1, "month").endOf("month"),
-        ],
+  // Initialize daterange picker only if elements exist
+  if ($(".daterange").length > 0) {
+    $(".daterange").daterangepicker(
+      {
+        ranges: {
+          Today: [moment(), moment()],
+          Yesterday: [
+            moment().subtract(1, "days"),
+            moment().subtract(1, "days"),
+          ],
+          "Last 7 Days": [moment().subtract(6, "days"), moment()],
+          "Last 30 Days": [moment().subtract(29, "days"), moment()],
+          "This Month": [moment().startOf("month"), moment().endOf("month")],
+          "Last Month": [
+            moment().subtract(1, "month").startOf("month"),
+            moment().subtract(1, "month").endOf("month"),
+          ],
+        },
+        startDate: moment().subtract(29, "days"),
+        endDate: moment(),
       },
-      startDate: moment().subtract(29, "days"),
-      endDate: moment(),
-    },
-    function (start, end) {
-      // eslint-disable-next-line no-alert
-      alert(
-        "You chose: " +
-          start.format("MMMM D, YYYY") +
-          " - " +
-          end.format("MMMM D, YYYY"),
-      );
-    },
-  );
+      function (start, end) {
+        // eslint-disable-next-line no-alert
+        alert(
+          "You chose: " +
+            start.format("MMMM D, YYYY") +
+            " - " +
+            end.format("MMMM D, YYYY"),
+        );
+      },
+    );
+  }
 
-  /* jQueryKnob */
-  $(".knob").knob();
+  /* jQueryKnob - additional check */
+  if ($(".knob").length > 0) {
+    $(".knob").knob();
+  }
 
   // jvectormap data
   var visitorsData = {
