@@ -1,25 +1,48 @@
-import { Injectable } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { Injectable } from "@angular/core";
+import { ToastrService } from "ngx-toastr";
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class NotificationService {
+  constructor(private toastr: ToastrService) {}
 
-  constructor(private toastr: ToastrService) { }
+  showSuccess(message: any, title: any) {
+    this.toastr.success(message, title);
+  }
 
-    showSuccess(message:any, title:any){
-        this.toastr.success(message, title)
+  showError(message: any, title: any) {
+    // Handle error objects properly
+    const errorMessage = this.extractErrorMessage(message);
+    this.toastr.error(errorMessage, title);
+  }
+
+  private extractErrorMessage(error: any): string {
+    if (typeof error === "string") {
+      return error;
     }
 
-    showError(message:any, title:any){
-        this.toastr.error(message, title)
+    if (error?.message) {
+      return error.message;
     }
 
-    showInfo(message:any, title:any){
-        this.toastr.info(message, title)
+    if (error?.error?.message) {
+      return error.error.message;
     }
 
-    showWarning(message:any, title:any){
-        this.toastr.warning(message, title)
+    if (error?.error) {
+      return typeof error.error === "string"
+        ? error.error
+        : "An error occurred";
     }
+
+    return "An unknown error occurred";
+  }
+
+  showInfo(message: any, title: any) {
+    this.toastr.info(message, title);
+  }
+
+  showWarning(message: any, title: any) {
+    this.toastr.warning(message, title);
+  }
 }
