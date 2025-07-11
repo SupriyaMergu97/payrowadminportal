@@ -31,7 +31,7 @@ export class SignatureEncryptionService {
   async generateKey(keyValidation: string): Promise<Uint8Array> {
     // Helper to convert a string to a UTF-8 byte array
     const keys = this.getUserData();
-    let deviceId = `${keys.deviceId}`;
+    let deviceId = `${keys?.deviceId || "default-device-id"}`;
     function stringToUtf8Bytes(str: string): Uint8Array {
       return new TextEncoder().encode(str);
     }
