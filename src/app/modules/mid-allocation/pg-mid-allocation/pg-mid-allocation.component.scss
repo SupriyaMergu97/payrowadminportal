@@ -1,0 +1,44 @@
+@import url("https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css");
+
+.submit {
+  background-color: #343a40;
+  color: whitesmoke;
+}
+.modal-body {
+  padding: 20px;
+}
+input.search-hero {
+  // width: 20%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #2c3e50;
+  font-size: 13px;
+  background-color: #fcfcfd;
+  position: relative;
+  bottom: 5px;
+  width: 35%;
+  float: right;
+}
+
+input.search-hero:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #72ac47;
+  outline-width: 0;
+  transition: All 0.5s ease-in;
+  -webkit-transition: All 0.5s ease-in;
+  -moz-transition: All 0.5s ease-in;
+  -o-transition: All 0.5s ease-in;
+}
+
+.input-group-append {
+  position: absolute;
+  right: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.input-group-text{
+  padding: 0.93rem 0.75rem;
+}

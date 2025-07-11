@@ -1,0 +1,189 @@
+<div class="content-wrapper main-section-container">
+    <section class="content">
+        <div class="container-fluid p-0" *ngIf="!isAddAcnt">
+            <div class="row mb-4">
+                <!-- Merchant List -->
+                <div class="section-header">
+                    <!-- <h4>Create</h4> -->
+                    
+                    <div class="pull-left d-flex gap-16x">
+                        <div class="search-holder">
+                            <form action="">
+                                <div class="input-group">
+                                    <input type="text" autocomplete="off" name="search" [(ngModel)]="searchText"
+                                        placeholder="Search Employee" aria-describedby="button-addon5"
+                                        class="form-control">
+                                    <div class="input-group-append">
+                                        <button id="button-addon5" type="submit" class="btn"><i
+                                                class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                    </div>
+                    <div class="pull-right d-flex gap-16x">
+                        <button class="btn btn-primary-lg"  data-toggle="modal" data-target="#checkExistPrid">
+                            Create PayRowCard<i class="fas fa-plus cta-plus-btn border-0"></i></button>
+                        <!-- <button class="btn btn-default-normal">Cancel <i class="fas fa-plus rotate-45"></i></button> -->
+                        <!-- <button class="btn btn-default-primary" *ngIf="isShow" id="submit" (click)="submit()" [disabled]="!salesForm.valid">Save <i class="fas fa-download"></i></button>  -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <ng-multiselect-dropdown
+                        id="one"
+                        name="city"
+                        [settings]="dropdownSettings"
+                        [data]="countries"
+                        [(ngModel)]="selectedItems2"
+                        (onSelect)="onItemSelect($event)"
+                      >
+                      </ng-multiselect-dropdown>
+            </div>
+            <table class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th>Card Holder Name</th>
+                        <th>Card Number</th>
+                        <th>Contact</th>
+                        <th>Expiry Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container
+                        *ngFor="let data of departmentList | slice: (currentPage-1) * itemsPerPage : (currentPage-1) * itemsPerPage + itemsPerPage let i=index; let even=even">
+                        <tr class="tid-data-row" [ngClass]="{'tid-even': even}" [class.active]="data.showDetail">
+                            <td>{{data.departName}}</td>
+                            <td>{{data.deptId}}</td>
+                            <td>{{data.mobileNumber}}</td>
+                            <td>{{data.expiryDate | date}}</td>
+                            <td>
+                                <span *ngIf="data.status=='Active'" class="badge badge-success">Active</span>
+                                <span *ngIf="data.status=='In-Active'" class="badge badge-danger">In-Active</span>
+                            </td>
+                            <td><button class="btn btn-sm create" (click)="onAddAcntAction()"
+                                    data-toggle="modal" data-target="#addDepartment">
+                                    <i class="bi bi-pencil-square"></i></button></td>
+                            <td>
+                                <button class="cta-plus-btn border-0" *ngIf="!data.showDetail"
+                                    (click)="data.showDetail = !data.showDetail"><i class="fas fa-plus"></i></button>
+                                <button class="cta-plus-btn border-0" *ngIf="data.showDetail"
+                                    (click)="data.showDetail = !data.showDetail"><i
+                                        class="fas fa-minus-circle"></i></button>
+                            </td>
+                        </tr>
+                        <tr class="tid-detail-row" *ngIf="data.showDetail" [class.active]="data.showDetail">
+                            <td colspan="8" style="padding-top: 12px;">
+                                <table class="table table-striped text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>INVOICE NO</th>
+                                            <th>MOBILE</th>
+                                            <th>TOTAL AMOUNT</th>
+                                            <!-- <th>VAT</th> -->
+                                            <!-- <th>SEQUENCE NO</th> -->
+                                            <th>DATE</th>
+                                            <th>TIME</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let data of transList">
+                                            <td>{{data.sequence_no}}</td>
+                                            <td>{{data.mobile}}</td>
+                                            <td>{{data.total_credit | number}}</td>
+                                            <!-- <td>{{data.vat}}</td> -->
+                                            <!-- <td>{{data.sequence_no}}</td> -->
+                                            <td>{{data.date}}</td>
+                                            <td>{{data.time}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+            <div class="loading" *ngIf="isLoading">
+                <div id="loader"><!-- Animated logo --><img src="/admin/assets/images/loaderGreen.png" alt="Loading Logo"
+                        class="logo">
+                    <div class="spinner-border" role="status"></div>
+                    <p>please wait...</p>
+                </div>
+            </div>
+            <div *ngIf="departmentList.length==0">
+                <p style="text-align: center; margin-top: 10%;">No Data Found!!!</p>
+            </div>
+            <nav aria-colspan="8" class="float-right">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" (click)="changePage(currentPage - 1)"
+                            [ngClass]="{ 'pageDisabled': currentPage === 1 }">Previous</a>
+                    </li>
+                    <li class="page-item" *ngFor="let pageNum of currentPageRange">
+                        <a class="page-link" (click)="changePage(pageNum)" [class.active]="currentPage === pageNum">
+                            {{ pageNum }}
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" (click)="changePage(currentPage + 1)"
+                            [ngClass]="{ 'pageDisabled': currentPage === getTotalPages() }">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div *ngIf="isAddAcnt">
+            <div class="section-header mb-4">
+                <h5 class="formheader">Create new PayRow Card</h5>
+                <button class="btn btn-default-normal" (click)="onAddAcntAction()">Cancel <i
+                        class="fas fa-plus rotate-45"></i></button>
+            </div>
+            <app-basic-form typeOfCustomer="{{typeOfCustomer}}" idProof="{{idProof}}"></app-basic-form>
+        </div>
+        <!-- <p>payrow-card works!</p> -->
+    </section>
+    <div id="checkExistPrid" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5> Create New PRID</h5>
+              <button style="float:right;" type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="form-group form-floating">
+                  <select class="form-control" id="typeOfCustomer" (change)="onSelMerchantType($event)">
+                    <option value="" selected disabled>Select Customer Type</option>
+                    <option value="Merchant">Merchant</option>
+                    <option value="Employee">Employee</option>
+                  </select>
+                  <label for="typeOfCustomer">Type of Customer</label>
+                </div>
+                <!-- <div class="form-group form-floating" *ngIf="typeOfCustomer === 'Non-Government'">
+                  <input type="text" class="form-control" id="emiratesId" [(ngModel)]=idProof>
+                  <label for="emiratesId">Emirates ID</label>
+                </div>
+                <div class="form-group form-floating" *ngIf="typeOfCustomer === 'Government'">
+                  <input type="text" class="form-control" id="degreeNum" [(ngModel)]=idProof>
+                  <label for="degreeNum">Degree Number</label>
+                </div> -->
+                <!-- <div class="form-group" *ngIf="selectedUser === 'existingUser'">
+                  <label>Enter EmiratesId</label>
+                  <input type="text" class="form-control" placeholder="emiratesId" [(ngModel)]=emId value="emId" />
+                </div> -->
+              </div>
+            </div>
+            <div class="modal-footer footer">
+              <button type="button" class="btn btn-secondary btn-sm float-right" data-dismiss="modal">Cancel</button>
+              <button class="btn btn-default-fill"(click)="onAddAcntAction()" style="float: right;"
+                data-dismiss="modal">Click</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    

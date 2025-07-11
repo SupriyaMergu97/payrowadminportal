@@ -1,0 +1,91 @@
+<div class="content-wrapper main-section-container">
+    <!-- new code -->
+    <app-sales-menu></app-sales-menu>
+    <section class="content">
+        <div class="container-fluid p-0 mb-4">
+            <div class="row">
+                <!-- Merchant List -->
+                <div class="section-header">
+                    <!-- <h4>Create</h4> -->
+                    <div class="pull-left d-flex gap-16x">
+                        <div class="search-holder">
+                            <form action="">
+                                <div class="input-group">
+                                    <input type="text" autocomplete="off" name="search" [(ngModel)]="searchText"
+                                        placeholder="Search Employee" aria-describedby="button-addon5"
+                                        class="form-control">
+                                    <div class="input-group-append">
+                                        <button id="button-addon5" type="submit" class="btn"><i
+                                                class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th>Sales ID</th>
+                        <th>Name</th>
+                        <th>Joining Date</th>
+                        <!-- <th>No.of Sales</th> -->
+                        <th>No.of Customers</th>
+                        <th>No.of Complaints</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let data of salesPersons; let index=index; let even=even">
+                        <tr class="tid-data-row" [ngClass]="{'tid-even': even}" [class.active]="data.showDetail">
+                            <td>{{data.salesId}}</td>
+                            <td>{{data.salesName}}</td>
+                            <td>{{data.dateOfJoining | date}}</td>
+                            <td>{{data.noOfMerchants | number}}</td>
+                            <td>{{data.complaints | number}}</td>
+                            <td>
+                                <button class="cta-plus-btn border-0" *ngIf="!data.showDetail"
+                                    (click)="getMerchantsbySales(data.salesId)"><i class="fas fa-plus"></i></button>
+                                <button class="cta-plus-btn border-0" *ngIf="data.showDetail"
+                                    (click)="data.showDetail = !data.showDetail"><i
+                                        class="fas fa-minus-circle"></i></button>
+                            </td>
+                        </tr>
+                        <div class="tid-detail-row" style="display:table-row; width:auto; margin:0 auto;"
+                            *ngIf="data.showDetail" [class.active]="data.showDetail">
+                            <td colspan="8">
+                                <table class="table table-striped text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>PayRow ID</th>
+                                            <th>Name</th>
+                                            <th>Joining Date</th>
+                                            <th>No.of MID</th>
+                                            <th>No.of TID</th>
+                                            <th>Transaction Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let sales of pridList| filter:searchText">
+                                            <td>{{sales.payRowId}}</td>
+                                            <td>{{sales.firstName}}</td>
+                                            <!-- <td>{{sales.contact}}</td>  -->
+                                            <!-- <td><div class="content" data-toggle="modal" data-target="#userinfo">
+                                               <div class="bi-card-list"></div></div></td>
+                                                                                <td class="right-align">{{sales.joiningDate}}</td> -->
+                                            <td>{{sales.createdDate | date}}</td>
+                                            <td>{{sales.noOfCustomers}}</td>
+                                            <td>{{sales.tid}}</td>
+                                            <td>{{sales.incentives | number}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </div>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>

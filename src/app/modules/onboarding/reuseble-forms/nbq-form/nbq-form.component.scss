@@ -1,0 +1,273 @@
+.table_main{
+    font-size: 14px;
+    background-color: #fff !important;
+    color: black !important;
+}
+
+.table_main > thead{
+    background-color: #fff !important;
+    color: black !important;
+}
+
+.table_main > tbody{
+    background-color: #fff !important;
+    color: black !important;
+}
+
+.btn-secondary{
+    font-size: 14px;
+}
+
+.card_items{
+    padding: 20px;
+    box-shadow: 0px 1px 7px -5px grey;
+    line-height: 3;
+    border: none;
+}
+
+.downImg{
+    width: 20px;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    left: 20%;
+}
+
+
+
+// FORMS
+
+.userTablist{
+    font-size: 13px;
+    background-color: #f7f7f7;
+    padding: 10px;
+    margin-bottom: 10px !important;
+}
+
+.userit.active{
+    color: #fff;
+    background-color: #6E759F;
+}
+
+.userit:not(.active):hover{
+    color: #6E759F;
+}
+
+.form-control{
+    border-bottom: 2px dotted gray;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+.dateForm{
+    width: 50%;
+}
+
+.mainDiv{
+    // margin: 75px;
+    border: 1px solid gray;
+    /* height: 700px; */
+    padding: 70px;
+    padding-top: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.refInput{
+    width: 40%;
+    position: relative;
+    bottom: 17px;
+    top: -10px;
+    height: 35px;
+    right: 0px;
+    border-radius: 0px;
+    background-color: #f1f1f1;
+}
+
+.dateInput{
+    position: relative;
+    bottom: 17px;
+    background-color: #f1f1f1;
+    border-radius: 0px; 
+}
+
+.to{
+    position: relative;
+    left: 15px;
+}
+
+/* NBQ FORM */
+.nbqCard{
+    text-align: center;
+    background-color: #0070C0;
+    border: none;
+    padding: 15px;
+    border-radius: 0px;
+}
+
+.appForm{
+    position: relative;
+    top: 5px;
+}
+
+h5{
+    font-size: 17px;
+    color: #fff;
+}
+
+.nbqInput{
+    position: relative;
+    background-color: #f1f1f1;
+    border-radius: 0px;
+}
+
+.newRight{
+    text-align: right;
+}
+
+.nbqImage{
+    width: 14%;
+    position: relative;
+    // left: 60px;
+}
+
+.mainDiv2{
+    padding: 30px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+/* NI FORM */
+
+.arabic{
+    text-align: right;
+}
+
+.ipDiv{
+    display: flex;
+    font-size: 14px;
+}
+
+.subtext1{
+    margin: 0px;
+    font-size: 8px;
+    text-align: right;
+}
+
+.info{
+    font-size: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group{
+    display: flex;
+}
+
+label{
+    font-size: 14px;
+    font-weight: 400 !important;
+}
+
+.table_p{
+    margin: 0px;
+    font-size: 10px;
+    font-weight: 400 !important;
+    text-align: center;
+}
+
+.notesArabic{
+    text-align: right;
+    font-size: 9px;  
+}
+
+.notes{
+    font-size: 9px;  
+    margin: 0px !important;
+}
+
+.rowpan{
+    padding: 0;
+    border: none;
+}
+
+.newRowpan{
+    padding: 25px;
+    border: none;
+    border-right: 1px solid #dee2e6;
+}
+
+.check_bottom{
+    border: 1px solid lightgray;
+    position: relative;
+    top: 82px;
+    left: 10px;
+}
+
+.checkBtn{
+    float: right;
+}
+
+.headingTitle{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    color: darkblue;
+}
+
+.inputLabel{
+    font-size: 12px;
+}
+
+.subHead{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.start{
+    font-weight: 700;
+    color: darkblue;
+    font-size: 13px;
+}
+
+.tableTitle{
+    padding: 10px;
+    background-color: #ebebeb;
+    margin-bottom: 11px;
+    color: darkblue;
+    margin-top: 20px;
+    
+}
+
+.tableTitle1{
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.decLable{
+    font-size: 13px;
+}
+
+.lastHead{
+    font-size: 11px;
+    color: darkblue;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.table > thead{
+    background-color: darkblue;
+    color: #fff;
+}
+
+.table > tbody{
+    background-color: #edf8ff;
+}
+
+.miFormText{
+    background-color: #edf8ff;
+    border-bottom: none;
+}

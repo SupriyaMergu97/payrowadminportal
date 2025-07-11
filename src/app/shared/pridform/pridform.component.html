@@ -1,0 +1,302 @@
+<ng-container>
+    <div class="container">
+        <form action="" [formGroup]="pridForm">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-md-2 col-sm">
+                        <!-- <div class="row"> -->
+                        <!-- <div class="col-lg-12 col-sm-12 col-md-12 col-xl-12 col-xs-12"> -->
+                        <div class="form-group">
+                            <div class="picture-container">
+                                <div class="picture" style="margin: 1rem auto 0">
+                                    <div class="picture2">
+                                        <img src="{{profileImg}}" class="picture-src" id="editPicturePreview"
+                                                title="">
+                                        <input type="file" id="edit-profile-picture" class=""
+                                            (change)="onFileSelected($event)" />
+                                    </div>
+                                    <div class="upload-btn">
+                                        <div class="file-upload">
+                                            <input type="file" (change)="onFileSelected($event)" /><i
+                                                class="fa fa-arrow-up"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+                    <div class="col-md-10 col-sm">
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                *ngIf="typeOfCustomer =='Non-Government'">
+                                <div class="form-group form-floating">
+                                    <select class="form-control" formControlName="title" placeholder="">
+                                        <option value="" selected disabled>Select Title
+                                        </option>
+                                        <option value="Mr">Mr.</option>
+                                        <option value="Mrs">Mrs.</option>
+                                    </select>
+                                    <label for="title" [ngClass]="{'is-invalid': pridForm.controls['title'].invalid && pridForm.controls['title'].touched,
+                                    'is-valid': pridForm.controls['title'].valid}">
+                                        Title<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                *ngIf="typeOfCustomer =='Non-Government'">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="firstName" id="firstName" class="form-control"
+                                        placeholder="First Name" />
+                                    <label for="firstName" [ngClass]="{'is-invalid': pridForm.controls['firstName'].invalid && pridForm.controls['firstName'].touched,
+                                    'is-valid': pridForm.controls['firstName'].valid}">
+                                        First Name<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                *ngIf="typeOfCustomer =='Non-Government'">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="lastName" class="form-control"
+                                        placeholder="Last Name" />
+                                    <label for="lastName" [ngClass]="{'is-invalid': pridForm.controls['lastName'].invalid && pridForm.controls['lastName'].touched,
+                                    'is-valid': pridForm.controls['lastName'].valid}">
+                                        Last Name<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                *ngIf="typeOfCustomer =='Non-Government'">
+                                <div class="form-group form-floating">
+                                    <select rows="1" class="form-control" formControlName="gender" placeholder="">
+                                        <option value="" selected disabled>Select Gender
+                                        </option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                    <label for="gender" [ngClass]="{'is-invalid': pridForm.controls['gender'].invalid && pridForm.controls['gender'].touched,
+                                'is-valid': pridForm.controls['gender'].valid}">
+                                        Gender<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                *ngIf="typeOfCustomer =='Government'">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="firstName" class="form-control"
+                                        placeholder="Entity Name" />
+                                    <label for="firstName" [ngClass]="{'is-invalid': pridForm.controls['firstName'].invalid && pridForm.controls['firstName'].touched,
+                                'is-valid': pridForm.controls['firstName'].valid}">
+                                        Entity Name<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="text"
+                                    formControlName="typeOfCustomer" class="form-control" placeholder="typeOfCustomer" />
+                                    <label for="typeOfCustomer">Type of Customer</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                *ngIf="typeOfCustomer =='Non-Government'">
+                                <div class="form-group form-floating">
+                                    <input type="date" formControlName="dateOfBirth" class="form-control"
+                                        placeholder="dob"  [max]="maxDate"/>
+                                    <label for="dateOfBirth" [ngClass]="{'is-invalid': pridForm.controls['dateOfBirth'].invalid && pridForm.controls['dateOfBirth'].touched,
+                                    'is-valid': pridForm.controls['dateOfBirth'].valid}">
+                                        Date of Birth<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <select id="country" formControlName="country" placeholder="" class="form-control">
+                                        <option value="" disabled>Select Country</option>
+                                        <option value="U.A.E">U.A.E</option>
+                                        <option value="India">India</option>
+                                        <option value="Bahrain">Bahrain</option>
+                                        <option value="Qatar">Qatar</option>
+                                        <option value="Saudi Arabia">Saudi Arabia</option>
+                                    </select>
+                                    <label for="country" [ngClass]="{'is-invalid': pridForm.controls['country'].invalid && pridForm.controls['country'].touched,
+                                    'is-valid': pridForm.controls['country'].valid}">
+                                        Country<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <select id="city" name="city" formControlName="city" class="form-control">
+                                        <option value="" disabled>Select City</option>
+                                        <option value="Dubai">Dubai</option>
+                                        <option value="Abu Dhabi">Abu Dhabi</option>
+                                        <option value="Sharjah">Sharjah</option>
+                                        <option value="AI Ain">AI Ain</option>
+                                        <option value="Ajman">Ajman</option>
+                                        <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+                                        <option value="Fujairah City">Fujairah City</option>
+                                        <option value="Umm AI Quwain">Umm AI Quwain</option>
+                                    </select>
+                                    <label for="city" [ngClass]="{'is-invalid': pridForm.controls['city'].invalid && pridForm.controls['city'].touched,
+                                    'is-valid': pridForm.controls['city'].valid}">
+                                        City<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="addressDetails" id="addressDetails"
+                                        class="form-control" placeholder="Residential Address" />
+                                    <label for="addressDetails" [ngClass]="{'is-invalid': pridForm.controls['addressDetails'].invalid && pridForm.controls['addressDetails'].touched,
+                                    'is-valid': pridForm.controls['addressDetails'].valid}">
+                                        Residential Address<span>&nbsp;*</span></label>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="email" formControlName="emailId" class="form-control"
+                                        placeholder="Email" />
+                                    <label for="emailId" [ngClass]="{'is-invalid': pridForm.controls['emailId'].invalid && pridForm.controls['emailId'].touched,
+                                    'is-valid': pridForm.controls['emailId'].valid}">
+                                        Email ID<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="tel" formControlName="mobileNumber" class="form-control"
+                                        placeholder="Mobile Number" />
+                                    <label for="mobileNumber" [ngClass]="{'is-invalid': pridForm.controls['mobileNumber'].invalid && pridForm.controls['mobileNumber'].touched,
+                                    'is-valid': pridForm.controls['mobileNumber'].valid}">
+                                        Mobile Number<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <select id="salesId" name="salesId" formControlName="salesId" class="form-control"
+                                    (change)="onSelectSales($event)">
+                                        <option value="" disabled>Select Sales Person</option>
+                                       <option value="{{sales.salesId}}" *ngFor="let sales of salesList">{{sales.salesId}}</option>
+                                    </select>
+                                    <!-- <input type="text" formControlName="salesId" class="form-control"
+                                        placeholder="Sales Id" /> -->
+                                    <label for="salesId" [ngClass]="{'is-invalid': pridForm.controls['salesId'].invalid && pridForm.controls['salesId'].touched,
+                                    'is-valid': pridForm.controls['salesId'].valid}">
+                                        Sales ID<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="boBox" class="form-control"
+                                        placeholder="BO.Box" />
+                                    <label for="boBox" [ngClass]="{'is-invalid': pridForm.controls['boBox'].invalid && pridForm.controls['boBox'].touched,
+                                    'is-valid': pridForm.controls['boBox'].valid}">
+                                        BO.Box<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                *ngIf="typeOfCustomer =='Non-Government'">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="emiratesId" class="form-control" placeholder="Emirates Id" />
+                                    <label for="emiratesId" [ngClass]="{'is-invalid': pridForm.controls['emiratesId'].invalid && pridForm.controls['emiratesId'].touched,
+                                        'is-valid': pridForm.controls['emiratesId'].valid}">
+                                        Emirates ID<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                *ngIf="typeOfCustomer =='Non-Government'">
+                                <div class="form-group form-floating">
+                                    <input type="date" formControlName="emiratesExpiry" class="form-control"
+                                        placeholder="Expiry Date"  [min]="minExpiryDate" [value]="defaultDate"/>
+                                    <label for="emiratesExpiry" [ngClass]="{'is-invalid': pridForm.controls['emiratesExpiry'].invalid && pridForm.controls['emiratesExpiry'].touched,
+                                    'is-valid': pridForm.controls['emiratesExpiry'].valid}">
+                                        Emirates expiry date<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                *ngIf="typeOfCustomer =='Non-Government'">
+                                <div class="form-group form-floating">
+                                    <input type="file" class="form-control fileupload"
+                                        formControlName="emiratesDocument" placeholder="Attach File"
+                                        (change)="uploadEIfile($event)" />
+                                    <label for="emiratesDocument" [ngClass]="{'is-invalid': pridForm.controls['emiratesDocument'].invalid && pridForm.controls['emiratesDocument'].touched,
+                                        'is-valid': pridForm.controls['emiratesDocument'].valid}">
+                                        Upload Emirates Document<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+
+                            <!-- passportDocument -->
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                *ngIf="typeOfCustomer =='Non-Government'">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="passportNum" class="form-control"
+                                        placeholder="Passport Number" />
+                                    <label for="passportNum" [ngClass]="{'is-invalid': pridForm.controls['passportNum'].invalid && pridForm.controls['passportNum'].touched,
+                                        'is-valid': pridForm.controls['passportNum'].valid}">
+                                        Passport Number<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                *ngIf="typeOfCustomer =='Non-Government'">
+                                <div class="form-group form-floating">
+                                    <input type="date" formControlName="passportExpiry" class="form-control"
+                                        placeholder="select Date"  [min]="minExpiryDate"/>
+                                    <label for="passportExpiry" [ngClass]="{'is-invalid': pridForm.controls['passportExpiry'].invalid && pridForm.controls['passportExpiry'].touched,
+                                        'is-valid': pridForm.controls['passportExpiry'].valid}">
+                                        Passport expiry date<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                *ngIf="typeOfCustomer =='Non-Government'">
+                                <div class="form-group form-floating">
+                                    <input type="file" class="form-control fileupload"
+                                        formControlName="passportDocument" placeholder="Passport Copy"
+                                        (change)="uploadPassportfile($event)" />
+                                    <label for="passportDocument" [ngClass]="{'is-invalid': pridForm.controls['passportDocument'].invalid && pridForm.controls['passportDocument'].touched,
+                                        'is-valid': pridForm.controls['passportDocument'].valid}">
+                                        Upload passport document<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+
+                            <!-- degreeDocument -->
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                *ngIf="typeOfCustomer =='Government'">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="degreeNumber" class="form-control"
+                                        placeholder="Degree Number" />
+                                    <label for="degreeNumber" [ngClass]="{'is-invalid': pridForm.controls['degreeNumber'].invalid && pridForm.controls['degreeNumber'].touched,
+                                        'is-valid': pridForm.controls['degreeNumber'].valid}">
+                                        Degree Number<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                *ngIf="typeOfCustomer =='Government'">
+                                <div class="form-group form-floating">
+                                    <input type="date" formControlName="degreeExpiry" class="form-control"
+                                        placeholder="Expiry Date"  [min]="minExpiryDate"/>
+                                    <label for="degreeExpiry" [ngClass]="{'is-invalid': pridForm.controls['degreeExpiry'].invalid && pridForm.controls['degreeExpiry'].touched,
+                                    'is-valid': pridForm.controls['degreeExpiry'].valid}">
+                                        Degree expiry date<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                *ngIf="typeOfCustomer =='Government'">
+                                <div class="form-group form-floating">
+                                    <input type="file" class="form-control fileupload" formControlName="degreeDocument"
+                                        placeholder="Attach File" (change)="uploadDegreefile($event)" />
+                                    <label for="degreeDocument" [ngClass]="{'is-invalid': pridForm.controls['degreeDocument'].invalid && pridForm.controls['degreeDocument'].touched,
+                                        'is-valid': pridForm.controls['degreeDocument'].valid}">
+                                        Upload Degree Document<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="d-flex gap-16x justify-content-end">
+                                <button *ngIf="!isShow" class="btn btn-default-md-fill" (click)="submit()">Save</button>
+                                <button *ngIf="isShow" class="btn btn-default-md-fill" (click)="submit()"
+                                    data-dismiss="modal">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</ng-container>

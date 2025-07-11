@@ -1,0 +1,246 @@
+<div class="card-body" style="line-height: 3;">
+    <form>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="bnk_name" class="col-form-label">Bank Name</label>
+                <input type="Text" [value]="storeCatData?.cardDetails?.bankName" class="form-control" id="bnk_name3"
+                    placeholder="Bank Name">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="bnk_name3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="bnk_name3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-card-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 15px;">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="card_type" class="col-form-label"></label>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        <img src="assets/images/visa.png">
+                    </label>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                        value="VISA">
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                        value="MASTER">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        <img src="assets/images/mastercard.png">
+                    </label>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css" style="top: 0px;">
+                    <label class="radio-inline">
+                        <input type="radio" name="card_type3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="card_type3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-card-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="card_no" class="col-form-label">Account Number</label>
+                <input type="text" [value]="storeCatData?.cardDetails?.cardNumber" class="form-control" id="card_no3"
+                    placeholder="Card Number">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="card_no3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="card_no3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-card-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="card_expiry_date" class="col-form-label">IBAN Number</label>
+                <input type="text" [value]="storeCatData?.cardDetails?.ibanNumber" class="form-control"
+                    id="card_expiry_date3" placeholder="Card Expiry Date">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="card_expiry_date3" style="padding-left:15px;"
+                            checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="card_expiry_date3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-card-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="card_holder_name" class="col-form-label">Branch Name</label>
+                <input type="text" [value]="storeCatData?.cardDetails?.branchName" class="form-control"
+                    id="card_holder_name3" placeholder="Card Holder Name">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="card_holder_name3" style="padding-left:15px;"
+                            checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="card_holder_name3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-card-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="cvv_no" class="col-form-label">Vat Number</label>
+                <input type="text" [value]="storeCatData?.cardDetails?.vatNumber" class="form-control" id="cvv_no3"
+                    placeholder="CVV Number">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="cvv_no3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="cvv_no3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-card-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <button type="button" class="btn btn-sm btn-success edit_btn" data-toggle="modal"
+        data-target=".bd-card3-modal-lg">Edit</button>
+    <!-- POPUP -->
+    <div class="modal fade bd-card-owner3-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content riskmodel-edit-form-modal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="container">
+                    <form id="edit_riskmodules_form">
+                        <div class="col-11">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="remark"></label>
+                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <button type="button" class="btn btn-submit" id="btn_submit">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bd-card3-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content riskmodel-edit-form-modal">
+                <div class="container">
+                    <form id="edit_riskmodules_form">
+                        <div class="col-11">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="owner_name">Bank Name</label>
+                                        <input type="Text" [value]="storeCatData?.cardDetails?.bankName"
+                                            class="form-control" id="bnk_name3" placeholder="Bank Name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cardtype">Card</label>
+                                        <input type="text" id="cardtype" name="cardtype" class="form-control"
+                                            autocomplete="off" value="Visa">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="card_no">Card Number</label>
+                                        <input type="text" [value]="storeCatData?.cardDetails?.cardNumber"
+                                            class="form-control" id="card_no3" placeholder="Card Number">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="passport_expiry_date">Card Expiry Date</label>
+                                        <div class="input-group date" id="card_expiry_date" data-target-input="nearest">
+                                            <input type="text" [value]="storeCatData?.cardDetails?.cardExpiry"
+                                                class="form-control" id="card_expiry_date3"
+                                                placeholder="Card Expiry Date">
+                                            <div class="input-group-append date-picker-svg"
+                                                data-target="#card_expiry_date" data-toggle="datetimepicker">
+                                                <div class="input-group-text">
+                                                    <svg id="Layer_1" data-name="Layer 1"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129"
+                                                        width="18">
+                                                        <path class="cls-1" fill="#5B5A5A"
+                                                            d="M98.52,63.35h9a3.69,3.69,0,0,0,3.69-3.68v-9A3.69,3.69,0,0,0,107.52,47h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,98.52,63.35Zm.09-12.59h8.82v8.82H98.61Zm-.09,36.53h9a3.69,3.69,0,0,0,3.69-3.69v-9a3.7,3.7,0,0,0-3.69-3.69h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,98.52,87.29Zm.09-12.6h8.82v8.82H98.61ZM72.84,63.35h9a3.69,3.69,0,0,0,3.69-3.68v-9A3.69,3.69,0,0,0,81.84,47h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,72.84,63.35Zm.09-12.59h8.82v8.82H72.93Zm-42.45,43h-9a3.69,3.69,0,0,0-3.69,3.69v9a3.69,3.69,0,0,0,3.69,3.69h9a3.69,3.69,0,0,0,3.69-3.69v-9A3.69,3.69,0,0,0,30.48,93.73Zm-.09,12.59H21.57V97.51h8.82ZM30.48,47h-9a3.69,3.69,0,0,0-3.69,3.69v9a3.69,3.69,0,0,0,3.69,3.68h9a3.69,3.69,0,0,0,3.69-3.68v-9A3.69,3.69,0,0,0,30.48,47Zm-.09,12.6H21.57V50.76h8.82ZM72.84,86.73h9A3.7,3.7,0,0,0,85.53,83V74a3.7,3.7,0,0,0-3.69-3.69h-9A3.7,3.7,0,0,0,69.15,74v9A3.7,3.7,0,0,0,72.84,86.73Zm.09-12.6h8.82V83H72.93ZM113.08,8.64H105V5.75A5.75,5.75,0,0,0,99.26,0h-.87a5.76,5.76,0,0,0-5.75,5.75V8.64H36.36V5.75A5.76,5.76,0,0,0,30.61,0h-.87A5.75,5.75,0,0,0,24,5.75V8.64H15.92A9.47,9.47,0,0,0,6.46,18.1V119.55A9.45,9.45,0,0,0,15.9,129h97.2a9.45,9.45,0,0,0,9.44-9.45V18.1a9.47,9.47,0,0,0-9.46-9.46ZM96.42,5.75a2,2,0,0,1,2-2h.87a2,2,0,0,1,2,2V8.64h-4.8Zm-68.64,0a2,2,0,0,1,2-2h.87a2,2,0,0,1,2,2V8.64h-4.8V5.75Zm91,113.8a5.67,5.67,0,0,1-5.67,5.67H15.9a5.67,5.67,0,0,1-5.66-5.67h0a9.42,9.42,0,0,0,5.68,1.9H92.53a9.37,9.37,0,0,0,6.69-2.77l19.54-19.54Zm-21.47-4.3a8,8,0,0,0,.23-1.9V100.73a4.33,4.33,0,0,1,4.32-4.31h12.61a8.05,8.05,0,0,0,1.91-.23Zm21.47-79.61H38.25a1.89,1.89,0,0,0,0,3.78h80.51V88.33a4.31,4.31,0,0,1-4.31,4.31H101.84a8.1,8.1,0,0,0-8.1,8.09v12.62a4.31,4.31,0,0,1-4.31,4.31H15.92A5.68,5.68,0,0,1,10.24,112V39.42H30.69a1.89,1.89,0,0,0,0-3.78H10.24V18.1a5.68,5.68,0,0,1,5.68-5.69H24V18a5.75,5.75,0,0,0,5.74,5.75,1.89,1.89,0,1,0,0-3.78,2,2,0,0,1-2-2V12.41H92.64V18a5.76,5.76,0,0,0,5.75,5.75,1.89,1.89,0,1,0,0-3.78,2,2,0,0,1-2-2V12.41h16.66a5.68,5.68,0,0,1,5.68,5.69ZM30.48,70.35h-9A3.7,3.7,0,0,0,17.79,74v9a3.7,3.7,0,0,0,3.69,3.69h9A3.69,3.69,0,0,0,34.17,83V74A3.69,3.69,0,0,0,30.48,70.35ZM30.39,83H21.57V74.13h8.82Zm16.77-19.6h9a3.69,3.69,0,0,0,3.69-3.68v-9A3.69,3.69,0,0,0,56.16,47h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,47.16,63.35Zm.09-12.59h8.82v8.82H47.25Zm25.68,55.56a1.89,1.89,0,0,0-3.78.09,3.69,3.69,0,0,0,3.69,3.69h9a3.69,3.69,0,0,0,3.69-3.69v-9a3.69,3.69,0,0,0-3.69-3.69h-9a3.69,3.69,0,0,0-3.69,3.69V100a1.89,1.89,0,0,0,3.78,0v-2.5h8.82v8.81ZM47.16,86.73h9A3.7,3.7,0,0,0,59.85,83V74a3.7,3.7,0,0,0-3.69-3.69h-9A3.7,3.7,0,0,0,43.47,74v9A3.7,3.7,0,0,0,47.16,86.73Zm.09-12.6h8.82V83H47.25Zm-.09,36h9a3.69,3.69,0,0,0,3.69-3.69v-9a3.69,3.69,0,0,0-3.69-3.69h-9a3.69,3.69,0,0,0-3.69,3.69v9A3.69,3.69,0,0,0,47.16,110.1Zm.09-12.59h8.82v8.81H47.25Z" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="card_holder_name">Card Holder Name</label>
+                                        <input type="text" [value]="storeCatData?.cardDetails?.nameOnCard"
+                                            class="form-control" id="card_holder_name3" placeholder="Card Holder Name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cvv_no">CVV Number</label>
+                                        <input type="text" [value]="storeCatData?.cardDetails?.ibanNum"
+                                            class="form-control" id="cvv_no3" placeholder="CVV Number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <button type="button" class="btn btn-submit" id="btn_submit">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

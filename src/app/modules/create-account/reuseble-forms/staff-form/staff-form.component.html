@@ -1,0 +1,181 @@
+<ng-container>
+    <div class="container" [formGroup]="staffForm">
+        <!-- <h5 style="color: #72AC47; font-family: Roboto;">STAFF DETAILS</h5> -->
+        <!-- <div class="container"> -->
+        <div class="row">
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <select rows="1" class="form-control" formControlName="title" placeholder="" style="margin: 0px;">
+                        <option value="" disabled>Select Title</option>
+                        <option>Mr.</option>
+                        <option>Mrs.</option>
+                    </select>
+                    <label for="title">Title</label>
+                    <!-- <div *ngIf="staffForm.controls['title'].invalid && (staffForm.controls['title'].dirty || staffForm.controls['title'].touched)"
+                        class="alert">
+                        <div *ngIf="staffForm.controls['title'].errors.required">
+                            <p class="error-msg">
+                                Please Select Title
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="firstName" class="form-control" placeholder="Staff Name" />
+                    <label for="firstName">First Name</label>
+                    <!-- <div *ngIf="staffForm.controls['firstName'].invalid && (staffForm.controls['firstName'].dirty || staffForm.controls['firstName'].touched)"
+                        class="alert">
+                        <div *ngIf="staffForm.controls['firstName'].errors.required">
+                            <p class="error-msg">
+                                Please Enter First Name
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="lastName" class="form-control" placeholder="Staff Name" />
+                    <label for="lastName">Last Name</label>
+                    <!-- <div *ngIf="staffForm.controls['lastName'].invalid && (staffForm.controls['lastName'].dirty || staffForm.controls['lastName'].touched)"
+                        class="alert">
+                        <div *ngIf="staffForm.controls['lastName'].errors.required">
+                            <p class="error-msg">
+                                Please Enter Last Name
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <!-- <div class="row">
+                
+            </div> -->
+
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <select rows="1" class="form-control" formControlName="gender" placeholder="" style="margin: 0px;">
+                        <option value="" disabled>Select Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                    <label for="gender">Gender</label>
+                    <!-- <div *ngIf="staffForm.controls['gender'].invalid && (staffForm.controls['gender'].dirty || staffForm.controls['gender'].touched)"
+                        class="alert">
+                        <div *ngIf="staffForm.controls['gender'].errors.required">
+                            <p class="error-msg">
+                                Please Select Gender
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="mobileNumber" class="form-control"
+                        placeholder="Mobile Number" />
+                    <label for="mobileNumber">Mobile Number</label>
+                    <!-- <div *ngIf="staffForm.controls['mobileNumber'].invalid && (staffForm.controls['mobileNumber'].dirty || staffForm.controls['mobileNumber'].touched)"
+                        class="alert">
+                        <div *ngIf="staffForm.controls['mobileNumber'].errors.required">
+                            <p class="error-msg">
+                                Please Enter Mobile Number
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="emailId" class="form-control" placeholder="Email ID" />
+                    <label for="emailId">Email ID</label>
+                    <!-- <div *ngIf="staffForm.controls['emailId'].invalid && (staffForm.controls['emailId'].dirty || staffForm.controls['emailId'].touched)"
+                        class="alert">
+                        <div *ngIf="staffForm.controls['emailId'].errors.required">
+                            <p class="error-msg">
+                                Please Enter emailId
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="emiratesId" class="form-control" placeholder="Emirates ID" />
+                    <label for="emiratesId">Emirates ID</label>
+                    <!-- <div *ngIf="staffForm.controls['emiratesId'].invalid && (staffForm.controls['emiratesId'].dirty || staffForm.controls['emiratesId'].touched)"
+                        class="alert">
+                        <div *ngIf="staffForm.controls['emiratesId'].errors.required">
+                            <p class="error-msg">
+                                Please Enter Emirates Id
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="date" formControlName="emiratesExpiry" class="form-control"
+                        placeholder="Expiry Date" [min]="minExpiryDate"/>
+                    <label for="emiratesExpiry" [ngClass]="{'is-invalid': staffForm.controls['emiratesExpiry'].invalid && staffForm.controls['emiratesExpiry'].touched,
+                'is-valid': staffForm.controls['emiratesExpiry'].valid}">
+                        Emirates expiry date<span>&nbsp;*</span></label>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="file" class="form-control fileupload" formControlName="staffEmiratesDocument"
+                        placeholder="Attach File" (change)="uploadEIfile($event)" />
+                    <label for="staffEmiratesDocument" [ngClass]="{'is-invalid': staffForm.controls['staffEmiratesDocument'].invalid && staffForm.controls['staffEmiratesDocument'].touched,
+                    'is-valid': staffForm.controls['staffEmiratesDocument'].valid}">
+                        Upload Emirates Document<span>&nbsp;*</span></label>
+                </div>
+            </div>
+
+
+            <!-- <div > -->
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="accountNumber" class="form-control"
+                        placeholder="Account Number" />
+                    <label for="accountNumber">Account Number</label>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="bankName" class="form-control" placeholder="Bank Name" />
+                    <label for="bankName">Bank Name</label>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="basicSalary" class="form-control" placeholder="Basic Salary" />
+                    <label for="basicSalary">Basic Salary</label>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="houseAllowance" class="form-control"
+                        placeholder="House Allowance" />
+                    <label for="houseAllowance">House Allowance</label>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="transportAllowance" class="form-control"
+                        placeholder="Transport Allowance" />
+                    <label for="transportAllowance">Transport Allowance</label>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="bonus" class="form-control" placeholder="Bonus" />
+                    <label for="bonus">Bonus</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

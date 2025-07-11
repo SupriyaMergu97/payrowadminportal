@@ -1,0 +1,93 @@
+<ng-container>
+
+    <div class="container">
+        <form [formGroup]="managerForm">
+            <div class="row">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="managerName" class="form-control" placeholder="Bank Name" />
+                        <label for="managerName" [ngClass]="{'is-invalid': managerForm.controls['managerName'].invalid && managerForm.controls['managerName'].touched,
+                        'is-valid': managerForm.controls['managerName'].valid}">
+                            Name<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="emailId" class="form-control" placeholder="Branch Name" />
+                        <label for="emailId" [ngClass]="{'is-invalid': managerForm.controls['emailId'].invalid && managerForm.controls['emailId'].touched,
+                        'is-valid': managerForm.controls['emailId'].valid}">
+                            Email Id<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="mobileNumber" class="form-control"
+                            placeholder="Bank Ac Number" />
+                        <label for="mobileNumber" [ngClass]="{'is-invalid': managerForm.controls['mobileNumber'].invalid && managerForm.controls['mobileNumber'].touched,
+                        'is-valid': managerForm.controls['mobileNumber'].valid}">
+                            Mobile Number<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="emiratesId" class="form-control" placeholder="Bank Name" />
+                        <label for="emiratesId" [ngClass]="{'is-invalid': managerForm.controls['emiratesId'].invalid && managerForm.controls['emiratesId'].touched,
+                        'is-valid': managerForm.controls['emiratesId'].valid}">
+                            Emirates ID<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="date" formControlName="emiratesExpireDate" class="form-control"
+                            placeholder="Expiry Date" [min]="minExpiryDate"/>
+                        <label for="emiratesExpireDate" [ngClass]="{'is-invalid': managerForm.controls['emiratesExpireDate'].invalid && managerForm.controls['emiratesExpireDate'].touched,
+                    'is-valid': managerForm.controls['emiratesExpireDate'].valid}">
+                            Emirates expiry date<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="file" class="form-control fileupload" formControlName="mngrEmiratesDocument"
+                            placeholder="Attach File" (change)="uploadEIfile($event)" />
+                        <label for="mngrEmiratesDocument" [ngClass]="{'is-invalid': managerForm.controls['mngrEmiratesDocument'].invalid && managerForm.controls['mngrEmiratesDocument'].touched,
+                        'is-valid': managerForm.controls['mngrEmiratesDocument'].valid}">
+                            Upload Emirates Document<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12" *ngIf="isShow">
+                    <div class="form-group form-floating">
+                        <input type="text" class="form-control" formControlName="managerId" placeholder="Admin ID" />
+                        <label for="managerId" [ngClass]="{'is-invalid': managerForm.controls['managerId'].invalid && managerForm.controls['managerId'].touched,
+                        'is-valid': managerForm.controls['managerId'].valid}">
+                            Store Manager ID<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12" *ngIf="isShow">
+                    <div class="form-group form-floating">
+                        <input type="text" class="form-control" formControlName="status" placeholder="Status" />
+                        <label for="status" [ngClass]="{'is-invalid': managerForm.controls['status'].invalid && managerForm.controls['status'].touched,
+                        'is-valid': managerForm.controls['status'].valid}">
+                            Status<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <textarea type="text" formControlName="address" class="form-control textLabel"
+                            placeholder="Address"></textarea>
+                        <label for="address" [ngClass]="{'is-invalid': managerForm.controls['address'].invalid && managerForm.controls['address'].touched,
+                        'is-valid': managerForm.controls['address'].valid}">
+                            Complete Address<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="d-flex gap-16x justify-content-end">
+                    <button class="btn btn-default-sm-primary" (click)="onCreateAdmin()">Cancel</button>
+                    <button *ngIf="!isShow" class="btn btn-default-md-fill" (click)="createAdmin()">Save</button>
+                    <button *ngIf="isShow" class="btn btn-default-md-fill" (click)="createAdmin()">Update</button>
+                    <button *ngIf="isShow" class="btn btn-sm create"><i class='bi bi-trash-fill'></i></button>
+                </div>
+            </div> -->
+        </form>
+    </div>
+</ng-container>

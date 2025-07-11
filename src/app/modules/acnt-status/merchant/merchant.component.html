@@ -1,0 +1,130 @@
+<div class="content-wrapper main-section-container">
+    <app-acnt-status-menu></app-acnt-status-menu>
+    <div class="container-fluid" *ngIf="(isMerchant && !isStaff)">
+        <div class="table-container">
+            <!-- <h4>Store Owner List</h4> -->
+            <div class="table_data">
+                <div class="table-responsive">
+                    <table class="table table_cust">
+                        <thead>
+                            <tr>
+                                <!-- <th class="cur_Header">NAME</th> -->
+                                <th>NAME</th>
+                                <!-- <th>EMAIL</th> -->
+                                <!-- <th>ADDRESS</th> -->
+                                <th>ADDRESS</th>
+                                <th class="cur_Header">PayRowID</th>
+                                <th class="cur_Header">MID</th>
+                                <th class="cur_Header">ACTIVATION DATE</th>
+                                <th>TRANSACTION VALUE</th>
+                                <th>TID LIST</th>
+                                <!-- <th>STAFF LIST</th> -->
+                                <th>ACCOUNT STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody class="align-baseline">
+                            <tr *ngFor="let distributor of merchantList">
+                                <!-- <td>{{distributor.storeId}}</td> -->
+                                <td>{{distributor.firstName}}</td>
+                                <td class="remarks_one" data-tooltip="top" role="tooltip"
+                                    attr.aria-label="{{distributor.city}},{{distributor.addressDetails}}"><i
+                                        class="bi-card-list"></i>
+                                </td>
+                                <td>{{distributor.payRowId}}</td>
+                                <td>{{distributor.bankMID}}</td>
+                                <td>{{distributor.updatedAt | date}}</td>
+                                <td>2,00,000</td>
+                                <td><button class="btn btn-sm btn-success edit_btn" (click)="merchant()">TID</button></td>
+                                <!-- <td><button class="btn btn-sm btn-success edit_btn" (click)="details(distributor.payRowId)">Staff</button></td> -->
+                                <td><select class="status-option">
+                                        <option>Active</option>
+                                        <option>DeActive</option>
+                                    </select></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" *ngIf="!isMerchant">
+        <div class="row">
+            <button class="btn btn-sm btn-success edit_btn" (click)="merchant()" style="float: right;">Back</button>
+        </div>
+        <div class="table_data">
+            <div class="table-responsive">
+                <table class="table table_cust">
+                    <thead>
+                        <tr>
+                            <th class="cur_Header">TID</th>
+                            <th>MOBILE NUMBER</th>
+                            <th>STORE ID</th>
+                            <th>IMEI NO</th>
+                            <th class="cur_Header">ACTIVATION DATE</th>
+                            <th>TRANSACTION VALUE</th>
+                            <th>ACCOUNT STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody class="align-baseline">
+                        <tr *ngFor="let distributor of staffListA">
+                            <td>{{distributor.tid}}</td>
+                            <td>{{distributor.mobileNumber}}</td>
+                            <td>{{distributor.storeId}}</td>
+                            <td>{{distributor.imeiNo}}</td>
+                            <td>{{distributor.joiningDate | date}}</td>
+                            <td>1,00,000</td>
+                            <td><select class="status-option">
+                                    <option>Active</option>
+                                    <option>DeActive</option>
+                                </select></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" *ngIf="isStaff">
+        <button class="btn btn-sm btn-success edit_btn" (click)="staff()" style="float: right;">Back to
+            MID</button>
+        <div class="table_data">
+            <div class="table-responsive">
+                <table class="table table_cust">
+                    <thead>
+                        <tr>
+                            <th class="cur_Header">STAFF ID</th>
+                            <th>NAME</th>
+                            <th>CONTACT</th>
+                            <th>STORE ID</th>
+                            <th>ROLE</th>
+                            <th>RISK STATUS</th>
+                            <th>CUSTOMER SCORE</th>
+                            <!-- <th class="cur_Header">STATUS</th> -->
+                            <th class="cur_Header">ACTIVATION DATE</th>
+                            <th>EDIT</th>
+                        </tr>
+                    </thead>
+                    <tbody class="align-baseline">
+                        <tr *ngFor="let distributor of staffList">
+                            <!-- <td>{{distributor.storeId}}</td> -->
+                            <td>{{distributor.userId}}</td>
+                            <td>{{distributor.firstName}}</td>
+                            <td>{{distributor.mobileNumber}}</td>
+                            <td>{{distributor.storeId}}</td>
+                            <td>{{distributor.staffRole}}</td>
+                            <!-- <td>{{distributor.contact}}</td> -->
+                            <td><a routerLink='/risk/tid_risk'><button
+                                        class="btn btn-sm btn-success edit_btn">Review</button></a></td>
+                            <td>6</td>
+                            <!-- <td>{{distributor.staffStatus}}</td> -->
+                            <td>{{distributor.joiningDate | date}}</td>
+                            <td><button class="btn btn-sm btn-success edit_btn" (click)="form()">Update</button>
+                            </td>
+                            <!-- <td><button class="btn btn-sm btn-success edit_btn"
+                                (click)="details()">ADD</button></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

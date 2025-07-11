@@ -1,0 +1,31 @@
+<div class="content-wrapper main-section-container">
+    <app-dashboard-menus></app-dashboard-menus>
+    <!-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right header-caret" id="location"> -->
+    <section class="content mt-3">
+        <div class="container-fluid">
+            <div class="col-12 pl-0 pr-0">
+                <div class="table-responsive table-container">
+                    <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+                        <!-- <agm-marker [latitude]="latitude" [longitude]="longitude"
+                        [iconUrl]="'https://maps.google.com/mapfiles/ms/icons/red-dot.png'">
+                        </agm-marker> -->
+                        <agm-marker *ngFor="let location of locations" [latitude]="location.latitude"
+                            [longitude]="location.longitude"
+                            [iconUrl]="'https://maps.google.com/mapfiles/ms/icons/red-dot.png'">
+                        </agm-marker>
+                    </agm-map>
+                    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.564352189504!2d55.29904731448556!3d25.25159423568928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f4364567289d9%3A0x7dc526f222a949a9!2sThe%20Burjuman%20Business%20Tower!5e0!3m2!1sen!2sin!4v1623160688892!5m2!1sen!2sin"
+                         width="100%" height="500" style="border:0; visibility: visible;" allowfullscreen="" loading="lazy" Content-Security-Policy: frame-src></iframe> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="loading" *ngIf="isLoading">
+		<div id="loader"><!-- Animated logo --><img src="/admin/assets/images/loaderGreen.png" alt="Loading Logo"
+				class="logo">
+			<div class="spinner-border" role="status"></div>
+			<p>Loading, please wait...</p>
+		</div>
+	</div>
+
+</div>

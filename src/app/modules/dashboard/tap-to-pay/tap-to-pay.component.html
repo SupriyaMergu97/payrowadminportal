@@ -1,0 +1,329 @@
+<div class="content-wrapper main-section-container">
+	<app-dashboard-menus></app-dashboard-menus>
+	<section class="content mt-3">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 pl-0 pr-0">
+					<div class="chart-container" style="border: 0px;">
+						<div class="mytextdiv">
+							<div class="mytexttitle">
+								PAYMENT HISTORY
+							</div>
+							<div class="divider"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="content mt-1">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 pl-0 pr-0">
+					<div class="chart-container" >
+						<div id="chart-container" *ngIf="data.length >0" >
+
+							<app-bar-chart [primaryXAxis]="prXAxis" [primaryYAxis]="prYAxis" [data]="data"
+								[marker]="marker"></app-bar-chart>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="content mt-3">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 pl-0 pr-0">
+					<div class="chart-container" style="border: 0px;">
+						<div class="mytextdiv myTitle">
+							<div class="mytexttitle">
+								TARGET VS ACTUAL
+							</div>
+							<div class="divider"></div>
+							<button class="btn btn-sm ed_btn float-right" *ngIf="toggleButton ===true" (click)="enable('target')">Update</button>
+                    <button class="btn btn-sm ed_btn float-right"*ngIf="toggleButton ===false" (click)="Save('target')">Save</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="average-content-section mt-2 mb-2">
+        <div class="row">
+            <div class="col-sm brl tvTitle">TARGET</div>
+            <div class="col-sm brl" *ngFor="let yrData of finalData; let i=index;">
+                <div class="crt-val" *ngIf="toggleButton" data-tooltip="top" role="tooltip" attr.aria-label="{{yrData.target | number}}" style="padding: 4px;" >
+                    <!-- <input type="text" class="form-control tgt" id="inputId" value="{{yrData.target | shortNumbers}}"
+                        [disabled]='toggleButton' /> -->
+                        {{yrData.target | shortNumbers}}
+                </div>
+                <div class="crt-val" *ngIf="!toggleButton">
+                    <input type="text" class="form-control tgt" id="inputId" value="{{yrData.target}}" [(ngModel)]="yrData.target"
+                        [disabled]='toggleButton' (change)="update(yrData)"/>
+                </div>
+            </div>
+        </div>
+
+	</section>
+
+	<section class="average-content-section mt-3 mb-2">
+
+		<!-- <div class="row"> -->
+			<!-- <div class="col-1">
+				<div class="">ACTUAL</div>
+			</div> -->
+			<!-- <div class="col-11"> -->
+				<div class="row">
+                    <div class="col-sm brl tvTitle">ACTUAL</div>
+					<div class="col-sm brl" *ngFor="let yrData of finalData">
+						<div class="crt-val" data-tooltip="top" role="tooltip" attr.aria-label="{{yrData.actual | number}}">
+							{{yrData.actual | shortNumbers}}
+						</div>
+					</div>
+				</div>
+
+			<!-- </div> -->
+		<!-- </div> -->
+
+	</section>
+
+	<section class="average-content-section mt-3 mb-4">
+
+		<!-- <div class="row">
+			<div class="col-1">
+				<div class="">PERCENT</div>
+			</div> -->
+			<!-- <div class="col-11"> -->
+				<div class="row">
+                    <div class="col-sm brl tvTitle">PERCENT</div>
+					<div class="col-sm brl" *ngFor="let yrData of finalData">
+						<div class="crt-val">
+							{{yrData.percent}}%
+						</div>
+					</div>
+				</div>
+
+			<!-- </div> -->
+		<!-- </div> -->
+
+	</section>
+
+    <!--As per Client request ,Currently we are hiding (last year Vs present year) Functionality  -->
+
+
+	<!-- <section class="content mt-3">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 pl-0 pr-0">
+					<div class="chart-container" style="border: 0px;">
+						<div class="mytextdiv">
+							<div class="mytexttitle">
+								LAST YEAR VS PRESENT
+							</div>
+							<div class="divider"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="average-content-section mt-2 mb-2">
+
+				<div class="row">
+                    <div class="col-sm ">ACTUAL</div>
+					<div class="col-sm brl" *ngFor="let yrData of yearlyData">
+						<div class="crt-val" data-tooltip="top" role="tooltip" attr.aria-label="{{yrData.target}}">
+						
+                                {{yrData.target | shortNumbers}}
+						</div>
+					</div>
+				</div>
+
+		
+
+	</section>
+
+	<section class="average-content-section mt-3 mb-2">
+
+	
+				<div class="row">
+                    <div class="col-sm ">ACTUAL</div>
+					<div class="col-sm brl" *ngFor="let yrData of yearlyData">
+						<div class="crt-val">
+							{{yrData.actual | shortNumbers}}
+						</div>
+					</div>
+				</div>
+
+		
+
+	</section>
+
+	<section class="average-content-section mt-3 mb-4">
+
+				<div class="row">
+                    <div class="col-sm ">PERCENT</div>
+					<div class="col-sm brl" *ngFor="let yrData of yearlyData">
+						<div class="crt-val">
+							{{yrData.PERCENT}}%
+						</div>
+					</div>
+				</div>
+
+	</section> -->
+
+	<!-- Quater targets -->
+
+	<section class="content mt-3">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 pl-0 pr-0">
+					<div class="chart-container" style="border: 0px;">
+						<div class="mytextdiv myTitle">
+							<div class="mytexttitle">
+								QUARTER TARGETS
+							</div>
+							<div class="divider"></div>
+						</div>
+						<!-- <button (click)="enableQuater()" type="button" class="btn btn-primary ed_btn">{{Qbtn}}</button> -->
+					</div>
+				</div>
+			</div>
+			<!-- <div class="row">
+				<div class="col">
+                    <button class="btn btn-sm ed_btn float-right" *ngIf="toggleQuater ===true" (click)="enable('quarter')">Update</button>
+                    <button class="btn btn-sm ed_btn float-right"*ngIf="toggleQuater ===false" (click)="Save('quarter')">Save</button>
+				</div>
+			</div> -->
+		</div>
+	</section>
+
+	<section class="round-chart-value-section mb-4 q-status">
+		<div class="row">
+			<div class="col-md-3 col-sm brl" style="height:97px" *ngFor="let quarter of finalQuarterData">
+				<div class="row">
+					<div class="col content-1">
+						<div class="title" style="font-family: Arial, Helvetica, sans-serif;margin-left:0px">
+							<h2 class="queue">{{quarter.quarterTitle}}</h2>
+						</div>
+					</div>
+					<div class="col content-2 mt-2" style="margin:0px !important; padding-bottom: 5px;">
+						<div class="col content" >
+							<div class="title targetTitle">TARGET</div>
+							<!-- <div class="value q_value"></div> -->
+
+                            <span *ngIf="!toggleQuater">
+                                <input type="text" class="form-control value q_value tgt q_tgt" id="inputId"
+								value="{{quarter.target}}" [(ngModel)]="quarter.target" [disabled]='toggleQuater' (change)='updateQuarter(quarter)'/>
+
+                                <!-- <input type="text" class="form-control tgt" id="inputId" value="{{yrData.target}}" [(ngModel)]="yrData.target"
+                                [disabled]='toggleButton' (change)="update(yrData)"/> -->
+                            </span>
+                            <span class="float-left"data-tooltip="top" role="tooltip" attr.aria-label="{{quarter.target | number}}" *ngIf="toggleQuater">
+                                {{quarter.target | shortNumbers}}
+                            </span>
+							
+						</div>
+					</div>
+				</div>
+				<hr class="Q-hr" />
+				<div class="row">
+					<div class="col content-3 c-red act_vals">
+						<div class="title percent">ACTUAL</div>
+                        <span data-tooltip="top" role="tooltip" attr.aria-label="{{quarter.actual | number}}">
+						    <div class="value t_amt">{{quarter.actual | shortNumbers}}</div>
+                        </span>
+					</div>
+					<div class="col content-4 c-red">
+						<div class="title percent">PERCENT</div>
+						<div class="value newVal">{{quarter.percent}}%</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- <div style="margin-top: -8px;"> -->
+		<section class="content mt-3">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12 pl-0 pr-0">
+						<div class="chart-container" style="border: 0px;">
+							<div class="mytextdiv">
+								<div class="mytexttitle">
+									CURRENT STATUS
+								</div>
+								<div class="divider"></div>
+								<button class="btn btn-sm ed_btn float-right" *ngIf="toggleStatus ===true" (click)="enable('current')">{{StatusBtn}}</button>
+                        <button class="btn btn-sm ed_btn float-right"*ngIf="toggleStatus ===false" (click)="Save('current')">Save</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	<!-- </div> -->
+	<!-- <app-donut-chart></app-donut-chart> -->
+
+
+	<ng-template [ngIf]="isDashboardURL">
+		<div style="margin-top: -22px;">
+			<!-- <app-dashboard-footer-graphs></app-dashboard-footer-graphs> -->
+            <section class="my-3">
+                <div class="chart-content-holder">
+                    <div class="row donut_chart1">
+                        <div class="col-sm col-md-4 text-center" *ngFor="let data of donutDataFooter">
+                            <div class="row box-chart chart_main">
+                                <div class="col-md-4 col-sm chart_round">
+                                    <div class="box-title">{{data.dounttitle}}</div>
+                                    <div class="chart_svg">
+                                        <img class="chart_img1" src={{data.svgImg}}>
+                                    </div>
+									<div class="svg-item">
+										<svg width="90px" height="90px" viewBox="0 0 40 40" class="donut1">
+											<circle class="donut-hole" cx="20" cy="20" r="16" fill="#fff"></circle>
+											<circle class="donut-ring" cx="20" cy="20" r="16" fill="transparent" stroke-width="5"></circle>
+										  
+										  <circle class="donut-segment donut-segment-2" cx="20" cy="20" r="16" fill="transparent" [attr.stroke]=data.color stroke-width="5" [attr.stroke-dasharray]=data.doNut stroke-dashoffset="0"></circle>
+										</svg>
+									</div>
+                                    <!-- <input type="hidden" class="knob" data-thickness="0.3" [attr.data-fgcolor]=data.color
+                                        [attr.value]=data.percent data-width="90" data-height="90" data-readonly="true" readonly="readonly"> -->
+                                </div>
+                                <div class="col-md-8 col-sm round-chart-value chart_row1">
+                                    <div class="col content-1 chart_title">
+                                        <div class="title">TARGET</div>
+                                        <div class="title">ACTUAL</div>
+                                        <div class="title">PERCENT</div>
+                                    </div>
+                                    <div class="col content-2 c-green chart_val chart_val1">
+                                        <div class="title" *ngIf="toggleStatus ===true">
+                                            {{data.target | number}}
+                                        </div>
+                                        <div class="title" *ngIf="toggleStatus ===false">
+                                            <input type="text" class="form-control tgt tgt1" id="inputId" value="{{data.target}}" [(ngModel)]="data.target"
+                                            />
+                                        </div>
+                                        <div class="title">{{data.actual | number}}</div>
+                                        <div class="value" [ngStyle]="{'color':data.color}">{{data.percent}}%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+		</div>
+
+	</ng-template>
+
+
+
+</div>

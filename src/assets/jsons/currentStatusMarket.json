@@ -1,0 +1,437 @@
+[
+    {
+        "year":2021,
+        "data":[
+            {
+                "item": "Fruits & Vegetables",
+                "total": 150
+            },
+            {
+                "item":"Meat & Poultry & Fish",
+                "total": 300
+            } ,
+            {
+                "item":"Home Bake & Sugar",
+                "total":60
+            },
+            {
+                "item":"Dairy & Eggs",
+                "total":200
+            },
+            {
+                "item":"Frozen Fries",
+                "total":320
+            },
+            {
+                "item":"Beverages",
+                "total":30
+            },
+            {
+                "item":"Chocolate & Snacks",
+                "total":60
+            },
+            {
+                "item":"Cereals & Spreads & Honey",
+                "total":100
+            },
+            {
+                "item":"Healthy & Organic",
+                "total":170
+            },
+            {
+                "item":"Cans & Jars",
+                "total":209
+            },
+            {
+                "item":"Rice & Pasta & Pulses",
+                "total":120
+            },
+            {
+                "item":"Oil & Spices & Sauces",
+                "total":30
+            },
+            {
+                "item":"Baby Care",
+                "total":145
+            },
+            {
+                "item":"Healthy & Beauty",
+                "total":250
+            },
+            {
+                "item":"House Hold",
+                "total":40
+            },
+            {
+                "item":"Pets",
+                "total":180
+            },
+            {
+                "item":"Appliances & Kitchenware",
+                "total":290
+            },
+            {
+                "item":"Kids Toys",
+                "total":100
+            },
+            {
+                "item":"Mens Fashion",
+                "total":250
+            },
+            {
+                "item":"Women's Fashion",
+                "total":10
+            },
+            {
+                "item":"Shoes",
+                "total":110
+            },
+            {
+                "item":"Jewelry & Accessories",
+                "total":210
+            },
+            {
+                "item":"Electronics",
+                "total":290
+            },
+            {
+                "item":"Furniture",
+                "total":50
+            },
+            {
+                "item":"Automotive & Car Care",
+                "total":100
+            },
+            {
+                "item":"Computers & IT Accessories",
+                "total":150
+            },
+            {
+                "item":"Household Chemicals",
+                "total":200
+            },
+            {
+                "item":"Tableware & Kitchenware",
+                "total":250
+            },
+            {
+                "item":"Flowers",
+                "total":300
+            },
+            {
+                "item":"Garden Tools",
+                "total":320
+            },
+            {
+                "item":"Hobbies & Leisure",
+                "total":20
+            },
+            {
+                "item":"Coffee",
+                "total":120
+            },
+            {
+                "item":"Dessert",
+                "total":220
+            },
+            {
+                "item":"Hot Drinks",
+                "total":30
+            },
+            {
+                "item":"Ice Creams",
+                "total":290
+            }
+        ]
+    },
+    {
+        "year":2022,
+        "data":[
+            {
+                "item": "Fruits & Vegetables",
+                "total": 200
+            },
+            {
+                "item":"Meat & Poultry & Fish",
+                "total": 30
+            } ,
+            {
+                "item":"Home Bake & Sugar",
+                "total":20
+            },
+            {
+                "item":"Dairy & Eggs",
+                "total":40
+            },
+            {
+                "item":"Frozen Fries",
+                "total":50
+            },
+            {
+                "item":"Beverages",
+                "total":60
+            },
+            {
+                "item":"Chocolate & Snacks",
+                "total":70
+            },
+            {
+                "item":"Cereals & Spreads & Honey",
+                "total":80
+            },
+            {
+                "item":"Healthy & Organic",
+                "total":90
+            },
+            {
+                "item":"Cans & Jars",
+                "total":100
+            },
+            {
+                "item":"Rice & Pasta & Pulses",
+                "total":110
+            },
+            {
+                "item":"Oil & Spices & Sauces",
+                "total":120
+            },
+            {
+                "item":"Baby Care",
+                "total":130
+            },
+            {
+                "item":"Healthy & Beauty",
+                "total":210
+            },
+            {
+                "item":"House Hold",
+                "total":150
+            },
+            {
+                "item":"Pets",
+                "total":210
+            },
+            {
+                "item":"Appliances & Kitchenware",
+                "total":10
+            },
+            {
+                "item":"Kids Toys",
+                "total":180
+            },
+            {
+                "item":"Mens Fashion",
+                "total":80
+            },
+            {
+                "item":"Women's Fashion",
+                "total":170
+            },
+            {
+                "item":"Shoes",
+                "total":160
+            },
+            {
+                "item":"Jewelry & Accessories",
+                "total":250
+            },
+            {
+                "item":"Electronics",
+                "total":140
+            },
+            {
+                "item":"Furniture",
+                "total":130
+            },
+            {
+                "item":"Automotive & Car Care",
+                "total":20
+            },
+            {
+                "item":"Computers & IT Accessories",
+                "total":110
+            },
+            {
+                "item":"Household Chemicals",
+                "total":100
+            },
+            {
+                "item":"Tableware & Kitchenware",
+                "total":90
+            },
+            {
+                "item":"Flowers",
+                "total":80
+            },
+            {
+                "item":"Garden Tools",
+                "total":270
+            },
+            {
+                "item":"Hobbies & Leisure",
+                "total":60
+            },
+            {
+                "item":"Coffee",
+                "total":250
+            },
+            {
+                "item":"Dessert",
+                "total":40
+            },
+            {
+                "item":"Hot Drinks",
+                "total":130
+            },
+            {
+                "item":"Ice Creams",
+                "total":20
+            }
+        ]
+    },
+    {
+        "year":2023,
+        "data":[
+            {
+                "item": "Fruits & Vegetables",
+                "total": 230
+            },
+            {
+                "item":"Meat & Poultry & Fish",
+                "total": 300
+            } ,
+            {
+                "item":"Home Bake & Sugar",
+                "total":200
+            },
+            {
+                "item":"Dairy & Eggs",
+                "total":200
+            },
+            {
+                "item":"Frozen Fries",
+                "total":200
+            },
+            {
+                "item":"Beverages",
+                "total":200
+            },
+            {
+                "item":"Chocolate & Snacks",
+                "total":200
+            },
+            {
+                "item":"Cereals & Spreads & Honey",
+                "total":200
+            },
+            {
+                "item":"Healthy & Organic",
+                "total":200
+            },
+            {
+                "item":"Cans & Jars",
+                "total":200
+            },
+            {
+                "item":"Rice & Pasta & Pulses",
+                "total":200
+            },
+            {
+                "item":"Oil & Spices & Sauces",
+                "total":200
+            },
+            {
+                "item":"Baby Care",
+                "total":200
+            },
+            {
+                "item":"Healthy & Beauty",
+                "total":200
+            },
+            {
+                "item":"House Hold",
+                "total":200
+            },
+            {
+                "item":"Pets",
+                "total":200
+            },
+            {
+                "item":"Appliances & Kitchenware",
+                "total":200
+            },
+            {
+                "item":"Kids Toys",
+                "total":200
+            },
+            {
+                "item":"Mens Fashion",
+                "total":200
+            },
+            {
+                "item":"Women's Fashion",
+                "total":200
+            },
+            {
+                "item":"Shoes",
+                "total":200
+            },
+            {
+                "item":"Jewelry & Accessories",
+                "total":200
+            },
+            {
+                "item":"Electronics",
+                "total":200
+            },
+            {
+                "item":"Furniture",
+                "total":200
+            },
+            {
+                "item":"Automotive & Car Care",
+                "total":200
+            },
+            {
+                "item":"Computers & IT Accessories",
+                "total":200
+            },
+            {
+                "item":"Household Chemicals",
+                "total":200
+            },
+            {
+                "item":"Tableware & Kitchenware",
+                "total":200
+            },
+            {
+                "item":"Flowers",
+                "total":200
+            },
+            {
+                "item":"Garden Tools",
+                "total":200
+            },
+            {
+                "item":"Hobbies & Leisure",
+                "total":200
+            },
+            {
+                "item":"Coffee",
+                "total":200
+            },
+            {
+                "item":"Dessert",
+                "total":200
+            },
+            {
+                "item":"Hot Drinks",
+                "total":200
+            },
+            {
+                "item":"Ice Creams",
+                "total":200
+            }
+        ]
+    }
+]

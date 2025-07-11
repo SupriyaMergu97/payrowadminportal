@@ -1,0 +1,165 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<div class="content-wrapper main-section-container">
+    <section class="content">
+    <div class="col-12 mb-4">
+        <div class="section-title d-flex align-items-center justify-content-end">
+            <div class="col-md-3 col-sm d-flex gap-16x">
+                <div class="select">
+                    <select rows="1" class="form-control" placeholder="" [(ngModel)]="selected"
+                        (change)='onSelectMonth($event)'>
+                        <option *ngFor="let j of months" [value]="j.month">{{j.month}}</option>
+                    </select>
+                </div>
+            </div>
+            <!-- <div class="col-md-2 col-sm d-flex gap-16x">
+                <button class="btn btn-default-primary" (click)="reportDownload()">Download <i class="fas fa-download"></i></button>
+            </div> -->
+            <!-- <div class="pull-left d-flex gap-16x">
+                <div class="search-holder">
+                    <form action="">
+                        <div class="input-group">
+                           <input type="text" name="search" autocomplete="off" [(ngModel)]="searchText"
+                                placeholder="search" aria-describedby="button-addon5" class="form-control">
+                            <div class="input-group-append">
+                                <button id="button-addon5" type="submit" class="btn"><i
+                                        class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <!-- <div class="card card-box">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-3 sidemenu-form">
+                    <div class="input-group userNum">
+                        <div style="float: left;" class="pr-2">MERCHANT ID :</div>
+                        <input type="text" class="form-control" placeholder="Sponser ID" aria-describedby="basic-addon2"
+                            value="232111">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><i
+                                    class="fas fa-arrow-right fa-fw"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10 col-sm" style="padding-top: 3px;">
+                    Name : Aravind Kishore
+                </div>
+                <div class="col-md-2 col-sm">
+                    <div class="mytexttitle">
+                        <select class="form-select current-status-dropdown" aria-label="Default select example"
+                            [(ngModel)]="selected" (change)='onSelectMonth($event)'>
+                            <option *ngFor="let j of months" [value]="j.month">{{j.month}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div> -->
+
+    <!-- new code for donuts -->
+
+    <div class="">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3" *ngFor="let data of finalData; let i =index" style="margin-bottom: 24px;">
+                    <div class="card-circle card-circle2">
+                        <div class="card-title">
+                            <h2 class="m-0">{{data.type}}</h2>
+                        </div>
+                        <div class="cc-content">
+                            <div class="cc-icon">
+                                <div class="text"><button class="btn btn-edit"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div>
+                            <div class="count-box">
+                                <div class="cbox-text">
+                                    <h6>Target</h6>
+                                    <h3>{{data.target | shortNum}}</h3>
+                                </div>
+                                <div class="cbox-text">
+                                    <h6>Actual</h6>
+                                    <h3>{{data.actual | number }}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="circle-bar">
+                            <svg viewBox="0 0 36 36" class="circular-chart blue">
+                                <path class="circle-bg"
+                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path class="circle" [attr.stroke]=data.color [attr.stroke-dasharray]=data.doNut
+                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            </svg>
+                            <div class="cc-content-area">
+                                <div class="value newVal" [ngStyle]="{'color':data.color}">{{data.percent}} %<i
+                                        class="fas fa-caret-down"></i></div>
+                                <span>Percent</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- end -->
+
+    <div class="row" style="margin: 0px;">
+
+        <!-- Rework -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 pl-0 pr-0">
+                            <div class="chart-container" style="border: 0px;">
+                                <div class="mytextdiv">
+                                    <div class="mytexttitle">
+                                        <select class="form-select current-status-dropdown"
+                                            aria-label="Default select example" [(ngModel)]="selectedOpt"
+                                            (change)='onSelectItem($event)'>
+                                            <option *ngFor="let cat of consolidatedReports" [value]="cat">
+                                                {{cat}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="divider"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row bar-graph-content pl-4 pr-4" style="margin-top:-20px">
+
+                    <div class="col-12">
+                        <section class="my-3">
+                            <div id='chartcontainer' #chart>
+                                <ejs-chart style='display:block;' [chartArea]='chartArea' id='chartcontainer'
+                                    [primaryXAxis]='prXAxis' [primaryYAxis]='prYAxis' [title]='title'
+                                    [tooltip]='tooltip' [legendSettings]='legend' [palettes]='palette'>
+                                    <e-series-collection>
+                                        <e-series [dataSource]='chartData1' type='StackingColumn' xName='x' yName='y'
+                                            name='Total Cases' width='2'></e-series>
+                                    </e-series-collection>
+                                </ejs-chart>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+</div>

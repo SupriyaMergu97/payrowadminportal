@@ -1,0 +1,335 @@
+<ng-container>
+    <div class="container">
+        <!-- <h5 style="color: #72AC47; font-family: Roboto;">PERSONAL DETAILS</h5> -->
+        <div [formGroup]="form">
+            <div class="row">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <select id="inputCity" formControlName="country" placeholder="" class="form-control"
+                        id="country">
+                        <option value="" disabled>Select Country</option>
+                        <option value="U.A.E">U.A.E</option>
+                        <option value="India">India</option>
+                        <option value="Bahrain">Bahrain</option>
+                        <option value="Qatar">Qatar</option>
+                        <option value="Saudi Arabia">Saudi Arabia</option>
+                    </select>
+                    <label for="country">Country</label>
+                        <div *ngIf="form.controls['country'].invalid && (form.controls['country'].dirty || form.controls['country'].touched)"
+                            class="alert">
+                            <div *ngIf="form.controls['country'].errors.required">
+                                <p class="error-msg">
+                                    Please select Country
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <select id="inputCity" name="city" formControlName="city" class="form-control">
+                            <option value="" disabled>Select City</option>
+                            <option value="Dubai">Dubai</option>
+                            <option value="Abu Dhabi">Abu Dhabi</option>
+                            <option value="Sharjah">Sharjah</option>
+                            <option value="AI Ain">AI Ain</option>
+                            <option value="Ajman">Ajman</option>
+                            <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+                            <option value="Fujairah City">Fujairah City</option>
+                            <option value="Umm AI Quwain">Umm AI Quwain</option>
+                        </select>
+                        <label for="inputCity">City</label>
+                        <div *ngIf="form.controls['city'].invalid && (form.controls['city'].dirty || form.controls['city'].touched)"
+                            class="alert">
+                            <div *ngIf="form.controls['city'].errors.required">
+                                <p class="error-msg">
+                                    Please select city
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="addressDetails" class="form-control"
+                        placeholder="Residential Address" id="address"/>
+                        <label for="address">Private Residential Address</label>
+                        <div *ngIf="form.controls['addressDetails'].invalid && (form.controls['addressDetails'].dirty || form.controls['addressDetails'].touched)"
+                            class="alert">
+                            <div *ngIf="form.controls['addressDetails'].errors.required">
+                                <p class="error-msg">
+                                    Please Enter your Address details
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="eINumber" id="emiratesId" class="form-control" placeholder="Emirates Id" />
+                        <label for="emiratesId">Emirates Id</label>
+                        <div *ngIf="form.controls['eINumber'].invalid && (form.controls['eINumber'].dirty || form.controls['eINumber'].touched)"
+                            class="alert">
+                            <div *ngIf="form.controls['eINumber'].errors.required">
+                                <p class="error-msg">
+                                    Please Enter your Emirates ID
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="date" formControlName="eIExpiry" class="form-control" id="expiryDate" 
+                        placeholder="Expiry Date" [min]="minExpiryDate"/>
+                        <label for="expiryDate">EI Expiry Date</label>
+                        <div *ngIf="form.controls['eIExpiry'].invalid && (form.controls['eIExpiry'].dirty || form.controls['eIExpiry'].touched)"
+                            class="alert">
+                            <div *ngIf="form.controls['eIExpiry'].errors.required">
+                                <p class="error-msg">
+                                    Please Enter Emirates ID Expiry date
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="file" class="form-control fileupload" formControlName="emiratesDocument"
+                        placeholder="Attach File" (change)="uploadEIfile($event)" id="eiFile"/>
+                        <label for="eiFile">Attach EI File</label>
+                        <div *ngIf="form.controls['emiratesDocument'].invalid && (form.controls['emiratesDocument'].dirty || form.controls['emiratesDocument'].touched)"
+                            class="alert">
+                            <div *ngIf="form.controls['emiratesDocument'].errors.required">
+                                <p class="error-msg">
+                                    Please Attach Emirates document
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="passportNum" class="form-control"
+                        placeholder="Passport Number" id="passportNumber"/>
+                        <label for="passportNumber">Passport Number</label>
+                        <div *ngIf="form.controls['passportNum'].invalid && (form.controls['passportNum'].dirty || form.controls['passportNum'].touched)"
+                            class="alert">
+                            <div *ngIf="form.controls['passportNum'].errors.required">
+                                <p class="error-msg">
+                                    Please Enter your Passport Number
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="date" formControlName="passportExpiry" class="form-control"
+                        placeholder="select Date" id="passportExpiry" [min]="minExpiryDate"/>
+                        <label for="passportExpiry">Passport Expiry Date</label>
+                        <div *ngIf="form.controls['passportExpiry'].invalid && (form.controls['passportExpiry'].dirty || form.controls['passportExpiry'].touched)"
+                            class="alert">
+                            <div *ngIf="form.controls['passportExpiry'].errors.required">
+                                <p class="error-msg">
+                                    Please Enter Passport ID Expiry date
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="file" class="form-control fileupload" formControlName="passportDocument"
+                        placeholder="Passport Copy" (change)="uploadPassportfile($event)" id="passportFile"/>
+                        <label id="passportFile">Attach Passport File</label>
+                        <div *ngIf="form.controls['passportDocument'].invalid && (form.controls['passportDocument'].dirty || form.controls['passportDocument'].touched)"
+                            class="alert">
+                            <div *ngIf="form.controls['passportDocument'].errors.required">
+                                <p class="error-msg">
+                                    Please Attach passport document
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <button class="btn btn-sm btn-success edit_btn" style="float:right;" (click)="onSubmit()">Save</button> -->
+        </div>
+    </div>
+
+    <div class="container" *ngIf="this.parentData[0] ==='existingUser'">
+        <!-- <h5 style="color: #72AC47; font-family: Roboto;">PERSONAL DETAILS</h5> -->
+        <div [formGroup]="form">
+            <div class="row">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <label>Country</label>
+                        <select id="inputCity" name="country" formControlName="country" placeholder=""
+                            class="form-control" [(ngModel)]='prsnlAD.country'>
+                            <option value="" disabled>Select Country</option>
+                            <option *ngIf="prsnlAD.country==='UAE'" value="UAE">U.A.E</option>
+                            <option *ngIf="prsnlAD.country==='India'" value="India">India</option>
+                            <option *ngIf="prsnlAD.country==='Bahrain'" value="Bahrain">Bahrain</option>
+                            <option *ngIf="prsnlAD.country==='Qatar'" value="Qatar">Qatar</option>
+                            <option *ngIf="prsnlAD.country==='Saudi Arabia'" value="Saudi Arabia">Saudi Arabia</option>
+                        </select>
+                        <div *ngIf="form.controls['country'].invalid && (form.controls['country'].dirty || form.controls['country'].touched)"
+                            class="alert">
+                            <div *ngIf="form.controls['country'].errors.required">
+                                <p class="error-msg">
+                                    Please select Country
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>City</label> -->
+                        <div class="form-group form-floating">
+                            <select id="inputCity" name="city" formControlName="city" class="form-control"
+                                [(ngModel)]='prsnlAD.city'>
+                                <option value="" disabled>Select City</option>
+                                <option *ngIf="prsnlAD.city==='Dubai'" value="Dubai">Dubai</option>
+                                <option *ngIf="prsnlAD.city==='Abu Dhabi'" value="Abu Dhabi">Abu Dhabi</option>
+                                <option *ngIf="prsnlAD.city==='Sharjah'" value="Sharjah">Sharjah</option>
+                                <option *ngIf="prsnlAD.city==='AI Ain'" value="AI Ain">AI Ain</option>
+                                <option *ngIf="prsnlAD.city==='Ajman'" value="Ajman">Ajman</option>
+                                <option *ngIf="prsnlAD.city==='Ras Al Khaimah'" value="Ras Al Khaimah">Ras Al Khaimah
+                                </option>
+                                <option *ngIf="prsnlAD.city==='Fujairah City'" value="Fujairah City">Fujairah City
+                                </option>
+                                <option *ngIf="prsnlAD.city==='Umm AI Quwain'" value="Umm AI Quwain">Umm AI Quwain
+                                </option>
+                            </select>
+                            <div *ngIf="form.controls['city'].invalid && (form.controls['city'].dirty || form.controls['city'].touched)"
+                                class="alert">
+                                <div *ngIf="form.controls['city'].errors.required">
+                                    <p class="error-msg">
+                                        Please select city
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>Private Residential Address</label> -->
+                        <input type="text" formControlName="addressDetails" class="form-control"
+                            [(ngModel)]=prsnlAD.address value={{prsnlAD.address}} placeholder="Residential Address" />
+                        <div *ngIf="form.controls['addressDetails'].invalid && (form.controls['addressDetails'].dirty || form.controls['addressDetails'].touched)"
+                            class="alert">
+                            <div *ngIf="form.controls['addressDetails'].errors.required">
+                                <p class="error-msg">
+                                    Please Enter your Address details
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>Attach EI File</label> -->
+                        <input type="file" class="form-control fileupload" formControlName="emiratesDocument"
+                            placeholder="Attach File" (change)="uploadEIfile($event)" />
+                        <div *ngIf="form.controls['emiratesDocument'].invalid && (form.controls['emiratesDocument'].dirty || form.controls['emiratesDocument'].touched)"
+                            class="alert">
+                            <div *ngIf="form.controls['emiratesDocument'].errors.required">
+                                <p class="error-msg">
+                                    Please Attach Emirates document
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>Emirates Id</label> -->
+                        <input type="text" formControlName="eINumber" class="form-control" placeholder="Emirates Id"
+                            [(ngModel)]=prsnlAD.eINumber value={{prsnlAD.eINumber}} />
+                        <div *ngIf="form.controls['eINumber'].invalid && (form.controls['eINumber'].dirty || form.controls['eINumber'].touched)"
+                            class="alert">
+                            <div *ngIf="form.controls['eINumber'].errors.required">
+                                <p class="error-msg">
+                                    Please Enter your Emirates ID
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>EI Expiry Date</label> -->
+                        <input type="date" formControlName="eIExpiry" class="form-control" placeholder="Expiry Date"
+                            [(ngModel)]=prsnlAD.eIExpiry value={{prsnlAD.eIExpiry}} />
+                        <div *ngIf="form.controls['eIExpiry'].invalid && (form.controls['eIExpiry'].dirty || form.controls['eIExpiry'].touched)"
+                            class="alert">
+                            <div *ngIf="form.controls['eIExpiry'].errors.required">
+                                <p class="error-msg">
+                                    Please Enter Emirates ID Expiry date
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>Passport Number</label> -->
+                        <input type="text" formControlName="passportNum" class="form-control"
+                            placeholder="Passport Number" [(ngModel)]=prsnlAD.passportNum
+                            value={{prsnlAD.passportNum}} />
+                        <div *ngIf="form.controls['passportNum'].invalid && (form.controls['passportNum'].dirty || form.controls['passportNum'].touched)"
+                            class="alert">
+                            <div *ngIf="form.controls['passportNum'].errors.required">
+                                <p class="error-msg">
+                                    Please Enter your Passport Number
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>Passport Expiry Date</label> -->
+                        <input type="date" formControlName="passportExpiry" class="form-control"
+                            placeholder="select Date" [(ngModel)]=prsnlAD.passportExpiry
+                            value={{prsnlAD.passportExpiry}} />
+                        <div *ngIf="form.controls['passportExpiry'].invalid && (form.controls['passportExpiry'].dirty || form.controls['passportExpiry'].touched)"
+                            class="alert">
+                            <div *ngIf="form.controls['passportExpiry'].errors.required">
+                                <p class="error-msg">
+                                    Please Enter Passport ID Expiry date
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <!-- <label>Attach Passport File</label> -->
+                    <input type="file" class="form-control fileupload" formControlName="passportDocument"
+                        placeholder="Passport Copy" (change)="uploadPassportfile($event)" />
+                    <div *ngIf="form.controls['passportDocument'].invalid && (form.controls['passportDocument'].dirty || form.controls['passportDocument'].touched)"
+                        class="alert">
+                        <div *ngIf="form.controls['passportDocument'].errors.required">
+                            <p class="error-msg">
+                                Please Attach passport document
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <button class="btn btn-sm btn-success edit_btn" style="float:right;" (click)="onSubmit()">Save</button> -->
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,7 @@
+<div id="error" fxLayout="column" fxLayoutAlign="center center">
+    <div class="content" fxLayout="column" fxLayoutAlign="center center">
+        <div class="error-code">{{errorCode}}</div>
+        <div class="message">{{errorMessage}}</div>
+        <a class="back-link" href="#" (click)="logout()" *ngIf="!errorCode">Logout</a>
+    </div>
+</div>

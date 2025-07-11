@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: payrow-admin-frontend-service
+  labels:
+    app: payrow-admin-frontend-service
+    visualize: "true"
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: payrow-admin-frontend
+    serving: "true"

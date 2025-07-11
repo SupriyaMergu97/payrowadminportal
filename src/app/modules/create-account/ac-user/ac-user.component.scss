@@ -1,0 +1,129 @@
+// @import url("https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css");
+
+.multiselect-dropdown .dropdown-btn .selected-item-container .selected-item {
+    border: 1px solid lightgray !important;
+    margin-right: 4px !important;
+    background: lightgray !important;
+    padding: 0 5px !important;
+    color: #fff !important;
+    border-radius: 2px !important;
+    float: left !important;
+    //max-width: 80% !important;
+    width: 177px !important;
+    height: 22px !important;
+    font-size: 13px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.nav-pills-custom .nav-link {
+    color: #aaa;
+    background: #fafafa;
+    position: relative;
+}
+.nav-link {
+    border: 1px solid #ccc;
+    padding: 8px !important;
+}
+
+.nav-pills-custom .nav-link.active {
+    color: #45b649;
+    // background: #fff;
+}
+.nav-pills-custom .nav-link.active::before {
+    opacity: 1;
+}
+
+.shadow {
+    box-shadow: 0 0px 0px rgb(0 0 0 / 15%) !important;
+}
+.formheader {
+    color: #72ac47;
+    font-family: Roboto;
+    margin: 12px 12px 24px;
+}
+.stepper-card {
+    position: relative;
+    width: 212px;
+}
+.form-control {
+    -webkit-appearance: menulist;
+}
+.tabIcn {
+    margin-right: 6px;
+}
+.addValue {
+    -webkit-appearance: menulist;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    padding: 5px;
+    .active i {
+        color: green;
+    }
+    .deactive i {
+        color: red;
+    }
+}
+// .btn-default-md-fill:hover {
+//     background: #f1f7ed;
+//     color: var(--color_3);
+// }
+.section-header {
+    margin-bottom: 8px;
+}
+.bi {
+    font-size: 10px;
+    color: #504f4f;
+}
+.icn {
+    border: none;
+    background: none;
+    i {
+        color: #504f4f;
+    }
+}
+span {
+    margin-top: 7px;
+}
+.download {
+    margin: 0px 16px 7px 0px;
+}
+.modal-content {
+    padding: 0px 16px;
+    width: 130%;
+}
+.modal-body {
+    padding: 20px;
+}
+.submit {
+    background-color: #343a40;
+    color: whitesmoke;
+}
+// .btn-default-fill:hover {
+//     color: black;
+//     border: 1px solid #d5e6c8;
+// }
+.status_auditor {
+    // border: none;
+    padding: 4px;
+    -webkit-appearance: menulist;
+}
+.status {
+    padding: 4px;
+}
+.edit{
+    width: 50%;
+    margin-left: 25%;
+}
+.dialog{
+    border: none;
+    background:none;
+  }
+  .icn_btn{
+    border: none;
+    background:none;
+}
+
+.create{
+    padding: 0px;
+}

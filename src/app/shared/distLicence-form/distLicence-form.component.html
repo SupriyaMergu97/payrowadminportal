@@ -1,0 +1,126 @@
+<ng-container>
+    <div class="container">
+        <!-- <h5 style="color: #72AC47; font-family: Roboto;">LICENCE DETAILS</h5> -->
+        <div [formGroup]="licenceForm">
+            <div class="row">
+
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>License Number</label> -->
+                        <input type="text" formControlName="licenseNumber" class="form-control"
+                            placeholder="License Number" />
+                        <label for="licenseNumber" [ngClass]="{'is-invalid': licenceForm.controls['licenseNumber'].invalid && licenceForm.controls['licenseNumber'].touched,
+                            'is-valid': licenceForm.controls['licenseNumber'].valid}">
+                            Licence Number<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>Licence Expiry Date</label> -->
+                        <input type="date" formControlName="licenseExpiry" class="form-control"
+                            placeholder="select Expiry Date" value="licenseExpiry"  [min]="minExpiryDate"/>
+                        <label for="licenseExpiry" [ngClass]="{'is-invalid': licenceForm.controls['licenseExpiry'].invalid && licenceForm.controls['licenseExpiry'].touched,
+                            'is-valid': licenceForm.controls['licenseExpiry'].valid}">
+                            Licence Expiry<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>License Copy</label> -->
+                        <input type="file" class="form-control fileupload" formControlName="licenseDocument"
+                            placeholder="License Copy" (change)="uploadLicencefile($event)" />
+                        <label for="licenseDocument">
+                            License Document<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>Establishment Card Number</label> -->
+                        <input type="text" formControlName="ecNumber" class="form-control"
+                            placeholder="Establishment Card Number" [min]="minExpiryDate"/>
+                        <label for="ecNumber" [ngClass]="{'is-invalid': licenceForm.controls['ecNumber'].invalid && licenceForm.controls['ecNumber'].touched,
+                            'is-valid': licenceForm.controls['ecNumber'].valid}">
+                            Establishment Card Number<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>Licence Expiry Date</label> -->
+                        <input type="date" formControlName="ecExpiry" class="form-control"
+                            placeholder="select Expiry Date" />
+                        <label for="ecExpiry" [ngClass]="{'is-invalid': licenceForm.controls['ecExpiry'].invalid && licenceForm.controls['ecExpiry'].touched,
+                            'is-valid': licenceForm.controls['ecExpiry'].valid}">
+                            EC Expiry<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>Attach EC Copy</label> -->
+                        <input type="file" class="form-control fileupload" formControlName="ecDocument"
+                            placeholder="Attach EC Copy" (change)="uploadEcfile($event)" />
+                        <label for="ecDocument">
+                            EC Copy<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>Establishment Card Number</label> -->
+                        <input type="text" formControlName="nameOnLicense" class="form-control"
+                            placeholder="Establishment Card Number" />
+                        <label for="nameOnLicense" [ngClass]="{'is-invalid': licenceForm.controls['nameOnLicense'].invalid && licenceForm.controls['nameOnLicense'].touched,
+                            'is-valid': licenceForm.controls['nameOnLicense'].valid}">
+                            Name on License<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>Company Name</label> -->
+                        <input type="text" formControlName="companyName" class="form-control"
+                            placeholder="Company Name" />
+                        <label for="companyName" [ngClass]="{'is-invalid': licenceForm.controls['companyName'].invalid && licenceForm.controls['companyName'].touched,
+                        'is-valid': licenceForm.controls['companyName'].valid}">
+                            Company Name<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>Company Name</label> -->
+                        <input type="text" formControlName="companyShortName" class="form-control"
+                            placeholder="Company Name" />
+                        <label for="companyShortName" [ngClass]="{'is-invalid': licenceForm.controls['companyShortName'].invalid && licenceForm.controls['companyShortName'].touched,
+                        'is-valid': licenceForm.controls['companyShortName'].valid}">
+                            Company Short Name<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>Company Name</label> -->
+                        <input type="text" formControlName="natureOfBusiness" class="form-control"
+                            placeholder="Nature of Business" />
+                        <label for="natureOfBusiness" [ngClass]="{'is-invalid': licenceForm.controls['natureOfBusiness'].invalid && licenceForm.controls['natureOfBusiness'].touched,
+                        'is-valid': licenceForm.controls['natureOfBusiness'].valid}">
+                            Nature of Business<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>Attach EC Copy</label> -->
+                        <input type="file" class="form-control fileupload" formControlName="companyLogo"
+                            placeholder="Upload Comapny Logo" (change)="uploadLogo($event)" />
+                        <label for="companyLogo">
+                            Company Logo<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+</ng-container>

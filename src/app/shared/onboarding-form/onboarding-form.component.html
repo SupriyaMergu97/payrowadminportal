@@ -1,0 +1,260 @@
+<button class="pull-right btn btn-primary-lg mb-3"  (click)="openPDF()">Download <i class="fas fa-download"></i></button>
+<div class="">
+    <!-- <div class="card-body"> -->
+    <div class="container" id="htmlData">
+        <div class="row m-4">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h4 style="text-align: center;">Merchant Onboarding Form</h4>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row rowData">
+            <div class="col-md-3">
+                <p>Owner Name in the Licence</p>
+                <p  *ngIf="objSheet.typeOfDistributor === 'Non-Government'">Date of Birth</p>
+                <p>BO.BOX</p>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-sm text-center">
+                    <tbody>
+                        <tr>
+                            <td>{{objSheet.Name}}</td>
+                        </tr>
+                        <tr *ngIf="objSheet.typeOfDistributor === 'Non-Government'">
+                            <td>{{objSheet.dob}}</td>
+                        </tr>
+                        <tr>
+                            <td>56756</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3 text-right">
+                <p>اسم المالك في الرخصة</p>
+                <p *ngIf="objSheet.typeOfDistributor === 'Non-Government'">تاريخ الولادة</p>
+                <p></p>
+            </div>
+        </div>
+        <div class="row rowData" *ngIf="objSheet.typeOfDistributor === 'Non-Government'">
+            <div class="col-md-3">
+                <p>Nationality</p>
+                <p>Passport Number</p>
+                <p>Expiry Date</p>
+                <p>Place of Issue</p>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-sm text-center">
+                    <tbody>
+                        <tr>
+                            <td>{{objSheet.nation}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{objSheet.passportNumber}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{objSheet.passportExpiry}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{objSheet.passportIssued}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3 text-right">
+                <p>جنسية</p>
+                <p>رقم جواز السفر</p>
+                <p>تاريخ الانتهاء</p>
+                <p>مكان صدوره</p>
+            </div>
+        </div>
+        <div class="row rowData" *ngIf="objSheet.typeOfDistributor == 'Non-Government'">
+            <div class="col-md-3">
+                <p>National ID</p>
+                <p>Date of Expiry</p>
+                <p>City of Issue</p>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-sm text-center">
+                    <tbody>
+                        <tr>
+                            <td>{{objSheet.emiratesNumber}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{objSheet.emiratesExpiry}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{objSheet.emiratesIssued}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3 text-right">
+                <p>الهوية الوطنية</p>
+                <p>تاريخ الانتهاء</p>
+                <p>مدينة الإصدار</p>
+            </div>
+        </div>
+        <div class="row rowData">
+            <div class="col-md-3">
+                <p>License Number/Degree</p>
+                <p>Nature of the Business</p>
+                <p>Place of Issue</p>
+                <p>Expiry Date</p>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-sm text-center">
+                    <tbody>
+                        <tr>
+                            <td>{{objSheet.licenseNumber}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{objSheet.natureOfBusiness}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{objSheet.licenseIssued}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{objSheet.licenseExpiry}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3 text-right">
+                <p>رقم الرخصة / الدرجة</p>
+                <p>طبيعة العمل</p>
+                <p>مكان صدوره</p>
+                <p>تاريخ الانتهاء</p>
+            </div>
+        </div>
+        <div class="row rowData">
+            <div class="col-md-3">
+                <p>Company/Entity Name</p>
+                <p>Company/Entity Short Name</p>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-sm text-center">
+                    <tbody>
+                        <tr>
+                            <td>{{objSheet.companyName}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{objSheet.shortName}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3 text-right">
+                <p>اسم الشركة / الكيان</p>
+                <p>الاسم المختصر للشركة / الكيان</p>
+            </div>
+        </div>
+        <div class="row rowData">
+            <div class="col-md-3">
+                <p>Bank Name</p>
+                <p>Account Number</p>
+                <p>IBAN Number</p>
+                <p>Bank Location</p>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-sm text-center">
+                    <tbody>
+                        <tr>
+                            <td>{{objSheet.bankName}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{objSheet.acntNumber}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{objSheet.IbanNo}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{objSheet.bankLocation}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3 text-right">
+                <p>اسم البنك</p>
+                <p>رقم حساب</p>
+                <p>رقم الآيبان</p>
+                <p>مكان البنك</p>
+            </div>
+        </div>
+        <div class="row rowData">
+            <div class="col-md-3">
+                <p>TRN</p>
+                <p>Expected Revenue per year</p>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-sm text-center">
+                    <tbody>
+                        <tr>
+                            <td>{{objSheet.trn}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{objSheet.revenue}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3 text-right">
+                <p>الرقم الضريبي</p>
+                <p>الإيرادات المتوقعة في السنة</p>
+            </div>
+        </div>
+        <div class="row rowData">
+            <div class="col-md-3">
+                <p>Admin Name Responsible</p>
+                <p>Email</p>
+                <p>Mobile Number</p>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-sm text-center">
+                    <tbody>
+                        <tr>
+                            <td>{{objSheet.adminName}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{objSheet.adminEmail}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{objSheet.adminMobile}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3 text-right">
+                <p>المسؤول اسم المسؤول</p>
+                <p>البريد الإلكتروني</p>
+                <p>رقم الهاتف المحمول</p>
+            </div>
+        </div>
+    </div>
+    <div id="htmlTwo">
+        <div class="row rowData mt-4">
+            <div class="col-md-12">
+                <table class="table table-sm container sign">
+                    <thead>
+                        <tr>
+                            <th>1. Auth Name : Ghanim Ghanim</th>
+                            <th>2. Auth Name : Ghanim Ghanim</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Signature</td>
+                            <td>Signature</td>
+                        </tr>
+                        <tr>
+                            <td>Stamp</td>
+                            <td>Stamp</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- </div> -->
+</div>

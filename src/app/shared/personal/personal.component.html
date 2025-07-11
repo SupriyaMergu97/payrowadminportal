@@ -1,0 +1,150 @@
+<ng-container>
+    <div class="container">
+        <!-- <h5 style="color: #72AC47; font-family: Roboto;">PERSONAL DETAILS</h5> -->
+        <div [formGroup]="form">
+            <div class="row">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <select id="country" formControlName="country" placeholder="" class="form-control">
+                            <option value="" disabled>Select Country</option>
+                            <option value="U.A.E">U.A.E</option>
+                            <option value="India">India</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                        </select>
+                        <label for="country" [ngClass]="{'is-invalid': form.controls['country'].invalid && form.controls['country'].touched,
+                        'is-valid': form.controls['country'].valid}">
+                            Country<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <select id="city" name="city" formControlName="city" class="form-control">
+                            <option value="" disabled>Select City</option>
+                            <option value="Dubai">Dubai</option>
+                            <option value="Abu Dhabi">Abu Dhabi</option>
+                            <option value="Sharjah">Sharjah</option>
+                            <option value="AI Ain">AI Ain</option>
+                            <option value="Ajman">Ajman</option>
+                            <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+                            <option value="Fujairah City">Fujairah City</option>
+                            <option value="Umm AI Quwain">Umm AI Quwain</option>
+                        </select>
+                        <label for="city" [ngClass]="{'is-invalid': form.controls['city'].invalid && form.controls['city'].touched,
+                        'is-valid': form.controls['city'].valid}">
+                            City<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="addressDetails" id="addressDetails" class="form-control"
+                            placeholder="Residential Address" />
+                        <label for="addressDetails" [ngClass]="{'is-invalid': form.controls['addressDetails'].invalid && form.controls['addressDetails'].touched,
+                        'is-valid': form.controls['addressDetails'].valid}">
+                            Residential Address<span>&nbsp;*</span></label>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row" *ngIf="typeofDist =='Non-Government'">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="eINumber" class="form-control" placeholder="Emirates Id" />
+                        <label for="eINumber" [ngClass]="{'is-invalid': form.controls['eINumber'].invalid && form.controls['eINumber'].touched,
+                            'is-valid': form.controls['eINumber'].valid}">
+                            Emirates ID<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="date" formControlName="eIExpiry" class="form-control" placeholder="Expiry Date" />
+                        <label for="eIExpiry" [ngClass]="{'is-invalid': form.controls['eIExpiry'].invalid && form.controls['eIExpiry'].touched,
+                        'is-valid': form.controls['eIExpiry'].valid}">
+                            Emirates expiry date<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="file" class="form-control fileupload" formControlName="emiratesDocument"
+                            placeholder="Attach File" (change)="uploadEIfile($event)" />
+                        <label for="emiratesDocument" [ngClass]="{'is-invalid': form.controls['emiratesDocument'].invalid && form.controls['emiratesDocument'].touched,
+                            'is-valid': form.controls['emiratesDocument'].valid}">
+                            Upload Emirates Document<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row" *ngIf="typeofDist =='Non-Government'">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="passportNum" class="form-control"
+                            placeholder="Passport Number" />
+                        <label for="passportNum" [ngClass]="{'is-invalid': form.controls['passportNum'].invalid && form.controls['passportNum'].touched,
+                            'is-valid': form.controls['passportNum'].valid}">
+                            Passport Number<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="date" formControlName="passportExpiry" class="form-control"
+                            placeholder="select Date" />
+                        <label for="passportExpiry" [ngClass]="{'is-invalid': form.controls['passportExpiry'].invalid && form.controls['passportExpiry'].touched,
+                            'is-valid': form.controls['passportExpiry'].valid}">
+                            Passport expiry date<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="file" class="form-control fileupload" formControlName="passportDocument"
+                            placeholder="Passport Copy" (change)="uploadPassportfile($event)" />
+                        <label for="passportDocument" [ngClass]="{'is-invalid': form.controls['passportDocument'].invalid && form.controls['passportDocument'].touched,
+                            'is-valid': form.controls['passportDocument'].valid}">
+                            Upload passport document<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="typeofDist =='Government'">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="degreeNumber" class="form-control"
+                            placeholder="Emirates Id" />
+                        <label for="degreeNumber" [ngClass]="{'is-invalid': form.controls['degreeNumber'].invalid && form.controls['degreeNumber'].touched,
+                            'is-valid': form.controls['degreeNumber'].valid}">
+                            Degree Number<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="date" formControlName="degreeExpiry" class="form-control"
+                            placeholder="Expiry Date" />
+                        <label for="degreeExpiry" [ngClass]="{'is-invalid': form.controls['degreeExpiry'].invalid && form.controls['degreeExpiry'].touched,
+                        'is-valid': form.controls['degreeExpiry'].valid}">
+                            Degree expiry date<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="file" class="form-control fileupload" formControlName="degreeDocument"
+                            placeholder="Attach File" (change)="uploadEIfile($event)" />
+                        <label for="degreeDocument" [ngClass]="{'is-invalid': form.controls['degreeDocument'].invalid && form.controls['degreeDocument'].touched,
+                            'is-valid': form.controls['degreeDocument'].valid}">
+                            Upload Degree Document<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="boBox" class="form-control" placeholder="BO.Box" />
+                        <label for="boBox" [ngClass]="{'is-invalid': form.controls['boBox'].invalid && form.controls['boBox'].touched,
+                        'is-valid': form.controls['boBox'].valid}">
+                            BO.Box<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+            </div>
+            <!-- <button class="btn btn-sm btn-success edit_btn" style="float:right;" (click)="onSubmit()">Save</button> -->
+        </div>
+    </div>
+</ng-container>

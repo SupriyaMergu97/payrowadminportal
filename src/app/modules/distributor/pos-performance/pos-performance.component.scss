@@ -1,0 +1,240 @@
+.current-status-dropdown {
+  color: #5b5a5a;
+  border: 1px solid lightgray;
+  width: auto;
+  background-color: transparent;
+  padding-top: 4px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-family: Mukta;
+  font-size: 14px;
+  margin-top: 6px;
+  margin-left: 20px;
+}
+.current-status-dropdown:focus {
+  -webkit-box-shadow: none;
+}
+
+.current-status-dropdown option {
+  color: #7e7f80;
+}
+.current-status-dropdown option:checked {
+  color: #ffffff;
+  background-color: gray;
+}
+.sidemenu-form{
+  width: 28%;
+}
+select{
+  padding:10px;
+}
+.report {
+  font-size: 14px;
+  cursor: pointer;
+  padding: 3px;
+  padding-left: 5px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  width: 100px;
+  margin-top: 3px;
+}
+
+.card-box {
+  margin-left: 8px;
+  box-shadow: none;
+  margin-bottom: 0rem;
+  width: 98%;
+  margin-top: 20px;
+}
+
+input.search-hero {
+  // width: 20%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #2c3e50;
+  font-size: 13px;
+  background-color: #fcfcfd;
+  position: relative;
+  // bottom: 7px;
+  width: 98%;
+  float: right;
+}
+
+input.search-hero:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #72ac47;
+  outline-width: 0;
+  transition: All 0.5s ease-in;
+  -webkit-transition: All 0.5s ease-in;
+  -moz-transition: All 0.5s ease-in;
+  -o-transition: All 0.5s ease-in;
+}
+
+.data-table-container {
+  margin-top: 0px !important;
+}
+.table_one{
+    margin-top:-11px;
+}
+
+.data-table-container {
+  line-height: 2;
+}
+
+.tapCard {
+  box-shadow: none;
+}
+
+.tabHead {
+  margin-bottom: 10px;
+  background: #fff;
+  border-top: 1px solid #ededed;
+  padding-top: 8px !important;
+  border-bottom: 1px solid #ededed;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.nav-tabs {
+  border-bottom: 0px !important;
+}
+
+.tabColumn {
+  font-size: 13px;
+}
+
+.month_pills {
+  margin-bottom: 6px !important;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  background-color: #72ac47;
+}
+
+.cus_month {
+  padding-bottom: 3px;
+  padding-top: 3px;
+  float: left;
+}
+
+#tap_to_pay_table {
+  width: 1048px !important;
+}
+
+table.data-table tbody tr td {
+  padding-top: 8px !important;
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+  font-size: 13px !important;
+  line-height: 2;
+  text-align: center;
+}
+
+table.dataTable {
+  font-size: 13px !important;
+  // border-collapse: collapse !important;
+}
+
+.table > :not(:last-child) > :last-child > * {
+  border-bottom: none;
+}
+
+.data-container thead {
+  background-color: #f7f7f7 !important;
+}
+
+.cus_month {
+  padding: 0px !important;
+  // float: right;
+}
+
+.month_class {
+  float: right;
+}
+
+.myCard {
+  // padding: 15px 15px 0px 15px !important;
+  padding: 8px !important;
+}
+
+.bd-highlight {
+  padding: 0 !important;
+}
+
+.form-select {
+  bottom: 3px;
+  position: relative;
+}
+
+// Media queries
+
+@media (min-width: 1400px) {
+  .userNum {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 575px) {
+    .userNum {
+        width: 184px;
+      }
+}
+
+@media screen and (max-width: 500px) {
+    .userNum {
+      width: 290px;
+    }
+    .current-status-dropdown {
+        float: left;
+        margin: 5px;
+        width: 100%;
+      }
+      .report{
+        margin: 5px;
+        width: 100%;
+        text-align: center;
+      }
+  }
+
+  @media screen and (max-width: 411px) {
+    .userNum {
+      width: 290px;
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    .userNum {
+      width: 245px;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    .userNum {
+      width: 210px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .userNum {
+      width: 258px;
+    }
+  }
+
+  @media screen and (max-width: 414px) {
+    .userNum {
+      width: 258px;
+    }
+  }

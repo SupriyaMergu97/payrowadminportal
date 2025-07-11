@@ -1,0 +1,115 @@
+<div *ngIf="finalData">
+
+    <section class="my-3">
+        <div class="chart-content-holder">
+            <div class="row" >
+
+                <div class="col-sm col-md-4 text-center" *ngFor="let data of finalData">
+                    <div class="box-chart" style="height: 115%;">
+                        <div class="box-title">{{data.dounttitle}}</div>
+                        <div class="chart_svg">
+                            <img class="chart_img" src={{data.svgImg}}>
+                        </div>
+                        <div>
+                            
+                            <input type="hidden" class="knob" data-thickness="0.3" [attr.data-fgcolor]=data.color
+                            [attr.value]=data.percent data-width="90" data-height="90" data-readonly="true" readonly="readonly">
+                        </div>
+                        <div class="row round-chart-value chart_row ">
+                            <div class="col content-1 chart_title chart_dash">
+                                <div class="title">TARGET</div>
+                                <div class="title">ACTUAL</div>
+                                <div class="title">PERCENT</div>
+                            </div>
+                            <div class="col content-2 c-green chart_val chart_dash">
+                                
+                                <div class="title" *ngIf="setProp === true">
+                                    {{data.target}}
+                                </div>
+                                <div class="title" *ngIf="setProp === false">
+                                    <!-- <input type="text" class="form-control tgt" id="inputId" value="{{data.target}}" [(ngModel)]="data.target"
+                                     (change)="update(data)"/> -->
+
+                                     <input type="text" class="form-control tgt" id="inputId" value="{{data.target}}" [(ngModel)]="data.target"
+                                    />
+                                </div>
+                                <div class="title">{{data.actual}}</div>
+                                <div class="value" ><i class="fas fa-caret-up"></i>{{data.percent}}%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<div *ngIf="finalDataFooter">
+    <section class="my-3">
+        <div class="chart-content-holder">
+            <div class="row">
+                <div class="col-sm col-md-4 text-center" *ngFor="let data of finalDataFooter">
+                    <div class="box-chart chart_main">
+                        <div class="chart_round">
+                            <div class="box-title">{{data.dounttitle}}</div>
+                            <div class="chart_svg">
+                                <img class="chart_img" src={{data.svgImg}}>
+                            </div>
+                            <input type="hidden" class="knob" data-thickness="0.3" [attr.data-fgcolor]=data.color
+                                [attr.value]=data.percent data-width="90" data-height="90" data-readonly="true" readonly="readonly">
+                        </div>
+                        <div class="row round-chart-value chart_row">
+                            <div class="col content-1 chart_title">
+                                <div class="title">TARGET</div>
+                                <div class="title">ACTUAL</div>
+                                <div class="title">PERCENT</div>
+                            </div>
+                            <div class="col content-2 c-green chart_val">
+                                <div class="title">{{data.target}}</div>
+                                <div class="title">{{data.actual}}</div>
+                                <div class="value" [ngStyle]="{'color':data.color}"><i class="fas fa-caret-up"></i>{{data.percent}}%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div *ngIf="complaintsData">
+    <section class="my-3">
+        <div class="chart-content-holder">
+            <div class="row">
+                <div class="col-sm col-md-4 text-center" *ngFor="let data of complaintsData">
+                    <div class="box-chart chart_main">
+                        <div class="chart_round">
+                            <div class="box-title">{{data.dounttitle}}</div>
+                            <div class="chart_svg">
+                                <img class="chart_img" src={{data.svgImg}}>
+                            </div>
+                            <input type="hidden" class="knob" data-thickness="0.3" [attr.data-fgcolor]=data.color
+                                [attr.value]=data.percent data-width="90" data-height="90" data-readonly="true" readonly="readonly">
+                        </div>
+                        <div class="row round-chart-value chart_row">
+                            <div class="col content-1 chart_title">
+                                <div class="title">TARGET</div>
+                                <div class="title">ACTUAL</div>
+                                <div class="title">PERCENT</div>
+                            </div>
+                            <div class="col content-2 c-green chart_val">
+                                <div class="title">{{data.target}}</div>
+                                <div class="title">{{data.actual}}</div>
+                                <div class="value" [ngStyle]="{'color':data.color}"><i class="fas fa-caret-up"></i>{{data.percent}}%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

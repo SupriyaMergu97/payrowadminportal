@@ -1,0 +1,432 @@
+<div class="content-wrapper main-section-container">
+
+    <app-distributor-menus></app-distributor-menus>
+
+    <!-- <section class="content mt-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 pl-0 pr-0">
+                    <div class="table-responsive table-container">
+                        <div>
+                            <div class="mytexttitle">
+                                <select class="form-select current-status-dropdown" aria-label="Default select example" style="float: left;" placeholder="Sort By" >
+                                    <option value="" selected disabled hidden>Sort By</option>
+                                    <option value="A to Z">Name: A to Z</option>
+                                    <option value="Z to A">Name: Z to A</option>
+                                    <option value="date_low">Date: Low to High</option>
+                                    <option value="date_high">Date: High to Low</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <input class="form-control search-hero" type="text" name="search"
+                             autocomplete="off" [(ngModel)]="searchText" placeholder="Search...">
+                        </div>
+                        <div class="hr-tag">
+                            <hr />
+                        </div>
+                        <div class="table_data">
+
+                            <div class="table-responsive">
+                                <table class="table text-center ">
+                                    <thead>
+                                        <tr>
+                                            <th>SALES ID</th>
+                                            <th>SALES PERSON NAME</th>
+                                            <th>CONTACT</th>
+                                            <th>EMAIL</th>
+                                            <th>REMARKS</th>
+                                            <th>JOINING DATE</th>
+                                            <th>NO.OF CUSTOMERS</th>
+                                            <th>COMPLAINTS</th>
+                                            <th>INCENTIVES</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="padding: 10px; font-size: 14px;">
+                                        <tr *ngFor="let sales of salesList| filter:searchText">
+                                            <td>{{sales.userId}}</td>
+                                            <td>{{sales.salesPersonName}}</td>
+                                            <td>{{sales.contact}}</td>
+                                            <td data-tooltip="top" role="tooltip" attr.aria-label="{{sales.email}}"><i class="bi-envelope-open"></i>
+                                            </td>
+                                            <td data-tooltip="top" role="tooltip" attr.aria-label="{{sales.remarks}}"><i class="bi-card-list"></i>
+                                            </td>
+                                            <td>{{sales.joiningDate}}</td>
+                                            <td>{{sales.cust_Number}}</td>
+                                            <td>{{sales.complaints}}</td>
+                                            <td>{{sales.incentives | number}}</td>
+                                        </tr>
+                                        <tr *ngFor="let sales of salesList| filter:searchText">
+                                            <td>{{sales.salesPersonId}}</td>
+                                            <td>{{sales.firstName}}</td>
+                                            <td>{{sales.mobileNumber}}</td>
+                                            <td data-tooltip="top" role="tooltip" attr.aria-label="{{sales.email}}"><i class="bi-envelope-open"></i>
+                                            </td>
+                                            <td data-tooltip="top" role="tooltip" attr.aria-label="{{sales.remarks}}"><i class="bi-card-list"></i>
+                                            </td>
+                                            <td>{{sales.jod}}</td>
+                                            <td>{{sales.customers}}</td>
+                                            <td>{{sales.complaints}}</td>
+                                            <td>{{sales.incentive | currency:"USD":"symbol"}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- NEW CODE FOR TABLE -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row"> 
+                <div class="col-12 mb-4">
+                    <div class="section-title d-flex align-items-center justify-content-end">
+                        <div class="pull-left d-flex gap-16x">
+                            <div class="search-holder">
+                                <form action="">
+                                    <div class="input-group">
+                                        <input type="text" autocomplete="off" name="search" [(ngModel)]="searchText"
+                                            placeholder="Search..." aria-describedby="button-addon5"
+                                            class="form-control">
+                                        <div class="input-group-append">
+                                            <button id="button-addon5" type="submit" class="btn"><i
+                                                    class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="table-resposive">
+                        <table class="table table_cust text-center">
+                            <thead>
+                                <tr>                                    
+                                    <th>Sales ID</th>
+                                    <th>Sales Person Name</th>
+                                    <th class="right-align">Contact</th>
+                                    <th class="center-align">Email</th>
+                                   
+                                    <th class="right-align">Joining Date</th>
+                                    <th class="right-align text-uppercase">NO.OF Customers</th>
+                                    <th class="right-align text-uppercase">Complaints</th>
+                                    <th class="right-align text-uppercase">Incentive</th> 
+                                </tr>
+                            </thead> 
+                            <tbody>                                
+                                <tr *ngFor="let sales of salesList| filter:searchText">
+                                    <td>{{sales.userId}}</td>
+                                    <td>{{sales.salesPersonName}}</td>
+                                    <td class="right-align">{{sales.contact}}</td> 
+                                    <td class="center-align"><span data-tooltip="top" role="tooltip" attr.aria-label="{{sales.email}}"><i class="bi-envelope-open"></i></span></td>
+                                    <td class="right-align">{{sales.joiningDate}}</td>
+                                    <td class="right-align">{{sales.cust_Number}}</td>
+                                    <td class="right-align">{{sales.complaints}}</td>
+                                    <td class="right-align">{{sales.incentives | number}}</td>
+                                </tr>                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- <section class="my-3">
+        <div class="chart-content-holder">
+            <div class="row">
+                <div class="col-sm col-md-4  text-center">
+                    <div class="box-chart ml-0" style="height: 175px;">
+                        <div class="box-title">TOTAL DOWNLOADS</div>
+                    <div style="float: left;margin-left: 10px;">
+                        <div style="display:inline;width:90px;height:90px;">
+                            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" width="25px" style="margin-top: 31px; margin-left: 31px;" class="cl-7">
+                                <path class="sg-icon" d="M89.47,16.65a6.25,6.25,0,0,0-6.24,6.24V39.53a6.25,6.25,0,0,0,6.24,6.24h33.29A6.25,6.25,0,0,0,129,39.53V22.89a6.25,6.25,0,0,0-6.24-6.24h-8.38A10.38,10.38,0,1,0,95.92,8.32H72.82a10.42,10.42,0,0,0-10.4,10.41V37.66a10.43,10.43,0,0,0-8.11,8.11H31.21a10.41,10.41,0,0,0-10.4,10.41V75.11a10.42,10.42,0,0,0-8.33,10.2,10.32,10.32,0,0,0,2.14,6.24H6.24A6.25,6.25,0,0,0,0,97.79v16.65a6.25,6.25,0,0,0,6.24,6.24H39.53a6.25,6.25,0,0,0,6.24-6.24V97.79a6.25,6.25,0,0,0-6.24-6.24H31.16a10.31,10.31,0,0,0,2.13-6.24A10.43,10.43,0,0,0,25,75.11V56.18a6.25,6.25,0,0,1,6.24-6.24h23.1a10.3,10.3,0,0,0,1.92,4.16H47.85a6.25,6.25,0,0,0-6.24,6.24V77a6.25,6.25,0,0,0,6.24,6.25h16.4c-.13.36-.27.73-.39,1.1l-5.6,1.44v15.72l5.6,1.44A30.9,30.9,0,0,0,66,108.11l-3,5L74.17,124.2l5-3a30.9,30.9,0,0,0,5.18,2.15l1.44,5.6h15.72l1.43-5.6a31,31,0,0,0,5.19-2.15l5,3,11.11-11.11-3-5a30,30,0,0,0,2.14-5.18l5.61-1.45V85.77l-5.61-1.44a30,30,0,0,0-2.14-5.18l3-5L113.09,63.06l-5,3a30.66,30.66,0,0,0-5.19-2.15l-1.43-5.6H87a6.22,6.22,0,0,0-5.85-4.16H72.77a10.32,10.32,0,0,0,2.13-6.25,10.42,10.42,0,0,0-8.32-10.19V18.73a6.25,6.25,0,0,1,6.24-6.25h23.1a10.41,10.41,0,0,0,1.92,4.17ZM41.61,97.79v16.65a2.08,2.08,0,0,1-2.08,2.08H6.24a2.09,2.09,0,0,1-2.08-2.08V97.79a2.08,2.08,0,0,1,2.08-2.08H39.53A2.08,2.08,0,0,1,41.61,97.79ZM29.13,85.31a6.24,6.24,0,1,1-6.24-6.25A6.25,6.25,0,0,1,29.13,85.31ZM99.49,67.23l1.17.31a27.23,27.23,0,0,1,6.45,2.66l1,.61,4.26-2.52L119,74.83l-2.52,4.27.61,1.05a27.06,27.06,0,0,1,2.66,6.45l.31,1.17L124.84,89v9.26L120,99.49l-.31,1.17a27.23,27.23,0,0,1-2.66,6.45l-.61,1,2.52,4.27L112.42,119l-4.26-2.52-1,.61a27.23,27.23,0,0,1-6.45,2.66l-1.17.31-1.23,4.81H89L87.77,120l-1.18-.31a27.33,27.33,0,0,1-6.44-2.66l-1.05-.61L74.83,119l-6.54-6.54,2.52-4.27-.61-1a27.23,27.23,0,0,1-2.66-6.45l-.32-1.17-4.8-1.23V89l4.8-1.23.32-1.17a25.83,25.83,0,0,1,1.18-3.37h4.52a22.66,22.66,0,0,0-2.5,10.4,23,23,0,1,0,16.65-22V62.42H98.26ZM87.39,77V76a18.54,18.54,0,0,1,6.24-1.09A18.73,18.73,0,1,1,74.9,93.63a18.52,18.52,0,0,1,3.17-10.4h3.08A6.25,6.25,0,0,0,87.39,77ZM83.23,60.34V77a2.08,2.08,0,0,1-2.08,2.08H47.85A2.08,2.08,0,0,1,45.77,77V60.34a2.08,2.08,0,0,1,2.08-2.08h33.3A2.08,2.08,0,0,1,83.23,60.34ZM70.74,47.85a6.24,6.24,0,1,1-6.24-6.24A6.25,6.25,0,0,1,70.74,47.85Zm54.1-25V39.53a2.08,2.08,0,0,1-2.08,2.08H89.47a2.08,2.08,0,0,1-2.08-2.08V22.89a2.08,2.08,0,0,1,2.08-2.08h33.29A2.08,2.08,0,0,1,124.84,22.89Zm-25-12.49a6.24,6.24,0,1,1,6.24,6.25A6.25,6.25,0,0,1,99.87,10.4Z" />
+                                <path class="sg-icon" d="M91.55,25h29.13v4.16H91.55Z" />
+                                <path class="sg-icon" d="M91.55,33.29h29.13v4.16H91.55Z" />
+                                <path class="sg-icon" d="M49.94,62.42H79.06v4.16H49.94Z" />
+                                <path class="sg-icon" d="M49.94,70.74H79.06V74.9H49.94Z" />
+                                <path class="sg-icon" d="M8.32,99.87H37.45V104H8.32Z" />
+                                <path class="sg-icon" d="M8.32,108.19H37.45v4.16H8.32Z" />
+                                <path class="sg-icon" d="M93.63,104a10.4,10.4,0,1,0-10.4-10.4A10.4,10.4,0,0,0,93.63,104Zm0-16.64a6.24,6.24,0,1,1-6.24,6.24A6.25,6.25,0,0,1,93.63,87.39Z" />
+                            </svg>
+                            <input type="hidden" class="knob" data-thickness="0.3" data-fgcolor="#BBADFF" value="75" data-width="90" data-height="90" data-readonly="true" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="col brl salesChart">
+                        <div class="row">
+                            <div class="col content-1 saleChart_val">
+                                <div class="title">TARGET</div>
+                                <div class="title">ACTUAL</div>
+                                <div class="title">PERCENTAGE</div>
+                            </div>
+                            <div class="col content-2 c-red saleChart_val2">
+                                <div class="title">2,100,000,000</div>
+                                <div class="title">200,000</div>
+                                <div class="value" style="color: red;"><i class="fas fa-caret-down"></i>2%</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-sm col-md-4 text-center ">
+                    <div class="box-chart" style="height: 175px;">
+                        <div class="box-title">TOTAL OPEN CASES</div>
+                        <div style="float: left;margin-left: 10px;">
+                        <div style="display:inline;width:90px;height:90px;">
+                            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" width="26px" class="cl-8" style="margin-top: 33px; margin-left: 35px;">
+                                <path class="sg-icon" d="M104.47,57.27,83.85,31.5V10.75A10.76,10.76,0,0,0,73.1,0h-43A10.76,10.76,0,0,0,19.35,10.75v77.4A10.76,10.76,0,0,0,30.1,98.9H49.45v5.66A24.48,24.48,0,0,0,73.9,129h33.6a2.15,2.15,0,0,0,2.15-2.15V72.05A23.77,23.77,0,0,0,104.47,57.27ZM73.1,4.3a6.45,6.45,0,0,1,6.45,6.45V67.14L71,58V4.3ZM66.65,53.43,63,49.52a10.15,10.15,0,0,0-2.77-2V4.3h6.45Zm-43,34.72V10.75A6.45,6.45,0,0,1,30.1,4.3H55.9V46.41a9.74,9.74,0,0,0-7,2.69s-.2.18-.22.21a9.93,9.93,0,0,0-.57,13.46l7.77,9.17V94.6H30.1A6.45,6.45,0,0,1,23.65,88.15ZM66.87,94.6H60.2V77l6.45,7.62v6.65A27.88,27.88,0,0,0,66.87,94.6Zm38.48,30.1H73.9a20.17,20.17,0,0,1-20.15-20.14V98.9h14a28.78,28.78,0,0,0,17.54,19.21l1.5-4A24.45,24.45,0,0,1,71,91.29V83.85a2.15,2.15,0,0,0-.51-1.39L51.42,60a5.68,5.68,0,0,1,.43-7.75,5.75,5.75,0,0,1,4-1.55,5.64,5.64,0,0,1,4,1.77l28.89,30.7,3.14-2.94-8-8.52V38.38L101.11,60a19.42,19.42,0,0,1,4.24,12.1Z" />
+                                <rect class="sg-icon" x="30.1" y="10.75" width="4.3" height="27.95" />
+                                <rect class="sg-icon" x="40.85" y="10.75" width="4.3" height="17.2" />
+                                <path class="sg-icon" d="M45.15,71H32.25A2.15,2.15,0,0,0,30.1,73.1V86a2.15,2.15,0,0,0,2.15,2.15h12.9A2.15,2.15,0,0,0,47.3,86V73.1A2.15,2.15,0,0,0,45.15,71ZM43,83.85H34.4v-8.6H43Z" />
+                            </svg>
+                            <input type="hidden" class="knob" data-thickness="0.3" data-fgcolor="#8AC6D0" value="75" data-width="90" data-height="90" data-readonly="true" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="col brl salesChart">
+                        <div class="row">
+                            <div class="col content-1 saleChart_val">
+                                <div class="title">TARGET</div>
+                                <div class="title">ACTUAL</div>
+                                <div class="title">PERCENTAGE</div>
+                            </div>
+                            <div class="col content-2 c-red saleChart_val2">
+                                <div class="title">1,000,000</div>
+                                <div class="title">100,000</div>
+                                <div class="value" style="color: orange;"><i class="fas fa-equals"></i>2%</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-sm col-md-4 text-center">
+                    <div class="box-chart" style="height: 175px;">
+                        <div class="box-title">TOTAL CLOSED CASES</div>
+                        <div style="float: left;margin-left: 10px;">
+                        <div style="display:inline;width:90px;height:90px;">
+                            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" width="20px" class="cl-9" style="margin-left: 35px; margin-top:34px">
+                                <path class="sg-icon" d="M128.55,72.15l-17-36.3a2.69,2.69,0,0,0-2.7-1.5H94.5a3,3,0,0,0,0,6H107l14,30H103.8a19.66,19.66,0,0,0-18,11.55,14,14,0,0,1-12.6,7.95H55.8A14,14,0,0,1,43.2,81.9a19.66,19.66,0,0,0-18-11.55H8.4l16.5-30h9.6a3,3,0,0,0,0-6H23.1a2.86,2.86,0,0,0-2.7,1.35L.6,72A1.81,1.81,0,0,0,0,73.2v37.35a15.75,15.75,0,0,0,15.45,15.3h98.1A15.75,15.75,0,0,0,129,110.55V73.2A2.29,2.29,0,0,0,128.55,72.15ZM123,110.55a9.75,9.75,0,0,1-9.45,9.3H15.45A9.75,9.75,0,0,1,6,110.55V76.35H25.2a14,14,0,0,1,12.6,8,19.66,19.66,0,0,0,18,11.55H73.2a19.66,19.66,0,0,0,18-11.55,14,14,0,0,1,12.6-8H123v34.2Z" />
+                                <path class="sg-icon" d="M62.4,72.6a2.85,2.85,0,0,0,4,.17l.17-.17L87,52.05a3,3,0,0,0-4.2-4.2L67.5,63.15v-57a3,3,0,1,0-6,0v57L46.2,47.85a3,3,0,0,0-4.2,4.2Z" />
+                            </svg>
+                            <input type="hidden" class="knob" data-thickness="0.3" data-fgcolor="#6E82DB" value="75" data-width="90" data-height="90" data-readonly="true" readonly="readonly">
+                        </div>
+                        </div>
+                        <div class="col brl salesChart">
+                            <div class="row">
+                                <div class="col content-1 saleChart_val">
+                                    <div class="title">TARGET</div>
+                                    <div class="title">ACTUAL</div>
+                                    <div class="title">PERCENTAGE</div>
+                                </div>
+                                <div class="col content-2 c-red saleChart_val2">
+                                    <div class="title">500,000</div>
+                                    <div class="title">450,000</div>
+                                    <div class="value" style="color: red;"><i class="fas fa-caret-down"></i>2%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm col-md-4 text-center ">
+                    <div class="box-chart" style="height: 175px;">
+                        <div class="box-title">SALES REVENUE</div>
+                        <div style="float: left;margin-left: 10px;">
+                        <div style="display:inline;width:90px;height:90px;">
+                            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" width="25px" class="cl-10" style="margin-left: 35px; margin-top:32px;">
+                                <path class="sg-icon" d="M20.74,2.15V51.6a2.15,2.15,0,0,0,2.15,2.15h83.85a2.15,2.15,0,0,0,2.15-2.15V2.15A2.15,2.15,0,0,0,106.74,0H22.89A2.15,2.15,0,0,0,20.74,2.15ZM25,4.3h79.55V49.45H25Z" />
+                                <path class="sg-icon" d="M98.14,8.6H31.49a2.15,2.15,0,0,0-2.15,2.15V43a2.15,2.15,0,0,0,2.15,2.15H98.14A2.15,2.15,0,0,0,100.29,43V10.75A2.15,2.15,0,0,0,98.14,8.6ZM85.44,40.85H44.2A12.92,12.92,0,0,0,33.64,30.29V23.46A12.92,12.92,0,0,0,44.2,12.9H85.44A12.92,12.92,0,0,0,96,23.46v6.83A12.92,12.92,0,0,0,85.44,40.85ZM96,12.9v6.18a8.62,8.62,0,0,1-6.17-6.18Zm-62.35,0h6.18a8.63,8.63,0,0,1-6.18,6.18Zm0,28V34.67a8.63,8.63,0,0,1,6.18,6.18Zm62.35,0H89.82A8.62,8.62,0,0,1,96,34.67Z" />
+                                <path class="sg-icon" d="M63.74,19.35a8.6,8.6,0,1,0,8.6,8.6A8.6,8.6,0,0,0,63.74,19.35Zm0,12.9A4.3,4.3,0,1,1,68,28,4.31,4.31,0,0,1,63.74,32.25Z" />
+                                <path class="sg-icon" d="M123.73,65.69a2.17,2.17,0,0,0-1.94-1.19h-4.3V55.9h-4.3v8.6H111a2.17,2.17,0,0,0-1.72.86l-6.17,8.23L84.61,83.89l-18.4,1.42,2.94-1.77a2.15,2.15,0,0,0,.41-.32l15-15a2.14,2.14,0,0,0,.2-2.81l-6.45-8.6a2.15,2.15,0,0,0-2.91-.5L56.29,69l-20.5,8.19V68.8h-4.3V79l-7.24,2.9a2.15,2.15,0,0,0-1.31,1.58l-4.37,21.83-10.75.09A2.15,2.15,0,0,0,5.74,107l-4.3,19.35A2.14,2.14,0,0,0,3.54,129h43a2.36,2.36,0,0,0,.75-.13l.24-.14a1.9,1.9,0,0,0,.39-.23,1.67,1.67,0,0,0,.6-.89,2,2,0,0,0,.13-.34l4-20.14,35.21-8.29a2,2,0,0,0,.61-.25L110,85.69a2,2,0,0,0,.61-.55l12.9-17.2A2.13,2.13,0,0,0,123.73,65.69Zm-107.29,59H6.23l3.33-15.06,37.67-.33L44.72,124.7Zm91-42.48L86.57,94.74l-36.22,8.52a2.12,2.12,0,0,0-1.61,1.67l0,.07L23,105.21l4-19.8L58.1,72.94a1.87,1.87,0,0,0,.39-.22L76.15,61l4.11,5.48L66.72,80,56.18,86.29a2.15,2.15,0,0,0,1.28,4l27.95-2.15a2.09,2.09,0,0,0,.88-.26l19.35-10.75a2.26,2.26,0,0,0,.67-.6l5.81-7.74h5.37Z" />
+                                <path class="sg-icon" d="M7.84,70.06,5.06,67.28l-3,3,6.45,6.45a2.15,2.15,0,0,0,3,0L18,70.32l-3-3-2.78,2.78V60.2H7.84Z" />
+                                <path class="sg-icon" d="M12.14,8.6h4.3V21.5h-4.3Z" />
+                                <path class="sg-icon" d="M31.49,60.2h4.3v4.3h-4.3Z" />
+                                <path class="sg-icon" d="M118.12,25.17a2.15,2.15,0,0,0,3,0l6.45-6.45-3-3-2.78,2.78V8.6h-4.3v9.86l-2.78-2.78-3,3Z" />
+                                <path class="sg-icon" d="M1.39,36.55h4.3V47.3H1.39Z" />
+                                <path class="sg-icon" d="M1.39,28h4.3v4.3H1.39Z" />
+                            </svg>
+                            <input type="hidden" class="knob" data-thickness="0.3" data-fgcolor="#E6656B" value="75" data-width="90" data-height="90" data-readonly="true" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="col brl salesChart">
+                        <div class="row">
+                            <div class="col content-1 saleChart_val">
+                                <div class="title">TARGET</div>
+                                <div class="title">ACTUAL</div>
+                                <div class="title">PERCENTAGE</div>
+                            </div>
+                            <div class="col content-2 c-red saleChart_val2">
+                                <div class="title">440,000,000</div>
+                                <div class="title">50,000,000</div>
+                                <div class="value" style="color: green;"><i class="fas fa-caret-up"></i>7%</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-sm col-md-4 text-center ">
+                    <div class="box-chart" style="height: 175px;">
+                        <div class="box-title">NO. OF LOCATIONS</div>
+                        <div style="float: left;margin-left: 10px;">
+                        <div style="display:inline;width:90px;height:90px;">
+                            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" width="25px" class="cl-11" style="margin-left: 33px; margin-top:32px;">
+                                <path class="sg-icon" d="M28.47,29H1.84A1.85,1.85,0,0,1,0,27.12V24.94a15.16,15.16,0,0,1,30.31,0v2.18A1.84,1.84,0,0,1,28.47,29ZM3.69,25.28H26.63v-.34a11.47,11.47,0,0,0-22.94,0Z" />
+                                <path class="sg-icon" d="M103.09,52.47a1.84,1.84,0,0,1-1.84-1.84v-7.8a1.84,1.84,0,0,1,3.68,0v7.8A1.84,1.84,0,0,1,103.09,52.47Z" />
+                                <path class="sg-icon" d="M103.09,104.38a1.84,1.84,0,0,1-1.84-1.84V82.4a1.84,1.84,0,0,1,3.68,0v20.14A1.84,1.84,0,0,1,103.09,104.38Z" />
+                                <path class="sg-icon" d="M103.09,73.18a1.84,1.84,0,0,1-1.84-1.84V63.53a1.84,1.84,0,0,1,3.68,0v7.81A1.84,1.84,0,0,1,103.09,73.18Z" />
+                                <path class="sg-icon" d="M103.09,33.62a1.84,1.84,0,0,1-1.84-1.84V24.09A10.64,10.64,0,0,0,90.63,13.46H15.17a1.85,1.85,0,1,1,0-3.69H90.63a14.33,14.33,0,0,1,14.3,14.32v7.69a1.84,1.84,0,0,1-1.84,1.84Z" />
+                                <path class="sg-icon" d="M115.05,119.23H41.65a15.21,15.21,0,0,1-15-15.18V27.12a1.85,1.85,0,0,1,3.69,0v76.93a11.5,11.5,0,0,0,23,0v-1.51a1.84,1.84,0,0,1,1.84-1.84h72a1.85,1.85,0,0,1,1.84,1.84v2.74A14,14,0,0,1,115.05,119.23Zm-63.33-3.69h63.33a10.27,10.27,0,0,0,10.26-10.26v-.89H57A15.17,15.17,0,0,1,51.72,115.54Z" />
+                                <path class="sg-icon" d="M88.09,36.19H43a1.85,1.85,0,1,1,0-3.69H88.09a1.85,1.85,0,0,1,0,3.69Z" />
+                                <path class="sg-icon" d="M88.09,53H43a1.85,1.85,0,1,1,0-3.69H88.09a1.85,1.85,0,0,1,0,3.69Z" />
+                                <path class="sg-icon" d="M88.09,69.89H43a1.85,1.85,0,1,1,0-3.69H88.09a1.85,1.85,0,0,1,0,3.69Z" />
+                                <path class="sg-icon" d="M88.09,86.73H43a1.84,1.84,0,1,1,0-3.68H88.09a1.84,1.84,0,0,1,0,3.68Z" />
+                            </svg>
+                            <input type="hidden" class="knob" data-thickness="0.3" data-fgcolor="#F3C331" value="75" data-width="90" data-height="90" data-readonly="true" readonly="readonly">
+                        </div>
+                        </div>
+                        <div class="col brl salesChart">
+                            <div class="row">
+                                <div class="col content-1 saleChart_val">
+                                    <div class="title">TARGET</div>
+                                    <div class="title">ACTUAL</div>
+                                    <div class="title">PERCENTAGE</div>
+                                </div>
+                                <div class="col content-2 c-red saleChart_val2">
+                                    <div class="title">4,800,000</div>
+                                    <div class="title">500,000</div>
+                                    <div class="value" style="color: green;"><i class="fas fa-caret-up"></i>3%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm col-md-4 text-center ">
+                    <div class="box-chart mr-0"  style="height: 175px;">
+                        <div class="box-title">DISPUTE</div>
+                        <div style="float: left;margin-left: 10px;">
+                        <div style="display:inline;width:90px;height:90px;">
+                            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" width="20px" class="cl-12" style="margin-left: 34px; margin-top:35px;">
+                                <path class="sg-icon" d="M53.48,50.27a2.16,2.16,0,0,0-2.15,2L49.22,76.39a2.16,2.16,0,0,0,2.15,2.34H75.52a2.14,2.14,0,0,0,2.15-2l2.11-24.14a2.16,2.16,0,0,0-2.15-2.35ZM73.54,74.41H53.73l1.73-19.82H75.27Z" />
+                                <path class="sg-icon" d="M90.19,123.51A13.2,13.2,0,0,0,94.45,115v0l1.41-16.11h16.21a13.35,13.35,0,0,0,13-12,11.24,11.24,0,0,0-11.34-12.41H98l1.73-19.82h16.13a13.37,13.37,0,0,0,13.09-12,11.22,11.22,0,0,0-11.34-12.4H101.87l1.38-15.76A11.23,11.23,0,0,0,91.92,2a13.35,13.35,0,0,0-13.1,12L77.41,30.15H57.6L59,14.38A11.23,11.23,0,0,0,47.65,2a13.06,13.06,0,0,0-8.84,3.51A13.15,13.15,0,0,0,34.56,14L33.14,30.15H17a13.35,13.35,0,0,0-13.09,12A11.24,11.24,0,0,0,15.25,54.59H31L29.27,74.41H13.14a13.37,13.37,0,0,0-13.09,12,11.22,11.22,0,0,0,11.33,12.4H27.13l-1.38,15.77A11.23,11.23,0,0,0,37.09,127a13.35,13.35,0,0,0,13.09-12v-.06l1.41-16.08H71.4L70,114.61A11.23,11.23,0,0,0,81.35,127,13.06,13.06,0,0,0,90.19,123.51Zm-14.09-3A7.09,7.09,0,0,1,74.32,115l1.59-18.11a2.17,2.17,0,0,0-2.15-2.35H49.61a2.15,2.15,0,0,0-2.15,2l-1.59,18.15a9,9,0,0,1-8.78,8,6.9,6.9,0,0,1-7-7.71l1.58-18.11a2.16,2.16,0,0,0-2.15-2.35H11.38A7,7,0,0,1,6.13,92.3a7.09,7.09,0,0,1-1.78-5.48,9,9,0,0,1,8.79-8.09H31.25a2.14,2.14,0,0,0,2.15-2l2.11-24.14a2.16,2.16,0,0,0-2.15-2.35H15.25A7,7,0,0,1,10,48a7.1,7.1,0,0,1-1.78-5.48A9.13,9.13,0,0,1,17,34.47H35.12a2.14,2.14,0,0,0,2.15-2l1.59-18.11A9,9,0,0,1,47.65,6.3,7,7,0,0,1,52.9,8.53,7.09,7.09,0,0,1,54.68,14L53.09,32.12a2.17,2.17,0,0,0,2.15,2.35H79.39a2.15,2.15,0,0,0,2.15-2l1.59-18.1A9.12,9.12,0,0,1,91.92,6.3a6.9,6.9,0,0,1,7,7.71L97.36,32.12a2.16,2.16,0,0,0,2.15,2.35h18.11a7,7,0,0,1,5.25,2.23,7.09,7.09,0,0,1,1.78,5.48,9.13,9.13,0,0,1-8.79,8.09H97.75a2.15,2.15,0,0,0-2.15,2L93.49,76.39a2.14,2.14,0,0,0,2.15,2.34h18.11a6.93,6.93,0,0,1,7,7.71A9.13,9.13,0,0,1,112,94.53H93.88a2.14,2.14,0,0,0-2.15,2l-1.58,18.06a.28.28,0,0,0,0,.09,9,9,0,0,1-8.79,8A7,7,0,0,1,76.1,120.47Z" />
+                            </svg>
+                            <input type="hidden" class="knob" data-thickness="0.3" data-fgcolor="#71AA46" value="75" data-width="90" data-height="90" data-readonly="true" readonly="readonly">
+                        </div>
+                        </div>
+                        <div class="col brl salesChart">
+                            <div class="row">
+                                <div class="col content-1 saleChart_val">
+                                    <div class="title">TARGET</div>
+                                    <div class="title">ACTUAL</div>
+                                    <div class="title">PERCENTAGE</div>
+                                </div>
+                                <div class="col content-2 c-red saleChart_val2">
+                                    <div class="title">520,000,000</div>
+                                    <div class="title">50,000,000</div>
+                                    <div class="value" style="color: red;"><i class="fas fa-caret-down"></i>2%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- <section class="round-chart-value-section mb-4">
+        <div class="row">
+            <div class="col brl">
+                <div class="row">
+                    <div class="col content-1">
+                        <div class="title">TARGET</div>
+                        <div class="title">ACTUAL</div>
+                        <div class="title">PERCENTAGE</div>
+                    </div>
+                    <div class="col content-2 c-red">
+                        <div class="title">2100</div>
+                        <div class="title">2000</div>
+                        <div class="value"><i class="fas fa-caret-down"></i>2%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col brl">
+                <div class="row">
+                    <div class="col content-1">
+                        <div class="title">TARGET</div>
+                        <div class="title">ACTUAL</div>
+                        <div class="title">PERCENTAGE</div>
+                    </div>
+                    <div class="col content-2 c-orange">
+                        <div class="title">100000</div>
+                        <div class="title">100000</div>
+                        <div class="value"> <i class="fas fa-equals"></i> 5%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col brl">
+                <div class="row">
+                    <div class="col content-1">
+                        <div class="title">TARGET</div>
+                        <div class="title">ACTUAL</div>
+                        <div class="title">PERCENTAGE</div>
+                    </div>
+                    <div class="col content-2 c-red">
+                        <div class="title">500</div>
+                        <div class="title">450</div>
+                        <div class="value"><i class="fas fa-caret-down"></i>2%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col brl">
+                <div class="row">
+                    <div class="col content-1">
+                        <div class="title">TARGET</div>
+                        <div class="title">ACTUAL</div>
+                        <div class="title">PERCENTAGE</div>
+                    </div>
+                    <div class="col content-2 c-green">
+                        <div class="title">440</div>
+                        <div class="title">500</div>
+                        <div class="value"><i class="fas fa-caret-up"></i>7%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col brl">
+                <div class="row">
+                    <div class="col content-1">
+                        <div class="title">TARGET</div>
+                        <div class="title">ACTUAL</div>
+                        <div class="title">PERCENTAGE</div>
+                    </div>
+                    <div class="col content-2 c-green">
+                        <div class="title">480</div>
+                        <div class="title">500</div>
+                        <div class="value"><i class="fas fa-caret-up"></i>3%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col content-1">
+                        <div class="title">TARGET</div>
+                        <div class="title">ACTUAL</div>
+                        <div class="title">PERCENTAGE</div>
+                    </div>
+                    <div class="col content-2 c-red">
+                        <div class="title">520</div>
+                        <div class="title">500</div>
+                        <div class="value"><i class="fas fa-caret-down"></i>2%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+</div>

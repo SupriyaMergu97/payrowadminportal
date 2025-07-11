@@ -1,0 +1,384 @@
+<button class="btn btn-sm btn-success edit_btn"
+style="margin-top: -56px;
+float: right;
+margin-right: 11%;" (click)="openPDF()">Download</button>
+
+<div class="card-body" style="background-color: #fff;padding: 8px;">
+    <!-- NI FORM -->
+
+    <div class="mainDiv" style="padding: 25px;" >
+		<div class="rowBorder" id="htmlData">
+			<form>
+				<div class="card nbqCard">
+					<div class="row">
+						<div class="col-12">
+							<h5 class="appForm">MERCHANT INFORMATION</h5>
+						</div>
+					</div>
+				</div>
+
+				<div class="card nbqCardLabel">
+					<div class="row">
+						<div class="col-6">
+							<h5 class="appLabel">Merchant Legal Name :</h5>
+						</div>
+					</div>
+				</div>
+
+				
+				<div class="row">
+					<div class="col-12">
+						<div class="ipDiv">
+							<div class="labelIp col-12">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder="" value={{objSheet.merchntName}}
+									style="bottom: 0;" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card nbqCardLabelOne">
+					<div class="row">
+						<div class="col-6">
+							<h5 class="appLabel">Doing Business As  :</h5>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="ipDiv">
+							<div class="labelIp col-12">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card nbqCardLabelOne">
+					<div class="row">
+						<div class="col-6">
+							<h5 class="appLabel">Address :</h5>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="ipDiv">
+							<div class="labelIp col-12">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" value={{objSheet.address}} />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card nbqCardLabelOne">
+					<div class="row">
+						<div class="col-6">
+							<h5 class="appLabel">P O Box :</h5>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="ipDiv">
+							<div class="labelIp col-12">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;"value={{objSheet.poAdress}} />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card nbqCardLabelOne">
+					<div class="row">
+						<div class="col-6">
+							<h5 class="appLabel">Telephone No :</h5>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="ipDiv">
+							<div class="labelIp col-12">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" value={{objSheet.mobileNo}}/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card nbqCardLabelOne">
+					<div class="row">
+						<div class="col-6">
+							<h5 class="appLabel">Email address for receiving daily advises :</h5>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="ipDiv">
+							<div class="labelIp col-12">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" value={{objSheet.email}}/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card nbqCardLabelOne">
+					<div class="row">
+						<div class="col-6">
+							<h5 class="appLabel">Location: </h5>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="ipDiv">
+							<div class="labelIp col-12">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" value={{objSheet.location}}/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card nbqCardLabelOne">
+					<div class="row">
+						<div class="col-6">
+							<h5 class="appLabel">Type / Nature of Business:</h5>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="ipDiv">
+							<div class="labelIp col-12">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+    </div>
+
+
+    <div class="mainDiv" style="padding: 25px; margin-top: 15px;">
+		<div id="htmlTwo">
+
+		
+			<div class="rowBorder" >
+				<div class="card nbqCardLabelTwo">
+					<div class="row">
+						<div class="col-6">
+							<h5 class="appLabel">Website URLs:</h5>
+						</div>
+						<!-- <div class="col-6">
+							<h5 class="appForm" style="text-align: center;">
+								تفاصيل التاجر
+							</h5>
+						</div> -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="ipDiv">
+							<!-- <div class="labelBlock col-2">
+								<span class="inputLabel">االسم القانوني للتاجر
+								</span><br>
+								<span class="inputLabel">MERCHANT LEGAL NAME</span>
+							</div> -->
+							<div class="labelIp col-12">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card nbqCardLabelOne">
+					<div class="row">
+						<div class="col-6">
+							<h5 class="appLabel">TId machines Quantity :</h5>
+						</div>
+						<!-- <div class="col-6">
+							<h5 class="appForm" style="text-align: center;">
+								تفاصيل التاجر
+							</h5>
+						</div> -->
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="ipDiv">
+							<!-- <div class="labelBlock col-2">
+								<span class="inputLabel">االسم القانوني للتاجر
+								</span><br>
+								<span class="inputLabel">MERCHANT LEGAL NAME</span>
+							</div> -->
+							<div class="labelIp col-12">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card nbqCardLabelOne">
+					<div class="row">
+						<div class="col-6">
+							<h5 class="appLabel">Transaction Volume and Value p.a:</h5>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="ipDiv">
+							<div class="labelIp col-12">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" value={{objSheet.tranByYear}}/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card nbqCardLabelOne">
+					<div class="row">
+						<div class="col-6">
+							<span>
+								<h5 class="appLabel">Card Type: </h5>
+								
+									<h6 class="appLabel1">Visa <input type="checkbox"></h6>
+									<!-- <h6 class="appLabel1">Visa <input type="checkbox"></h6> -->
+								
+							</span>
+							
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="ipDiv">
+							<!-- <div class="labelBlock col-2">
+								<span class="inputLabel">االسم القانوني للتاجر
+								</span><br>
+								<span class="inputLabel">MERCHANT LEGAL NAME</span>
+							</div> -->
+							<div class="labelIp col-12">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<h4 class="side-header">Settlement Details:</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					<h4 class="side-header1">IBAN. No.:</h4>
+				</div>
+				<div class="col-6">
+					<input type="text" class="form-control nbqInput" id="nbqField" placeholder=""  value={{objSheet.IbanNo}}/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					<h4 class="side-header1">Account Name:</h4>
+				</div>
+				<div class="col-6">
+					<input type="text" class="form-control nbqInput" id="nbqField" placeholder="" value={{objSheet.merchntName}}/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					<h4 class="side-header1">Bank Name and Branch:</h4>
+				</div>
+				<div class="col-6">
+					<input type="text" class="form-control nbqInput" id="nbqField" placeholder="" value={{objSheet.bankNamendBranch}}/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<h4 class="side-header">All details given above are correct – Acknowledged by Merchant Authorized Signatory :</h4>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-3">
+					<h6 style="float: left;
+					margin-top: 18px;">Auth. Person Name I :</h6>
+				</div>
+				<div class="col-3">
+					<input type="text" class="form-control nbqInputOne" id="nbqField" placeholder="" />
+				</div>
+				<div class="col-3">
+					<h6 style="margin-left: -87px;
+					margin-top: 22px;">Auth.Person Name II :</h6>
+				</div>
+				<div class="col-3">
+					<input type="text" class="form-control nbqInputOne" id="nbqField" placeholder="" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-2">
+					<h6 style="float: left;
+					margin-top: 18px;">Contact Number: </h6>
+				</div>
+				<div class="col-4">
+					<input type="text" class="form-control nbqInputOne" id="nbqField"style="margin-left: 6px;
+					width: 47%;" placeholder="" />
+				</div>
+				<div class="col-2">
+					<h6 style="margin-top: 18px;
+					margin-left: -36px;">Contact Number: </h6>
+				</div>
+				<div class="col-4">
+					<input type="text" class="form-control nbqInputOne" id="nbqField"style="margin-left: 8px;
+					width: 46%;" placeholder="" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-2">
+					<h6 style="float: left;
+					margin-top: 18px;">Email: </h6>
+				</div>
+				<div class="col-4">
+					<input type="text" class="form-control nbqInputOne" id="nbqField" style="margin-left: 4px;
+					width: 48%;" placeholder="" />
+				</div>
+				<div class="col-2">
+					<h6 style="margin-top: 17px;
+					margin-left: -108px;">Email: </h6>
+				</div>
+				<div class="col-4">
+					<input type="text" class="form-control nbqInputOne" style="margin-left: 10px;
+					width: 46%;" id="nbqField" placeholder="" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-2">
+					<h6 style="float: left;
+					margin-top: 18px;">Signature: </h6>
+				</div>
+				<div class="col-4">
+					<input type="text" class="form-control nbqInputOne" style="margin-left: 2px;
+					width: 49%;" id="nbqField" placeholder="" />
+				</div>
+				<div class="col-2">
+					<h6 style="margin-top: 18px;
+					margin-left: -79px;">Signature: </h6>
+				</div>
+				<div class="col-4">
+					<input type="text" class="form-control nbqInputOne" style="margin-left: 10px;
+					width: 46%;" id="nbqField" placeholder="" />
+				</div>
+			</div>
+		</div>
+
+
+    </div>
+</div>
+
+<div id="1">
+	sudhakr
+</div>
+<div id="">kiran</div>

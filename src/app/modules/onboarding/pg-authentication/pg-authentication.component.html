@@ -1,0 +1,440 @@
+<div class="content-wrapper main-section-container">
+    <app-allocation-menus></app-allocation-menus>
+
+    <section class="content">
+        <div class="container-fluid p-0">
+            <div class="row">
+                <div class="col-12" *ngIf="!(isTrack || isForm)">
+                    <div class="pull-left d-flex gap-16x mb-4">
+                        <div class="search-holder">
+                            <!-- <form action=""> -->
+                            <div class="input-group">
+                                <input type="search" autocomplete="off" [(ngModel)]="searchText" placeholder="search"
+                                    aria-describedby="button-addon5" class="form-control">
+                                <div class="input-group-append">
+                                    <button id="button-addon5" type="submit" class="btn"><i
+                                            class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                            <!-- </form> -->
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th>PAYROW ID</th>
+                                    <th class="cur_Header">MID</th>
+                                    <th>NAME</th>
+                                    <!-- <th>EMAIL</th> -->
+                                    <th>ADDRESS</th>
+                                    <th class="cur_Header">JOINING DATE</th>
+                                    <!-- <th class="cur_Header">SALES PERSON NAME</th> -->
+                                    <th>MID ALLOCATION</th>
+                                    <th>MERCHANT CONFIG</th>
+                                    <!-- <th>TRANSACTION RATE</th> -->
+                                </tr>
+                            </thead>
+                            <tbody class="align-baseline">
+                                <tr *ngFor="let merData of merchantList | filter:searchText">
+                                    <td>{{merData.payRowId}}</td>
+                                    <td>{{merData.merchantId}}</td>
+                                    <td>{{merData.merchantName}}</td>
+                                    <!-- <td data-tooltip="top" role="tooltip" attr.aria-label="{{merData.emailId}}">
+                                        <i class="bi-envelope-open"></i>
+                                    </td> -->
+                                    <td>
+                                        <div class="content" style="margin-left: 4px;" data-toggle="modal"
+                                            data-target="#userinfo">
+                                            <div class="bi-card-list"></div>
+                                        </div>
+                                    </td>
+                                    <!-- <td class="remarks_one" data-tooltip="top" role="tooltip"
+                                        attr.aria-label="{{merData.addressDetails}} {{merData.city}}"><i
+                                            class="bi-card-list"></i></td> -->
+                                    <td>{{merData.createdDate | date}}</td>
+                                    <!-- <td data-tooltip="top" role="tooltip" attr.aria-label="{{merData.addressDetails}}">
+                                        {{merData.firstName}}</td> -->
+                                        <td><button *ngIf="!merData.merchantId"
+                                            class="btn btn-sm btn-sm-cust btn-outline-dark" data-toggle="modal"
+                                            data-target="#midAllocate"
+                                            (click)="getMerbyId(merData._id)">Process</button>
+                                        <span *ngIf="merData.merchantId">Done</span>
+                                        <!-- (click)="userDetailsFunc(merData._id)" -->
+                                    </td>
+                                    <td *ngIf="merData.config===false">
+                                        <button class="btn btn-sm btn-sm-cust btn-outline-dark"
+                                            (click)="configForm(merData.payRowId,merData.config)">Config</button>
+                                    </td>
+                                    <td *ngIf="merData.config===true">
+                                        <button class="btn btn-sm btn-sm-cust btn-outline-dark user-list-ibtn"
+                                            (click)="configForm(merData.payRowId,merData.config)"><span><img
+                                                    src="../../../../assets/images/user_list-icon.svg" alt=""><img
+                                                    src="../../../../assets/images/user_list-icon-hover.svg"
+                                                    alt=""></span></button>
+                                        <!-- <button class="btn btn-sm btn-sm-cust btn-outline-dark"
+                                            (click)="configForm(merData.payRowId,merData.config)">Details</button> -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+    
+                <div id="midAllocate" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <!-- <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Modal Header</h4>
+                            </div> -->
+                            <div class="modal-body">
+                                <div class="row">
+                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                            <div class="form-group form-floating">
+                                                <input type="text" class="form-control" [(ngModel)]="getID"
+                                                [ngModelOptions]="{standalone: true}" id="merchantId"
+                                                placeholder="Enter Merchant Id" />
+                                                <label for="merchantId">Merchant ID</label>
+                                            </div>
+                                        </div>
+                                </div>
+                                <!-- <p>Some text in the modal.</p> -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default-primary submit" data-dismiss="modal"
+                                    (click)="AllocateMID()">Submit</button>
+                                <button type="button" class="btn btn-default-primary" data-dismiss="modal"
+                                    (click)="close()">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- FORM TABS START -->
+                <div class="col-12" *ngIf="isForm">
+                    <div class="pull-left d-flex gap-16x">
+                        <button class="btn btn-default-fill mb-4" (click)="configForm()"><i
+                                class="fas fa-long-arrow-alt-left"></i>Back</button>
+                        <!-- <button class="btn btn-sm btn-success edit_btn" (click)="configForm()"
+                            style="margin-bottom: 8px;">Back</button> -->
+                        <button class="btn btn-default-primary" (click)="edit()"
+                            *ngIf="isUpdate===false && isCreate===false">Edit</button>
+                    </div>
+                    <div class="container">
+                        <form [formGroup]="pgConfigForm">
+                            <div class="row">
+                                <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="payrowMerchantId"
+                                            placeholder="Enter PayRow MerchantID" id="payrowMerchantId">
+                                        <label for="payrowMerchantId">PayRow Merchant ID</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="payrowServiceId"
+                                            placeholder="Enter PayRow Service ID" id="payrowServiceId">
+                                        <label for="payrowServiceId">PayRow Service ID</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+                                        <!-- <input type="text" class="form-control" formControlName="payrowServiceTaxCode" placeholder=""
+                                            id="payrowServiceTaxCode"> -->
+                                        <select class="form-select" formControlName="payrowServiceTaxCode"
+                                            id="payrowServiceTaxCode" (change)="taxCodes($event)">
+                                            <option value="" disabled>Select TaxCode</option>
+                                            <option *ngFor="let tax of taxes" value="{{tax.taxCode}}">
+                                                {{tax.taxCode}}</option>
+                                        </select>
+                                        <label for="payrowServiceTaxCode">PayRow Service TaxCode</label>
+                                    </div>
+                                </div>
+                                <!-- </div> -->
+                                <!-- <div class="row"> -->
+                                <!-- <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+                                        <label for="payrowTRN">PayRow TRN</label>
+                                        <input type="text" class="form-control" formControlName="payrowTRN"
+                                            id="payrowTRN" placeholder="Enter Payrow TRN">
+                                    </div>
+                                </div> -->
+                                <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+
+                                        <select class="form-select" formControlName="payrowChargesType"
+                                            id="payrowChargesType" (change)="pRChargeType($event)">
+                                            <option value="" disabled>Select Charges Type</option>
+                                            <option>PERCENTAGE</option>
+                                            <option>FIXED</option>
+                                            <option>PERCENTAGE+FIXED</option>
+                                            <option>PERCENTAGE+FIXED+MINIMUMAMOUNT</option>
+                                        </select>
+                                        <label for="payrowChargesType">PayRow Charges Type</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm"
+                                    *ngIf="prcharge=='PERCENTAGE' || prcharge=='PERCENTAGE+FIXED' || prcharge=='PERCENTAGE+FIXED+MINIMUMAMOUNT'">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="payrowChargesPercent"
+                                            id="payrowChargesPercent">
+                                        <label for="payrowChargesPercent">PayRow Charge Percentage</label>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                    <!-- <input type="text" class="form-control" formControlName="payrowChargesPercent"
+                                            placeholder="Enter value Ex:0.2+1" id="payrowChargesPercent"> -->
+                                </div>
+                                <div class="col-md-4 col-sm"
+                                    *ngIf="prcharge=='FIXED' || prcharge=='PERCENTAGE+FIXED' || prcharge=='PERCENTAGE+FIXED+MINIMUMAMOUNT'">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="payrowChargesFixed"
+                                            placeholder="Enter value Ex:0.2+1" id="payrowChargesFixed">
+                                        <label for="payrowChargesFixed">PayRow Charge Fixed
+                                            <span>Ex:2</span></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm" *ngIf="prcharge=='PERCENTAGE+FIXED+MINIMUMAMOUNT'">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="payrowChargesMinAmnt"
+                                            placeholder="Enter value Ex:0.2+1" id="payrowChargesMinAmnt">
+                                        <label for="payrowChargesMinAmnt">PayRow Charge Minimum Amount
+                                            <span>Ex:50</span></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+
+                                        <select class="form-select" formControlName="bankServiceTaxCode"
+                                            id="bankServiceTaxCode" (change)="taxCodes($event)">
+                                            <option value="" disabled>Select TaxCode</option>
+                                            <option *ngFor="let tax of taxes" value="{{tax.taxCode}}">
+                                                {{tax.taxCode}}</option>
+                                        </select>
+                                        <label for="bankServiceTaxCode">Bank Service TaxCode</label>
+                                    </div>
+                                </div>
+                                <!-- </div> -->
+                                <!-- <div class="row"> -->
+                                <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="bankMerchantId"
+                                            placeholder="Enter Bank MerchantID" id="bankMerchantId">
+                                        <label for="bankMerchantId">Bank Merchant ID</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="bankServiceId"
+                                            id="bankServiceId" placeholder="Enter Bank Service ID">
+                                        <label for="bankServiceId">Bank Service ID</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+                                        <select class="form-select" formControlName="bankChargesType"
+                                            id="bankChargesType" (change)="bankChargeType($event)">
+                                            <option value="" disabled>Select Charges Type</option>
+                                            <option>PERCENTAGE</option>
+                                            <option>FIXED</option>
+                                            <option>PERCENTAGE+FIXED</option>
+                                            <option>PERCENTAGE+FIXED+MINIMUMAMOUNT</option>
+                                        </select>
+                                        <label for="bankChargesType">Bank Charges Type</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm"
+                                    *ngIf="bankcharge=='PERCENTAGE' || bankcharge=='PERCENTAGE+FIXED' || bankcharge=='PERCENTAGE+FIXED+MINIMUMAMOUNT'">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="bankChargesPercent"
+                                            placeholder="Enter value Ex:0.2+1" id="bankChargesPercent">
+                                        <label for="bankChargesPercent">Bank Charge Percentage
+                                            <span>Ex:0.2%</span></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm"
+                                    *ngIf="bankcharge=='FIXED' || bankcharge=='PERCENTAGE+FIXED' || bankcharge=='PERCENTAGE+FIXED+MINIMUMAMOUNT'">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="bankChargesFixed"
+                                            placeholder="Enter value Ex:0.2+1" id="bankChargesFixed">
+                                        <label for="bankChargesFixed">Bank Charge Fixed
+                                            <span>Ex:2</span></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm" *ngIf="bankcharge=='PERCENTAGE+FIXED+MINIMUMAMOUNT'">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="bankChargesMinAmnt"
+                                            placeholder="Enter value Ex:0.2+1" id="bankChargesMinAmnt">
+                                        <label for="bankChargesMinAmnt">Bank Charge Minimum Amount
+                                            <span>Ex:50</span></label>
+                                    </div>
+                                </div>
+                                <!-- </div> -->
+
+                                <!-- <div class="row"> -->
+                                <!-- <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+                                        <label for="bankTRN">Bank TRN</label>
+                                        <input type="text" class="form-control" formControlName="bankTRN" id="bankTRN"
+                                            placeholder="Enter bank TRN">
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="bankChargesValue"
+                                            placeholder="Enter value Ex:0.2+1" id="bankChargesValue">
+                                        <label for="bankChargesValue">Bank Charges Value
+                                            <span>Ex:0.2+1+50</span></label>
+                                    </div>
+                                </div> -->
+                                <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control"
+                                            formControlName="otherChargesBankMerchantId"
+                                            placeholder="Enter Other charges Bank MerchantID"
+                                            id="otherChargesBankMerchantId">
+                                        <label for="otherChargesBankMerchantId">Other Charges Bank Merchant ID</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control"
+                                            formControlName="otherChargesBankServiceId"
+                                            placeholder="Enter Other Charges Bank ServiceId"
+                                            id="otherChargesBankServiceId">
+                                        <label for="otherChargesBankServiceId">Other Charges Bank Service ID</label>
+                                    </div>
+                                </div>
+                                <!-- </div> -->
+                                <!-- <div class="row"> -->
+                                <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+                                        <select class="form-select" formControlName="otherChargesTaxCode"
+                                            id="otherChargesTaxCode" (change)="taxCodes($event)">
+                                            <option value="" disabled>Select TaxCode</option>
+                                            <option *ngFor="let tax of taxes" value="{{tax.taxCode}}">
+                                                {{tax.taxCode}}</option>
+                                        </select>
+                                        <label for="otherChargesTaxCode">Other Charges TaxCode</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+                                        <select class="form-select" formControlName="otherChargesType"
+                                            id="otherChargesType" (change)="otherChargeType($event)">
+                                            <option value="" disabled>Select Charges Type</option>
+                                            <option>PERCENTAGE</option>
+                                            <option>FIXED</option>
+                                            <option>PERCENTAGE+FIXED</option>
+                                            <option>PERCENTAGE+FIXED+MINIMUMAMOUNT</option>
+                                        </select>
+                                        <label for="otherChargesType">Other Charges Type</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm"
+                                    *ngIf="othercharge=='PERCENTAGE' || othercharge=='PERCENTAGE+FIXED' || othercharge=='PERCENTAGE+FIXED+MINIMUMAMOUNT'">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="otherChargesPercent"
+                                            placeholder="Enter value Ex:0.2+1" id="otherChargesPercent">
+                                        <label for="otherChargesPercent">Other Charge Percentage
+                                            <span>Ex:0.2%</span></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm"
+                                    *ngIf="othercharge=='FIXED' || othercharge=='PERCENTAGE+FIXED' || othercharge=='PERCENTAGE+FIXED+MINIMUMAMOUNT'">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="otherChargesFixed"
+                                            placeholder="Enter value Ex:0.2+1" id="otherChargesFixed">
+                                        <label for="otherChargesFixed">Other Charge Fixed
+                                            <span>Ex:2</span></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm" *ngIf="othercharge=='PERCENTAGE+FIXED+MINIMUMAMOUNT'">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="otherChargesMinAmnt"
+                                            placeholder="Enter value Ex:0.2+1" id="otherChargesMinAmnt">
+                                        <label for="otherChargesMinAmnt">Other Charge Minimum Amount
+                                            <span>Ex:50</span></label>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="otherChargesValue"
+                                            placeholder="Enter value Ex:0.2+1" id="otherChargesValue">
+                                        <label for="otherChargesValue">Other Charges Value
+                                            <span>Ex:0.2+1+50</span></label>
+                                    </div>
+                                </div> -->
+                                <!-- </div> -->
+
+                                <!-- <div class="row"> -->
+                                <!-- <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+                                        <label for="otherChargesTRN">Other Charges TRN</label>
+                                        <input type="text" class="form-control" formControlName="otherChargesTRN"
+                                            placeholder="Enter Other Charges TRN" id="otherChargesTRN">
+                                    </div>
+                                </div> -->
+                                <!-- </div> -->
+                                <!-- <div class="row"> -->
+
+                                <!-- <div class="col-md-4 col-sm">
+                                    <div class="form-group form-floating">
+                                        <label for="fullUrl">Full URL</label>
+                                        <input type="text" class="form-control" formControlName="fullUrl" id="fullUrl"
+                                            placeholder="Enter Full URL">
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div class="row" style="float: right;">
+                                <button class="btn btn-default-md-fill" (click)="addMerchantConfig()"
+                                    style="float: right;" *ngIf="isCreate">Save</button>
+                                <button class="btn btn-default-md-fill" (click)="updateConfigbyId()" style="float: right;"
+                                    *ngIf="isUpdate===true && isCreate===false">Update</button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="midAllocate" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <!-- <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div> -->
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                <div class="form-group">
+                                    <label>Merchant ID</label>
+                                    <input type="text" class="form-control" placeholder="Enter Merchant Id" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <p>Some text in the modal.</p> -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default-primary submit" data-dismiss="modal"
+                            (click)="close()">Submit</button>
+                        <button type="button" class="btn btn-default-primary" data-dismiss="modal"
+                            (click)="close()">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>

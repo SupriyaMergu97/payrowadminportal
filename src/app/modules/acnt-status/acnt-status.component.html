@@ -1,0 +1,229 @@
+<div class="content-wrapper main-section-container">
+    <app-acnt-status-menu></app-acnt-status-menu>
+
+    <section class="content" *ngIf="(isMerchant && !isStaff)">
+        <!-- <div class=""> -->
+            <!-- <h4>Store Owner List</h4> -->
+            <div class="table_data">
+                <div class="table-responsive">
+                    <table class="table table-striped text-center">
+                        <thead>
+                            <tr>
+                                <!-- <th class="cur_Header">NAME</th> -->
+                                <th>NAME</th>
+                                <!-- <th>EMAIL</th> -->
+                                <!-- <th>ADDRESS</th> -->
+                                <!-- <th>ADDRESS</th> -->
+                                <th class="cur_Header">PayRowID</th>
+                                <th class="cur_Header">MID</th>
+                                <th>Catalogue</th>
+                                <th class="cur_Header">ACTIVATION DATE</th>
+                                <!-- <th>TRANSACTION VALUE</th> -->
+                                <th>TID LIST</th>
+                                <th>SERVICE LIST</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody class="align-baseline">
+                            <tr *ngFor="let distributor of merchantList">
+                                <!-- <td>{{distributor.storeId}}</td> -->
+                                <td>{{distributor.firstName}}</td>
+                                <!-- <td data-tooltip="top" role="tooltip" attr.aria-label="{{distributor.emailId}}">
+                                    <i class="bi-envelope-open"></i>
+                                </td> -->
+                                <td>{{distributor.payRowId}}</td>
+                                <td>{{distributor.bankMID}}</td>
+                                <td>{{distributor.catalogue}}</td>
+                                <td>{{distributor.updatedAt | date}}</td>
+                                <!-- <td>2,00,000</td> -->
+                                <td><button class="btn btn-sm btn-sm-cust btn-outline-dark"
+                                        (click)="getTidList(distributor.payRowId)">Details</button></td>
+                                <td>
+                                    <button class="btn btn-sm btn-sm-cust btn-outline-dark"
+                                        (click)="details(distributor.payRowId,distributor.catalogue)">Details</button>
+                                </td>
+
+                                <!-- <td><button class="btn btn-sm btn-success edit_btn"
+                                        (click)="getTidList(distributor.payRowId)">TID</button>
+                                </td>
+                                <td><button class="btn btn-sm btn-success edit_btn"
+                                        (click)="details(distributor.payRowId,distributor.catalogue)">Details</button>
+                                </td> -->
+                                <td>
+                                    <div class="status form-control">
+                                        <select class="status_auditor select" placeholder=""
+                                            (change)="onChangeStatus($event,distributor)">
+                                            <option value="Active"
+                                                *ngIf="distributor.status.status==='Ongoing' || Deactive">
+                                                Active
+                                            </option>
+                                            <option value="Deactive"
+                                                *ngIf="distributor.status.status==='Ongoing' || Deactive" selected>
+                                                Deactive</option>
+                                            <option value="Active" *ngIf="distributor.status.status==='Active'"
+                                                selected>
+                                                Active</option>
+                                            <option value="Deactive" *ngIf="distributor.status.status==='Active'">
+                                                Deactive
+                                            </option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <!-- </div> -->
+    </section>
+    <section class="content" *ngIf="!isMerchant">
+        <div class="pull-right d-flex gap-16x">
+            <button class="btn btn-default-fill" (click)="merchant()"><i
+                    class="fas fa-long-arrow-alt-left"></i>Back</button>
+
+            <!-- <button class="btn btn-sm btn-success edit_btn" (click)="merchant()" style="float: right;">Back</button> -->
+            <!-- <button class="btn btn-sm btn-success edit_btn" (click)="merchant()" style="float: right;">Add Service</button> -->
+
+        </div>
+        <div class="table_data">
+            <div class="table-responsive">
+                <table class="table table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th class="cur_Header">TID</th>
+                            <!-- <th>ID</th> -->
+                            <th>IMEI NUMBER</th>
+                            <th>ADDRESS</th>
+                            <th class="cur_Header">ACTIVATION DATE</th>
+                            <!-- <th>TRANSACTION VALUE</th> -->
+                            <th>ACCOUNT STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody class="align-baseline">
+                        <tr *ngFor="let tIDdata of staffListA">
+                            <td>{{tIDdata.tidInfo.termainalId}}</td>
+                            <!-- <td>{{tIDdata.tid}}</td> -->
+                            <td>{{tIDdata.tidInfo.deviceIMEINumber}}</td>
+                            <td class="remarks_one" data-tooltip="top" role="tooltip"
+                                attr.aria-label="{{tIDdata.address}}"><i class="bi-card-list"></i></td>
+                            <td>{{tIDdata.activationDate}}</td>
+                            <!-- <td>1,00,000</td> -->
+                            <td><select class="status-option" [(ngModel)]="selected" (change)="onSelectOption($event)">
+                                    <option value="Active">Active</option>
+                                    <option value="DeActive"><button data-toggle="modal" data-target="#Modal"
+                                            class="deactive">DeActivate</button></option>
+                                </select></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Some text in the modal.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                            (click)="close()">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <section class="content" *ngIf="isStaff">
+        <div class="pull-right d-flex gap-16x">
+
+            <button class="btn btn-default-fill" (click)="staff()"><i
+                    class="fas fa-long-arrow-alt-left"></i>Back</button>
+            <button class="btn btn-primary-lg" data-toggle="modal" data-target="#addService">Add Service <i
+                    class="fas fa-plus cta-plus-btn border-0"></i></button>
+        </div>
+        <div class="table_data">
+            <div class="table-responsive">
+                <table class="table table-striped text-center">
+                    <thead style="border-bottom: 1px solid #dee2e6;">
+                        <tr>
+                            <!-- <th>Merchant ID</th> -->
+                            <th>SERVICE CODE</th>
+                            <th>SERVICE NAME</th>
+                            <th *ngIf="catalogue !== 'SMB Catalogue'">SERVICE NAME ARABIC</th>
+                            <th>UNIT PRICE </th>
+                            <th>DESCRIPTION</th>
+                            <th>SEQUENCE</th>
+                            <th>AVERAGE</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of services">
+                            <!-- <td *ngIf="catalogue !== 'SMB Catalogue'">{{data.distributorId}}</td> -->
+                            <!-- <td *ngIf="catalogue !== 'SMB Catalogue'">{{data.merchantId}}</td> -->
+                            <td *ngIf="catalogue === 'SMB Catalogue'">{{data.serviceCode}}</td>
+                            <td *ngIf="catalogue !== 'SMB Catalogue'">{{data.serviceId}}</td>
+                            <td *ngIf="catalogue === 'SMB Catalogue'">{{data.itemName}}</td>
+                            <td *ngIf="catalogue !== 'SMB Catalogue'">{{data.serviceName}}</td>
+                            <td *ngIf="catalogue !== 'SMB Catalogue'">{{data.serviceNameArabic}}</td>
+
+                            <td>{{data.unitPrice}}</td>
+                            <td *ngIf="catalogue !== 'SMB Catalogue'" data-tooltip="top" role="tooltip"
+                                attr.aria-label="{{data.englishDescription}}"><i class="bi bi-info-circle-fill"></i>
+                            </td>
+                            <td *ngIf="catalogue === 'SMB Catalogue'" data-tooltip="top" role="tooltip"
+                                attr.aria-label="{{data.itemDescription}}"><i class="bi bi-info-circle-fill"></i></td>
+                            <td>{{data.sequence}}</td>
+                            <td> {{data.avarage}} </td>
+                            <td data-toggle="modal" data-target="#Alert">
+                                <!-- <button class="btn btn-sm"><i class='fas fa-pen'></i></button> -->
+                                <button class="btn btn-sm"><i class='fas fa-trash'></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <div class="modal fade" id="addService" tabindex="-1" aria-labelledby="createServiceModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content alert">
+                <div class="modal-body">
+                    <form [formGroup]="mServiceForm">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="service_id">Main MerchantId</label>
+                                <input type="text" class="form-control" formControlName="merchantId" id="merchantId"
+                                    value="{{merchantId}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service_id">Serives</label>
+                            <select class="form-select" formControlName="serviceId" id="serviceId">
+                                <option selected disabled>Select Service</option>
+                                <option *ngFor="let data of serviceList" value="{{data.serviceId}}">
+                                    {{data.serviceId}} &nbsp; {{data.serviceName}}</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success serv_btn" data-dismiss="modal"
+                        (click)="onMerchantService()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- NEW CODE FOR TABLES -->
+</div>

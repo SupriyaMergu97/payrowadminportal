@@ -1,0 +1,409 @@
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 30px;
+}
+
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 10%;
+
+    /*stacking fieldsets above each other*/
+    position: relative;
+}
+.edit_btn {
+    width: 80px;
+    background: #72ac47;
+    // position: absolute;
+    // right: 5%;
+    // top: 45px;
+    border: none;
+    float: left;
+    margin-top: 10px;
+    margin-left: 18% !important;
+}
+.back_btn {
+    width: 80px;
+    background: #72ac47;
+    // position: absolute;
+    // right: 5%;
+    // top: 45px;
+    border: none;
+    // float: left;
+    margin-top: 2px;
+    padding: 8px;
+    margin-left: 25px !important;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+    display: none;
+}
+
+/*inputs*/
+#msform input,
+#msform textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2c3e50;
+    font-size: 13px;
+}
+
+#msform input:focus,
+#msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #72ac47;
+    outline-width: 0;
+    transition: All 0.5s ease-in;
+    -webkit-transition: All 0.5s ease-in;
+    -moz-transition: All 0.5s ease-in;
+    -o-transition: All 0.5s ease-in;
+}
+
+#msform select {
+    //padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 95%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2c3e50;
+    font-size: 13px;
+    margin-left: 9px;
+}
+#msform select:focus,
+#msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #72ac47;
+    outline-width: 0;
+    transition: All 0.5s ease-in;
+    -webkit-transition: All 0.5s ease-in;
+    -moz-transition: All 0.5s ease-in;
+    -o-transition: All 0.5s ease-in;
+}
+
+/*buttons*/
+.action-button {
+    width: 59px;
+    background: #72ac47;
+    text-align: center;
+    text-decoration: none;
+    // font-weight: bold;
+    color: white;
+    /* border: 0 none; */
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 3px 0px;
+    margin: 10px 5px;
+    float: right;
+}
+.search-item {
+    width: 20%;
+    float: right;
+    background: none;
+}
+.table-responsive {
+    margin-top: 47px;
+}
+
+// #msform .action-button:hover, #msform .action-button:focus {
+//     box-shadow: 0 0 0 2px white, 0 0 0 3px #ee0979;
+// }
+
+.action-button-previous {
+    width: 59px;
+    background: #72ac47;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    /* border: 0 none; */
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 3px 0px;
+    margin: 10px 5px;
+    float: right;
+}
+
+// #msform .action-button-previous:hover, #msform .action-button-previous:focus {
+//     box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
+// }
+
+/*headings*/
+.fs-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+.back_btn {
+    background-color: #72ac47;
+    color: white;
+    width: 99px;
+    font-size: 12px;
+}
+.create {
+    margin-left: 2px !important;
+}
+.card-body {
+    padding: 10px;
+}
+.addValue {
+    border: 1px solid #7a7a7a;
+    border-radius: 3px;
+    background: none;
+    padding-left: 7px;
+}
+.addValue:focus {
+    outline: none;
+}
+/*progressbar*/
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+    padding-left: 50px;
+}
+
+#progressbar li {
+    list-style-type: none;
+    //color: white;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 9.09%;
+    float: left;
+    position: relative;
+    letter-spacing: 1px;
+    margin-left: 18px;
+    text-align: center;
+    // padding-left: 63px;
+}
+#step1 {
+    margin-left: 0px !important;
+}
+
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 24px;
+    height: 24px;
+    line-height: 26px;
+    display: block;
+    font-size: 12px;
+    color: #333;
+    background: white;
+    border-radius: 25px;
+    margin: 0 5px 10px 5px;
+}
+
+/*progressbar connectors*/
+#progressbar li:after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: -50%;
+    top: 9px;
+    z-index: -1; /*put it behind the numbers*/
+}
+
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none;
+}
+
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #72ac47;
+    color: white;
+}
+#progressbar li {
+    padding-right: 62px;
+}
+
+#progressbar li.inactive:before {
+    //background: burlywood;
+    color: #000;
+    border: 1px solid rgb(148, 144, 144);
+    padding: 0px;
+}
+.line {
+    margin-top: -22px;
+    margin-left: 35px;
+    width: 85px;
+    color: #72ac47;
+}
+.tAndC {
+    width: auto;
+    padding: 1%;
+    background: rgb(255, 255, 255);
+}
+.tAndCPara {
+    text-align: left;
+}
+.tab-pane {
+    padding: 20px !important;
+    border: 1px solid #ccc;
+}
+.nav-link,
+.nav-link.active {
+    border: 1px solid #ccc;
+}
+
+//need to check
+.riskmodel-edit-form-modal #edit_riskmodules_form .form-group {
+    margin-bottom: 0;
+}
+
+.riskmodel-edit-form-modal #edit_riskmodules_form .form-group label {
+    font-size: 10pt;
+    color: #72ac47;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.riskmodel-edit-form-modal #edit_riskmodules_form .form-group .form-control {
+    padding: 5px 10px;
+    height: 30px;
+    font-size: 10pt;
+}
+
+.riskmodel-edit-form-modal #edit_riskmodules_form #btn_submit {
+    background-color: #71aa46;
+    border-color: #71aa46;
+    color: #fff;
+    font-size: 10pt;
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.label span {
+    display: inline-block;
+    margin-left: 10px;
+}
+.btn-success {
+    background-color: #71aa46;
+    border: none;
+    margin-left: 50px;
+}
+.radio-align {
+    margin-top: 10px;
+}
+
+.btn-secondary {
+    border: none;
+    margin-left: 50px;
+}
+
+.card-scoring {
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px;
+}
+.payment-card {
+    text-align: center;
+    margin-top: 20%;
+    display: flex;
+}
+
+// .table {
+//     font-size: 13px;
+// }
+
+// New Design
+
+.nav-pills-custom .nav-link {
+    color: #aaa;
+    background: #fff;
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 8px !important;
+    width: 206px;
+}
+
+.nav-pills-custom .nav-link.active {
+    color: #45b649;
+    background: #fff;
+}
+
+/* Add indicator arrow for the active tab */
+@media (min-width: 992px) {
+    .nav-pills-custom .nav-link::before {
+        content: "";
+        display: block;
+        border-top: 8px solid transparent;
+        border-left: 10px solid #fff;
+        border-bottom: 8px solid transparent;
+        position: absolute;
+        top: 50%;
+        right: -10px;
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+}
+
+.nav-pills-custom .nav-link.active::before {
+    opacity: 1;
+}
+
+.shadow {
+    box-shadow: 0 0px 0px rgb(0 0 0 / 15%) !important;
+}
+
+.form-control {
+    font-size: 14px;
+}
+
+label {
+    font-weight: 400 !important;
+    font-size: 15px;
+}
+
+.radio_css {
+    position: relative;
+    top: 42px;
+    margin-left: 15px;
+}
+
+.tabIcn {
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.card_cnt {
+    width: 95%;
+    margin-left: 25px;
+    box-shadow: 0px 1px 7px -5px grey;
+    border: none;
+}
+
+.table-container {
+    line-height: 3;
+}

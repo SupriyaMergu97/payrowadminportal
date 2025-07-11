@@ -1,0 +1,36 @@
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
+  opacity: 0.65;
+  transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+}
+.error-msg {
+  margin-bottom: 0;
+  float: left;
+  color: red;
+  margin-top: -21px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  margin-left: 14px;
+  font-weight: 100;
+  font-size: smaller;
+}
+
+.error-msgs {
+  margin-bottom: 0px;
+  float: left;
+  color: red;
+  margin-top: 0px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  margin-left: 15px;
+}
+.dialog{
+  border: none;
+  background:none;
+}
+

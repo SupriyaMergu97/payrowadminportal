@@ -1,0 +1,278 @@
+<div class="card-body"  *ngFor="let row of rowData">
+    <form [formGroup]="mdrForm" (ngSubmit)="onSubmitMdr()">
+        <div > 
+            <div class="row form-group">
+                <div class="col-3">
+                    <label for="marchentId">MarchantID</label>
+                    <input type="text" class="form-control" id="marchentId" formControlName="marchentId"  [(ngModel)]="row.marchentId" readonly>
+                </div>
+                <div class="col-3">
+                    <label for="marchentName">MarchantName</label>
+                    <input type="text" class="form-control" id="marchentName" formControlName="marchentName"[(ngModel)]="row.marchantName" readonly >
+                </div>
+                <div class="col-3">
+                    <label for="otc">OneTimeCharge</label>
+                    <input type="text" class="form-control" id="otc" formControlName="otc" [(ngModel)]="row.otc">
+                </div>
+                <div class="col-3">
+                    <label for="mdrType">MDR Type</label>
+                    <select class="form-control" id="mdrType" formControlName="mdrType" [(ngModel)]="row.mdrType">
+                        <option>Fixed</option>
+                        <option>Fixed2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-3">
+                    <label for="monthCharges">Monthly Charges</label>
+                    <input type="text" class="form-control" id="monthCharges" formControlName="monthCharges" [(ngModel)]="row.mntCharges">
+                </div>
+                <div class="col-3">
+                    <label for="chStartDate">Monthly Charges Start Date</label>
+                    <input type="date" class="form-control" formControlName="chStartDate" [(ngModel)]="row.mntchargesStartDate">
+                </div>
+                <div class="col-3">
+                    <label for="chEndDate">Monthly Charges End Date</label>
+                    <input type="date" class="form-control" formControlName="chEndDate"  [(ngModel)]="row.mntchargesEndDate">
+                </div>
+            </div>
+        </div>
+        <!-- *ngFor="let cards of row.cards let i=index" -->
+        <div class="row form-group">
+            <div class="col-12">
+                <div class="card" >
+                    <div class="card-header text-center">Visa Credit</div>
+                    <div class="card-body">
+                        <div class="container">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Card Type</th>
+                                        <th>To Amount</th>
+                                        <th>Charge Type</th>
+                                        <th>RAK Rate</th>
+                                        <th>Now New Rate</th>
+                                        <th>VAT Charges</th>
+                                        <th>Other Charges</th>
+                                        <th (click)="addTableRow('VC')">
+                                            <a type="button" class="btn-floating light-green"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                         </th>
+                                    </tr>
+                                </thead>
+                                <tbody formArrayName="cardsVc" *ngFor="let item of mdrForm.get('cardsVc')['controls'];let i=index;">
+                                   <tr [formGroupName]="i">
+                                       <td>
+                                        <input  class="form-control" formControlName="cardtype" value="VC"  readonly/>
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" formControlName="toamt"/>
+                                       </td>
+                                       <td>
+                                            <select class="form-control" id="mdrType" formControlName="chrgtype">
+                                                <option>Select</option>
+                                                <option>Fixed2</option>
+                                            </select>
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" type="text" formControlName="rakrate" />
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" type="text" formControlName="newrate"/>
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" type="text" formControlName="gst"/>
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" type="text" formControlName="other"/>
+                                       </td>
+                                       <td *ngIf="item" (click)= "delTableRow('VC',i)">
+                                        <a type="button" class="btn-floating light-green"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                       </td>
+                                   </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row form-group">
+            <div class="col-12">
+                <div class="card" >
+                    <div class="card-header text-center">Visa Debit</div>
+                    <div class="card-body">
+                        <div class="container">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Card Type</th>
+                                        <th>To Amount</th>
+                                        <th>Charge Type</th>
+                                        <th>RAK Rate</th>
+                                        <th>Now New Rate</th>
+                                        <th>VAT Charges</th>
+                                        <th>Other Charges</th>
+                                        <th (click)="addTableRow('VD')">
+                                            <a type="button" class="btn-floating light-green"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                         </th>
+                                    </tr>
+                                </thead>
+                                <tbody formArrayName="cardsVd" *ngFor="let item of mdrForm.get('cardsVd')['controls'];let i=index;">
+                                   <tr [formGroupName]="i">
+                                       <td>
+                                        <input  class="form-control" formControlName="cardtype" value="VD"  readonly/>
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" formControlName="toamt"/>
+                                       </td>
+                                       <td>
+                                            <select class="form-control" id="mdrType" formControlName="chrgtype">
+                                                <option>Select</option>
+                                                <option>Fixed2</option>
+                                            </select>
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" type="text" formControlName="rakrate" />
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" type="text" formControlName="newrate"/>
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" type="text" formControlName="gst"/>
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" type="text" formControlName="other"/>
+                                       </td>
+                                       <td (click)= "delTableRow('VD',i)">
+                                        <a type="button" class="btn-floating light-green"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                       </td>
+                                   </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-12">
+                <div class="card" >
+                    <div class="card-header text-center">Master Credit</div>
+                    <div class="card-body">
+                        <div class="container">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Card Type</th>
+                                        <th>To Amount</th>
+                                        <th>Charge Type</th>
+                                        <th>RAK Rate</th>
+                                        <th>Now New Rate</th>
+                                        <th>VAT Charges</th>
+                                        <th>Other Charges</th>
+                                        <th (click)="addTableRow('MC')">
+                                            <a type="button" class="btn-floating light-green"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                         </th>
+                                    </tr>
+                                </thead>
+                                <tbody formArrayName="cardsMc" *ngFor="let item of mdrForm.get('cardsMc')['controls'];let i=index;">
+                                   <tr [formGroupName]="i">
+                                       <td>
+                                        <input  class="form-control" formControlName="cardtype" value="MD"  readonly/>
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" formControlName="toamt"/>
+                                       </td>
+                                       <td>
+                                            <select class="form-control" id="mdrType" formControlName="chrgtype">
+                                                <option>Select</option>
+                                                <option>Fixed2</option>
+                                            </select>
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" type="text" formControlName="rakrate" />
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" type="text" formControlName="newrate"/>
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" type="text" formControlName="gst"/>
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" type="text" formControlName="other"/>
+                                       </td>
+                                       <td (click)= "delTableRow('MC',i)">
+                                        <a type="button" class="btn-floating light-green"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                       </td>
+                                   </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-12">
+                <div class="card" >
+                    <div class="card-header text-center">Master Debit</div>
+                    <div class="card-body">
+                        <div class="container">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Card Type</th>
+                                        <th>To Amount</th>
+                                        <th>Charge Type</th>
+                                        <th>RAK Rate</th>
+                                        <th>Now New Rate</th>
+                                        <th>VAT Charges</th>
+                                        <th>Other Charges</th>
+                                        <th (click)="addTableRow('MD')">
+                                            <a type="button" class="btn-floating light-green"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                         </th>
+                                    </tr>
+                                </thead>
+                                <tbody formArrayName="cardsMd" *ngFor="let item of mdrForm.get('cardsMd')['controls'];let i=index;">
+                                   <tr [formGroupName]="i">
+                                       <td>
+                                        <input  class="form-control" formControlName="cardtype" value='sudhak'  readonly/>
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" formControlName="toamt"/>
+                                       </td>
+                                       <td>
+                                            <select class="form-control" id="mdrType" formControlName="chrgtype">
+                                                <option>Select</option>
+                                                <option>Fixed2</option>
+                                            </select>
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" type="text" formControlName="rakrate" />
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" type="text" formControlName="newrate"/>
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" type="text" formControlName="gst"/>
+                                       </td>
+                                       <td>
+                                        <input  class="form-control" type="text" formControlName="other"/>
+                                       </td>
+                                       <td (click)= "delTableRow('MD',i)">
+                                        <a type="button" class="btn-floating light-green"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                       </td>
+                                   </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,83 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: payrow-ingress
+  annotations:
+     kubernetes.io/ingress.class: "nginx"
+     nginx.org/server-snippets: "gzip on;"
+     nginx.ingress.kubernetes.io/configuration-snippet : |
+      if ($request_uri ~* \.(js|css|gif|jpe?g|png)) {
+        expires 1M;
+        add_header Cache-Control "public";
+      }
+spec:
+  tls:
+  - hosts:
+    - payrow.uaenorth.cloudapp.azure.com
+    secretName: tls-secret
+  - hosts:
+    - payrow.ae
+    secretName: payow-secret
+  rules:
+  - host: payrow.uaenorth.cloudapp.azure.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/gateway"
+        backend:
+          service:
+            name: payment-gateway-backend-service
+            port:
+              number: 8080
+  - host: payrow.ae
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/gateway"
+        backend:
+          service:
+            name: payment-gateway-backend-service
+            port:
+              number: 8080
+      - pathType: Prefix
+        path: "/services"
+        backend:
+          service:
+            name: payrow-service-catalog-service
+            port:
+              number: 8080
+      - pathType: Prefix
+        path: "/api"
+        backend:
+          service:
+            name: payrow-backend-service
+            port:
+              number: 8080
+      - pathType: Prefix
+        path: "/onboarding"
+        backend:
+          service:
+            name: payrow-onboarding-service
+            port:
+              number: 8080
+      - pathType: Prefix
+        path: "/admin"
+        backend:
+          service:
+            name: payrow-admin-backend-service
+            port:
+              number: 8080
+      - pathType: Prefix
+        path: "/payrowadmin"
+        backend:
+          service:
+            name: payrow-admin-frontend-service
+            port:
+              number: 80
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: payrow-web-service
+            port:
+              number: 80

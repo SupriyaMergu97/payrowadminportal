@@ -1,0 +1,194 @@
+<div class="content-wrapper main-section-container">
+    <app-distributor-menus></app-distributor-menus>
+
+    <section class="content">
+        <div class="container-fluid p-0 mb-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title d-flex align-items-center justify-content-between">
+                        <div class="col-md-3 col-sm d-flex gap-16x">
+                            <div class="select">
+                                <select rows="1" class="form-control" placeholder="" [(ngModel)]="selected"
+                                    (change)='onSelectMonth($event)'>
+                                    <option *ngFor="let j of months" [value]="j.month">{{j.month}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm d-flex gap-16x">
+                            <button class="btn btn-primary-lg" (click)="downloadCSV()">Download <i
+                                    class="fas fa-download"></i></button>
+
+                            <!-- <div class="p-2 bd-highlight">
+                                <div class="report" data-tooltip="top" role="tooltip" aria-label="report download"
+                                    (click)="downloadCSV()">
+                                    Download : <i class="bi bi-download" style="font-size: 1rem;"></i>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="pull-left d-flex gap-16x">
+                            <div class="search-holder">
+                                <form action="">
+                                    <div class="input-group">
+                                        <input type="text" autocomplete="off" name="search" [(ngModel)]="searchText"
+                                            placeholder="Search..." aria-describedby="button-addon5"
+                                            class="form-control">
+                                        <div class="input-group-append">
+                                            <button id="button-addon5" type="submit" class="btn"><i
+                                                    class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- <section class="content mt-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 pl-0 pr-0">
+                    <div class="table-container">
+                        <div class="table_data table_one">
+                            <div class="table-responsive">
+                                <table class="table" id="tap_to_pay_table"
+                                    style="width: 100% !important; text-align: center;">
+                                    <thead style="border-bottom: 1px solid #dee2e6;">
+                                        <tr>
+                                            <th>MERCHANT ID</th>
+                                            <th>POS TYPE</th>
+                                            <th>TID</th>
+                                            <th>ITEM</th>
+                                            <th>PAYMENT TYPE</th>
+                                            <th>EMAIL</th>
+                                            <th>MOBILE</th>
+                                            <th>INVOICE NO</th>
+                                            <th>AMOUNT</th>
+                                            <th>VAT</th>
+                                            <th>SEQUENCE NO</th>
+                                            <th>DATE</th>
+                                            <th>TIME</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let data of posDetails | filter:searchText">
+                                            <td>{{data.merchantId}}</td>
+                                            <td>{{data.posType}}</td>
+                                            <td>{{data.posId}}</td>
+                                            <td data-tooltip="top" role="tooltip"
+                                                attr.aria-label="{{data.typeOfOrder}}">
+                                                <i class="bi bi-info-circle"></i>
+                                            </td>
+                                            <td>{{data.paymentType}}</td>
+                                            
+                                            <td data-tooltip="top" role="tooltip" attr.aria-label="{{data.posEmail}}">
+                                                <i class="bi-envelope-open"></i>
+                                            </td>
+                                            <td>{{data.posMobile}}</td>
+                                            <td>{{data.invoiceNumber}}</td>
+                                            <td>{{data.cash | number}}</td>
+                                            <td>{{data.vat}}</td>
+                                            <td>{{data.invoiceNumber}}</td>
+                                            <td>{{data.createdAt| date}}</td>
+                                            <td>{{data.createdAt| date:'mediumTime'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+
+    <!-- NEW CODE FOR TABLE -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title d-flex align-items-center justify-content-between">
+                        <!-- <h1>Table Samples</h1>
+                        <div class="pull-left d-flex gap-16x"> 
+                            <div class="search-holder"> 
+                                <form action="">
+                                    <div class="input-group">
+										<input class="form-control search-hero" type="text" name="search" [(ngModel)]="searchText"
+                        autocomplete="off" placeholder="search" aria-describedby="button-addon5">
+                                        <div class="input-group-append">
+                                            <button id="button-addon5" type="submit" class="btn"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>  -->
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="table-resposive">
+                        <table class="table table_cust text-center">
+                            <thead>
+                                <tr>
+                                    <th>MERCHANT ID</th>
+                                    <th>POS TYPE</th>
+                                    <th>TID</th>
+                                    <th class="center-align">ITEM</th>
+                                    <!-- <th>PAYMENT TYPE</th> -->
+                                    <th class="center-align">EMAIL</th>
+                                    <th>MOBILE</th>
+                                    <th>INVOICE NO</th>
+                                    <th class="right-align">AMOUNT</th>
+                                    <th class="center-align">VAT</th>
+                                    <th>SEQUENCE NO</th>
+                                    <th>DATE</th>
+                                    <th>TIME</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of finalData | filter:searchText">
+                                    <td>{{data.merchant_id}}</td>
+                                    <td>{{data.posType}}</td>
+                                    <td>{{data.pos_id}}</td>
+                                    <td data-tooltip="top" role="tooltip" attr.aria-label="{{data.item}}">
+                                        <i class="bi bi-info-circle"></i></td>
+                                    <!-- <td>{{data.item}}</td> -->
+                                    <td data-tooltip="top" role="tooltip" attr.aria-label="{{data.posEmail}}">
+                                        <i class="bi-envelope-open"></i>
+                                    </td>
+                                    <td>{{data.mobile}}</td>
+                                    <td>{{data.sequence_no}}</td>
+                                    <td>{{data.total_credit | number}}</td>
+                                    <td>{{data.vat}}</td>
+                                    <td>{{data.sequence_no}}</td>
+                                    <td>{{data.date}}</td>
+                                    <td>{{data.time}}</td>
+                                </tr>
+                                <!-- <tr *ngFor="let data of posDetails | filter:searchText">
+                                    <td>{{data.merchantId}}</td>
+                                    <td>{{data.posType}}</td>
+                                    <td>{{data.posId}}</td>
+                                    <td class="center-align"><span data-tooltip="top" role="tooltip" attr.aria-label="{{data.typeOfOrder}}"><i class="bi-info-circle"></i></span></td>
+                                    <td>{{data.paymentType}}</td> 
+                                    <td class="center-align"><span data-tooltip="top" role="tooltip" attr.aria-label="{{data.posEmail}}"><i class="bi-envelope-open"></i></span></td>
+                                    <td>{{data.posMobile}}</td>
+                                    <td>{{data.invoiceNumber}}</td>
+                                    <td class="right-align">{{data.cash | number}}</td>
+                                    <td class="center-align">{{data.vat}}</td>
+                                    <td>{{data.invoiceNumber}}</td>
+                                    <td>{{data.createdAt| date}}</td>
+                                    <td>{{data.createdAt| date:'mediumTime'}}</td>
+                                </tr>                                -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div>

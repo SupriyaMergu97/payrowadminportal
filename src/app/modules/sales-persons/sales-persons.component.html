@@ -1,0 +1,511 @@
+<div class="content-wrapper main-section-container">
+    <!-- new code -->
+    <app-sales-menu></app-sales-menu>
+    <section class="content">
+        <div class="container-fluid p-0" *ngIf="!isAddSales">
+            <div class="row">
+                <!-- Merchant List -->
+                <div class="section-header mb-4">
+                    <!-- <h4>Create</h4> -->
+                    <div class="pull-left d-flex gap-16x">
+                        <div class="search-holder">
+                            <form action="">
+                                <div class="input-group">
+                                    <input type="text" autocomplete="off" name="search" [(ngModel)]="searchText"
+                                        placeholder="Search Employee" aria-describedby="button-addon5"
+                                        class="form-control">
+                                    <div class="input-group-append">
+                                        <button id="button-addon5" type="submit" class="btn"><i
+                                                class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="pull-right d-flex gap-16x">
+                        <button class="btn btn-primary-lg" (click)="onCreateAction()">
+                            Add Sales Person<i class="fas fa-plus cta-plus-btn border-0"></i></button>
+                        <!-- <button class="btn btn-default-normal" (click)="success()">Cancel</button>
+                        <button class="btn btn-default-primary" (click)="error()">Error</button>  -->
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th>City</th>
+                        <th>Transaction Value</th>
+                        <th>No.of Sales</th>
+                        <th>No.of Customers</th>
+                        <th>No.of Complaints</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let data of getPageCity() | filter:searchText let index=index; let even=even">
+                        <tr class="tid-data-row" [ngClass]="{'tid-even': even}" [class.active]="data.showDetail">
+                            <td>{{data.city}}</td>
+                            <td>{{data.transValue}}</td>
+                            <td>{{data.noOfSales | number}}</td>
+                            <td>{{data.noOfCustomers | number}}</td>
+                            <td>{{data.noOfComplaints | number}}</td>
+                            <td>
+                                <button class="cta-plus-btn border-0" *ngIf="!data.showDetail"
+                                    (click)="getbyCity(data.city)"><i class="fas fa-plus"></i></button>
+                                <button class="cta-plus-btn border-0" *ngIf="data.showDetail"
+                                    (click)="data.showDetail = !data.showDetail"><i
+                                        class="fas fa-minus-circle"></i></button>
+                            </td>
+                        </tr>
+                        <div class="loading" *ngIf="isLoading">
+                            <div id="loader"><!-- Animated logo --><img src="/admin/assets/images/loaderGreen.png"
+                                    alt="Loading Logo" class="logo">
+                                <div class="spinner-border" role="status"></div>
+                                <p>Loading, please wait...</p>
+                            </div>
+                        </div>
+                        <tr class="tid-detail-row" *ngIf="data.showDetail" [class.active]="data.showDetail">
+                            <td colspan="8">
+                                <table class="table table-striped text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>Sales ID</th>
+                                            <th>Name</th>
+                                            <!-- <th class="right-align">Contact</th> -->
+                                            <!-- <th class="center-align">Address</th> -->
+
+                                            <th>Joining Date</th>
+                                            <th>NO.OF Customers</th>
+                                            <th>Complaints</th>
+                                            <th>Incentive</th>
+                                            <!-- <th>Leave</th> -->
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let sales of getPageSales() | filter:searchText">
+                                            <td>{{sales.salesId}}</td>
+                                            <td>{{sales.salesName}}</td>
+                                            <!-- <td>{{sales.contact}}</td>  -->
+                                            <!-- <td><div class="content" data-toggle="modal" data-target="#userinfo">
+                                               <div class="bi-card-list"></div></div></td>
+                                                                                <td class="right-align">{{sales.joiningDate}}</td> -->
+                                            <td>{{sales.dateOfJoining | date}}</td>
+                                            <td>{{sales.noOfMerchants}}</td>
+                                            <td>{{sales.complaints}}</td>
+                                            <td>{{sales.incentives | number}}</td>
+                                            <!-- <td><button class="btn btn-sm btn-sm-cust btn-outline-dark">Apply</button>
+                                            </td> -->
+                                            <td><button class="btn btn-sm create"
+                                                    (click)="onupdateAction(sales.salesId)">
+                                                    <i class="bi bi-pencil-square"></i></button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div *ngIf="salesList.length==0">
+                                    <p style="text-align: center; margin-top: 2%;">No Data Found!!!</p>
+                                </div>
+                                <app-pagination [totalItems]="salesList.length" [itemsPerPage]="itemsPersalesPage"
+                                    (pageChange)="onSalesPageChange($event)"></app-pagination>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+            <div *ngIf="regionList.length==0">
+                <p style="text-align: center; margin-top: 2%;">No Data Found!!!</p>
+            </div>
+            <app-pagination [totalItems]="regionList.length" [itemsPerPage]="itemsPercityPage"
+                (pageChange)="onCityPageChange($event)"></app-pagination>
+        </div>
+        <!-- </section> -->
+
+        <!-- NEW CODE EMPLOYEE CARDS -->
+        <!-- <section class="content"> -->
+        <div class="container-fluid p-0" *ngIf="isAddSales">
+            <div class="row">
+                <form action="" [formGroup]="salesForm">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-md-2 col-sm">
+                                <!-- <div class="row"> -->
+                                <!-- <div class="col-lg-12 col-sm-12 col-md-12 col-xl-12 col-xs-12"> -->
+                                <div class="form-group">
+                                    <div class="picture-container">
+                                        <div class="picture" style="margin: 1rem auto 0">
+                                            <div class="picture2">
+                                                <img src="{{profileImg}}" class="picture-src" id="editPicturePreview"
+                                                    title="">
+                                                <input type="file" id="edit-profile-picture" class=""
+                                                    (change)="onFileSelected($event)" />
+                                            </div>
+                                            <div class="upload-btn">
+                                                <div class="file-upload">
+                                                    <input type="file" (change)="onFileSelected($event)" /><i
+                                                        class="fa fa-arrow-up"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- </div> -->
+                            </div>
+                            <div class="col-md-10 col-sm">
+                                <div class="row" *ngIf="isShow">
+                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                        <div class="form-group form-floating">
+                                            <input type="text" class="form-control" formControlName="salesId"
+                                                id="salesId" placeholder="Sales ID">
+                                            <label for="salesId" [ngClass]="{'is-invalid': salesForm.controls['salesId'].invalid && salesForm.controls['salesId'].touched,
+                                                'is-valid': salesForm.controls['salesId'].valid}">
+                                                Sales ID<span>&nbsp;*</span></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12" *ngIf="isShow">
+                                        <div class="form-group form-floating">
+                                            <select class="form-control" formControlName="status" id="status">
+                                                <option *ngFor="let status of statuses" value="{{status}}">
+                                                    {{status}}</option>
+                                                <!-- <option value="false">DeActive</option> -->
+                                            </select>
+                                            <label for="status">status</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                        <div class="form-group form-floating">
+                                            <input type="text" class="form-control" formControlName="dateOfJoining"
+                                                id="dateOfJoining" placeholder="Date of Joining">
+                                            <label for="dateOfJoining">Date of Joining</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                        <div class="form-group form-floating">
+                                            <input type="text" class="form-control" formControlName="salesName"
+                                                id="salesName" placeholder="Sales Name">
+                                            <label for="salesName">Name</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                        <div class="form-group form-floating">
+                                            <input type="text" class="form-control" formControlName="emailId"
+                                                id="emailId" placeholder="Email Id">
+                                            <label for="emailId">Email ID</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                        <div class="form-group form-floating">
+                                            <input type="text" class="form-control" formControlName="mobileNumber"
+                                                id="mobileNumber" placeholder="Mobile Number">
+                                            <label for="mobileNumber">Mobile Number</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                        <div class="form-group form-floating">
+                                            <select class="form-control" formControlName="gender" id="gender">
+                                                <!-- <option selected disabled>Select T</option> -->
+                                                <option selected value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+                                            <label for="gender">Gender</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                        <div class="form-group form-floating">
+                                            <input type="date" class="form-control" formControlName="dateOfBirth"
+                                                id="dateOfBirth" placeholder="Date of Birth" [max]="maxDate">
+                                            <label for="dateOfBirth">Date of Birth</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                        <div class="form-group form-floating">
+                                            <select id="city" name="city" formControlName="city" class="form-control">
+                                                <option value="" disabled>Select City</option>
+                                                <option value="Dubai">Dubai</option>
+                                                <option value="Abu Dhabi">Abu Dhabi</option>
+                                                <option value="Sharjah">Sharjah</option>
+                                                <option value="AI Ain">AI Ain</option>
+                                                <option value="Ajman">Ajman</option>
+                                                <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+                                                <option value="Fujairah City">Fujairah City</option>
+                                                <option value="Umm AI Quwain">Umm AI Quwain</option>
+                                            </select>
+                                            <label for="city">Select City</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                        <div class="form-group form-floating">
+                                            <select class="form-control" formControlName="nationality" id="nationality">
+                                                <option value="" disabled>Select Nationality</option>
+                                                <option value="India">India</option>
+                                                <option value="U.A.E">U.A.E</option>
+                                            </select>
+                                            <label for="nationality">Select Nationality</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                        <div class="form-group form-floating">
+                                            <input type="text" class="form-control" formControlName="nationalId"
+                                                id="nationalId" placeholder="National Id">
+                                            <label for="nationalId">National Id</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                        <div class="form-group form-floating">
+                                            <input type="file" class="form-control fileupload"
+                                                formControlName="nationalIdFile" id="nationalIdFile"
+                                                placeholder="National Id File">
+                                            <label for="nationalIdFile">Upload National ID</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                        <div class="form-group form-floating">
+                                            <input type="text" class="form-control" formControlName="salary" id="salary"
+                                                placeholder="Salary">
+                                            <label for="salary">Salary</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                        <div class="form-group form-floating">
+                                            <input type="text" class="form-control" formControlName="acntNumber"
+                                                id="acntNumber" placeholder="Account Number">
+                                            <label for="acntNumber">Account Number</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                        <div class="form-group form-floating">
+                                            <select class="form-control" formControlName="distributorId"
+                                                id="distributorId">
+                                                <option value="" disabled>Select Distributor</option>
+                                                <option *ngFor="let dist of distList">{{dist.distributorId}}</option>
+                                            </select>
+                                            <!-- <input type="text" class="form-control" formControlName="distributorId"
+                                                id="distributorId" placeholder="distributorId"> -->
+                                            <label for="distributorId">distributorId</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12" *ngIf="isShow">
+                                        <div class="form-group form-floating">
+                                            <input type="text" class="form-control" formControlName="leaveBalance"
+                                                id="leaveBalance" placeholder="leaveBalance">
+                                            <label for="leaveBalance">leaveBalance</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-sm-8 col-md-8 col-xl-8 col-xs-12">
+                                        <div class="form-group form-floating">
+                                            <textarea type="text" class="form-control textLabel"
+                                                formControlName="address" id="address"
+                                                placeholder="Complete Address"></textarea>
+                                            <label for="address">Complete Address</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="d-flex gap-16x justify-content-end">
+                                        <!-- <div class="d-flex gap-16x"> -->
+                                        <button class="btn btn-default-sm-primary"
+                                            (click)="onCreateAction()">Cancel</button>
+                                        <button *ngIf="!isShow" class="btn btn-default-md-fill"
+                                            (click)="createSalesPerson()">Save</button>
+                                        <button *ngIf="isShow" class="btn btn-default-md-fill"
+                                            (click)="createSalesPerson()">Update</button>
+                                        <!-- <button class="btn btn-sm create" click="onDEl()">d<i class='bi bi-trash-fill trash'></i></button> -->
+
+                                        <button *ngIf="isShow" class="btn btn-sm create" data-toggle="modal"
+                                            data-target="#delEmp"><i class='bi bi-trash-fill'></i></button>
+                                        <!-- </div> -->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- <button class="btn btn-default-md-fill">Save <i class="fas fa-download"></i></button> -->
+            </div>
+        </div>
+        <!-- </section> -->
+
+        <!-- NEW CODE EMPLOYEE CARDS -->
+        <!-- <section class="content"> -->
+        <!-- <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row cust-emp-card">
+                        <div class="col-3 empCard" *ngFor="let sperson of salesPersons | filter:searchText">
+                            <div class=" card card-employee">
+                                <div class="card-body p-0">
+                                    <div class="avatar-container d-flex">
+                                        <div class="editProf" data-toggle="modal" data-target="#myModal2"
+                                            (click)="getDetails(emp)">
+                                            <i class="bi bi-three-dots" style="position:relative; top: 1px;"></i>
+                                        </div>
+                                        <div
+                                            class="contact-container d-flex align-items-center justify-content-center flex-column text-center">
+                                            <div class="picture-container">
+                                                <div class="picture">
+                                                    <div class="picture2">
+                                                        <img src="admin/assets/images/Ellipse 13.jpg" class="picture-src"
+                                                            id="wizardPicturePreview" title="">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="contact-details">
+                                                <div class="person-name">{{sperson.firstName}}</div>
+                                            </div>
+                                            <div class="contact-details">
+                                                <div class="label-name">Sales Person ID</div>
+                                                <div class="person-name">{{sperson.salesPersonId}}</div>
+                                            </div>
+                                            <div class="contact-details">
+                                                <div class="label-name">Emirates ID</div>
+                                                <div class="person-name">{{sperson.emiratesId}}</div>
+                                            </div>
+                                            <div class="contact-details">
+                                                <div class="label-name">Mobile Number</div>
+                                                <div class="person-name">{{sperson.mobileNumber}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </section>
+
+
+    <!-- End -->
+
+    <!-- MODAL POPUP -->
+
+    <!-- Employee details Modal -->
+    <div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel2">SalesPerson Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="container">
+
+                        <form id="edit_employee_form">
+
+
+                            <!-- ROW 1 -->
+                            <div class="row">
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputEmployeeName">Employee Name</label>
+                                        <input type="text" id="inputEmployeeName" name="employee_name"
+                                            class="form-control" autocomplete="off" value="Ahmed">
+                                    </div>
+                                </div>
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputJobTitle">Job Title</label>
+                                        <input type="text" id="inputJobTitle" name="job_title" class="form-control"
+                                            autocomplete="off" value="Sales Associate">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ROW 2 -->
+                            <div class="row">
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputSalary">Salary</label>
+                                        <input type="text" id="inputSalary" name="salary" class="form-control"
+                                            autocomplete="off" value="2,500">
+                                    </div>
+                                </div>
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputEmployeeName">Employee ID</label>
+                                        <input type="text" id="inputEmployeeName" name="employee_name"
+                                            class="form-control" autocomplete="off" value="3456">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ROW 3 -->
+                            <div class="row">
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputJobTitle">Employee Grad</label>
+                                        <input type="text" id="inputJobTitle" name="job_title" class="form-control"
+                                            autocomplete="off" value="25123">
+                                    </div>
+                                </div>
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputSalary">Leave Balance</label>
+                                        <input type="text" id="inputSalary" name="salary" class="form-control"
+                                            autocomplete="off" value="30 days">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ROW - 4 -->
+                            <div class="row">
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputEmployeeName">Job Description</label>
+                                        <input type="text" id="inputEmployeeName" name="employee_name"
+                                            class="form-control" autocomplete="off" value="Sales Assiciate">
+                                    </div>
+                                </div>
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputJobTitle">Personal Information</label>
+                                        <input type="text" id="inputJobTitle" name="job_title" class="form-control"
+                                            autocomplete="off" value="Lorem Ipsu">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputSalary">End of Service</label>
+                                        <input type="text" id="inputSalary" name="salary" class="form-control"
+                                            autocomplete="off" value="03 / 24 / 2024">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <button type="button" class="btn btn-submit btn-secondary btn-update"
+                                            id="btn_submit">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

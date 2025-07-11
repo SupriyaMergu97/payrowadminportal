@@ -1,0 +1,110 @@
+<div class="container">
+    <div class="row menurow">
+        <nav>
+            <div class="nav nav-tabs dash-tab" id="nav-tab" role="tablist">
+                <button class="nav-link nav_item" id="dashboard" data-bs-toggle="tab" data-bs-target="#nav-market"
+                    type="button" role="tab" aria-controls="nav-market" aria-selected="true"
+                    [routerLink]="['/dashboard']" [routerLinkActive]="['active']"
+                    [routerLinkActiveOptions]={exact:true}>
+                    <!-- <img src="/admin/assets/images/dashboard.png" class="menuIcons iconTab" /> -->
+                    Dashboard</button>
+
+                <button class="nav-link nav_item" id="market" data-bs-toggle="tab" data-bs-target="#nav-market"
+                    type="button" role="tab" aria-controls="nav-market" aria-selected="true"
+                    [routerLink]="['/dashboard/market-today']" [routerLinkActive]="['active']"
+                    [routerLinkActiveOptions]={exact:true}>
+                    <!-- <img src="/admin/assets/images/marketToday.png" class="menuIcons iconTab" /> -->
+                    Market Today</button>
+
+                <button class="nav-link nav_item" id="market" data-bs-toggle="tab" data-bs-target="#nav-market"
+                    type="button" role="tab" aria-controls="nav-market" aria-selected="true"
+                    [routerLink]="['/dashboard/consolidate']" [routerLinkActive]="['active']"
+                    [routerLinkActiveOptions]={exact:true}>
+                    <!-- <img src="/admin/assets/images/marketToday.png" class="menuIcons iconTab" /> -->
+                    Consolidated</button>
+                <!-- <button class="nav-link nav_item" id="taptopay" data-bs-toggle="tab" data-bs-target="#nav-pay"
+                    type="button" role="tab" aria-controls="nav-pay" aria-selected="true"
+                    [routerLink]="['/dashboard/consolidate']" [routerLinkActive]="['active']"><img
+                        src="/admin/assets/images/tapToPaydashboard.png" width="25px" class="gray iconTab" />Tap to
+                    Pay</button> -->
+
+                <!-- <button class="nav-link nav_item" id="invoice" data-bs-toggle="tab" data-bs-target="#nav-invoice"
+                    type="button" role="tab" aria-controls="nav-invoice" aria-selected="false"
+                    [routerLink]="['/dashboard/consolidate']" [routerLinkActive]="['active']"><img
+                        src="/admin/assets/images/cashInvoice.png" class="cashinv iconTab" />Consolidated</button> -->
+
+                <button class="nav-link nav_item" id="service" data-bs-toggle="tab" data-bs-target="#nav-service"
+                    type="button" role="tab" aria-controls="nav-service" aria-selected="false"
+                    [routerLink]="['/dashboard/service-types']" [routerLinkActive]="['active']">
+                    <!-- <svg version="1.0" xmlns="http://www.w3.org/2000/svg" class="serviceMenu iconTab"
+                        viewBox="0 0 539.000000 538.000000" preserveAspectRatio="xMidYMid meet" width="30px">
+
+                        <g transform="translate(0.000000,538.000000) scale(0.100000,-0.100000)" fill="#000000"
+                            stroke="none">
+                            <path d="M4000 4162 c-501 -229 -567 -262 -587 -291 -30 -44 -31 -117 -2 -173
+                    30 -58 20 -63 -124 -62 -117 0 -130 2 -302 52 -205 60 -267 69 -347 53 -114
+                    -24 -385 -117 -432 -150 -43 -28 -51 -31 -84 -21 -21 5 -72 10 -114 10 -84 0
+                    -89 4 -63 50 21 36 19 119 -4 156 -14 24 -133 96 -527 323 -434 250 -513 292
+                    -542 289 l-35 -3 -413 -790 c-227 -434 -413 -802 -414 -816 0 -14 8 -33 18
+                    -41 16 -14 896 -509 989 -557 23 -11 55 -21 70 -21 41 1 110 35 124 62 6 12
+                    13 25 16 27 5 6 93 -81 93 -91 0 -4 -34 -56 -76 -114 -42 -58 -83 -127 -91
+                    -152 -44 -146 77 -302 235 -302 l48 0 12 -45 c23 -86 132 -165 228 -165 l49 0
+                    18 -50 c32 -91 129 -160 224 -160 50 0 50 0 62 -41 15 -51 79 -122 135 -149
+                    56 -27 153 -27 204 -1 39 20 79 60 126 124 l27 37 68 -55 c86 -69 124 -85 206
+                    -85 76 0 117 15 170 61 37 33 85 117 85 150 0 14 9 16 65 11 79 -6 140 14 198
+                    67 41 37 76 100 77 137 0 19 6 20 83 20 65 0 91 4 123 21 55 29 109 92 130
+                    151 l18 49 35 -9 c50 -14 140 -4 188 21 91 46 153 162 138 259 -10 66 -40 120
+                    -98 173 l-50 47 59 55 58 54 39 -30 c32 -26 46 -31 90 -30 46 0 113 29 606
+                    262 305 143 558 266 563 273 4 7 8 21 8 31 0 22 -736 1595 -758 1620 -8 9 -25
+                    17 -36 17 -12 0 -275 -116 -586 -258z m894 -617 c186 -399 337 -727 335 -729
+                    -13 -12 -995 -466 -1009 -466 -9 0 -26 10 -37 23 -30 31 -655 1363 -655 1394
+                    0 13 7 32 15 41 16 16 983 461 1002 461 6 0 163 -326 349 -724z m-3533 450
+                    c244 -140 452 -264 463 -274 18 -19 11 -34 -345 -711 -200 -381 -371 -698
+                    -380 -703 -13 -8 -113 43 -478 248 -253 141 -461 261 -461 266 0 14 742 1429
+                    750 1429 4 0 207 -115 451 -255z m1604 -429 c212 -60 296 -72 406 -56 46 7 92
+                    13 102 14 14 1 71 -112 277 -549 143 -302 260 -555 260 -562 0 -19 -85 -108
+                    -127 -134 l-33 -21 -103 88 c-56 49 -199 184 -318 301 -119 117 -222 213 -230
+                    213 -44 0 -50 -52 -15 -125 30 -65 294 -324 573 -563 122 -105 206 -185 213
+                    -203 39 -94 -53 -205 -151 -184 -20 5 -107 72 -245 191 -224 192 -245 205
+                    -286 167 -20 -18 -23 -45 -9 -71 5 -9 77 -75 160 -146 182 -157 203 -191 165
+                    -272 -24 -51 -74 -77 -134 -72 -46 5 -58 13 -207 141 -125 109 -164 137 -187
+                    137 -61 0 -87 -61 -43 -103 12 -12 64 -58 115 -101 51 -44 100 -92 108 -107
+                    33 -65 5 -152 -60 -183 -69 -33 -95 -22 -228 92 -129 111 -140 117 -176 100
+                    -21 -10 -28 -21 -30 -49 -3 -33 2 -41 68 -99 75 -67 100 -103 100 -145 0 -54
+                    -55 -121 -106 -131 -53 -10 -85 3 -164 66 l-74 59 -2 60 c-2 85 -35 145 -104
+                    194 -30 20 -70 40 -90 43 l-37 6 0 57 c-1 75 -29 130 -92 179 -27 22 -70 44
+                    -95 51 l-46 11 0 56 c0 101 -72 193 -175 224 l-40 12 0 66 c-1 80 -25 134 -82
+                    181 -56 46 -99 63 -164 64 -84 0 -141 -32 -202 -114 -27 -35 -52 -65 -55 -67
+                    -4 -1 -31 21 -59 50 l-52 53 277 527 c269 513 278 528 312 538 38 11 173 14
+                    183 4 3 -4 -1 -20 -9 -36 -9 -17 -65 -165 -125 -330 -72 -198 -109 -311 -107
+                    -331 4 -41 57 -71 152 -88 228 -41 436 109 482 348 16 86 36 126 76 156 26 20
+                    28 20 90 3 113 -32 144 -51 262 -165 115 -112 135 -123 177 -101 14 8 19 21
+                    19 49 0 35 -8 46 -107 143 -60 57 -130 117 -156 133 -60 35 -196 75 -254 75
+                    -113 0 -192 -91 -228 -259 -18 -88 -42 -135 -92 -183 -57 -55 -115 -78 -200
+                    -78 -39 0 -75 5 -78 10 -9 15 194 558 227 607 52 77 110 104 418 198 94 29
+                    128 25 355 -39z m-1244 -1249 c44 -29 70 -79 59 -116 -7 -26 -266 -395 -313
+                    -448 -62 -69 -197 -10 -197 86 0 31 22 68 151 246 82 116 161 220 175 233 32
+                    29 81 29 125 -1z m227 -317 c35 -28 51 -58 52 -96 0 -23 -27 -67 -111 -185
+                    -129 -180 -157 -209 -200 -209 -85 0 -153 96 -117 163 31 60 234 330 257 343
+                    33 18 83 11 119 -16z m242 -308 c68 -66 59 -95 -93 -297 -28 -38 -64 -76 -78
+                    -84 -75 -42 -193 58 -162 138 14 37 161 238 191 262 15 11 40 19 63 19 31 0
+                    46 -8 79 -38z m196 -268 c48 -23 74 -59 74 -104 0 -31 -11 -54 -60 -119 -32
+                    -44 -71 -88 -85 -97 -38 -25 -91 -13 -134 31 -55 55 -50 90 26 196 79 110 110
+                    126 179 93z" />
+                            <path d="M1008 3993 c-26 -29 -58 -100 -58 -127 0 -36 42 -63 78 -50 31 11 81
+                    94 82 135 0 51 -69 79 -102 42z" />
+                            <path d="M887 3758 c-26 -20 -359 -649 -360 -680 -1 -38 20 -58 59 -58 28 0
+                    38 6 57 38 60 96 337 631 337 650 0 27 -33 62 -58 62 -10 0 -26 -6 -35 -12z" />
+                        </g>
+                    </svg> -->
+                    Service Types
+                </button>
+                <button class="nav-link nav_item" id="location" data-bs-toggle="tab" data-bs-target="#nav-location"
+                    type="button" role="tab" aria-controls="nav-location" aria-selected="false"
+                    [routerLink]="['/dashboard/location']" [routerLinkActive]="['active']">
+                    Merchant Location</button>
+            </div>
+        </nav>
+
+    </div>
+</div>

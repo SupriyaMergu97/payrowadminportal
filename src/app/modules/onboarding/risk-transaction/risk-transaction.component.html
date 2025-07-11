@@ -1,0 +1,158 @@
+<div class="card-body">
+    <form [formGroup]="mdrForm">
+        <div *ngFor="let data of midData">
+            <div class="row form-group" >
+                <div class="col-3">
+                    <label for="marchentId">MarchantID</label>
+                    <input type="text" class="form-control" id="marchentId" formControlName="marchentId"
+                    placeholder={{data.bankMID}} [(ngModel)]="data.bankMID" readonly>
+                </div>
+                <div class="col-3">
+                    <label for="marchentName">MarchantName</label>
+                    <input type="text" class="form-control" id="marchentName" formControlName="marchentName"
+                    [(ngModel)]=data.firstName placeholder=data.firstName readonly>
+                </div>
+                <div class="col-3">
+                    <label for="oneTimeCharge">OneTimeCharge</label>
+                    <input type="text" class="form-control" id="oneTimeCharge" formControlName="oneTimeCharge" readonly>
+                </div>
+                <div class="col-3">
+                    <label for="mdrType">Annual Turnover</label>
+                    <input type="text" class="form-control" id="annualTurnover" formControlName="annualTurnover"
+                    [(ngModel)]=data.businessDetails.annualTurnOver placeholder={{data.businessDetails.annualTurnOver}} readonly>
+
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-3">
+                    <label for="monthCharges">Charge per day</label>
+                    <input type="text" class="form-control" id="chargePerDay" formControlName="chargePerDay" readonly>
+                </div>
+                <div class="col-3">
+                    <label for="chStartDate">Contract Start Date</label>
+                    <input type="date" class="form-control" id="contractStartDate" formControlName="contractStartDate"
+                        >
+                </div>
+                <div class="col-3">
+                    <label for="chEndDate">Contract End Date</label>
+                    <input type="date" class="form-control" id="contractEndDate" formControlName="contractEndDate"
+                    >
+                </div>
+                <div class="col-3">
+                    <label for="monthCharges">Customer settlement Acnt Num</label>
+                    <input type="text" class="form-control" id="settlementAcntNum" formControlName="settlementAcntNum" placeholder="01271230"/>
+                    <!-- [(ngModel)]=bData.accountNumber placeholder={{bData.accountNumber}} readonly> -->
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-3">
+                    <label for="customerCategory">Customer Category</label>
+                    <select class="form-control" formControlName="customerCategory" [(ngModel)]="selected" (change)='onSelectCat($event)'>
+                        <option *ngFor="let cat of category">{{cat.name}}</option>
+                 
+                    </select>
+                </div>
+                <div class="col-md-9" *ngFor="let data of finalData">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="maxAmntperTrans">Max amount per transaction</label>
+                            <input type="text" class="form-control" id="maxAmntPerTrans"
+                                [(ngModel)]="data.maxAmntPerTrans" placeholder="data.maxAmntPerTrans"
+                                formControlName="maxAmntperTrans" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="maxTransPerDay">Max transaction per day</label>
+                            <input type="text" class="form-control" [(ngModel)]="data.maxTransPerDay"
+                                placeholder="{{data.maxTransPerDay}}" formControlName="maxTransPerDay" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="maxAmntPerDay">Max amount per Day</label>
+                            <input type="text" class="form-control" [(ngModel)]="data.maxAmntPerDay"
+                                placeholder="{{data.maxAmntPerDay}}" formControlName="maxAmntPerDay" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-3">
+                    <label for="maxTransPerDay">VAT Charges %</label>
+                    <input type="text" class="form-control" formControlName="vatCharges" readonly>
+                </div>
+                <div class="col-3">
+                    <label for="maxTransPerDay">Distributor</label>
+                    <select class="form-control" formControlName="distributor">
+                        <option>PayNet</option>
+                        <option>PayBlue</option>
+                        <option>PayAFZ</option>
+                        <option>PayRAK</option>
+                        <option>PaySHJ</option>
+                    </select>
+                    <!-- <input type="text" class="form-control"> -->
+                </div>
+                <div class="col-3">
+                    <label for="maxTransPerDay">ONUS Rate</label>
+                    <input type="text" class="form-control" formControlName="onusRate">
+                </div>
+                <div class="col-3">
+                    <label for="maxTransPerDay">is it Government Customer?</label>
+                    <select class="form-control" (change)='onSelectGovt($event)'>
+                        <option>Yes</option>
+                        <option selected>No</option>
+                    </select>
+                    <!-- <input type="text" class="form-control"> -->
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-12">
+                <div class="card" formGroupName="invoice">
+                    <div class="card-header text-center">PayRow Invoice per Transaction</div>
+                    <div class="card-body">
+                        <div class="container">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Card Type</th>
+                                        <th>Total Amount</th>
+                                        <th>Currency</th>
+                                        <th>FAB Rate</th>
+                                        <th>PayRow Rate</th>
+                                        <!-- <th>VAT Charges % </th> -->
+                                        <th>Final settlement</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input class="form-control" formControlName="cardType" value="VC"
+                                                />
+                                        </td>
+                                        <td>
+                                            <input class="form-control" formControlName="totAmnt" />
+                                        </td>
+                                        <td>
+                                            <input class="form-control" formControlName="currency" />
+                                        </td>
+                                        <td *ngFor="let data of finalData">
+                                            <input class="form-control" type="text" formControlName="fabRate" 
+                                            [(ngModel)]="data.fabRate" placeholder="{{data.fabRate}}" readonly/>
+                                        </td>
+                                        <td>
+                                            <input class="form-control" type="text" id="payRowRate" formControlName="payRowRate" readonly/>
+                                        </td>
+                                        <td>
+                                            <input class="form-control" type="text" formControlName="finalSettlement" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-sm btn-success edit_btn float-right" (click)="postTransactionRates()">Save</button>
+    </form>
+</div>

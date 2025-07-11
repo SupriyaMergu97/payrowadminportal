@@ -1,0 +1,95 @@
+.nav-pills-custom .nav-link {
+    color: #aaa;
+    background: #fafafa;
+    position: relative;
+}
+.nav-link {
+    border: 1px solid #ccc;
+    padding: 8px !important;
+}
+
+.nav-pills-custom .nav-link.active {
+    color: #45b649;
+    // background: #fff;
+}
+.nav-pills-custom .nav-link.active::before {
+    opacity: 1;
+}
+.is-invalid {
+    color: red;
+}
+.dialog{
+    border: none;
+    background:none;
+  }
+/* Apply red border to invalid fields */
+.ng-invalid.ng-touched {
+    border-color: red;
+}
+
+.down {
+    color: white;
+    background: dimgrey;
+}
+.shadow {
+    box-shadow: 0 0px 0px rgb(0 0 0 / 15%) !important;
+}
+.formheader {
+    color: #72ac47;
+    font-family: Roboto;
+    margin: 12px 12px 24px;
+}
+.stepper-card {
+    position: relative;
+    width: 212px;
+}
+select {
+    /** for the dropdown indicator */
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+.tabIcn {
+    margin-right: 6px;
+}
+// .addValue {
+//     -webkit-appearance: menulist;
+//     border: 1px solid #e5e5e5;
+//     border-radius: 5px;
+//     padding: 5px;
+//     .active i {
+//         color: green;
+//     }
+//     .deactive i {
+//         color: red;
+//     }
+// }
+// .btn-default-md-fill:hover{
+//     background: #F1F7ED;
+//     color: var(--color_3);
+// }
+.section-header {
+    margin-bottom: 8px;
+}
+.bi {
+    font-size: 16px;
+    color: #504f4f;
+}
+.icn {
+    border: none;
+    background: none;
+    i {
+        color: #504f4f;
+    }
+}
+span {
+    margin-top: 7px;
+}
+.download {
+    margin: 0px 16px 7px 0px;
+}
+.modal-content {
+    padding: 0px 16px;
+}

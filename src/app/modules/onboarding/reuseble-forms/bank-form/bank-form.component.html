@@ -1,0 +1,102 @@
+<ng-container [formGroup]="bankForm">
+    <div class="container">
+        <!-- <h5 style="color: #72AC47; font-family: Roboto;">BANK DETAILS</h5> -->
+        <div class="row">
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="bankName" class="form-control" placeholder="Bank Name" />
+                    <label for="bankName">Bank Name</label>
+                    <div *ngIf="bankForm.controls['bankName'].invalid && (bankForm.controls['bankName'].dirty || bankForm.controls['bankName'].touched)"
+                        class="alert">
+                        <div *ngIf="bankForm.controls['bankName'].errors.required">
+                            <p class="error-msg">
+                                Please Enter Bank Name
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="branchName" class="form-control" placeholder="Branch Name" />
+                    <label for="branchName">Branch</label>
+                    <div *ngIf="bankForm.controls['branchName'].invalid && (bankForm.controls['branchName'].dirty || bankForm.controls['branchName'].touched)"
+                        class="alert">
+                        <div *ngIf="bankForm.controls['branchName'].errors.required">
+                            <p class="error-msg">
+                                Please Enter your Branch
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="accountNumber" class="form-control"
+                        placeholder="Bank Ac Number" />
+                    <label for="accountNumber">Bank Ac Number</label>
+                    <div *ngIf="bankForm.controls['accountNumber'].invalid && (bankForm.controls['accountNumber'].dirty || bankForm.controls['accountNumber'].touched)"
+                        class="alert">
+                        <div *ngIf="bankForm.controls['accountNumber'].errors.required">
+                            <p class="error-msg">
+                                Please Enter your Account Number
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="ibanNumber" class="form-control" placeholder="IBAN Number" />
+                    <label for="ibanNumber">IBAN Number</label>
+                    <div *ngIf="bankForm.controls['ibanNumber'].invalid && (bankForm.controls['ibanNumber'].dirty || bankForm.controls['ibanNumber'].touched)"
+                        class="alert">
+                        <div *ngIf="bankForm.controls['ibanNumber'].errors.required">
+                            <p class="error-msg">
+                                Please Enter your IBAN Number
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="vatNumber" class="form-control" placeholder="Vat Number" />
+                    <label for="vatNumber">Vat Number</label>
+                    <div *ngIf="bankForm.controls['vatNumber'].invalid && (bankForm.controls['vatNumber'].dirty || bankForm.controls['vatNumber'].touched)"
+                        class="alert">
+                        <div *ngIf="bankForm.controls['vatNumber'].errors.required">
+                            <p class="error-msg">
+                                Please Enter your VAT Number
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="bankServiceId" class="form-control" placeholder="Vat Number" />
+                    <label for="bankServiceId" [ngClass]="{'is-invalid': bankForm.controls['bankServiceId'].invalid && bankForm.controls['bankServiceId'].touched,
+                            'is-valid': bankForm.controls['bankServiceId'].valid}">
+                        Bank Service Id<span>&nbsp;*</span></label>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="trn" class="form-control" placeholder="trn" />
+                    <label for="trn" [ngClass]="{'is-invalid': bankForm.controls['trn'].invalid && bankForm.controls['trn'].touched,
+                        'is-valid': bankForm.controls['trn'].valid}">
+                        TRN<span>&nbsp;*</span></label>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="swiftCode" class="form-control" placeholder="Swift Code" />
+                    <label for="swiftCode" [ngClass]="{'is-invalid': bankForm.controls['swiftCode'].invalid && bankForm.controls['swiftCode'].touched,
+                        'is-valid': bankForm.controls['swiftCode'].valid}">
+                        Swift Code<span>&nbsp;*</span></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

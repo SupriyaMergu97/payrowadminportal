@@ -1,0 +1,116 @@
+<div class="content-wrapper main-section-container">
+    <!-- NEW CODE FOR TABLES -->
+    <section class="content">
+        <div class="container-fluid p-0 pb-24x">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title  d-flex align-items-center justify-content-between">
+                        <div class="pull-left">
+                            <div class="search-holder">
+                                <form action="">
+                                    <div class="input-group">
+                                        <input type="search" autocomplete="off" [(ngModel)]="searchText" (ngModelChange)="search(searchText)"
+                                            placeholder="Search" aria-describedby="button-addon5" class="form-control"
+                                            [ngModelOptions]="{standalone: true}">
+                                        <div class="input-group-append">
+                                            <button id="button-addon5" type="submit" class="btn"><i
+                                                    class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="pull-right d-flex gap-16x col-md-5">
+                            <button class="btn btn-primary-lg" (click)="reportDownload()"><i
+                                    class="fas fa-download"></i> Download</button>
+                            <div class="select">
+                                <select rows="1" class="seldrpdwn form-control" placeholder="" [(ngModel)]="selected"
+                                    (change)='onSelectMonth($event)'>
+                                    <option *ngFor="let j of months" [value]="j.id">{{j.month}}</option>
+                                </select>
+                            </div>
+                            <div class="select">
+                                <select rows="1" class="seldrpdwn form-control" placeholder="" [(ngModel)]="productType"
+                                    (change)='onSelectProduct($event)'>
+                                    <option value="All">All Products</option>
+                                    <option value="Cash">Cash Invoice</option>
+                                    <option value="Card">Tap to Pay</option>
+                                    <option value="ECOMMERCE">ECOMMERCE</option>
+                                    <option value="Paybylink">Pay by Link</option>
+                                    <option value="generateQR">Pay by QR Code</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button (click)="sampleapi()">GetDetails</button>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-resposive">
+                    <table class="table table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th>Merchant ID</th>
+                                <!-- <th>POS Type</th> -->
+                                <th>TID</th>
+                                <th>Item</th>
+                                <th>Address</th>
+                                <!-- <th>Mobile</th> -->
+                                <th>Invoice No</th>
+                                <th>Total Amount</th>
+                                <th>VAT</th>
+                                <!-- <th>Sequence No</th> -->
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of getPage() | filter:searchText">
+                                <td>{{data.mainMerchantId}}</td>
+                                <!-- <td>{{data.posType}}</td> -->
+                                <td>{{data.terminalId}}</td>
+                                 <td data-tooltip="top" role="tooltip" attr.aria-label="{{data.services}}">
+                                    <div class="bi-info-circle"></div>
+                                </td>
+                                <!-- <td>{{data.services}}</td> -->
+                                <td>
+                                    <div>
+                                        <button class="dialog" (click)="openDialog(data.orderNumber)"><div class="bi-card-list"></div></button>
+                                    </div>
+                                    <app-contact-dialog *ngIf="showDialog" [dialogData]="dialogData" (close)="closeDialog()"></app-contact-dialog>
+                                </td>
+                                <!-- <td>
+                                    <div class="content" style="margin-left: 4px;" data-toggle="modal"
+                                        data-target="#userinfo">
+                                        <div class="bi-card-list"></div>
+                                    </div>
+                                </td> -->
+                                <td>{{data.orderNumber}}</td>
+                                <td>{{data.amount | number}}</td>
+                                <td>200</td>
+                                <td>{{data.paymentDate | date: 'dd/MM/yyyy'}}</td>
+                                <td>{{data.paymentDate | date:'mediumTime'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div *ngIf="finalData.length==0">
+                        <p style="text-align: center; margin-top: 10%;">No Data Found!!!</p>
+                    </div>
+                    <div class="loading" *ngIf="isLoading">
+                        <div id="loader"><!-- Animated logo --><img src="/admin/assets/images/loaderGreen.png" alt="Loading Logo"
+                                class="logo">
+                            <div class="spinner-border" role="status"></div>
+                            <p>Loading, please wait...</p>
+                        </div>
+                    </div>
+                    <app-pagination [totalItems]="finalData.length" [itemsPerPage]="itemsPerPage"
+                        (pageChange)="onPageChange($event)"></app-pagination>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

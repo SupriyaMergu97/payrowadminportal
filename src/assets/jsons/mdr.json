@@ -1,0 +1,72 @@
+[
+    {
+       "marchentId":"6865865488",
+       "marchantName":"Burj Khalifa",
+       "otc":"000.00",
+       "mdrType":"fixed",
+       "mntCharges":"000.00",
+       "mntchargesStartDate":"",
+       "mntchargesEndDate":"",
+
+       "cards":[
+            {
+                "type":"Visa Credit",
+                "cardType":"VC",
+                "data":[
+                    {
+                        "toamt":"",
+                        "chargeType":"",
+                        "rakRate":"",
+                        "newrate":"",
+                        "gst":"",
+                        "other":""
+                    }
+                ]
+
+            },
+            {
+                "type":"Visa Debit",
+                "cardType":"VD",
+                "data":[
+                    {
+                        "toamt":"",
+                        "chargeType":"",
+                        "rakRate":"",
+                        "newrate":"",
+                        "gst":"",
+                        "other":""
+                    }
+                ]
+
+            },
+            {
+                "type":"Master credit",
+                "cardType":"MC",
+                "data":[
+                    {
+                        "toamt":"",
+                        "chargeType":"",
+                        "rakRate":"",
+                        "newrate":"",
+                        "gst":"",
+                        "other":""
+                    }
+                ]
+            },
+            {
+                "type":"Master Debit",
+                "cardType":"MD",
+                "data":[
+                    {
+                        "toamt":"",
+                        "chargeType":"",
+                        "rakRate":"",
+                        "newrate":"",
+                        "gst":"",
+                        "other":""
+                    }
+                ]
+            }
+       ]
+    }
+]

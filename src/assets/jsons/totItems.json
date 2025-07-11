@@ -1,0 +1,150 @@
+[
+    {
+      "number": "1","item": "Fruits & Vegetables","item_code": "1001",
+      "description": "Vegetable is edible plant or its part, intended for cooking or eating raw. Fruits are the mature ovary seed of a flowering plant that is consumed as food."
+    },
+    {
+      "number": "2","item": "Meat & Poultry & Fish","item_code": "1002",
+      "description": "These are the items of meaty food which are consumed as food."
+    },
+    {
+      "number": "3","item": "Bakery","item_code": "1003",
+      "description": "A bakery is an establishment that produces and sells flour-based food baked in an oven such as bread, cookies, cakes, pastries, and pies."
+    },
+    {
+      "number": "4","item": "Home Bake & Sugar","item_code": "1004",
+      "description": "Baking is a method of preparing food that uses dry heat, typically in an oven, but can also be done in hot ashes, or on hot stones."
+    },
+    {
+      "number": "5","item": "Dairy & Eggs","item_code": "1005",
+      "description": "A dairy is a business enterprise established for the harvesting or processing (or both) of animal milk- mostly from cows or buffaloes, but also from goats, sheep, horses, or camels."
+    },
+    {
+      "number": "6","item": "Frozen Fries","item_code": "1006",
+      "description": "A long and thin pieces of potato that are fried and eaten hot."
+    },
+    {
+      "number": "7","item": "Beverages","item_code": "1007",
+      "description": "A drink or beverage is a liquid intended for human consumption."
+    },
+    {
+      "number": "8","item": "60Chocolate & Snacks00","item_code": "1008",
+      "description": "Snacks are a small portion of food generally eaten between meals."
+    },
+    {
+      "number": "9","item": "Cereals & Spreads & Honey","item_code": "1009",
+      "description": "A cereal is any grass cultivated (grown) for the edible components of its grain, composed of the endosperm, germ, and bran."
+    },
+    {
+      "number": "10","item": "Healthy & Organic","item_code": "1010",
+      "description": "Food produced from organic farming methods and often certified organic according to organic farming standards."
+    },
+    {
+      "number": "11","item": "Cans & Jars","item_code": "1011",
+      "description": "They are containers made of glass or pottery and typically having a lid, used especially for storing food or other liquids."
+    },
+    {
+      "number": "12","item": "Rice & Pasta & Pulses","item_code": "1012",
+      "description": "Pulses are the crops harvested solely as dry grains used in food consumption."
+    },
+    {
+      "number": "13","item": "Oil & Spices & Sauces","item_code": "1013",
+      "description": "A spice is a plant extract primarily used for flavoring or coloring food.Cooking oil is plant, animal, or synthetic fat used in frying, baking, and other types of cooking."
+    },
+    {
+      "number": "14","item": "Baby Care","item_code": "1014",
+      "description": "Products used for taking care of a baby."
+    },
+    {
+      "number": "15","item": "Healthy & Beauty","item_code": "1015",
+      "description": "A beauty product: a cosmetic, an item designed to enhance one's beauty."
+    },
+    {
+      "number": "16","item": "House Hold","item_code": "1016",
+      "description": "A house and its occupants regarded as a unit."
+    },
+    {
+      "number": "17","item": "Pets","item_code": "1017",
+      "description": "A pet, or companion animal, is an animal kept primarily for a person's company or entertainment rather than as a working animal, livestock or a laboratory animal."
+    },
+    {
+      "number": "18","item": "Appliances & Kitchenware","item_code": "1018",
+      "description": "A device or piece of equipment designed to perform a specific task."
+    },
+    {
+      "number": "19","item": "Kids Toys","item_code": "1019",
+      "description": "A toy is an item that is used in play, especially one designed for such use. It is mainly intended for use by children."
+    },
+    {
+      "number": "20","item": "Mens Fashion","item_code": "1020",
+      "description": "Clothing that is designed for men to wear."
+    },
+    {
+      "number": "21","item": "Women's Fashion","item_code": "1021",
+      "description": "Clothing that is designed for women to wear."
+    },
+    {
+      "number": "22","item": "Shoes","item_code": "1022",
+      "description": "A shoe is an item of footwear intended to protect and comfort the human foot. Shoes are also used as an item of decoration and fashion."
+    },
+    {
+      "number": "23","item": "Jewelry & Accessories","item_code": "1023",
+      "description": "Jewellery or jewelry consists of decorative items worn for personal adornment, such as brooches, rings, necklaces, earrings, pendants, bracelets, and cufflinks."
+    },
+    {
+      "number": "24","item": "Electronics","item_code": "1024",
+      "description": "Electronics comprises the physics, engineering, technology and applications that deal with the emission, flow and control of electrons in vacuum and matter."
+    },
+    {
+      "number": "25","item": "Furniture","item_code": "1025",
+      "description": "Furniture refers to movable objects intended to support various human activities such as seating (e.g., chairs, stools, and sofas), eating (tables), and sleeping"
+    },
+    {
+      "number": "26","item": "Automotive & Car Care","item_code": "1026",
+      "description": "Automotive is  a self-contained motor or engine or something that has to do with automobiles such as cars."
+    },
+    {
+      "number": "27","item": "Computers & IT Accessories","item_code": "1027",
+      "description": "Devices added to a computer that performs an additional capability or feature."
+    },
+    {
+      "number": "28","item": "Household Chemicals","item_code": "1028",
+      "description": "Household chemicals are non-food chemicals that are commonly found and used in and around the average household."
+    },
+    {
+      "number": "29","item": "Tableware & Kitchenware","item_code": "1029",
+      "description": "Kitchenware are the tools, utensils, appliances, dishes, and cookware used in food preparation, or the serving of food."
+    },
+    {
+      "number": "30","item": "Flowers","item_code": "1030",
+      "description": "A flower, sometimes known as a bloom or blossom, is the reproductive structure found in flowering plants"
+    },
+    {
+      "number": "31","item": "Garden Tools","item_code": "1031",
+      "description": "A garden tool is any one of many tools made for gardening and overlaps with the range of tools made for agriculture and horticulture."
+    },
+    {
+      "number": "32","item": "Hobbies & Leisure","item_code": "1032",
+      "description": "A hobby is an activity, interest, or pastime that is undertaken for pleasure or relaxation, done during one's own time."
+    },
+    {
+      "number": "33","item": "Pharmacy","item_code": "1033",
+      "description": "The science and art concerned with the preparation and standardization of drugs"
+    },
+    {
+      "number": "34","item": "Coffee","item_code": "1034",
+      "description": "Coffee is a brewed drink prepared from roasted coffee beans, the seeds of berries from certain Coffea species."
+    },
+    {
+      "number": "35","item": "Dessert","item_code": "1035",
+      "description": "The sweet course eaten at the end of a meal"
+    },
+    {
+      "number": "36","item": "Hot Drinks","item_code": "1036",
+      "description": "It is a beverage made from the infusion or decoction of herbs, spices, or other plant material in hot water."
+    },
+    {
+      "number": "37","item": "IceCream","item_code": "1037",
+      "description": "Ice cream  is a sweetened frozen food typically eaten as a snack or dessert."
+    }
+  ]

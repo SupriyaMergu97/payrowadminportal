@@ -1,0 +1,1358 @@
+[
+    {
+        "month": "Jan",
+        "data": [
+            {
+                "id": 1,
+                "type": "TOTAL CREDIT",
+                "target": 510000000,
+                "actual": 400000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 2,
+                "type": "CASH INVOICE",
+                "target": 150000000,
+                "actual": 110000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 3,
+                "type": "MISCELLANEOUS",
+                "target": 26400000,
+                "actual": 23400000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#AACC00"
+            },
+            {
+                "id": 4,
+                "type": "TAP TO PAY",
+                "target": 320000000,
+                "actual": 250000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6E82DB"
+            },
+            {
+                "id": 5,
+                "type": "TOTAL SEQUENCE",
+                "target": 500000000,
+                "actual": 410000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 6,
+                "type": "TOTAL VAT",
+                "target": 350000000,
+                "actual": 250000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 7,
+                "type": "TOTAL DOWNLOAD",
+                "target": 160000000,
+                "actual": 148000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#3F88A9"
+            },
+            {
+                "id": 8,
+                "type": "TOTAL ITEMS",
+                "target": 300000000,
+                "actual": 200000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#F3C331"
+            },
+            {
+                "id": 9,
+                "type": "CONSOLIDATE REPORT",
+                "target": 6000000000,
+                "actual": 4800000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 10,
+                "type": "REVENUE",
+                "target": 210000000,
+                "actual": 122000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 11,
+                "type": "TOTAL REPORT",
+                "target": 100000000,
+                "actual": 48000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 12,
+                "type": "REVENUE",
+                "target": 220000000,
+                "actual": 120000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            }
+        ]
+    },
+    {
+        "month": "Feb",
+        "data": [
+            {
+                "id": 1,
+                "type": "TOTAL CREDIT",
+                "target": 51000,
+                "actual": 40000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 2,
+                "type": "CASH INVOICE",
+                "target": 150000,
+                "actual": 11000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 3,
+                "type": "MISCELLANEOUS",
+                "target": 26400,
+                "actual": 2300,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#AACC00"
+            },
+            {
+                "id": 4,
+                "type": "TAP TO PAY",
+                "target": 320000,
+                "actual": 250000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6E82DB"
+            },
+            {
+                "id": 5,
+                "type": "TOTAL SEQUENCE",
+                "target": 50000,
+                "actual": 4100,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 6,
+                "type": "TOTAL VAT",
+                "target": 350000,
+                "actual": 25000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 7,
+                "type": "TOTAL DOWNLOAD",
+                "target": 160000,
+                "actual": 14800,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#3F88A9"
+            },
+            {
+                "id": 8,
+                "type": "TOTAL ITEMS",
+                "target": 30000,
+                "actual": 2000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#F3C331"
+            },
+            {
+                "id": 9,
+                "type": "CONSOLIDATE REPORT",
+                "target": 600000,
+                "actual": 48000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 10,
+                "type": "REVENUE",
+                "target": 210000,
+                "actual": 12200,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 11,
+                "type": "TOTAL REPORT",
+                "target": 10000,
+                "actual": 4800,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 12,
+                "type": "REVENUE",
+                "target": 22000,
+                "actual": 1200,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            }
+        ]
+    },
+    {
+        "month": "Mar",
+        "data": [
+            {
+                "id": 1,
+                "type": "TOTAL CREDIT",
+                "target": 510000000,
+                "actual": 400000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 2,
+                "type": "CASH INVOICE",
+                "target": 150000000,
+                "actual": 110000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 3,
+                "type": "MISCELLANEOUS",
+                "target": 26400000,
+                "actual": 23400000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#AACC00"
+            },
+            {
+                "id": 4,
+                "type": "TAP TO PAY",
+                "target": 320000000,
+                "actual": 250000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6E82DB"
+            },
+            {
+                "id": 5,
+                "type": "TOTAL SEQUENCE",
+                "target": 500000000,
+                "actual": 410000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 6,
+                "type": "TOTAL VAT",
+                "target": 350000000,
+                "actual": 250000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 7,
+                "type": "TOTAL DOWNLOAD",
+                "target": 160000000,
+                "actual": 148000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#3F88A9"
+            },
+            {
+                "id": 8,
+                "type": "TOTAL ITEMS",
+                "target": 300000000,
+                "actual": 200000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#F3C331"
+            },
+            {
+                "id": 9,
+                "type": "CONSOLIDATE REPORT",
+                "target": 6000000000,
+                "actual": 4800000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 10,
+                "type": "REVENUE",
+                "target": 210000000,
+                "actual": 122000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 11,
+                "type": "TOTAL REPORT",
+                "target": 100000000,
+                "actual": 48000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 12,
+                "type": "REVENUE",
+                "target": 220000000,
+                "actual": 120000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            }
+        ]
+    },
+    {
+        "month": "Apr",
+        "data": [
+            {
+                "id": 1,
+                "type": "TOTAL CREDIT",
+                "target": 51000,
+                "actual": 40000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 2,
+                "type": "CASH INVOICE",
+                "target": 150000,
+                "actual": 11000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 3,
+                "type": "MISCELLANEOUS",
+                "target": 26400,
+                "actual": 2300,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#AACC00"
+            },
+            {
+                "id": 4,
+                "type": "TAP TO PAY",
+                "target": 320000,
+                "actual": 250000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6E82DB"
+            },
+            {
+                "id": 5,
+                "type": "TOTAL SEQUENCE",
+                "target": 50000,
+                "actual": 4100,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 6,
+                "type": "TOTAL VAT",
+                "target": 350000,
+                "actual": 25000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 7,
+                "type": "TOTAL DOWNLOAD",
+                "target": 160000,
+                "actual": 14800,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#3F88A9"
+            },
+            {
+                "id": 8,
+                "type": "TOTAL ITEMS",
+                "target": 30000,
+                "actual": 2000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#F3C331"
+            },
+            {
+                "id": 9,
+                "type": "CONSOLIDATE REPORT",
+                "target": 600000,
+                "actual": 48000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 10,
+                "type": "REVENUE",
+                "target": 210000,
+                "actual": 12200,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 11,
+                "type": "TOTAL REPORT",
+                "target": 10000,
+                "actual": 4800,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 12,
+                "type": "REVENUE",
+                "target": 22000,
+                "actual": 1200,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            }
+        ]
+    },
+    {
+        "month": "May",
+        "data": [
+            {
+                "id": 1,
+                "type": "TOTAL CREDIT",
+                "target": 510000000,
+                "actual": 400000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 2,
+                "type": "CASH INVOICE",
+                "target": 150000000,
+                "actual": 110000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 3,
+                "type": "MISCELLANEOUS",
+                "target": 26400000,
+                "actual": 23400000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#AACC00"
+            },
+            {
+                "id": 4,
+                "type": "TAP TO PAY",
+                "target": 320000000,
+                "actual": 250000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6E82DB"
+            },
+            {
+                "id": 5,
+                "type": "TOTAL SEQUENCE",
+                "target": 500000000,
+                "actual": 410000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 6,
+                "type": "TOTAL VAT",
+                "target": 350000000,
+                "actual": 250000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 7,
+                "type": "TOTAL DOWNLOAD",
+                "target": 160000000,
+                "actual": 148000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#3F88A9"
+            },
+            {
+                "id": 8,
+                "type": "TOTAL ITEMS",
+                "target": 300000000,
+                "actual": 200000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#F3C331"
+            },
+            {
+                "id": 9,
+                "type": "CONSOLIDATE REPORT",
+                "target": 6000000000,
+                "actual": 4800000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 10,
+                "type": "SUBSCRIBER REVENUE",
+                "target": 210000000,
+                "actual": 122000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 11,
+                "type": "WPS TRANSACTION",
+                "target": 100000000,
+                "actual": 48000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 12,
+                "type": "PSP REVENUE",
+                "target": 220000000,
+                "actual": 120000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            }
+        ]
+    },
+    {
+        "month": "Jun",
+        "data": [
+            {
+                "id": 1,
+                "type": "TOTAL CREDIT",
+                "target": 51000,
+                "actual": 40000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 2,
+                "type": "CASH INVOICE",
+                "target": 150000,
+                "actual": 11000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 3,
+                "type": "MISCELLANEOUS",
+                "target": 26400,
+                "actual": 2300,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#AACC00"
+            },
+            {
+                "id": 4,
+                "type": "TAP TO PAY",
+                "target": 320000,
+                "actual": 250000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6E82DB"
+            },
+            {
+                "id": 5,
+                "type": "TOTAL SEQUENCE",
+                "target": 50000,
+                "actual": 4100,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 6,
+                "type": "TOTAL VAT",
+                "target": 350000,
+                "actual": 25000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 7,
+                "type": "TOTAL DOWNLOAD",
+                "target": 160000,
+                "actual": 14800,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#3F88A9"
+            },
+            {
+                "id": 8,
+                "type": "TOTAL ITEMS",
+                "target": 30000,
+                "actual": 2000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#F3C331"
+            },
+            {
+                "id": 9,
+                "type": "CONSOLIDATE REPORT",
+                "target": 600000,
+                "actual": 48000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 10,
+                "type": "REVENUE",
+                "target": 210000,
+                "actual": 12200,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 11,
+                "type": "TOTAL REPORT",
+                "target": 10000,
+                "actual": 4800,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 12,
+                "type": "REVENUE",
+                "target": 22000,
+                "actual": 1200,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            }
+        ]
+    },
+    {
+        "month": "Jul",
+        "data": [
+            {
+                "id": 1,
+                "type": "TOTAL CREDIT",
+                "target": 510000000,
+                "actual": 400000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 2,
+                "type": "CASH INVOICE",
+                "target": 150000000,
+                "actual": 110000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 3,
+                "type": "MISCELLANEOUS",
+                "target": 26400000,
+                "actual": 23400000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#AACC00"
+            },
+            {
+                "id": 4,
+                "type": "TAP TO PAY",
+                "target": 320000000,
+                "actual": 250000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6E82DB"
+            },
+            {
+                "id": 5,
+                "type": "TOTAL SEQUENCE",
+                "target": 500000000,
+                "actual": 410000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 6,
+                "type": "TOTAL VAT",
+                "target": 350000000,
+                "actual": 250000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 7,
+                "type": "TOTAL DOWNLOAD",
+                "target": 160000000,
+                "actual": 148000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#3F88A9"
+            },
+            {
+                "id": 8,
+                "type": "TOTAL ITEMS",
+                "target": 300000000,
+                "actual": 200000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#F3C331"
+            },
+            {
+                "id": 9,
+                "type": "CONSOLIDATE REPORT",
+                "target": 6000000000,
+                "actual": 4800000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 10,
+                "type": "REVENUE",
+                "target": 210000000,
+                "actual": 122000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 11,
+                "type": "TOTAL REPORT",
+                "target": 100000000,
+                "actual": 48000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 12,
+                "type": "REVENUE",
+                "target": 220000000,
+                "actual": 120000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            }
+        ]
+    },
+    {
+        "month": "Aug",
+        "data": [
+            {
+                "id": 1,
+                "type": "TOTAL CREDIT",
+                "target": 51000,
+                "actual": 40000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 2,
+                "type": "CASH INVOICE",
+                "target": 150000,
+                "actual": 11000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 3,
+                "type": "MISCELLANEOUS",
+                "target": 26400,
+                "actual": 2300,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#AACC00"
+            },
+            {
+                "id": 4,
+                "type": "TAP TO PAY",
+                "target": 320000,
+                "actual": 250000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6E82DB"
+            },
+            {
+                "id": 5,
+                "type": "TOTAL SEQUENCE",
+                "target": 50000,
+                "actual": 4100,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 6,
+                "type": "TOTAL VAT",
+                "target": 350000,
+                "actual": 25000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 7,
+                "type": "TOTAL DOWNLOAD",
+                "target": 160000,
+                "actual": 14800,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#3F88A9"
+            },
+            {
+                "id": 8,
+                "type": "TOTAL ITEMS",
+                "target": 30000,
+                "actual": 2000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#F3C331"
+            },
+            {
+                "id": 9,
+                "type": "CONSOLIDATE REPORT",
+                "target": 600000,
+                "actual": 48000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 10,
+                "type": "REVENUE",
+                "target": 210000,
+                "actual": 12200,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 11,
+                "type": "TOTAL REPORT",
+                "target": 10000,
+                "actual": 4800,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 12,
+                "type": "REVENUE",
+                "target": 22000,
+                "actual": 1200,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            }
+        ]
+    },
+    {
+        "month": "Sep",
+        "data": [
+            {
+                "id": 1,
+                "type": "TOTAL CREDIT",
+                "target": 510000000,
+                "actual": 400000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 2,
+                "type": "CASH INVOICE",
+                "target": 150000000,
+                "actual": 110000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 3,
+                "type": "MISCELLANEOUS",
+                "target": 26400000,
+                "actual": 23400000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#AACC00"
+            },
+            {
+                "id": 4,
+                "type": "TAP TO PAY",
+                "target": 320000000,
+                "actual": 250000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6E82DB"
+            },
+            {
+                "id": 5,
+                "type": "TOTAL SEQUENCE",
+                "target": 500000000,
+                "actual": 410000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 6,
+                "type": "TOTAL VAT",
+                "target": 350000000,
+                "actual": 250000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 7,
+                "type": "TOTAL DOWNLOAD",
+                "target": 160000000,
+                "actual": 148000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#3F88A9"
+            },
+            {
+                "id": 8,
+                "type": "TOTAL ITEMS",
+                "target": 300000000,
+                "actual": 200000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#F3C331"
+            },
+            {
+                "id": 9,
+                "type": "CONSOLIDATE REPORT",
+                "target": 6000000000,
+                "actual": 4800000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 10,
+                "type": "REVENUE",
+                "target": 210000000,
+                "actual": 122000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 11,
+                "type": "TOTAL REPORT",
+                "target": 100000000,
+                "actual": 48000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 12,
+                "type": "REVENUE",
+                "target": 220000000,
+                "actual": 120000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            }
+        ]
+    },
+    {
+        "month": "Oct",
+        "data": [
+            {
+                "id": 1,
+                "type": "TOTAL CREDIT",
+                "target": 51000,
+                "actual": 40000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 2,
+                "type": "CASH INVOICE",
+                "target": 150000,
+                "actual": 11000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 3,
+                "type": "MISCELLANEOUS",
+                "target": 26400,
+                "actual": 2300,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#AACC00"
+            },
+            {
+                "id": 4,
+                "type": "TAP TO PAY",
+                "target": 320000,
+                "actual": 250000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6E82DB"
+            },
+            {
+                "id": 5,
+                "type": "TOTAL SEQUENCE",
+                "target": 50000,
+                "actual": 4100,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 6,
+                "type": "TOTAL VAT",
+                "target": 350000,
+                "actual": 25000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 7,
+                "type": "TOTAL DOWNLOAD",
+                "target": 160000,
+                "actual": 14800,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#3F88A9"
+            },
+            {
+                "id": 8,
+                "type": "TOTAL ITEMS",
+                "target": 30000,
+                "actual": 2000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#F3C331"
+            },
+            {
+                "id": 9,
+                "type": "CONSOLIDATE REPORT",
+                "target": 600000,
+                "actual": 48000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 10,
+                "type": "REVENUE",
+                "target": 210000,
+                "actual": 12200,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 11,
+                "type": "TOTAL REPORT",
+                "target": 10000,
+                "actual": 4800,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 12,
+                "type": "REVENUE",
+                "target": 22000,
+                "actual": 1200,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            }
+        ]
+    },
+    {
+        "month": "Nov",
+        "data": [
+            {
+                "id": 1,
+                "type": "TOTAL CREDIT",
+                "target": 510000000,
+                "actual": 400000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 2,
+                "type": "CASH INVOICE",
+                "target": 150000000,
+                "actual": 110000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 3,
+                "type": "MISCELLANEOUS",
+                "target": 26400000,
+                "actual": 23400000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#AACC00"
+            },
+            {
+                "id": 4,
+                "type": "TAP TO PAY",
+                "target": 320000000,
+                "actual": 250000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6E82DB"
+            },
+            {
+                "id": 5,
+                "type": "TOTAL SEQUENCE",
+                "target": 500000000,
+                "actual": 410000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 6,
+                "type": "TOTAL VAT",
+                "target": 350000000,
+                "actual": 250000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 7,
+                "type": "TOTAL DOWNLOAD",
+                "target": 160000000,
+                "actual": 148000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#3F88A9"
+            },
+            {
+                "id": 8,
+                "type": "TOTAL ITEMS",
+                "target": 300000000,
+                "actual": 200000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#F3C331"
+            },
+            {
+                "id": 9,
+                "type": "CONSOLIDATE REPORT",
+                "target": 6000000000,
+                "actual": 4800000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 10,
+                "type": "REVENUE",
+                "target": 210000000,
+                "actual": 122000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 11,
+                "type": "TOTAL REPORT",
+                "target": 100000000,
+                "actual": 48000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 12,
+                "type": "REVENUE",
+                "target": 220000000,
+                "actual": 120000000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            }
+        ]
+    },
+    {
+        "month": "Dec",
+        "data": [
+            {
+                "id": 1,
+                "type": "TOTAL CREDIT",
+                "target": 51000,
+                "actual": 40000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 2,
+                "type": "CASH INVOICE",
+                "target": 150000,
+                "actual": 11000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 3,
+                "type": "MISCELLANEOUS",
+                "target": 26400,
+                "actual": 2300,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#AACC00"
+            },
+            {
+                "id": 4,
+                "type": "TAP TO PAY",
+                "target": 320000,
+                "actual": 250000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6E82DB"
+            },
+            {
+                "id": 5,
+                "type": "TOTAL SEQUENCE",
+                "target": 50000,
+                "actual": 4100,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 6,
+                "type": "TOTAL VAT",
+                "target": 350000,
+                "actual": 25000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#6CB49C"
+            },
+            {
+                "id": 7,
+                "type": "TOTAL DOWNLOAD",
+                "target": 160000,
+                "actual": 14800,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#3F88A9"
+            },
+            {
+                "id": 8,
+                "type": "TOTAL ITEMS",
+                "target": 30000,
+                "actual": 2000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#F3C331"
+            },
+            {
+                "id": 9,
+                "type": "CONSOLIDATE REPORT",
+                "target": 600000,
+                "actual": 48000,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 10,
+                "type": "REVENUE",
+                "target": 210000,
+                "actual": 12200,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            },
+            {
+                "id": 11,
+                "type": "TOTAL REPORT",
+                "target": 10000,
+                "actual": 4800,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#E20613"
+            },
+            {
+                "id": 12,
+                "type": "REVENUE",
+                "target": 22000,
+                "actual": 1200,
+                "percent": null,
+                "svgImg": "assets/images/credit.png",
+                "color": "#71AA46"
+            }
+        ]
+    }
+]

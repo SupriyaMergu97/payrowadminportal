@@ -1,0 +1,348 @@
+<ng-container>
+    <div class="container">
+        <form action="" [formGroup]="basicForm">
+            <div class="col-12">
+                <div class="row">
+                    <!-- <div class="col-md-2 col-sm">
+                        <div class="form-group">
+                            <div class="picture-container">
+                                <div class="picture" style="margin: 1rem auto 0">
+                                    <div class="picture2">
+                                        <img src="{{profileImg}}" class="picture-src" id="editPicturePreview" title="">
+                                        <input type="file" id="edit-profile-picture" class=""
+                                            (change)="onFileSelected($event)" />
+                                    </div>
+                                    <div class="upload-btn">
+                                        <div class="file-upload">
+                                            <input type="file" (change)="onFileSelected($event)" /><i
+                                                class="fa fa-arrow-up"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="col-md-12 col-sm">
+                        <div class="row">
+                           
+
+
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="firstName" id="firstName" class="form-control"
+                                        placeholder="First Name" />
+                                    <label for="firstName" [ngClass]="{'is-invalid': basicForm.controls['firstName'].invalid && basicForm.controls['firstName'].touched,
+                                    'is-valid': basicForm.controls['firstName'].valid}">
+                                        First Name<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="lastName" class="form-control"
+                                        placeholder="Last Name" />
+                                    <label for="lastName" [ngClass]="{'is-invalid': basicForm.controls['lastName'].invalid && basicForm.controls['lastName'].touched,
+                                    'is-valid': basicForm.controls['lastName'].valid}">
+                                        Last Name<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <select rows="1" class="form-control" formControlName="gender" placeholder="">
+                                        <option value="" selected disabled>Select Gender
+                                        </option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                    <label for="gender" [ngClass]="{'is-invalid': basicForm.controls['gender'].invalid && basicForm.controls['gender'].touched,
+                                'is-valid': basicForm.controls['gender'].valid}">
+                                        Gender<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                               >
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="firstName" class="form-control"
+                                        placeholder="Entity Name" />
+                                    <label for="firstName" [ngClass]="{'is-invalid': basicForm.controls['firstName'].invalid && basicForm.controls['firstName'].touched,
+                                'is-valid': basicForm.controls['firstName'].valid}">
+                                        Entity Name<span>&nbsp;*</span></label>
+                                </div>
+                            </div> -->
+                             <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <select class="form-control" formControlName="title" placeholder="">
+                                        <option value="" selected disabled>Select Title
+                                        </option>
+                                        <option value="Mr">Mr.</option>
+                                        <option value="Mrs">Mrs.</option>
+                                    </select>
+                                    <label for="title" [ngClass]="{'is-invalid': basicForm.controls['title'].invalid && basicForm.controls['title'].touched,
+                                    'is-valid': basicForm.controls['title'].valid}">
+                                        Title<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            
+
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="email" formControlName="emailId" class="form-control"
+                                        placeholder="Email" />
+                                    <label for="emailId" [ngClass]="{'is-invalid': basicForm.controls['emailId'].invalid && basicForm.controls['emailId'].touched,
+                                    'is-valid': basicForm.controls['emailId'].valid}">
+                                        Email ID<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="mobileNumber" class="form-control"
+                                        placeholder="Mobile Number" />
+                                    <label for="mobileNumber" [ngClass]="{'is-invalid': basicForm.controls['mobileNumber'].invalid && basicForm.controls['mobileNumber'].touched,
+                                    'is-valid': basicForm.controls['mobileNumber'].valid}">
+                                        Mobile Number<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="date" formControlName="dateOfBirth" class="form-control"
+                                        placeholder="dob" [max]="maxDate"/>
+                                    <label for="dateOfBirth" [ngClass]="{'is-invalid': basicForm.controls['dateOfBirth'].invalid && basicForm.controls['dateOfBirth'].touched,
+                                    'is-valid': basicForm.controls['dateOfBirth'].valid}">
+                                        Date of Birth<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12" *ngIf="typeOfCustomer === 'Merchant'">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="salesId" class="form-control"
+                                        placeholder="Sales Id" />
+                                    <label for="salesId" [ngClass]="{'is-invalid': basicForm.controls['salesId'].invalid && basicForm.controls['salesId'].touched,
+                                    'is-valid': basicForm.controls['salesId'].valid}">
+                                        Sales ID<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12" *ngIf="typeOfCustomer === 'Employee'">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="salesId" class="form-control"
+                                        placeholder="Sales Id" />
+                                    <label for="salesId" [ngClass]="{'is-invalid': basicForm.controls['salesId'].invalid && basicForm.controls['salesId'].touched,
+                                    'is-valid': basicForm.controls['salesId'].valid}">
+                                        Employee ID<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="typeOfCustomer" class="form-control"
+                                        placeholder="Type of Customer" />
+                                    <label for="typeOfCustomer" [ngClass]="{'is-invalid': basicForm.controls['typeOfCustomer'].invalid && basicForm.controls['typeOfCustomer'].touched,
+                                    'is-valid': basicForm.controls['typeOfCustomer'].valid}">
+                                        Type of Customer<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                           
+                        </div>
+
+                        <!-- city,country,address -->
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <select id="country" formControlName="country" placeholder="" class="form-control">
+                                        <option value="" disabled>Select Country</option>
+                                        <option value="U.A.E">U.A.E</option>
+                                        <option value="India">India</option>
+                                        <option value="Bahrain">Bahrain</option>
+                                        <option value="Qatar">Qatar</option>
+                                        <option value="Saudi Arabia">Saudi Arabia</option>
+                                    </select>
+                                    <label for="country" [ngClass]="{'is-invalid': basicForm.controls['country'].invalid && basicForm.controls['country'].touched,
+                                    'is-valid': basicForm.controls['country'].valid}">
+                                        Country<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <select id="city" name="city" formControlName="city" class="form-control">
+                                        <option value="" disabled>Select City</option>
+                                        <option value="Dubai">Dubai</option>
+                                        <option value="Abu Dhabi">Abu Dhabi</option>
+                                        <option value="Sharjah">Sharjah</option>
+                                        <option value="AI Ain">AI Ain</option>
+                                        <option value="Ajman">Ajman</option>
+                                        <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+                                        <option value="Fujairah City">Fujairah City</option>
+                                        <option value="Umm AI Quwain">Umm AI Quwain</option>
+                                    </select>
+                                    <label for="city" [ngClass]="{'is-invalid': basicForm.controls['city'].invalid && basicForm.controls['city'].touched,
+                                    'is-valid': basicForm.controls['city'].valid}">
+                                        City<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="boBox" class="form-control"
+                                        placeholder="BO.Box" />
+                                    <label for="boBox" [ngClass]="{'is-invalid': basicForm.controls['boBox'].invalid && basicForm.controls['boBox'].touched,
+                                    'is-valid': basicForm.controls['boBox'].valid}">
+                                        BO.Box<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="eINumber" class="form-control"
+                                        placeholder="Emirates Id" />
+                                    <label for="eINumber" [ngClass]="{'is-invalid': basicForm.controls['eINumber'].invalid && basicForm.controls['eINumber'].touched,
+                                        'is-valid': basicForm.controls['eINumber'].valid}">
+                                        Emirates ID<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="date" formControlName="eIExpiry" class="form-control"
+                                        placeholder="Expiry Date" [min]="minExpiryDate"/>
+                                    <label for="eIExpiry" [ngClass]="{'is-invalid': basicForm.controls['eIExpiry'].invalid && basicForm.controls['eIExpiry'].touched,
+                                    'is-valid': basicForm.controls['eIExpiry'].valid}">
+                                        Emirates expiry date<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="file" class="form-control fileupload"
+                                        formControlName="emiratesDocument" placeholder="Attach File"
+                                        />
+                                    <label for="emiratesDocument" [ngClass]="{'is-invalid': basicForm.controls['emiratesDocument'].invalid && basicForm.controls['emiratesDocument'].touched,
+                                        'is-valid': basicForm.controls['emiratesDocument'].valid}">
+                                        Upload Emirates Document<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- passportDocument -->
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="passportNum" class="form-control"
+                                        placeholder="Passport Number" />
+                                    <label for="passportNum" [ngClass]="{'is-invalid': basicForm.controls['passportNum'].invalid && basicForm.controls['passportNum'].touched,
+                                        'is-valid': basicForm.controls['passportNum'].valid}">
+                                        Passport Number<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="date" formControlName="passportExpiry" class="form-control"
+                                        placeholder="select Date"  [min]="minExpiryDate"/>
+                                    <label for="passportExpiry" [ngClass]="{'is-invalid': basicForm.controls['passportExpiry'].invalid && basicForm.controls['passportExpiry'].touched,
+                                        'is-valid': basicForm.controls['passportExpiry'].valid}">
+                                        Passport expiry date<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="file" class="form-control fileupload"
+                                        formControlName="passportDocument" placeholder="Passport Copy"
+                                         />
+                                    <label for="passportDocument" [ngClass]="{'is-invalid': basicForm.controls['passportDocument'].invalid && basicForm.controls['passportDocument'].touched,
+                                        'is-valid': basicForm.controls['passportDocument'].valid}">
+                                        Upload passport document<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- licenseDocument -->
+                        <div class="row" *ngIf="typeOfCustomer === 'Merchant'">
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="licenseNumber" class="form-control"
+                                        placeholder="Emirates Id" />
+                                    <label for="licenseNumber" [ngClass]="{'is-invalid': basicForm.controls['licenseNumber'].invalid && basicForm.controls['licenseNumber'].touched,
+                                        'is-valid': basicForm.controls['licenseNumber'].valid}">
+                                        License Number<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="date" formControlName="licenseExpiry" class="form-control"
+                                        placeholder="Expiry Date"  [min]="minExpiryDate"/>
+                                    <label for="licenseExpiry" [ngClass]="{'is-invalid': basicForm.controls['licenseExpiry'].invalid && basicForm.controls['licenseExpiry'].touched,
+                                    'is-valid': basicForm.controls['licenseExpiry'].valid}">
+                                        License expiry date<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="file" class="form-control fileupload" formControlName="licenseDocument"
+                                        placeholder="Attach File" (change)="uploadEIfile($event)" />
+                                    <label for="licenseDocument" [ngClass]="{'is-invalid': basicForm.controls['licenseDocument'].invalid && basicForm.controls['licenseDocument'].touched,
+                                        'is-valid': basicForm.controls['licenseDocument'].valid}">
+                                        Upload License Document<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="typeOfCustomer === 'Merchant'">
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="ecNumber" class="form-control"
+                                        placeholder="Establishment Card Number" />
+                                    <label for="ecNumber" [ngClass]="{'is-invalid': basicForm.controls['ecNumber'].invalid && basicForm.controls['ecNumber'].touched,
+                                        'is-valid': basicForm.controls['ecNumber'].valid}">
+                                        Establishment Card Number<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="date" formControlName="ecExpiry" class="form-control"
+                                        placeholder="Expiry Date"  [min]="minExpiryDate"/>
+                                    <label for="ecExpiry" [ngClass]="{'is-invalid': basicForm.controls['ecExpiry'].invalid && basicForm.controls['ecExpiry'].touched,
+                                    'is-valid': basicForm.controls['ecExpiry'].valid}">
+                                        EC expiry date<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="file" class="form-control fileupload" formControlName="ecDocument"
+                                        placeholder="Attach File" (change)="uploadEIfile($event)" />
+                                    <label for="ecDocument" [ngClass]="{'is-invalid': basicForm.controls['ecDocument'].invalid && basicForm.controls['ecDocument'].touched,
+                                        'is-valid': basicForm.controls['ecDocument'].valid}">
+                                        Upload EC Document<span>&nbsp;*</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 col-sm-8 col-md-8 col-xl-8 col-xs-12">
+                                <div class="form-group form-floating">
+                                    <input type="text" formControlName="addressDetails" id="addressDetails"
+                                        class="form-control" placeholder="Residential Address" />
+                                    <label for="addressDetails" [ngClass]="{'is-invalid': basicForm.controls['addressDetails'].invalid && basicForm.controls['addressDetails'].touched,
+                                    'is-valid': basicForm.controls['addressDetails'].valid}">
+                                        Residential Address<span>&nbsp;*</span></label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="d-flex gap-16x justify-content-end">
+                                <!-- <div class="d-flex gap-16x"> -->
+                                <!-- <button class="btn btn-default-sm-primary"
+                                    (click)="onCreateEmpAction()">Cancel</button> -->
+                                <button *ngIf="!isShow" class="btn btn-default-md-fill"
+                                    (click)="submit()">Submit</button>
+                                <button *ngIf="isShow" class="btn btn-default-md-fill" (click)="submit()"
+                                    data-dismiss="modal">Update</button>
+                                <!-- <button class="btn btn-sm create" click="onDEl()">d<i class='bi bi-trash-fill trash'></i></button> -->
+
+                                <!-- <button *ngIf="isShow" class="btn btn-sm create" data-toggle="modal"
+                                    data-target="#delEmp"><i class='bi bi-trash-fill'></i></button> -->
+                                <!-- </div> -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</ng-container>

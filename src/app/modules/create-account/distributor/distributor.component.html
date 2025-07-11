@@ -1,0 +1,482 @@
+<div class="content-wrapper main-section-container">
+    <app-create-ac-menus></app-create-ac-menus>
+
+
+    <section class="content mt-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 pl-0 pr-0">
+                    <div class="table-container">
+                        <div class="row" *ngIf="!isShow">
+                            <div>
+                                <button class="btn btn-sm btn-success edit_btn" (click)="add()"
+                                    style="float: right;">Add</button>
+                            </div>
+                            <div class="table_data">
+                                <div class="table-responsive">
+                                    <table class="table table_cust">
+                                        <thead>
+                                            <tr>
+                                                <th class="cur_Header">ID</th>
+                                                <!-- <th class="cur_Header">NAME</th> -->
+                                                <th>NAME</th>
+                                                <th>EMAIL</th>
+                                                <th>ADDRESS</th>
+                                                <th class="cur_Header">ACTIVATION DATE</th>
+                                                <th>CONTACT</th>
+                                                <th class="cur_Header">STATUS</th>
+                                                <th>DETAILS</th>
+                                                <!-- <th>EXPLORE</th> -->
+                                            </tr>
+                                        </thead>
+                                        <tbody class="align-baseline">
+                                            <tr *ngFor="let distributor of distributorData">
+                                                <td>{{distributor.distributorId}}</td>
+                                                <!-- <td>{{distributor.storeId}}</td> -->
+                                                <td>{{distributor.firstName}}</td>
+                                                <td data-tooltip="top" role="tooltip"
+                                                    attr.aria-label="{{distributor.emailId}}">
+                                                    <i class="bi-envelope-open"></i>
+                                                </td>
+                                                <td class="remarks_one" data-tooltip="top" role="tooltip"
+                                                    attr.aria-label="Hyd"><i class="bi-card-list"></i>
+                                                </td>
+                                                <td>Pending</td>
+                                                <td>9728412891</td>
+                                                <!-- <td>{{distributor.activationDate}}</td> -->
+                                                <!-- <td>{{distributor.mobileNumber}}</td> -->
+                                                <td><select rows="1" class="addValue" placeholder="">
+                                                        <option value="active">Active</option>
+                                                        <option value="deactive">Deactive</option>
+                                                    </select></td>
+                                                <td>
+                                                    <button class="btn btn-sm create"><i
+                                                            class="fas fa-download"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="isShow">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <button class="btn btn-sm btn-success edit_btn" (click)="add()"
+                                        style="float: left;">Back</button>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-md-offset-3">
+                                <form [formGroup]="accountForm" id="msform" (ngSubmit)="onSubmit()">
+                                    <!-- progressbar -->
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab"
+                                                role="tablist" aria-orientation="vertical">
+                                                <a class="nav-link mb-3 p-3 shadow active" id="v-pills-basic2-tab"
+                                                    data-toggle="pill" href="#v-pills-basic2" role="tab"
+                                                    aria-controls="v-pills-basic2" aria-selected="true">
+                                                    <i class="fas fa-at tabIcn"></i>
+                                                    <span class="font-weight-bold small text-uppercase">Basic</span></a>
+
+                                                <a class="nav-link mb-3 p-3 shadow" id="v-pills-personal2-tab"
+                                                    data-toggle="pill" href="#v-pills-personal2" role="tab"
+                                                    aria-controls="v-pills-personal2" aria-selected="false">
+                                                    <i class="fas fa-user tabIcn"></i>
+                                                    <span
+                                                        class="font-weight-bold small text-uppercase">Personal</span></a>
+
+                                                <a class="nav-link mb-3 p-3 shadow" id="v-pills-card2-tab"
+                                                    data-toggle="pill" href="#v-pills-card2" role="tab"
+                                                    aria-controls="v-pills-card2" aria-selected="false">
+                                                    <i class="fas fa-credit-card tabIcn"></i>
+                                                    <span class="font-weight-bold small text-uppercase">Settlement
+                                                        Account</span></a>
+
+                                            
+
+                                                <a class="nav-link mb-3 p-3 shadow" id="v-pills-licence2-tab"
+                                                    data-toggle="pill" href="#v-pills-licence2" role="tab"
+                                                    aria-controls="v-pills-licence2" aria-selected="false">
+                                                    <i class="fas fa-certificate tabIcn"></i>
+                                                    <span
+                                                        class="font-weight-bold small text-uppercase">License</span></a>
+
+                                                <a class="nav-link mb-3 p-3 shadow" id="v-pills-business2-tab"
+                                                    data-toggle="pill" href="#v-pills-business2" role="tab"
+                                                    aria-controls="v-pills-business2" aria-selected="false">
+                                                    <i class="fas fa-certificate tabIcn"></i>
+                                                    <span
+                                                        class="font-weight-bold small text-uppercase">Business</span></a>
+
+                                                <a class="nav-link mb-3 p-3 shadow" id="v-pills-staff2-tab"
+                                                    data-toggle="pill" href="#v-pills-staff2" role="tab"
+                                                    aria-controls="v-pills-staff2" aria-selected="false">
+                                                    <i class='fas fa-users tabIcn'></i>
+                                                    <span class="font-weight-bold small text-uppercase">Sales</span></a>
+
+                                                <a class="nav-link mb-3 p-3 shadow" id="v-pills-terms2-tab"
+                                                    data-toggle="pill" href="#v-pills-terms2" role="tab"
+                                                    aria-controls="v-pills-terms2" aria-selected="false">
+                                                    <i class="fas fa-exclamation-triangle tabIcn"></i>
+                                                    <span class="font-weight-bold small text-uppercase">Terms &
+                                                        Conditions</span></a>
+
+                                                <a class="nav-link mb-3 p-3 shadow" id="v-pills-agreement2-tab"
+                                                    data-toggle="pill" href="#v-pills-agreement2" role="tab"
+                                                    aria-controls="v-pills-agreement2" aria-selected="false">
+                                                    <i class='fas fa-users tabIcn'></i>
+                                                    <span
+                                                        class="font-weight-bold small text-uppercase">Agreement</span></a>
+                                            </div>
+                                        </div>
+                                        <!-- fieldsets -->
+                                        <div class="col-md-9">
+                                            <div class="tab-content" id="v-pills-tabContent">
+                                                <div class="tab-pane fade shadow rounded tab1 bg-white show active p-5"
+                                                    id="v-pills-basic2" role="tabpanel"
+                                                    aria-labelledby="v-pills-basic2-tab">
+                                                    <div class="row" formGroupName="basic">
+                                                        <div class="col-lg-2 col-sm-2 col-md-2 col-xl-2 col-xs-12">
+                                                            <div class="form-group" style="margin-top: 100px;">
+                                                                <div class="picture-container"
+                                                                    style="margin-left:0px ;">
+                                                                    <div class="picture">
+                                                                        <div class="picture2">
+                                                                            <img src="assets/images/profile1.jpeg"
+                                                                                class="picture-src"
+                                                                                id="wizardPicturePreview" title="">
+                                                                            <input type="file" id="wizard-picture"
+                                                                                class="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="picture-label text-center">
+                                                                    <label for="wizard-picture"
+                                                                        style="float: none;">Upload Profile
+
+                                                                        Picture</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-10 col-sm-10 col-md-10 col-xl-10 col-xs-12">
+                                                            <div class="row">
+                                                                <div
+                                                                    class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Title</label>
+                                                                        <select rows="1" class="form-control" formControlName="title"
+                                                                            placeholder="" style="margin: 0px;">
+                                                                            <option value="" disabled>Select Title
+                                                                            </option>
+                                                                            <option>Mr.</option>
+                                                                            <option>Mrs.</option>
+                                                                        </select>
+                                                                        <div *ngIf="!accountForm.get('basic.title')?.valid && (accountForm.get('basic.title').dirty || accountForm.get('basic.title').touched)"
+                                                                            class="alert">
+                                                                            <div
+                                                                                *ngIf="accountForm.get('basic.title').errors.required">
+                                                                                <p class="error-msg">
+                                                                                    Please Select Title
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>First Name</label>
+                                                                        <input type="text" formControlName="firstName"
+                                                                            class="form-control"
+                                                                            placeholder="First Name" />
+                                                                            <div *ngIf="!accountForm.get('basic.firstName')?.valid && (accountForm.get('basic.firstName').dirty || accountForm.get('basic.firstName').touched)"
+                                                                            class="alert">
+                                                                            <div
+                                                                                *ngIf="accountForm.get('basic.firstName').errors.required">
+                                                                                <p class="error-msg">
+                                                                                    Please Enter First Name
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div
+                                                                    class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Last Name</label>
+                                                                        <input type="text" formControlName="lastName"
+                                                                            class="form-control"
+                                                                            placeholder="Last Name" />
+                                                                            <div *ngIf="!accountForm.get('basic.lastName')?.valid && (accountForm.get('basic.lastName').dirty || accountForm.get('basic.lastName').touched)"
+                                                                            class="alert">
+                                                                            <div
+                                                                                *ngIf="accountForm.get('basic.lastName').errors.required">
+                                                                                <p class="error-msg">
+                                                                                    Please Enter Last Name
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Date Of Birth</label>
+                                                                        <input type="date" formControlName="dateOfBirth"
+                                                                            class="form-control" placeholder="dob" />
+                                                                            <div *ngIf="!accountForm.get('basic.dateOfBirth')?.valid && (accountForm.get('basic.dateOfBirth').dirty || accountForm.get('basic.dateOfBirth').touched)"
+                                                                            class="alert">
+                                                                            <div
+                                                                                *ngIf="accountForm.get('basic.dateOfBirth').errors.required">
+                                                                                <p class="error-msg">
+                                                                                    Please Enter Date Of Birth
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div
+                                                                    class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Gender</label>
+                                                                        <select rows="1" class="form-control" formControlName="gender"
+                                                                            placeholder="" style="margin: 0px;">
+                                                                            <option value="" disabled>Select Gender
+                                                                            </option>
+                                                                            <option>Male</option>
+                                                                            <option>Female</option>
+                                                                        </select>
+                                                                        <div *ngIf="!accountForm.get('basic.gender')?.valid && (accountForm.get('basic.gender').dirty || accountForm.get('basic.gender').touched)"
+                                                                            class="alert">
+                                                                            <div
+                                                                                *ngIf="accountForm.get('basic.gender').errors.required">
+                                                                                <p class="error-msg">
+                                                                                    Please Select Gender
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Email</label>
+                                                                        <input type="email" formControlName="emailId"
+                                                                            class="form-control" placeholder="Email" />
+                                                                            <div *ngIf="!accountForm.get('basic.emailId')?.valid && (accountForm.get('basic.emailId').dirty || accountForm.get('basic.emailId').touched)"
+                                                                            class="alert">
+                                                                            <div
+                                                                                *ngIf="accountForm.get('basic.emailId').errors.required">
+                                                                                <p class="error-msg">
+                                                                                    Please Enter Email Id
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div
+                                                                    class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Password</label>
+                                                                        <input type="Password"
+                                                                            formControlName="password"
+                                                                            class="form-control"
+                                                                            placeholder="Password" />
+                                                                            <div *ngIf="!accountForm.get('basic.password')?.valid && (accountForm.get('basic.password').dirty || accountForm.get('basic.password').touched)"
+                                                                            class="alert">
+                                                                            <div
+                                                                                *ngIf="accountForm.get('basic.password').errors.required">
+                                                                                <p class="error-msg">
+                                                                                    Please Enter Password
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Confirm Password</label>
+                                                                        <input type="password"
+                                                                            formControlName="cnfPassword"
+                                                                            class="form-control"
+                                                                            placeholder="Confirm Password" />
+                                                                            <div *ngIf="!accountForm.get('basic.cnfPassword')?.valid && (accountForm.get('basic.cnfPassword').dirty || accountForm.get('basic.cnfPassword').touched)"
+                                                                            class="alert">
+                                                                            <div
+                                                                                *ngIf="accountForm.get('basic.cnfPassword').errors.required">
+                                                                                <p class="error-msg">
+                                                                                    Please Confirm Password
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <button class="btn btn-sm btn-success edit_btn"
+                                                                (click)="addOwner()" style="float: right;">save</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- <div [formGroup]="accountForm"> -->
+                                                <div class="tab-pane fade shadow rounded tab1 bg-white p-5"
+                                                    id="v-pills-personal2" role="tabpanel"
+                                                    aria-labelledby="v-pills-personal2-tab">
+                                                    <div class="card-body">
+                                                        <!-- <h4 class="font-italic ">Personnal Details</h4> -->
+                                                        <app-personal formControlName="personalDetails">
+                                                        </app-personal>
+                                                        <button class="btn btn-sm btn-success edit_btn"
+                                                            style="float:right;margin: 5px;"
+                                                            (click)="updatePersonalInfo()">Save</button>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade shadow rounded tab1 bg-white p-5"
+                                                    id="v-pills-card2" role="tabpanel"
+                                                    aria-labelledby="v-pills-card2-tab">
+                                                    <div class="card-body">
+                                                        <app-bank-form formControlName="bankDetails">
+                                                        </app-bank-form>
+                                                        <!-- <app-card-form formControlName="cardDetails"
+                                                                *ngIf="isPersonal">
+                                                            </app-card-form> -->
+                                                        <button class="btn btn-sm btn-success edit_btn"
+                                                            style="float:right;margin: 5px;"
+                                                            (click)="updateBankInfo()">Save</button>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade shadow rounded tab1 bg-white p-5"
+                                                    id="v-pills-licence2" role="tabpanel"
+                                                    aria-labelledby="v-pills-licence2-tab">
+                                                    <div class="card-body">
+                                                        <!-- <h4 class="font-italic ">Licence</h4> -->
+                                                        <app-licence-form formControlName="licenseDetails">
+                                                        </app-licence-form>
+                                                        <button class="btn btn-sm btn-success edit_btn"
+                                                            style="float:right;margin: 5px;"
+                                                            (click)="updateLicenceInfo()">Save</button>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade shadow rounded tab1 bg-white p-5"
+                                                    id="v-pills-business2" role="tabpanel"
+                                                    aria-labelledby="v-pills-business2-tab">
+                                                    <div class="card-body">
+                                                        <!-- <h4 class="font-italic ">Licence</h4> -->
+                                                        <app-business-form formControlName="businessDetails">
+                                                        </app-business-form>
+                                                        <button class="btn btn-sm btn-success edit_btn"
+                                                            style="float:right;margin: 5px;"
+                                                            (click)="updateBusinessInfo()">Save</button>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade shadow rounded tab1 bg-white p-5"
+                                                    id="v-pills-staff2" role="tabpanel"
+                                                    aria-labelledby="v-pills-staff2-tab">
+                                                    <div class="card-body">
+                                                        <!-- <h4 class="font-italic ">Staff</h4> -->
+                                                        <app-staff-form formControlName="staffDetails">
+                                                        </app-staff-form>
+                                                        <button class="btn btn-sm btn-success edit_btn"
+                                                            style="float:right;margin: 5px;"
+                                                            (click)="updateStaffInfo()">Save</button>
+                                                        <div class="row storeTable">
+                                                            <table class="table table_cust">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Sales Person ID</th>
+                                                                        <th>Sales Person Name</th>
+                                                                        <th>Email</th>
+                                                                        <th>Contact</th>
+                                                                        <!-- <th>Status</th> -->
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr *ngFor="let staff of salesPersons">
+                                                                        <td>{{staff.salesPersonId}}</td>
+                                                                        <td>{{staff.firstName}}</td>
+                                                                        <td>{{staff.email}}</td>
+                                                                        <td>{{staff.mobileNumber}}</td>
+                                                                        <!-- <td>{{staff.staffStatus}}</td> -->
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade shadow rounded tab1 bg-white p-5"
+                                                    id="v-pills-terms2" role="tabpanel"
+                                                    aria-labelledby="v-pills-terms2-tab">
+                                                    <!-- <h4 class="font-italic ">Terms & Conditions</h4> -->
+                                                    <div class="container">
+
+                                                        <div class="row">
+
+                                                            <div class="col-12 mt-3">
+                                                                <div class="tAndC">
+                                                                    <p class="tAndCPara">Lorem Ipsum
+                                                                        is simply dummy text of the
+                                                                        printing and typesetting
+                                                                        industry. Lorem Ipsum has
+                                                                        been the industry's standard
+                                                                        dummy text ever since the
+                                                                        1500s, when an unknown
+                                                                        printer took a galley of
+                                                                        type and scrambled it to
+                                                                        make a type specimen book.
+                                                                        It has survived not only
+                                                                        five centuries, but also the
+                                                                        leap into electronic
+                                                                        typesetting, remaining
+                                                                        essentially unchanged.</p>
+                                                                </div>
+                                                                <div style="float:left; width: 55%;">
+                                                                    <span><input type="checkbox" id="TandC" name="tAndC"
+                                                                            value="tandc"
+                                                                            style="display:inline; width:4%"
+                                                                            onchange="document.getElementById('ownerSubmit').disabled = !this.checked;">
+                                                                        By signing up I agree to the
+                                                                        terms and conditions &
+                                                                        Privacy Policy</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <button (click)="add()" type="button" id="ownerSubmit"
+                                                                    class="btn btn-sm btn-success edit_btn float-right"
+                                                                    disabled>Submit</button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade shadow rounded tab1 bg-white p-5"
+                                                    id="v-pills-agreement2" role="tabpanel"
+                                                    aria-labelledby="v-pills-agreement2-tab">
+                                                    <app-nbq-form></app-nbq-form>
+                                                </div>
+                                                <!-- </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>

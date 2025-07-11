@@ -1,0 +1,2425 @@
+
+<button class="btn btn-sm btn-success edit_btn"
+style="margin-top: -56px;
+float: right;
+margin-right: 11%;" (click)="openPDF()">Download</button>
+
+<div class="card-body" style="background-color: #fff;padding: 8px;">
+    <!-- NI FORM -->
+    <div class="mainDiv" style="padding: 25px;">
+		<div id="htmlOne">
+			<form>
+				<div class="card nbqCard">
+					<div class="row">
+						<div class="col-6">
+							<h5 class="appForm">APPLICATION FORM</h5>
+						</div>
+						<div class="col-6">
+							<h5 class="appForm" style="text-align: center;">
+								نموذج الطلب
+							</h5>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6">
+						<!-- <h6 class="headingTitle">Welcome to Network</h6> -->
+					</div>
+					<div class="col-6">
+						<!-- <h6 class="headingTitle">مرحبا بك في نتورك</h6> -->
+					</div>
+				</div>
+				<div class="row" style="font-size: 14px;">
+					<div class="col-6">
+						<p class="start">PLEASE PROVIDE THE FOLLOWING DOCUMENTS</p>
+					</div>
+					<div class="col-6">
+						<p class="arabic start">ة المستندات تقديم ير</p>
+					</div>
+					<!-- row1 -->
+					<div class="col-5">
+						<p>COPY OF TRADE LICENSE/LICENSE DOCUMENT</p>
+					</div>
+					<div class="col-2">
+						<div class="form-check form-check-inline checkBtn">
+							<input class="form-check-input" type="checkbox"  id="inlineCheckbox1" value="option1"[checked]=liChecked>
+						</div>
+					</div>
+					<div class="col-5">
+						<p class="arabic">نسخة من الرخصة التجارية/ مستند الترخيص</p>
+					</div>
+					<!-- row2 -->
+					<div class="col-5">
+						<p>ARTICLES OF ASSOCIATION (AOA)/MEMORANDUM OF ASSOCIATION (MOA)
+							(IF APPLICABLE)</p>
+					</div>
+					<div class="col-2">
+						<div class="form-check form-check-inline checkBtn">
+							<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+						</div>
+					</div>
+					<div class="col-5">
+						<p class="arabic">النظام األساسي )AOA / )مذكرة التأسيس )MOA( )إن وجد(</p>
+					</div>
+					<!-- row3 -->
+					<div class="col-5">
+						<p>TAX REGISTRATION CERTIFICATE (IF APPLICABLE)</p>
+					</div>
+					<div class="col-2">
+						<div class="form-check form-check-inline checkBtn">
+							<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+						</div>
+					</div>
+					<div class="col-5">
+						<p class="arabic">شهادة التسجيل الضريبي )إن وجد(</p>
+					</div>
+					<!-- row4 -->
+					<div class="col-5">
+						<p>COPY OF PASSPORT, VISA PAGE AND EMIRATES ID OF SHAREHOLDERS &
+							AUTHORIZED SIGNATORY</p>
+					</div>
+					<div class="col-2">
+						<div class="form-check form-check-inline checkBtn">
+							<input class="form-check-input" type="checkbox" id="inlineCheckbox1" [checked]=passChecked value="option1">
+						</div>
+					</div>
+					<div class="col-5">
+						<p class="arabic">نسخة من جواز السفر وصفحة التأشيرة ورقم بطاقة الهوية اإلماراتية للمساهمين،
+							والموقّ ع لمعتمد</p>
+					</div>
+					<!-- row5 -->
+					<div class="col-5">
+						<p>COPY OF PASSPORT, VISA PAGE AND EMIRATES ID OF THE ULTIMATE
+							BENEFICIAL OWNER (UBO) (IF APPLICABLE)</p>
+					</div>
+					<div class="col-2">
+						<div class="form-check form-check-inline checkBtn">
+							<input class="form-check-input" type="checkbox" id="inlineCheckbox1" [checked]=emChecked value="option1">
+						</div>
+					</div>
+					<div class="col-5">
+						<p class="arabic">نسخة من جواز السفر وصفحة التأشيرة ورقم بطاقة الهوية اإلماراتية للمالك
+							المستفيد النهائي )UBO( )إن وجد(
+						</p>
+					</div>
+
+					<!-- row6 -->
+					<div class="col-5">
+						<p>COPY OF VALID NOTARISED POWER OF ATTORNEY OF AUTHORISED
+							SIGNATORY (IF APPLICABLE)</p>
+					</div>
+					<div class="col-2">
+						<div class="form-check form-check-inline checkBtn">
+							<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+						</div>
+					</div>
+					<div class="col-5">
+						<p class="arabic">نسخة من وكالة قانونية مصدقة سارية للمفوض بالتوقيع )إذا وجد(
+						</p>
+					</div>
+
+					<!-- row7 -->
+					<div class="col-5">
+						<p>COPY OF BANK STATEMENT WITH IBAN NUMBER</p>
+					</div>
+					<div class="col-2">
+						<div class="form-check form-check-inline checkBtn">
+							<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+						</div>
+					</div>
+					<div class="col-5">
+						<p class="arabic">نسخة من كشف الحساب المصرفي مع رقم اآليبان
+						</p>
+					</div>
+
+					<!-- row8 -->
+					<div class="col-5">
+						<p>COLLATERAL/SECURITY DEPOSIT (IF APPLICABLE FOR ECOMMERCE &
+							MARKETPLACE)</p>
+					</div>
+					<div class="col-2">
+						<div class="form-check form-check-inline checkBtn">
+							<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+						</div>
+					</div>
+					<div class="col-5">
+						<p class="arabic">مبلغ الضمان/ ضمان السداد )حسب االقتضاء في السوق االقتصادية والسوق(
+
+						</p>
+					</div>
+				</div>
+				<br>
+				<!-- Merchant details -->
+
+				<div class="card nbqCard">
+					<div class="row">
+						<div class="col-6">
+							<h5 class="appForm">MERCHANT DETAILS</h5>
+						</div>
+						<div class="col-6">
+							<h5 class="appForm" style="text-align: center;">
+								تفاصيل التاجر
+							</h5>
+						</div>
+					</div>
+				</div>
+
+				<!-- fields -->
+
+				<div class="row">
+					<div class="col-6">
+						<h6 class="info">PLEASE COMPLETE IN CAPITAL LETTERS</h6>
+					</div>
+					<div class="col-6">
+						<h6 class="info">يرجى تكملة البيانات بأحرف مغمقة </h6>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-6">
+						<br>
+						<div class="ipDiv">
+							<div class="labelBlock col-4">
+								<span class="inputLabel">الرقم التعريفي للتاجر</span><br>
+								<span class="inputLabel">MERCHANT ID</span>
+							</div>
+							<div class="labelIp col-8">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" />
+							</div>
+						</div>
+						<div class="subText">
+							<p class="subtext1">يجب توفيره وملئه من قبل شركة نت وورك إنترناشيونال</p>
+							<p class="subtext1">TO BE PROVIDED AND FILLED BY NETWORK INTERNATIONAL</p>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="ipDiv">
+							<div class="labelBlock col-4">
+								<span class="inputLabel">تاريخ االتفاق
+								</span><br>
+								<span class="inputLabel">DATE OF AGREEMENT</span>
+							</div>
+							<div class="labelIp col-8">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" />
+							</div>
+						</div>
+						<div class="ipDiv">
+							<div class="labelBlock col-4">
+								<span class="inputLabel">رقم الترخيص/ الرخصة التجارية
+								</span><br>
+								<span class="inputLabel">TRADE LICENSE/ LICENSE NUMBER</span>
+							</div>
+							<div class="labelIp col-8">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12">
+						<div class="ipDiv">
+							<div class="labelBlock col-2">
+								<span class="inputLabel">االسم القانوني للتاجر
+								</span><br>
+								<span class="inputLabel">MERCHANT LEGAL NAME</span>
+							</div>
+							<div class="labelIp col-10">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" value={{objSheet.merchntName}}/>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12">
+						<div class="ipDiv">
+							<div class="labelBlock col-2">
+								<span class="inputLabel">االسم التجاري للتاجر
+								</span><br>
+								<span class="inputLabel">MERCHANT TRADE NAME</span>
+							</div>
+							<div class="labelIp col-10">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" value={{objSheet.merchntTradeName}}/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Sub title -->
+				<div class="subHead">
+					<h6 class="start">عنوان المقر المسجل</h6>
+					<h6 class="start">REGISTERED OFFICE ADDRESS</h6>
+				</div>
+
+				<div class="row">
+					<div class="col-12">
+						<div class="ipDiv">
+							<div class="labelBlock col-2">
+								<span class="inputLabel">اسم الشارع</span><br>
+								<span class="inputLabel">STREET NAME</span>
+							</div>
+							<div class="labelIp col-10">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" value={{objSheet.address}}/>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12">
+						<div class="ipDiv">
+							<div class="labelBlock col-2">
+								<label class="inputLabel">ص ب</label><br>
+								<label class="inputLabel">P.O. BOX</label>
+							</div>
+							<div class="labelIp col-3">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" value={{objSheet.poAdress}}/>
+							</div>
+							<div class="labelBlock col-2">
+								<label class="inputLabel">اإلمارة</label><br>
+								<label class="inputLabel">EMIRATE</label>
+							</div>
+							<div class="labelIp col-5">
+								<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" value={{objSheet.emiratesId}}/>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group">
+							<label class="inputLabel" for="niGroup">رقم هاتف المكتب</label><br>
+							<label class="inputLabel" for="niGroup">OFFICE PHONE NUMBER</label>
+							<input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" value={{objSheet.mobileNo}}/>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="form-group">
+							<label class="inputLabel" for="niGroup">رقم الفاكس</label><br>
+							<label class="inputLabel" for="niGroup">FAX NUMBER</label>
+							<input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12">
+						<div class="form-group">
+							<label class="inputLabel" for="niGroup">اسم المفوض بالتوقيع</label><br />
+							<label class="inputLabel" for="niGroup">AUTHORIZED SIGNATORY NAME</label>
+							<input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" value={{objSheet.merchntTradeName}}/>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4">
+						<div class="form-group">
+							<label class="inputLabel" for="niGroup">الوظيفة</label><br>
+							<label class="inputLabel" for="niGroup">DESIGNATION</label>
+							<input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" value={{objSheet.globalUserRole}}/>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="form-group">
+							<label class="inputLabel" for="niGroup">رقم التواصل</label><br>
+							<label class="inputLabel" for="niGroup">CONTACT</label>
+							<input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" value={{objSheet.mobileNo}}/>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="form-group">
+							<label class="inputLabel" for="niGroup">البريد اإللكتروني</label><br>
+							<label class="inputLabel" for="niGroup">EMAIL</label>
+							<input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" value={{objSheet.email}}/>
+						</div>
+					</div>
+				</div>
+
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th scope="col">
+								<p class="table_p">تفاصيل المفوض بالتوقيع والوكالة القانونية</p>
+								<p class="table_p">AUTHORIZED SIGNATORY & POA DETAILS</p>
+							</th>
+							<th scope="col">
+								<p class="table_p">رقم جواز السفر وتاريخ االنتهاء</p>
+								<p class="table_p">PASSPORT NO. AND EXPIRY DATE</p>
+							</th>
+							<th scope="col">
+								<p class="table_p">العنوان السكني الخاص</p>
+								<p class="table_p">PRIVATE RESIDENTIAL ADDRESS</p>
+							</th>
+							<th scope="col">
+								<p class="table_p">تاريخ الميالد</p>
+								<p class="table_p">DATE OF BIRTH</p>
+							</th>
+							<th scope="col">
+								<p class="table_p">الجنسية</p>
+								<p class="table_p">NATIONALITY</p>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row"> <input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+									style="bottom: 0;" /></th>
+							<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+									style="bottom: 0;" /></td>
+							<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+									style="bottom: 0;" /></td>
+							<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+									style="bottom: 0;" /></td>
+							<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+									style="bottom: 0;" value={{objSheet.country}}/></td>
+						</tr>
+						<tr>
+							<th scope="row"><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+									style="bottom: 0;" /></th>
+							<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+									style="bottom: 0;" /></td>
+							<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+									style="bottom: 0;" /></td>
+							<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+									style="bottom: 0;" /></td>
+							<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+									style="bottom: 0;"value={{objSheet.country}} /></td>
+						</tr>
+
+					</tbody>
+				</table>
+
+
+				<div class="row">
+					<div class="col-12">
+						<div class="form-group">
+							<label class="inputLabel" for="niGroup">اسم جهة االتصال</label><br />
+							<label class="inputLabel" for="niGroup">CONTACT NAME</label>
+							<input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4">
+						<div class="form-group">
+							<label class="inputLabel" for="niGroup">الوظيفة</label><br>
+							<label class="inputLabel" for="niGroup">DESIGNATION</label>
+							<input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="form-group">
+							<label class="inputLabel" for="niGroup">رقم التواصل</label><br>
+							<label class="inputLabel" for="niGroup">CONTACT</label>
+							<input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="form-group">
+							<label class="inputLabel" for="niGroup">البريد اإللكتروني</label><br>
+							<label class="inputLabel" for="niGroup">EMAIL</label>
+							<input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group">
+							<label class="inputLabel" for="niGroup">الموقع اإللكتروني إن وجد</label><br>
+							<label class="inputLabel" for="niGroup">WEBSITE IF ANY</label>
+							<input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="form-group">
+							<label class="inputLabel" for="niGroup">رقم التسجيل الضريبي</label><br>
+							<label class="inputLabel" for="niGroup">TAX REGISTRATION NO</label>
+							<input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-6">
+						<div class="notes">
+							<p style="margin-bottom: 0;">Note:</p>
+							<p style="margin-bottom: 0;">a) Please provide full address details and email id to
+								which Network will send all your
+								relevant
+								correspondence and statements.</p>
+							<p style="margin-bottom: 0;">b) Please complete all information as per company's trade
+								license.</p>
+						</div>
+					</div>
+					<div class="col-6 notesArabic">
+						<p style="margin-bottom: 0;">مالحظة:</p>
+						<p style="margin-bottom: 0;">a )يرجى تقديم تفاصيل العنوان الكاملة وعنوان البريد اإللكتروني
+							الذي ترسل إليه نتورك جميع المراسالت والبيانات ذات </p>
+						<p style="margin-bottom: 0;">b )يرجى استكمال جميع المعلومات حسب الرخصة التجارية للشركة.</p>
+					</div>
+				</div>
+			</form>
+		</div>
+    </div>
+
+    <div class="mainDiv" style="padding: 25px; margin-top: 15px;">
+		<div id="htmlTwo">
+			<div class="row">
+				<div class="col-12">
+					<div class="ipDiv">
+						<div class="labelBlock col-3">
+							<label class="inputLabel">نوع العمل/ المنتجات</label><br>
+							<label class="inputLabel">TYPE OF BUSINESS/PRODUCTS</label>
+						</div>
+						<div class="labelIp col-5">
+							<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+								style="bottom: 0;" />
+						</div>
+						<div class="labelBlock col-2">
+							<label class="inputLabel">عدد سنوات العمل</label><br>
+							<label class="inputLabel">YEARS IN BUSINESS</label>
+						</div>
+						<div class="labelIp col-2">
+							<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+								style="bottom: 0;" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+					<div class="ipDiv">
+						<div class="labelBlock col-2">
+							<label class="inputLabel">العائد السنوي</label><br>
+							<label class="inputLabel">ANNUAL TURNOVER</label>
+						</div>
+						<div class="labelIp col-2">
+							<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+								style="bottom: 0;" />
+						</div>
+						<div class="labelBlock col-2">
+							<label class="inputLabel">عدد الموظفين</label><br>
+							<label class="inputLabel">NUMBER OF EMPLOYEES</label>
+						</div>
+						<div class="labelIp col-2">
+							<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+								style="bottom: 0;" />
+						</div>
+						<div class="labelBlock col-2">
+							<label class="inputLabel">عدد المنافذ/ الفروع في اإلمارات</label><br>
+							<label class="inputLabel">NO OF OUTLETS/BRANCHES IN U.A.E</label>
+						</div>
+						<div class="labelIp col-2">
+							<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+								style="bottom: 0;" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Sub title -->
+			<div class="subHead">
+				<h6 class="start">تفاصيل الحساب المصرفي )لعمليات االئتمان/ الخصم من المبيعات)</h6>
+				<h6 class="start">BANK ACCOUNT DETAILS (FOR CREDIT/DEBIT OF SALES PROCEEDS)</h6>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+					<div class="ipDiv">
+						<div class="labelBlock col-2">
+							<label class="inputLabel"> (أ( رقم الحساب</label><br>
+							<label class="inputLabel">(a) ACCOUNT NUMBER</label>
+						</div>
+						<div class="labelIp col-4">
+							<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+								style="bottom: 0;" />
+						</div>
+						<div class="labelBlock col-2">
+							<label class="inputLabel">(ب( رقم اآليبان</label><br>
+							<label class="inputLabel">(b) IBAN NO</label>
+						</div>
+						<div class="labelIp col-4">
+							<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+								style="bottom: 0;" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+					<div class="form-group">
+						<label class="inputLabel" for="niGroup">(c (اسم الحساب</label><br>
+						<label class="inputLabel" for="niGroup">(c) ACCOUNT TITLE</label>
+						<input class="form-control dateInput miFormText" name="niGroup" id="niGroup" style="bottom: 0;" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+					<div class="form-group">
+						<label class="inputLabel" for="niGroup">(d (اسم البنك</label><br>
+						<label class="inputLabel" for="niGroup">(d) BANK NAME</label>
+						<input class="form-control dateInput miFormText" name="niGroup" id="niGroup" style="bottom: 0;" />
+					</div>
+				</div>
+			</div>
+
+			<!-- Sub title -->
+			<div class="subHead">
+				<h6 class="start">معلومات إضافية لعمليات التحويل التلغرافي</h6>
+				<h6 class="start">ADDITIONAL INFORMATION FOR TELEGRAPHIC TRANSFERS</h6>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+					<div class="ipDiv">
+						<div class="labelBlock col-2">
+							<label class="inputLabel"> (أ( اسم الفرع</label><br>
+							<label class="inputLabel">(a) BRANCH NAME:</label>
+						</div>
+						<div class="labelIp col-4">
+							<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+								style="bottom: 0;" />
+						</div>
+						<div class="labelBlock col-2">
+							<label class="inputLabel">(ب( كود السويفت</label><br>
+							<label class="inputLabel">(b) SWIFT CODE:</label>
+						</div>
+						<div class="labelIp col-4">
+							<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+								style="bottom: 0;" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- TABLE 2 -->
+
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th colspan="4">
+							<p class="table_p" style="text-align: center; margin: 0px;">عينة نص عينة نص عينة نص عينة
+								نص</p>
+							<p class="table_p" style="text-align: center; margin: 0px;">ANNUAL TURNOVER/EXPECTED
+								ANNUAL TURNOVER</p>
+						</th>
+					</tr>
+					<tr>
+						<th scope="col">
+							<p class="table_p">النسبة المئوية للنمو</p>
+							<p class="table_p">GROWTH %</p>
+						</th>
+						<th scope="col">
+							<p class="table_p">السنة األولى</p>
+							<p class="table_p">1ST YEAR</p>
+						</th>
+						<th scope="col">
+							<p class="table_p">السنة الثانية</p>
+							<p class="table_p">2ND YEAR</p>
+						</th>
+						<th scope="col">
+							<p class="table_p">إجمالي المبيعات المتوقعة</p>
+							<p class="table_p">TOTAL EXPECTED TURNOVER</p>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">
+							<p class="table_p">1 .مبيعات البطاقات المتوقعة </p>
+							<p class="table_p">1. EXPECTED CARD SALES</p>
+						</th>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">
+							<p class="table_p">2 .المبيعات المتوقعة بدون بطاقة</p>
+							<p class="table_p">2. EXPECTED NON-CARD SALES </p>
+						</th>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">
+							<p class="table_p">إجمالي المبيعات المتوقعة )1+2)</p>
+							<p class="table_p">TOTAL EXPECTED SALES (1+2)</p>
+						</th>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- Sub title -->
+			<div class="subHead">
+				<h6 class="start">.يرجى تقديم التفاصيل أدناه عن المالكين المستفيدين من الكيان/ الكيانات المذكورة أعاله
+				</h6>
+				<h6 class="start">Please provide below details of beneficial owners of the entity/entities disclosed
+					above.</h6>
+			</div>
+
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th colspan="4">
+							<p class="table_p" style="text-align: center; margin: 0px;">(امتالك %25 أو أكثر من
+								األسهم/حصة الملكية)</p>
+							<p class="table_p" style="text-align: center; margin: 0px;">HOLDING 25% OR MORE
+								SHARES/OWNERSHIP INTEREST</p>
+						</th>
+					</tr>
+					<tr>
+						<th scope="col">
+							<p class="table_p">المساهمون/المالك المستفيد الرئيسي</p>
+							<p class="table_p">SHAREHOLDERS /ULTIMATE BENEFICIAL OWNER</p>
+						</th>
+						<th scope="col">
+							<p class="table_p">رقم جواز السفر وتاريخ االنتهاء</p>
+							<p class="table_p">PASSPORT NO. AND EXPIRY DATE</p>
+						</th>
+						<th scope="col">
+							<p class="table_p">العنوان السكني الخاص</p>
+							<p class="table_p">PRIVATE RESIDENTIAL ADDRESS</p>
+						</th>
+						<th scope="col">
+							<p class="table_p">تاريخ الميالد</p>
+							<p class="table_p">DATE OF BIRTH</p>
+						</th>
+						<th scope="col">
+							<p class="table_p">الجنسية</p>
+							<p class="table_p">NATIONALITY</p>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+					</tr>
+					<tr>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+					</tr>
+					<tr>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+						<td><input class="form-control dateInput miFormText" name="niGroup" id="niGroup"
+								style="bottom: 0;" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+
+			<!-- Sub title -->
+			<div class="subHead">
+				<h6 class="start">مالحظات</h6>
+				<h6 class="start">NOTES</h6>
+				<input class="form-control dateInput miFormText" name="niGroup" id="niGroup" style="bottom: 0;" />
+				<input class="form-control dateInput miFormText" name="niGroup" id="niGroup" style="bottom: 0;" />
+				<input class="form-control dateInput miFormText" name="niGroup" id="niGroup" style="bottom: 0;" />
+				<input class="form-control dateInput miFormText" name="niGroup" id="niGroup" style="bottom: 0;" />
+			</div>
+		</div>
+    </div>
+
+    <div class="mainDiv" style="padding: 25px; margin-top: 15px;">
+		<div id="htmlThree">
+			<div class="row">
+				<div class="card nbqCard">
+					<div class="row">
+						<div class="col-6">
+							<h5>FEES & CHARGES</h5>
+						</div>
+						<div class="col-6">
+							<h5 class="appForm" style="text-align: center;">
+								نص عينة نص عينة
+							</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-6">
+					<h6 class="appForm" style="text-align: center;  font-size: 10px; color: #0070C0;">TO BE COMPLETED BY
+						NETWORK INTERNATIONAL</h6>
+				</div>
+				<div class="col-6">
+					<h6 style="text-align: center; font-size: 10px; color: #0070C0;">ي َّعبأ من طرف شركة نتورك
+						انترناشيونال</h6>
+				</div>
+			</div>
+
+			<!-- Sub title -->
+			<div class="subHead">
+				<h6 class="start">يرجى اختيار الخيار المناسب</h6>
+				<h6 class="start">PLEASE CHOOSE THE APPROPRIATE OPTION</h6>
+			</div>
+
+			<div class="row">
+				<div class="col-2">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+						<label for="inlineCheckbox1" class="inputLabel"
+							style="word-wrap:break-word; position: relative; top: 8px;">MOTO</label>
+					</div>
+				</div>
+				<div class="col-2">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+						<label for="inlineCheckbox1" class="inputLabel"
+							style="word-wrap:break-word;position: relative; top: -5px;">كي-إن</label><br>
+						<label for="inlineCheckbox1" class="inputLabel"
+							style="word-wrap:break-word;position: relative; top: -5px;">KEY-IN</label>
+					</div>
+				</div>
+
+				<div class="col-2">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+						<label for="inlineCheckbox1" class="inputLabel"
+							style="word-wrap:break-word;position: relative; top: -5px;">تفويض مسبق</label><br>
+						<label for="inlineCheckbox1" class="inputLabel"
+							style="word-wrap:break-word;position: relative; top: -5px;">PRE-AUTH</label>
+					</div>
+				</div>
+				<div class="col-2">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+						<label for="inlineCheckbox1" class="inputLabel"
+							style="word-wrap:break-word;position: relative; top: -5px;">وحدة طرفية لنقطة
+							بيع</label><br>
+						<label for="inlineCheckbox1" class="inputLabel"
+							style="word-wrap:break-word;position: relative; top: -5px;">POS
+							TERMINAL</label>
+					</div>
+				</div>
+				<div class="col-2">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+						<label for="inlineCheckbox1" class="inputLabel"
+							style="word-wrap:break-word;position: relative; top: -5px;">التجارة
+							اإللكترونية</label><br>
+						<label for="inlineCheckbox1" class="inputLabel"
+							style="word-wrap:break-word;position: relative; top: -5px;">ECOMMERCE</label>
+					</div>
+				</div>
+				<div class="col-2">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+						<label for="inlineCheckbox1" class="inputLabel"
+							style="word-wrap:break-word;position: relative; top: -5px;">نقطة بيع</label><br>
+						<label for="inlineCheckbox1" class="inputLabel"
+							style="word-wrap:break-word;position: relative; top: -5px;">MPOS</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-4">
+					<div class="tableTitle">
+						<h6 class="tableTitle1">(%) رسوم التحويل</h6>
+						<h6 class="tableTitle1">TRANSACTION FEES (%)</h6>
+					</div>
+
+					<table class="table table-bordered" style="font-size: 10px;">
+						<thead>
+							<tr>
+								<th scope="col">
+									<p>عينة نصC</p>
+									<p>CARD TYPE</p>
+								</th>
+								<th scope="col">
+									<p>معالجة نقاط البيع</p>
+									<p>POS PROCESSING</p>
+							<tr>
+								<th>
+									<p>مدين</p>
+									<p>DEBIT</p>
+								</th>
+								<th>
+									<p>خرى</p>
+									<p>OTHERS</p>
+								</th>
+							</tr>
+							</th>
+							<th scope="col">
+								<p>معالجة التجارة</p>
+								<p>ECOMMERCE PROCESSING</p>
+							</th>
+							<th scope="col">
+								<p>المعالجة اليدوية</p>
+								<p>MANUAL PROCESSING</p>
+							</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">فيزا ستاندرد
+									VISA STANDARD</th>
+								<td>
+							<tr>
+								<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+								<td class="rowpan"><input type="text" class="form-control dateInput miFormText" id="nameField"
+										placeholder="" style="bottom: 0;" /></td>
+							</tr>
+							</td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							</tr>
+							<tr>
+								<th scope="row">ماستركارد/مايسترو
+									ستاندرد
+									MASTERCARD/
+									MAESTRO STANDARD</th>
+								<td>
+							<tr>
+								<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+								<td class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+							</tr>
+							</td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							</tr>
+							<tr>
+								<th scope="row">فيزا بريميوم
+									VISA PREMIUM</th>
+								<td>
+							<tr>
+								<td rowspan="2" class="rowpan"><input type="text" class="form-control miFormText dateInput"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+								<td class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+							</tr>
+							</td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							</tr>
+
+
+
+							<tr>
+								<th scope="row">
+									ماستركارد بريميوم
+									MASTERCARD
+									PREMIUM
+								</th>
+								<td>
+							<tr>
+								<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+								<td class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+							</tr>
+							</td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							</tr>
+							<tr>
+								<th scope="row">
+									يركوري
+									MERCURY
+								</th>
+								<td>
+							<tr>
+								<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+								<td class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+							</tr>
+							</td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							</tr>
+							<tr>
+								<th scope="row">
+									داينرز كلوب/ ديسكفر
+									DINERS CLUB/
+									DISCOVER
+								</th>
+								<td>
+							<tr>
+								<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+								<td class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+							</tr>
+							</td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							</tr>
+							<tr>
+								<th scope="row">
+									جيه سي بي
+									JCB
+								</th>
+								<td>
+							<tr>
+								<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+								<td class="rowpan"><input type="text" class="form-control dateInput miFormText" id="nameField"
+										placeholder="" style="bottom: 0;" /></td>
+							</tr>
+							</td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							</tr>
+							<tr>
+								<th scope="row">
+									يونيون باي
+									UNIONPAY
+								</th>
+								<td>
+							<tr>
+								<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+								<td class="rowpan"><input type="text" class="form-control dateInput miFormText" id="nameField"
+										placeholder="" style="bottom: 0;" /></td>
+							</tr>
+							</td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							</tr>
+							<tr>
+								<th scope="row">
+									علي باي
+									ALIPAY
+								</th>
+								<td>
+							<tr>
+								<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+								<td class="rowpan"><input type="text" class="form-control dateInput miFormText" id="nameField"
+										placeholder="" style="bottom: 0;" /></td>
+							</tr>
+							</td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							</tr>
+							<tr>
+								<th scope="row">
+									ي تشات باي
+									WECHAT PAY
+								</th>
+								<td>
+							<tr>
+								<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+								<td class="rowpan"><input type="text" class="form-control dateInput miFormText" id="nameField"
+										placeholder="" style="bottom: 0;" /></td>
+							</tr>
+							</td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							</tr>
+							<tr>
+								<th scope="row">MIR</th>
+								<td>
+							<tr>
+								<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+								<td class="rowpan"><input type="text" class="form-control dateInput miFormText" id="nameField"
+										placeholder="" style="bottom: 0;" /></td>
+							</tr>
+							</td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							</tr>
+							<tr>
+								<th scope="row">
+									رو باي
+									RUPAY
+								</th>
+								<td>
+							<tr>
+								<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+								<td class="rowpan"><input type="text" class="form-control dateInput miFormText" id="nameField"
+										placeholder="" style="bottom: 0;" /></td>
+							</tr>
+							</td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							</tr>
+							<tr>
+								<th scope="row">
+									البطاقات الصادرة من
+									خارج دولة اإلمارات
+									NON-UAE ISSUED
+									CARDS
+								</th>
+								<td>
+							<tr>
+								<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+								<td class="rowpan"><input type="text" class="form-control dateInput miFormText" id="nameField"
+										placeholder="" style="bottom: 0;" /></td>
+							</tr>
+							</td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							</tr>
+							<tr>
+								<th scope="row">
+									برامج بطاقات أخرى
+									OTHER CARD SCHEMES
+								</th>
+								<td>
+							<tr>
+								<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+										id="nameField" placeholder="" style="bottom: 0;" /></td>
+								<td class="rowpan"><input type="text" class="form-control dateInput miFormText" id="nameField"
+										placeholder="" style="bottom: 0;" /></td>
+							</tr>
+							</td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+									style="bottom: 0;" /></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-4">
+					<div class="tableTitle">
+						<h6 class="tableTitle1">(POS (وحدة طرفية لنقطة البيع</h6>
+						<h6 class="tableTitle1">POINT OF SALE TERMINAL (POS)</h6>
+					</div>
+					<table class="table table-bordered" style="font-size: 10px; position: relative;
+					left: 23px;">
+						<thead>
+							<tr>
+								<th scope="col">
+									لرسوم والمصاريف
+									<br>
+									FEES AND CHARGES
+								</th>
+								<th scope="col">
+									لمبلغ بالدرهم
+									<br>
+									AMOUNT IN
+									AED
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">
+									رسوم تدفع لمرة واحدة
+									<br>
+									ONE TIME FEE
+								</th>
+								<td>
+									<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+										style="bottom: 0;" />
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									اإليجار السنوي
+									<br>
+									ANNUAL RENT
+								</th>
+								<td>
+									<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+										style="bottom: 0;" />
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									رسوم أخرى
+									<br>
+									OTHER CHARGES
+								</th>
+								<td>
+									<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+										style="bottom: 0;" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- Second sub title -->
+					<div class="tableTitle" style="width: 297px;
+					position: relative;
+					left: 25px;">
+						<h6 class="tableTitle1">التعرفة</h6>
+						<h6 class="tableTitle1">TARIFF</h6>
+					</div>
+					<table class="table table-bordered" style="font-size: 10px; position: relative;
+					left: 22px; line-height: 1.89;">
+						<thead>
+							<tr>
+								<th scope="col">
+									للرسوم والمصاريف
+									<br>
+									FEES AND CHARGES
+								</th>
+								<th scope="col">
+									لتعرفة
+									<br>
+									TARIFF
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">
+									رسوم MIS) لكل شهر)
+									<br>
+									MIS FEE (PER MONTH)
+								</th>
+								<td>
+									AED 99
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									رسوم االسترداد )لكل حدث
+									<br>
+									REFUND FEE (PER
+									OCCURRENCE)
+								</th>
+								<td>
+									AED 5
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									ررسوم المعاملة )لكل معاملة)
+									<br>
+									TRANSACTION FEE (PER
+									TRANSACTION)
+								</th>
+								<td>
+									FILS 40
+								</td>
+							</tr>
+
+							<tr>
+								<th scope="row">
+									حجم معاملة الدفع 000،20 درهم أو
+									أقل - العجز في الحجم )لكل شهر(ث
+									<br>
+									PAYMENT TRANSACTION
+									VOLUME AED 20,000 OR LESS -
+									VOLUME SHORT FALL
+									(PER MONTH)
+								</th>
+								<td>
+									AED 99
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									رسوم رد المبالغ المدفوعة )لكل حدث)
+									<br>
+									CHARGEBACK FEE (PER
+									OCCURRENCE)
+								</th>
+								<td>
+									USD 20
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									تحويل العملة الديناميكي (DCC(
+									حصة التاجر
+									<br>
+									DYNAMIC CURRENCY
+									CONVERSION (DCC) MERCHANT
+									SHARE
+								</th>
+								<td>
+									0.25%
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									سوم الباقة الذكية
+									<br>
+									SMART BUNDLE FEES
+								</th>
+								<td>
+									0.0525% of the
+									Transaction
+									value which
+									shall be
+									inclusive of
+									VAT; or (b)
+									AED 0.01,
+									inclusive of
+									VAT, whichever
+									is higher
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									رسوم التصريح المسبق لماستركارد
+									<br>
+									MASTERCARD PRE-AUTHORIZATION CHARGES
+								</th>
+								<td>
+									0.05%
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-4">
+					<div class="tableTitle">
+						<h6 class="tableTitle1">التجارة اإللكترونية</h6>
+						<h6 class="tableTitle1">E-COMMERCE</h6>
+					</div>
+
+
+					<table class="table table-bordered" style="font-size: 10px; line-height: 2.55;">
+						<thead>
+							<tr>
+								<th scope="col">
+									لرسوم والمصاريف
+									<br>
+									FEES AND CHARGES
+								</th>
+								<th scope="col">
+									المبلغ بالدرهم اإلماراتي/
+									الدوالر األمريكي
+									<br>
+									AMOUNT IN AED/
+									USD
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">
+									سوم إعداد بوابة الدفع
+									<br>
+									PAYMENT GATEWAY SETUP FEE
+								</th>
+								<td>
+									<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+										style="bottom: 0;" />
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									رسوم االشتراك السنوي )لكل مدة)
+									<br>
+									ANNUAL SUBSCRIPTION FEE
+									(PER MID)
+								</th>
+								<td>
+									<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+										style="bottom: 0;" />
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									سوم المعالجة )لكل معاملة)
+									<br>
+									PROCESSING FEE (PER TRXN)
+								</th>
+								<td>
+									<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+										style="bottom: 0;" />
+								</td>
+							</tr>
+
+							<tr>
+								<th scope="row">
+									حرسوم فحص قواعد المخاطر )لكل)
+									معاملة
+									<br>
+									RISK RULES SCREENING
+									FEE (PER TRXN)
+								</th>
+								<td>
+									<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+										style="bottom: 0;" />
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									سوم فحص FRM) لكل معاملة)
+									<br>
+									FRM SCREENING FEE (PER TRXN)
+								</th>
+								<td>
+									<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+										style="bottom: 0;" />
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									سوم االسترداد واإلفراج
+									<br>
+									REFUND AND RELEASE FEE
+								</th>
+								<td>
+									<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+										style="bottom: 0;" />
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									فحص من قبل مورد فحص معتمد ربع سنويا
+									ورسوم فحص تطبيق الويب السنوية
+									<br>
+									(ASV)QUARTERLY AUTHORIZED SCANNING VENDOR (ASV) SCAN AND AN ANNUAL WEB
+									APPLICATION SCAN FEE
+								</th>
+								<td>
+									<input type="text" class="form-control dateInput miFormText miFormText" id="nameField" placeholder=""
+										style="bottom: 0;" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<!-- Second sub title -->
+					<div class="tableTitle">
+						<h6 class="tableTitle1">تردد التمويل</h6>
+						<h6 class="tableTitle1">FUNDING FREQUENCY</h6>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+								style="bottom: 0; height: 100px;" />
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="tableTitle" style="
+						width: 310px;
+						position: relative;
+						left: 12px;">
+							<h6 class="tableTitle1">مالحظات</h6>
+							<h6 class="tableTitle1">NOTES</h6>
+						</div>
+						<div class="col">
+							<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+								style="bottom: 0; height: 100px;" />
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="card nbqCard" style="padding: 5px;">
+				<div class="row">
+					<h5 class="appForm" style="text-align: center;">سوم خدمة لوحة المعلومات</h5><br>
+					<h5 class="appForm">
+						DASHBOARD SERVICE FEE
+					</h5>
+				</div>
+			</div>
+
+			<div class="row" style="font-size: 10px; text-align: center;">
+				<div class="col-4">
+					<table class="table table-bordered">
+						<thead>
+							<th>دمة لوحة المعلومات
+								<br>
+								DASHBOARD SERVICE
+							</th>
+							<th>بريميوم
+								<br>
+								PREMIUM
+							</th>
+						</thead>
+						<tr>
+							<td>دد MIDS
+								<br>
+								NO. OF MIDS
+							</td>
+							<td>
+						<tr>
+							<td rowspan="2" class="newRowpan">1</td>
+							<td class="newRowpan">2</td>
+							<td class="newRowpan">3 or MORE</td>
+						</tr>
+						</td>
+						</tr>
+						<tr>
+							<td>الرسوم )بالدرهم اإلماراتي( شهريا
+								<br>
+								FEE (IN AED) PER MONTH
+							</td>
+							<td>
+						<tr>
+							<td rowspan="2" class="newRowpan">600</td>
+							<td class="newRowpan">1200</td>
+							<td class="newRowpan">1800</td>
+						</tr>
+						</td>
+						</tr>
+					</table>
+				</div>
+				<div class="col-2">
+					<table class="table table-bordered">
+						<thead>
+							<th>لغاء االشتراك في
+								دمة لوحة المعلومات
+								<br>
+								Opt Out
+							</th>
+						</thead>
+						<tr>
+							<td style="height: 197px;">
+								<input class="form-check-input check_bottom" type="checkbox" id="inlineCheckbox1"
+									value="option1">
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="col-4">
+					<table class="table table-bordered" style="height: 268px; font-size: 13px;">
+						<thead>
+							<th>عادي
+								<br>
+								STANDARD
+							</th>
+						</thead>
+
+						<tr>
+							<td>
+						<tr style="border: none;">
+							<td rowspan="2" class="newRowpan" style="width: 75px;">1</td>
+							<td class="newRowpan" style="width: 75px;">2</td>
+							<td class="newRowpan" style="border-right: none;">3 or MORE</td>
+						</tr>
+						</td>
+						</tr>
+						<tr>
+							<td>
+						<tr style="border: none;">
+							<td rowspan="2" class="newRowpan" style="width: 75px;">600</td>
+							<td class="newRowpan" style="width: 75px;">1200</td>
+							<td class="newRowpan" style="width: 75px; border-right: none;">1800</td>
+						</tr>
+						</td>
+						</tr>
+					</table>
+				</div>
+				<div class="col-2">
+					<table class="table table-bordered">
+						<thead>
+							<th>
+								إلغاء االشتراك في
+								خدمة لوحة المعلومات
+								<br>
+								Opt Out
+							</th>
+						</thead>
+						<tr>
+							<td rowspan="2" style="height: 197px;">
+								<input class="form-check-input check_bottom" type="checkbox" id="inlineCheckbox1"
+									value="option1">
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					<p style="font-size: 9px;">ALL FEES AND CHARGES ARE SUBJECT TO VAT WHERE APPLICABLE </p>
+				</div>
+				<div class="col-6">
+					<p class="arabic" style="font-size: 9px;">تخضع جميع الرسوم والمصروفات لضريبة القيمة المضافة حيثما
+						ينطبق ذلك</p>
+				</div>
+			</div>
+		</div>
+    </div>
+
+    <div class="mainDiv" style="padding: 25px; margin-top: 15px;">
+		<div id="htmlFour">
+			<div class="row">
+				<div class="card nbqCard">
+					<div class="row">
+						<div class="col-6" style="text-align: center;">
+							<h5 class="appForm">DECLARATION</h5>
+						</div>
+						<div class="col-6">
+							<h5 class="appForm" style="text-align: center;">
+								إقرار
+							</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-6">
+					<p class="decLable" style="font-weight: 600;">Please select one of the following:</p>
+					<p class="decLable">A. Does your company have any direct/indirect dealings involving a Sanctioned
+						Country* or any
+						Sanctioned Party**?</p>
+					<div class="form-check form-check-inline" style="margin-bottom: 25px;">
+						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+							value="option1">
+						<label class="form-check-label appForm" for="inlineRadio1">Yes</label>
+					</div>
+					<div class="form-check form-check-inline" style="margin-bottom: 25px;">
+						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+							value="option2">
+						<label class="form-check-label appForm" for="inlineRadio2">No</label>
+					</div>
+				</div>
+				<div class="col-6">
+					<p class="arabic decLable" style="font-weight: 600;">الرجاء اختر واحدا مما يلي:</p>
+					<p class="arabic decLable">أ. هل لشركتكم صفقات مباشرة/غير مباشرة تشارك فيها دولة تخضع لعقوبات* أو
+						طرف
+						يخضع لعقوبات**؟
+					</p>
+					<div class="" style="float: right;">
+						<div class="form-check form-check-inline" style="margin-bottom: 25px;">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+								value="option1">
+							<label class="form-check-label appForm" for="inlineRadio1">Yes</label>
+						</div>
+						<div class="form-check form-check-inline" style="margin-bottom: 25px;">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+								value="option2">
+							<label class="form-check-label appForm" for="inlineRadio2">No</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-6">
+					<p class="decLable">B. Is your company owned by any person/entity that is incorporated/based in, or
+						resident in a
+						Sanctioned
+						Country/Territory? </p>
+					<div class="form-check form-check-inline" style="margin-bottom: 25px;">
+						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+							value="option1">
+						<label class="form-check-label appForm" for="inlineRadio1">Yes</label>
+					</div>
+					<div class="form-check form-check-inline" style="margin-bottom: 25px;">
+						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+							value="option2">
+						<label class="form-check-label appForm" for="inlineRadio2">No</label>
+					</div>
+				</div>
+				<div class="col-6">
+					<p class="arabic decLable">ب. هل شركتكم مملوكة من قبل شخص/كيان مؤسس/قائم في، أو مقيم في دولة/إقليم
+						خاضع)ة( لعقوبات؟
+					</p>
+					<div class="" style="float: right;">
+						<div class="form-check form-check-inline" style="margin-bottom: 25px;">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+								value="option1">
+							<label class="form-check-label appForm" for="inlineRadio1">Yes</label>
+						</div>
+						<div class="form-check form-check-inline" style="margin-bottom: 25px;">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+								value="option2">
+							<label class="form-check-label appForm" for="inlineRadio2">No</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-6">
+					<p class="decLable">C. Does your business have any offices, investment activities or planned
+						activities in any
+						sanctioned
+						country or have an ownership interest in a Sanctioned Party? </p>
+					<div class="form-check form-check-inline" style="margin-bottom: 25px;">
+						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+							value="option1">
+						<label class="form-check-label appForm" for="inlineRadio1">Yes</label>
+					</div>
+					<div class="form-check form-check-inline" style="margin-bottom: 25px;">
+						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+							value="option2">
+						<label class="form-check-label appForm" for="inlineRadio2">No</label>
+					</div>
+				</div>
+				<div class="col-6">
+					<p class="arabic decLable">ج. هل تدير شركتكم مكاتب أو أنشطة استثمارية أو أنشطة مخطط لها في دولة
+						خاضعة
+						لعقوبات أو تمتلك حصة في طرف
+						يخضع لعقوبات؟</p>
+					<div class="" style="float: right;">
+						<div class="form-check form-check-inline" style="margin-bottom: 25px;">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+								value="option1">
+							<label class="form-check-label appForm" for="inlineRadio1">Yes</label>
+						</div>
+						<div class="form-check form-check-inline" style="margin-bottom: 25px;">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+								value="option2">
+							<label class="form-check-label appForm" for="inlineRadio2">No</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row" style="margin-bottom: 20px;">
+				<div class="col-6">
+					<p class="decLable" style="margin: 0px;">إذا أجبتم بكلمة نعم على جميع أو أي من االستفسارات "أ" أو
+						"ب" أو "د</p>
+					<p class="decLable">If any or all of the response to Questions A, B, or C are Yes</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-6">
+					<p class="decLable" style="margin: 0px;">i .يرجى تحديد اسم الدول/األقاليم الخاضعة لعقوبات</p>
+					<p class="decLable">i. Specify the name of the Sanctioned Countries/Territories.</p>
+				</div>
+				<div class="col-6">
+					<div>
+						<input type="text" class="form-control refInput miFormText" id="refField" style="width: 100%;" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-6">
+					<p class="decLable" style="margin: 0px;">ii .يلزم تقديم بيان موجز حول األنشطة التجارية التي تُ مارس
+						في الدول/األقاليم الخاضعة لعقوبات
+					</p>
+					<p class="decLable">ii. Brief description of business activities conducted in the Sanctioned
+						Countries/Territories</p>
+				</div>
+				<div class="col-6">
+					<input type="text" class="form-control refInput miFormText" id="refField" style="width: 100%;" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-6">
+					<p class="decLable" style="margin: 0px;">iii .ما هي السلع/المنتجات المتأثرة، ولماذا تُ ستخدم، وما هي
+						دولة المنشأ ودولة الوجهة؟
+					</p>
+					<p class="decLable">iii. What goods/products are involved, what they are used for, the country of
+						origin and
+						destination?</p>
+				</div>
+				<div class="col-6">
+					<input type="text" class="form-control refInput miFormText" id="refField" style="width: 100%;" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-6">
+					<p class="decLable" style="margin: 0px;">iv ً .من اآلن فصاعدا، هل تتوقعون زيادة/تراجع/بقاء الصفقات
+						مع الدول/األقاليم الخاضعة لعقوبات
+						كما هي؟
+					</p>
+					<p class="decLable">iv. Going forward, would you expect the dealings with Sanctioned
+						Countries/Territories to
+						increase/decrease/remain
+						the same?</p>
+				</div>
+				<div class="col-6">
+					<input type="text" class="form-control refInput miFormText" id="refField" style="width: 100%;" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-6">
+					<p class="decLable">*Sanctioned Countries - Iran, Syria, Cuba, North Korea)/Territory (Crimea) and
+						any other
+						countries/territories as
+						updated time to time by the relevant authorities.
+					</p>
+				</div>
+				<div class="col-6">
+					<p class="arabic decLable">*يشمل الشخص الخاضع للعقوبات أو الكيان الخاضع للعقوبات أي شخص أو كيان تم
+						تحديده
+						ألسباب تتعلق
+						بالعقوبات من قبل مجلس األمن التابع لألمم المتحدة والمملكة األردنية واالتحاد األوروبي
+						والواليات المتحدة بما في ذلك على سبيل المثال ال الحصر قائمة الرعايا المعينين خصيصا )SDN.</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-6">
+					<p class="decLable">**A sanctioned party includes any person or entity designated for sanction
+						reasons by United
+						Nations Security
+						council, The European Union, The Office of Foreign Assets Control (OFAC), UK HMT and Central
+						Bank of UAE
+						Blacklist.
+					</p>
+				</div>
+				<div class="col-6">
+					<p class="arabic decLable">**األطراف الخاضعة لعقوبات تشمل أي شخص أو كيان مدرج في القائمة السوداء،
+						ألسباب
+						العقوبات، لدى مجلس األمن،
+						واالتحاد األوروبي، ومكتب مراقبة األصول األجنبية، وخزانة جاللة الملكة في المملكة المتحدة
+						ومصرف اإلمارات العربية المتحدة
+						المركزي.</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-6">
+					<p class="decLable">D. Do you hold any position from the below list of categories? </p>
+					<div class="form-check form-check-inline" style="margin-bottom:25px">
+						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+							value="option1">
+						<label class="form-check-label appForm" for="inlineRadio1">Yes</label>
+					</div>
+					<div class="form-check form-check-inline" style="margin-bottom:25px">
+						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+							value="option2">
+						<label class="form-check-label appForm" for="inlineRadio2">No</label>
+					</div>
+				</div>
+				<div class="col-6">
+					<p class="arabic decLable">؟ الفئات قائمة من منصب أي تشغل هل. د</p>
+					<div class="" style="float: right;">
+						<div class="form-check form-check-inline" style="margin-bottom:25px">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+								value="option1">
+							<label class="form-check-label appForm" for="inlineRadio1">Yes</label>
+						</div>
+						<div class="form-check form-check-inline" style="margin-bottom:25px">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+								value="option2">
+							<label class="form-check-label appForm" for="inlineRadio2">No</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+					<div class="ipDiv">
+						<div class="labelBlock col-4">
+							<span> ***إذا كانت اإلجابة بنعم، ثم قم بتوفير اسم الفرد</span><br>
+							<span>IF yes, then provide Name of the individual***</span>
+						</div>
+						<div class="labelIp col-3">
+							<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+								style="bottom: 0;" />
+						</div>
+						<div class="labelBlock col-2">
+							<span>الجنسية</span><br>
+							<span>Nationality</span>
+						</div>
+						<div class="labelIp col-3">
+							<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+								style="bottom: 0;" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row" style="font-size: 11px;">
+				<div class="col-6">
+					<p>***Individuals or international entities who are or have been entrusted with prominent public
+						functions and their
+						immediate family members and close associates.
+					</p>
+					<p>i. a natural person who is or has been entrusted with prominent public functions including: –
+						(i) A head of state,
+						head of government, minister or deputy or assistant minister; ii) A senior government
+						official; (iii) A member of
+						parliament;
+					</p>
+					<p>
+						(iv) A senior politician; (v) An important political party official; (vi) A senior judicial
+						official; (vii) A member of a
+						court of auditors or the board of a central bank; (viii) An ambassador, charge d’affaires or
+						other high-ranking officer
+						in a diplomatic service; (ix) A high-ranking officer in an armed force; (x) A senior member
+						of an administrative,
+						management or supervisory body of a state- owned enterprise; or
+					</p>
+					<p>
+						ii. Any of the following family members of the above, including: – (i) a spouse; (ii) a
+						partner considered by national
+						law as equivalent to a spouse; (iii) a child
+					</p>
+					<p>
+						Any term not defined in this Application shall have the meaning ascribed to it in the Terms
+						and Conditions. By
+						submitting this Application (a) you understand that provided you meet Network’s criteria for
+						accepting a Merchant,
+						a binding agreement to subscribe for the Services is entered into between you and Network on
+						and subject to the
+						attached Agreement. If you do not meet these criteria, Network retains the right to decline
+						the Application without
+						any further explanation; (b) you and your Authorized Signatories represent and warrant to
+						Network that: (i) all
+						information provided in the Application is true, complete and accurate at the time of
+						entering into this Agreement
+						and to promptly advise Network if any such information changes (ii) the person signing and
+						submitting the
+						Application is duly authorized to and has the power to bind you to all provisions of this
+						Application (including Fees
+						and Charges), Terms and Conditions, Schedules, Direct Debit Mandate, and the welcome kit
+						provided by Network
+						(together the "Agreement"); (iii) you have read and understood all terms and conditions of
+						the Agreement and
+						by completion, signing and submission of this Application to Network, you accepts and agrees
+						to abide by the
+						Agreement. You understands and agree that (i) failure to comply to the Agreement or (ii) any
+						incorrect information
+						may result in levy of Fines and Penalties, withholding of Sale Proceeds, and/or lead to
+						suspension and/or termination
+						of the Services or the Agreement. You and / or your Authorised Signatory shall be jointly or
+						severally liable to
+						Network in their individual capacity for any expenses that may be incurred or any losses
+						that may be suffered by
+						Network arising out of submission of such incorrect information, suspension or termination,
+						as the case may be.
+					</p>
+					<p>
+						I acknowledge to have received and read the full Terms and Conditions along with this
+						Application, a copy
+						of the Terms and Conditions (as updated from time to time by Network) is uploaded a
+						https://www.network.ae/en/contents/view/merchant-terms-and-conditions
+					</p>
+				</div>
+				<div class="col-6">
+					<p class="arabic">
+						***األفراد أو الكيانات الدولية المكلفين أو الذين تم تكليفهم بوظائف عامة بارزة وأفراد أسرهم
+						المباشرين والمقربين.
+					</p>
+					<p class="arabic">
+						و وزير مساعد؛ 2 )مسؤول حكومي كبير؛ )3 )عضو في البرلمان؛ I .أي شخص طبيعي مكلف أو تم تكليفه
+						بوظيفة عامة بارزة بما في ذلك: - )1 )منصب رئيس دولة أو رئيس حكومة أو وزير أو نائب
+					</p>
+					<p class="arabic">
+						)4 )سياسي بارز؛ )5 )مسؤول حزب سياسي مهم؛ )6 )مسؤول قضائي كبير؛ )7 )عضو محكمة مراجعي الحسابات
+						أو مجلس إدارة
+						بنك مركزي؛ )8 )سفير أو قائم بأعماله أو غيره من كبار المسؤولين في السلك الدبلوماسي؛ )9 )ضابط
+						برتبة رفيعة في قوة
+						مسلحة؛ )10 )عضو بارز في هيئة إدارية أو تنظيمية أو إشرافية لمؤسسة مملوكة للدولة؛ أو
+					</p>
+					<p class="arabic">
+						I .أي من أفراد األسرة التاليين لمن سبق ذكرهم، بما في ذلك: - )1 )الزوج؛ )2 ) ً الشريك الذي
+						يعتبره القانون الوطني معادال للزوج؛
+						)3 )طفل
+					</p>
+					<p class="arabic">
+						`أي مصطلح لم يتم تعريفه في هذا الطلب يكون له المعنى الموضح له في الشروط واألحكام. من خالل
+						تقديم هذا الطلب )أ(،
+						فإنك تدرك أنه شريطة أن تفي بمعايير الشبكة الخاصة بقبول التاجر، يجب إبرام اتفاقية ملزمة
+						لالشتراك في الخدمات بينك وبين
+						الشبكة وأن تخضع لالتفاقية المرفقة. إذا لم تستوفِ هذه المعايير، تحتفظ الشبكة بالحق في رفض
+						الطلب دون أي تفسير
+						إضافي؛ )ب( تقر وتتعهد أنت والموقعون المعتمدون للشبكة بما يلي: )1 )أن جميع المعلومات المقدمة
+						في الطلب صحيحة
+						وكاملة ودقيقة في وقت إبرام هذه االتفاقية وإبالغ الشبكة على الفور بأي تغير يطرأ على أي من هذه
+						المعلومات )2 ) )الشخص
+						الذي يوقع على الطلب ويقدمه مفوض حسب األصول ولديه القدرة على إلزامك بجميع أحكام هذا الطلب
+						)بما في ذلك الرسوم
+						تقبل وتوافق على االلتزام باالتفاقية. أنت تدرك وتوافق على أن )1 )عدم االمتثال لالتفاقية أو )2
+						)أي معلومات غير صحيحة قد ًمعا بـ "االتفاقية"(؛ )3 )لقد قرأت وفهمت جميع شروط وأحكام االتفاقية
+						وبإكمال هذا الطلب وتوقيعه وإرساله إلى الشبكة، فإنك ُ والتكاليف(، والشروط واألحكام، والمالحق،
+						والتفويض بإجراء الخصم المباشر، ومجموعة الترحيب التي توفرها الشبكة )يشار إليها
+						يؤدي إلى فرض غرامات وعقوبات و/أو حجب عائدات البيع و/أو يؤدي إلى تعليق و/أو إنهاء الخدمات أو
+						االتفاقية. تتحمل أنت و /
+						أو الشخص المفوض بالتوقيع التابع بك المسؤولية تجاه الشبكة بصفة شخصية عن أي نفقات قد تدفعها
+						الشبكة أو أي خسائر
+						قد تتكبدها نتيجة تقديم تلك المعلومات غير الصحيحة، أو تبعات التعليق أو اإلنهاء، حسبما قد تكون
+						الحالة.
+					</p>
+					<div class="col-2">
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+					</div>
+					<div class="col-10">
+						<p class="arabic">
+							قر باستالم وقراءة جميع الشروط
+							أ https://www.network.ae/en/contents/view/merchant-terms-and-conditions
+
+							واالحكام المرفقة مع هذا الطلب ونسخة من الشروط واألحكام )المحدثة من وقت آلخر بواسطة
+							نتورك( المسجلة على
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Sub title -->
+			<div class="subHead">
+				<p class="start" style="margin-bottom: 0px;">للتاجر</p>
+				<p class="start">FOR MERCHANT</p>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+					<div class="ipDiv">
+						<div class="labelBlock col-2">
+							<label class="inputLabel">االسم</label><br>
+							<label class="inputLabel">NAME:</label>
+						</div>
+						<div class="labelIp col-4">
+							<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+								style="bottom: 0;" />
+						</div>
+						<div class="labelBlock col-2">
+							<label class="inputLabel">التاريخ</label><br>
+							<label class="inputLabel">DATE</label>
+						</div>
+						<div class="labelIp col-4">
+							<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+								style="bottom: 0;" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+					<div class="ipDiv">
+						<div class="labelBlock col-2">
+							<label class="inputLabel">الوظيفة</label><br>
+							<label class="inputLabel">DESIGNATION::</label>
+						</div>
+						<div class="labelIp col-4">
+							<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+								style="bottom: 0;" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row" style="text-align: center;">
+				<div class="col-6">
+					<p class="inputLabel">:الختم</p>
+					<p class="inputLabel">STAMP:</p>
+				</div>
+				<div class="col-6">
+					<p class="inputLabel">توقيع المفوض بالتوقيع</p>
+					<p class="inputLabel">SIGNATURE OF THE AUTHORIZED SIGNATORY</p>
+				</div>
+			</div>
+		</div>
+    </div>
+
+    <div class="mainDiv" style="padding: 25px; margin-top: 15px;">
+		<div id="htmlFive">
+			<div class="row">
+				<div class="card nbqCard">
+					<div class="row">
+						<div class="col-6" style="text-align: center;">
+							<h5 class="appForm">DIRECT DEBIT DEBIT</h5>
+						</div>
+						<div class="col-6">
+							<h5 class="appForm" style="text-align: center;">
+								المباشر بالخصم التفويض
+							</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row" style="text-align: center;">
+				<div class="col-6">
+					<p class="lastHead">NETWORK INTERNATIONAL LLC</p>
+					<div>
+						<p style="text-align: left; font-size: 11px;">
+							Authority for Direct Credit / Debit into our Bank Account for Visa / Mastercard /
+							Mercury / JCB / MIR / RuPay /
+							AliPay / Wechat Pay or any other Card Scheme Transactions. <br>
+							We authorize Network International LLC to credit our bank account, detailed below, for
+							reimbursement against
+							charge/credit card sales transaction processed at our merchant outlets and/or debit
+							my/our account for Merchant
+							adjustments, refunds, chargebacks, merchant fees, scheme penalties, levies, etc. as per
+							our Merchant Agreement
+							with Network International LLC.
+						</p>
+					</div>
+				</div>
+				<div class="col-6">
+					<p class="lastHead">نتورك إنترناشيونال ذ.م. م</p>
+					<div>
+						<p style="text-align: right; font-size: 11px;">
+							التفويض باإليداع/ الخصم المباشر في حسابنا المصرفي مقابل المعامالت في بطاقات فيزا/
+							ماستركارد/ ميركوري/ جيه سي
+							بي/ فيزا الكترون/ مايسترو
+							نفوض نتورك إنترناشيونال ذ.م.م باإليداع في حسابنا المبين أدناه للدفع مقابل معامالت
+							المبيعات ببطاقة االئتمان/ الرسوم
+							في منافذ التاجر أو الخصم من حسابنا مقابل تسويات التاجر واألموال المستردة واالستقطاعات
+							ورسوم التاجر وغرامات
+							.شركات اإلصدار والضرائب ونحوها حسب اتفاقية التاجر مع نتورك إنترناشيونال ذ.م
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+					<div class="form-group">
+						<label for="niGroup" class="inputLabel">اسم الحساب</label><br />
+						<label for="niGroup" class="inputLabel">ACCOUNT TITLE NAME</label>
+						<input class="form-control dateInput miFormText" name="niGroup" id="niGroup" style="bottom: 0;" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-6">
+					<div class="form-group">
+						<label for="niGroup" class="inputLabel">رقم الحساب</label><br>
+						<label for="niGroup" class="inputLabel">ACCOUNT NO</label>
+						<input class="form-control dateInput miFormText" name="niGroup" id="niGroup" style="bottom: 0;" />
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="form-group">
+						<label for="niGroup" class="inputLabel">رقم الحساب المصرفي الدولي</label><br>
+						<label for="niGroup" class="inputLabel">IBAN NO</label>
+						<input class="form-control dateInput miFormText" name="niGroup" id="niGroup" style="bottom: 0;" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-4">
+					<div class="form-group">
+						<label for="niGroup" class="inputLabel">لدى بنك</label><br>
+						<label for="niGroup" class="inputLabel">WITH BANK</label>
+						<input class="form-control dateInput miFormText" name="niGroup" id="niGroup" style="bottom: 0;" />
+					</div>
+				</div>
+				<div class="col-4">
+					<div class="form-group">
+						<label for="niGroup" class="inputLabel">الفرع</label><br>
+						<label for="niGroup" class="inputLabel">BRANCH</label>
+						<input class="form-control dateInput miFormText" name="niGroup" id="niGroup" style="bottom: 0;" />
+					</div>
+				</div>
+				<div class="col-4">
+					<div class="form-group">
+						<label for="niGroup" class="inputLabel">االمارة</label><br>
+						<label for="niGroup" class="inputLabel">EMIRATE</label>
+						<input class="form-control dateInput miFormText" name="niGroup" id="niGroup" style="bottom: 0;" />
+					</div>
+				</div>
+			</div>
+
+			<table class="table table-bordered" style="font-size: 10px;">
+				<thead>
+					<tr>
+						<th scope="col" style="text-align: center;">
+							<p> رقم التاجر
+							</p>
+							<p>MERCHANT NO.</p>
+						</th>
+						<th scope="col" style="text-align: center;">
+							<p style="margin-bottom: 0;">رمز الفئة</p>
+							<p style="margin-bottom: 0;">CATEGORY CODE</p>
+					<tr>
+						<th style="width: 180px;
+						border: none;
+						background-color: #9191d7;
+						text-align: center;">
+							<p style="margin-bottom: 0;">نقطة البيع</p>
+							<p style="margin-bottom: 0;">“POS” / “MPOS”</p>
+						</th>
+						<th style="width: 180px;
+						border: none;
+						background-color: #9191d7;
+						text-align: center;">
+							<p style="margin-bottom: 0;"> عبر االنترنت
+							</p>
+							<p style="margin-bottom: 0;">ONLINE</p>
+						</th>
+					</tr>
+					</th>
+					<th scope="col" style="text-align: center;">
+						<p>لتصال ج</p>
+						<p>CONTACT PERSONS</p>
+					</th>
+					<th scope="col" style="text-align: center;">
+						<p>المعالجة اليدوية</p>
+						<p>MANUAL PROCESSING</p>
+					</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">فيزا ستاندرد
+							VISA STANDARD</th>
+						<td>
+					<tr>
+						<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+								id="nameField" placeholder="" style="bottom: 0;" /></td>
+						<td class="rowpan"><input type="text" class="form-control dateInput miFormText" id="nameField"
+								placeholder="" style="bottom: 0;" /></td>
+					</tr>
+					</td>
+					<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+							style="bottom: 0;" /></td>
+					<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+							style="bottom: 0;" /></td>
+					</tr>
+
+
+					<tr>
+						<th scope="row">ماستركارد/مايسترو
+							ستاندرد
+							MASTERCARD/
+							MAESTRO STANDARD</th>
+						<td>
+					<tr>
+						<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+								id="nameField" placeholder="" style="bottom: 0;" /></td>
+						<td class="rowpan"><input type="text" class="form-control dateInput miFormText" id="nameField"
+								placeholder="" style="bottom: 0;" /></td>
+					</tr>
+					</td>
+					<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+							style="bottom: 0;" /></td>
+					<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+							style="bottom: 0;" /></td>
+					</tr>
+
+
+					<tr>
+						<th scope="row">فيزا بريميوم
+							VISA PREMIUM</th>
+						<td>
+					<tr>
+						<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+								id="nameField" placeholder="" style="bottom: 0;" /></td>
+						<td class="rowpan"><input type="text" class="form-control dateInput miFormText" id="nameField"
+								placeholder="" style="bottom: 0;" /></td>
+					</tr>
+					</td>
+					<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+							style="bottom: 0;" /></td>
+					<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+							style="bottom: 0;" /></td>
+					</tr>
+
+
+					<tr>
+						<th scope="row">
+							ماستركارد بريميوم
+							MASTERCARD
+							PREMIUM
+						</th>
+						<td>
+					<tr>
+						<td rowspan="2" class="rowpan"><input type="text" class="form-control dateInput miFormText"
+								id="nameField" placeholder="" style="bottom: 0;" /></td>
+						<td class="rowpan"><input type="text" class="form-control dateInput miFormText" id="nameField"
+								placeholder="" style="bottom: 0;" /></td>
+					</tr>
+					</td>
+					<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+							style="bottom: 0;" /></td>
+					<td><input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+							style="bottom: 0;" /></td>
+					</tr>
+
+				</tbody>
+			</table>
+
+			<div class="heading">
+				<div class="row">
+					<div class="col-6">
+						<p style="font-size: 11px;">We understand and acknowledge:</p>
+						<p style="font-size: 11px;">i. That Network International LLC may in its absolute discretion
+							determine the order of
+							priority of payment
+							by it of any amount pursuant to this Request or any authority, or mandate.</p>
+						<p style="font-size: 11px;">ii. That this authority cannot be withdrawn without prior written
+							consent of Network
+							International LLC</p>
+						<p style="font-size: 11px;">iii. That the particulars and documentation provided are accurate.
+						</p>
+					</div>
+					<div class="col-6">
+						<p class="arabic" style="font-size: 11px;">نفهم ونقر:</p>
+						<p class="arabic" style="font-size: 11px;">i. لهذا
+							يحق لشركة نتورك إنترناشيونال ذ.م.م وفق تقديرها الخاص تحديد ترتيب األولوية للدفع ألي مبلغ
+							طبقا
+							الطلب أو أي سلطة أو تفويض.
+						</p>
+						<p class="arabic" style="font-size: 11px;"> .iiهذه التفويض ال يمكن سحبه دون موافقة خطية مسبقة من
+							نتورك إنترناشيونال
+							ذ.م. م</p>
+						<p class="arabic" style="font-size: 11px;"> .iiiصحة التفاصيل والمستندات المقدمة.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="endForm">
+				<div class="row">
+					<div class="col-4">
+						<p class="inputLabel">AUTHORISED SIGNATORY:</p>
+					</div>
+					<div class="col-4">
+						<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+							style="bottom: 0; height: 100px;" />
+					</div>
+					<div class="col-4">
+						<p class="arabic inputLabel">المفوض بالتوقيع:</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4">
+						<p class="inputLabel">NAME:</p>
+					</div>
+					<div class="col-4">
+						<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+							style="top: 10px;" />
+					</div>
+					<div class="col-4">
+						<p class="arabic inputLabel">االسم:</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4">
+						<p class="inputLabel">STAMP/ SEAL OF MERCHANT:</p>
+					</div>
+					<div class="col-4">
+					</div>
+					<div class="col-4">
+						<p class="arabic inputLabel">لختم/ ختم التاجر:</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4">
+						<p class="inputLabel">DATE:</p>
+					</div>
+					<div class="col-4">
+						<input type="text" class="form-control dateInput miFormText" id="nameField" placeholder=""
+							style="top: 10px;" />
+					</div>
+					<div class="col-4">
+						<p class="arabic inputLabel">التاريخ:</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    </div>
+
+
+</div>

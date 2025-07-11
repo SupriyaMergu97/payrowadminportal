@@ -1,0 +1,644 @@
+.round-chart-value .content-1 {
+  text-align: left;
+}
+
+.round-chart-value .content-2 {
+  text-align: right;
+}
+
+.current-status-dropdown {
+  // border: none;
+  border: 1px solid lightgray;
+
+  width: auto;
+  background-color: transparent;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align: center;
+  font-family: Mukta;
+  color: #5b5a5a; 
+  font-size: 16px;
+}
+.current-status-dropdown:focus {
+  -webkit-box-shadow: none;
+}
+
+.current-status-dropdown option {
+  color: #7e7f80;
+}
+.current-status-dropdown option:checked {
+  color: #ffffff;
+  background-color: gray;
+}
+select{
+  padding:10px;
+}
+.colTop {
+  margin-top: 10px;
+}
+.textDonut {
+  text-align: left;
+  margin-left: 5px;
+  //margin-top: 1px
+}
+.valusDonut {
+  text-align: left;
+  margin-left: -20px;
+}
+.downImg {
+  width: 20px;
+  float: right;
+  margin-top: -5px;
+  // margin-right: -6px;
+  top: 7px;
+  position: relative;
+}
+.svgImg {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -23px;
+  line-height: 19px;
+  text-align: center;
+  z-index: 999999999999999;
+}
+
+
+hr.style1 {
+  flex-grow: 1;
+  height: 0.5px;
+  background-color: #9f9f9e;
+  margin-top: -5px;
+}
+.doughnut_Cntainer {
+  margin-top: -20px;
+}
+
+.shadow-none {
+  background: none;
+  border: none;
+}
+
+.wave_cont {
+  padding: 0px;
+}
+
+.wave_row {
+  padding: 0px 35px 0px 20px;
+  position: relative;
+  top: 30px;
+}
+
+.chartHd {
+  float: left;
+  position: relative;
+  left: 20px;
+  top: 20px;
+}
+
+.totalChart {
+  height: 180px;
+}
+
+.con_vals {
+  position: relative;
+  left: 20px;
+  font-weight: 500 !important;
+}
+.card-box {
+  margin-left: 14px;
+  box-shadow: none;
+  width: 97%;
+}
+.card-body{
+  padding: 12px;
+}
+
+.cons_card {
+  min-height: 155px;
+  box-shadow: 0px 1px 7px -5px grey;
+  border: none;
+}
+
+.consolidate_title {
+  //text-align: center;
+  margin-bottom: 6px !important;
+  width: 132px;
+  left:5px;
+}
+
+.chartIcn{
+    width:25px; 
+    position: relative; 
+    // bottom: -3px;
+    //right:7px;
+    // left: 0px;
+    bottom: -9px;
+    margin-left: -17px;
+}
+.consolidate_val, .consolidate_val2{
+    font-size: 12px !important;
+}
+
+.consolidate_title {
+    margin-bottom: 0px !important;
+    width: 132px;
+    left: 5px;
+    /* margin-top: 41px; */
+}
+
+
+
+
+
+
+.svg-item {
+    width: 100%;
+    font-size: 16px;
+    margin: 0 auto;
+    animation: donutfade 1s;
+}
+
+@keyframes donutfade {
+  /* this applies to the whole svg item wrapper */
+    0% {
+        opacity: .2;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (min-width: 992px) {
+    .svg-item {
+        width: 80%;
+    }
+}
+
+.donut-ring {
+    stroke: #EBEBEB;
+}
+
+// .donut-segment {
+//     transform-origin: center;
+//     stroke: #FF6200;
+// }
+
+// .donut-segment-2 {
+//     stroke: aqua;
+//     animation: donut1 3s;
+// }
+
+.donut-segment-3 {
+    stroke: #d9e021;
+    animation: donut2 3s;
+}
+
+// .donut-segment-4 {
+//     stroke: #ed1e79;
+//     animation: donut3 3s;
+// }
+
+// .segment-1{fill:#ccc;}
+// .segment-2{fill:aqua;}
+// .segment-3{fill:#d9e021;}
+// .segment-4{fill:#ed1e79;}
+
+.donut-percent {
+    animation: donutfadelong 1s;
+}
+
+@keyframes donutfadelong {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+// @keyframes donut1 {
+//     0% {
+//         stroke-dasharray: 0, 100;
+//     }
+//     100% {
+//         stroke-dasharray: 69, 31;
+//     }
+// }
+
+
+
+.donut-text {
+    font-family: Arial, Helvetica, sans-serif;
+    fill: #FF6200;
+}
+.donut-text-1 {
+    fill: aqua;
+}
+
+
+.donut-label {
+    font-size: 0.28em;
+    font-weight: 700;
+    line-height: 1;
+    fill: #000;
+    transform: translateY(0.25em);
+}
+
+.donut-percent {
+    font-size: 0.5em;
+    line-height: 1;
+    transform: translateY(0.5em);
+    font-weight: bold;
+}
+
+.donut-data {
+    font-size: 0.12em;
+    line-height: 1;
+    transform: translateY(0.5em);
+    text-align: center;
+    text-anchor: middle;
+    color:#666;
+    fill: #666;
+    animation: donutfadelong 1s;
+}
+
+
+
+
+/* ---------- */
+/* just for this presentation */
+html { text-align:center; }
+.svg-item {
+  max-width:30%;
+  display:inline-block;
+}
+
+// Media queries
+
+
+
+
+
+@media screen and (max-width: 1314px) {
+  .chartHd {
+    float: none;
+    position: relative;
+    left: 15px;
+    top: 20px;
+  }
+  .totalChart {
+    height: 245px;
+  }
+}
+
+@media screen and (max-width: 1206px) {
+  .chartHd {
+    left: 93px;
+  }
+  .consolidate_title {
+    right: -37px;
+  }
+  .cons_card {
+    min-height: 215px;
+  }
+  .wave_row {
+    top: 115px;
+  }
+  .valusDonut {
+    margin-left: -80px;
+  }
+  .con_vals {
+    left: 0px;
+  }
+  .chartIcn{
+      left: 8px !important;
+  }
+}
+
+@media screen and (max-width: 1190px) {
+  .chartHd {
+    left: 83px;
+  }
+}
+
+@media screen and (max-width: 1111px) {
+  .chartHd {
+    left: 70px;
+  }
+  .consolidate_title {
+    right: -47px;
+  }
+  .chartIcn{
+      left: 12px !important;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .chartHd {
+    left: 55px;
+  }
+  .consolidate_title {
+    right: -62px;
+  }
+  .con_vals {
+    left: 18px;
+  }
+  .chartIcn{
+    left: 19px !important;
+}
+}
+
+@media screen and (max-width: 914px) {
+  .chartHd {
+    left: 43px;
+  }
+  .consolidate_title {
+    right: -68px;
+  }
+  .consolidate_val2 {
+    font-size: 9px !important;
+  }
+  .consolidate_val {
+    font-size: 9px !important;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .chartHd {
+    left: 30px;
+  }
+  .consolidate_title {
+    right: -76px;
+  }
+  .consolidate_val2 {
+    font-size: 9px !important;
+  }
+  .consolidate_val {
+    font-size: 9px !important;
+  }
+  .valusDonut {
+    margin-left: -72px;
+  }
+  .chartIcn{
+    left: 25px !important;
+}
+}
+
+@media screen and (max-width: 767px) {
+    .chartHd {
+        left: 60px !important;
+      }
+      .consolidate_title {
+        right: -62px;
+      }
+      .chartIcn{
+        left: 17px !important;
+      }
+}
+
+@media screen and (max-width: 750px) {
+  .chartHd {
+    left: 55px !important;
+  }
+  .consolidate_title {
+    right: -65px;
+  }
+  .consolidate_val2 {
+    font-size: 10px !important;
+  }
+  .consolidate_val {
+    font-size: 10px !important;
+  }
+  .chartIcn{
+    left: 18px !important;
+}
+}
+
+@media screen and (max-width: 690px) {
+  .chartHd {
+    left: 45px;
+  }
+  .consolidate_title {
+    right: -70px;
+  }
+  .consolidate_val2 {
+    font-size: 9px !important;
+  }
+  .consolidate_val {
+    font-size: 9px !important;
+  }
+  .chartIcn{
+    left: 22px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .chartHd {
+    left: 33px !important;
+  }
+  .consolidate_title {
+    right: -79px;
+  }
+  .consolidate_val2 {
+    font-size: 9px !important;
+  }
+  .consolidate_val {
+    font-size: 9px !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .chartHd {
+    left: 33px;
+  }
+  .consolidate_title {
+    right: 77%;
+  }
+  .consolidate_val2 {
+    font-size: 11px !important;
+  }
+  .consolidate_val {
+    font-size: 11px !important;
+  }
+  .wave_row {
+    top: 27px;
+  }
+  .valusDonut {
+    margin-left: 117px;
+  }
+  .con_vals {
+    top: -79px;
+  }
+  .cons_card {
+    height: 25%;
+    min-height: 172px;
+  }
+  .consolidate_val2 {
+    font-size: 13px !important;
+  }
+  .consolidate_val {
+    font-size: 13px !important;
+  }
+  .dataVal {
+    position: absolute;
+  }
+  .chartIcn{
+    left: -41% !important;
+  }
+  .userNum{
+      width: 184px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+    .consolidate_title {
+      right: 73%;
+    }
+    .userNum {
+      width: 290px;
+    }
+    .chartIcn{
+        left: -167px !important;
+    }
+  }
+
+@media screen and (max-width: 411px) {
+  .consolidate_title {
+    right: 68% ;
+  }
+  .userNum {
+    width: 290px;
+  }
+  .chartIcn{
+      left: -131px !important;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .consolidate_title {
+    right: 62% ;
+  }
+  .userNum {
+    width: 245px;
+  }
+  .con_vals {
+    left: 40px !important;
+  }
+  .chartIcn{
+    left: -105px !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .userNum {
+    width: 210px;
+  }
+  .chartHd {
+    left: 80px !important;
+  }
+  .consolidate_title {
+    right: 55% ;
+  }
+  .consolidate_val2 {
+    font-size: 11px !important;
+  }
+  .consolidate_val {
+    font-size: 11px !important;
+  }
+  .wave_row {
+    top: 125px;
+  }
+  .valusDonut {
+    margin-left: 0px;
+  }
+  .con_vals {
+    top: -79px;
+  }
+  .cons_card {
+    min-height: 240px;
+  }
+  .consolidate_val2 {
+    font-size: 13px !important;
+  }
+  .consolidate_val {
+    font-size: 13px !important;
+  }
+  .dataVal {
+    position: absolute;
+  }
+  .chartIcn{
+    left: -85px !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .con_vals {
+    left: 45px !important;
+  }
+  .consolidate_title {
+    right: 64% ;
+  }
+  .userNum {
+    width: 258px;
+  }
+  .chartIcn{
+      left: -113px !important;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .con_vals {
+    left: 45px;
+  }
+  .consolidate_title {
+    right: 56%;
+  }
+  .userNum {
+    width: 258px;
+  }
+//   .chartIcn{
+//     left: -131px !important;
+// }
+}
+
+@media screen and (max-width: 414px) {
+  .con_vals {
+    left: 45px;
+  }
+  .userNum {
+    width: 175px;
+  }
+  .chartHd {
+    left: -65px;
+  }
+}
+
+@media screen and (max-width: 280px) {
+.chartIcn{
+    left: -65px !important;
+}
+.chartHd{
+    left: 65px !important;
+}
+.consolidate_title {
+    right: 48%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .con_vals {
+    left: 0px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .userNum {
+    width: 75%;
+  }
+  .card-box {
+    width: 98%;
+  }
+}

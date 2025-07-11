@@ -1,0 +1,195 @@
+<div class="card-body">
+    <form>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="bnk_name3" class="col-form-label">Bank
+                    Name</label>
+                <input type="text" [value]="storeCatData?.bankDetails[0]?.bankName" class="form-control" id="bnk_name3"
+                    placeholder="Bank Name">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="bnk_name3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="bnk_name3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-bank-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="bnk_branch3" class="col-form-label">Branch Name</label>
+                <input type="text" [value]="storeCatData?.bankDetails[0]?.branchName" class="form-control" id="bnk_branch3"
+                    placeholder="Bank Branch">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="bnk_branch3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="bnk_branch3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-bank-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="bank_ac3" class="col-form-label">Bank Account</label>
+                <input type="text" [value]="storeCatData?.bankDetails[0]?.accountNumber" class="form-control" id="bank_ac3"
+                    placeholder="Bank Account">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="bank_ac3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="bank_ac3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-bank-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="iban_no3" class="col-form-label">IBAN Number</label>
+                <input [value]="storeCatData?.bankDetails[0]?.ibanNumber" type="text" class="form-control" id="iban_no3"
+                    placeholder="IBAN Number">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="iban_no3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="iban_no3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-bank-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="vat_no3" class="col-form-label">VAT Number</label>
+                <input type="text" [value]="storeCatData?.bankDetails[0]?.vatNumber" class="form-control" id="vat_no3"
+                    placeholder="VAT Number">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="vat_no3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="vat_no3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-bank-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <button type="button" class="btn btn-sm btn-success edit_btn" data-toggle="modal"
+        data-target=".bd-bank3-modal-lg">Edit</button>
+
+
+    <!-- POPUP -->
+    <div class="modal fade bd-bank-owner3-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content riskmodel-edit-form-modal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="container">
+                    <form id="edit_riskmodules_form">
+                        <div class="col-11">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="remark"></label>
+                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <button type="button" class="btn btn-submit" id="btn_submit">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bd-bank3-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content riskmodel-edit-form-modal">
+                <div class="container">
+                    <form id="edit_riskmodules_form">
+                        <div class="col-11">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="owner_name">Bank Name</label>
+                                        <input type="text" [value]="storeCatData?.bankDetails?.bankName"
+                                            class="form-control" id="bnk_name3" placeholder="Bank Name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="bnk_branch">Bank Branch</label>
+                                        <input type="text" [value]="storeCatData?.bankDetails?.bankBranch"
+                                            class="form-control" id="bnk_branch3" placeholder="Bank Branch">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="bnk_ac">Bank Account</label>
+                                        <input type="text" [value]="storeCatData?.bankDetails?.bankAcNo"
+                                            class="form-control" id="bank_ac3" placeholder="Bank Account">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="iban_no">IBAN Number</label>
+                                        <input [value]="storeCatData?.bankDetails?.ibanNo" type="text"
+                                            class="form-control" id="iban_no3" placeholder="IBAN Number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="vat_no">VAT Number</label>
+                                        <input type="text" [value]="storeCatData?.bankDetails?.vatNumber"
+                                            class="form-control" id="vat_no3" placeholder="VAT Number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <button type="button" class="btn btn-submit" id="btn_submit">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

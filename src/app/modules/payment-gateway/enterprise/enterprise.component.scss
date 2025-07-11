@@ -1,0 +1,124 @@
+.act_vals {
+    left: 35px;
+}
+.ed_btn {
+    display: inline;
+    background-color: #72ac47;
+    color: white;
+    width: 100px;
+    position: relative;
+    top:0px;
+    right: -2px;
+    float: right;
+}
+
+.tgt {
+    padding: 0px;
+    font-size: 13px;
+    text-align: center;
+    color: #5d5c5c;
+    height: 23px;
+    // width: 41px;
+    margin-left: 15px;
+}
+.q_tgt{
+    width: 90px;
+    font-size: 13px !important;
+    text-align: left;
+}
+.chart_img{
+    width: 30px;
+    margin-top: 4px;
+}
+.chart_title{
+    margin-right: 20px;
+}
+
+
+.targetTitle .percent {
+    font-size: 14px;
+  }
+  
+  .lypTitle {
+    font-size: 14px;
+    padding-top: 4px;
+  }
+  
+  .tvTitle{
+    font-size: 14px;
+    padding-top: 4px;
+  }
+  .chart_row{
+    margin-top: 10px;
+  }
+  .svg-item {
+    width: 100%;
+    font-size: 16px;
+    margin: 0 auto;
+    animation: donutfade 1s;
+  }
+  
+  .donut-ring {
+    stroke: #ebebeb;
+  }
+  
+  .donut-percent {
+    animation: donutfadelong 1s;
+  }
+  
+  .donut {
+    margin-top: -27px;
+    margin-left: -45px;
+  }
+  .donut1{
+    margin-top: -17px;
+    margin-left: -45px;
+  }
+  
+  @keyframes donutfadelong {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .donut-text {
+    font-family: Arial, Helvetica, sans-serif;
+    fill: #ff6200;
+  }
+  .donut-text-1 {
+    fill: aqua;
+  }
+  
+  .donut-label {
+    font-size: 0.28em;
+    font-weight: 700;
+    line-height: 1;
+    fill: #000;
+    transform: translateY(0.25em);
+  }
+  
+  /* ---------- */
+  /* just for this presentation */
+  html {
+    text-align: center;
+  }
+  .svg-item {
+    max-width: 30%;
+    display: inline-block;
+  }
+  
+  //Media Queries
+
+@media (min-width: 1400px) {
+    .act_vals {
+      left: 56px;
+    }
+}
+@media screen and (max-width: 500px) {
+  .act_vals {
+    left: 75px;
+  }
+}

@@ -1,0 +1,13 @@
+<nav>
+    <div class="nav nav-tabs dash-tab" id="distnav-tab" role="tablist">
+        <button class="nav-link nav_item" id="complaint" data-bs-toggle="tab" data-bs-target="#nav-complaint" 
+            type="button" role="tab" aria-controls="nav-complaint" aria-selected="true" [routerLink]="['/complaints']" 
+            [routerLinkActive]="['active']" [routerLinkActiveOptions]={exact:true}><img src="/admin/assets/images/complaints.svg" class="menuIcon" />Complaints
+        </button>
+
+        <button class="nav-link nav_item" id="complaint" data-bs-toggle="tab" data-bs-target="#nav-complaint" 
+            type="button" role="tab" aria-controls="nav-complaint" aria-selected="true" [routerLink]="['/complaints/complaints-history']"
+            [routerLinkActive]="['active']" [routerLinkActiveOptions]={exact:true}><img src="/admin/assets/images/complaints.svg" class="menuIcon" />Quarter Targets
+        </button>
+    </div>
+</nav> 

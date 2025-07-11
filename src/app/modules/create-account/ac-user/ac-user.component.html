@@ -1,0 +1,1405 @@
+<div class="content-wrapper main-section-container">
+  <app-create-ac-menus></app-create-ac-menus>
+
+  <!-- new Code -->
+  <section class="content">
+
+    <!-- list of PayRow ID -->
+    <div class="container-fluid p-0" *ngIf="(!isAddPrid && !isMid)">
+      <div class="row mb-4">
+        <!-- Merchant List -->
+        <div class="section-header">
+          <!-- <h4>Create</h4> -->
+          <div class="pull-left d-flex gap-16x">
+            <div class="search-holder">
+              <form action="">
+                <div class="input-group">
+                  <input type="text" autocomplete="off" name="search" [(ngModel)]="searchText" placeholder="Search"
+                    aria-describedby="button-addon5" class="form-control">
+                  <div class="input-group-append">
+                    <button id="button-addon5" type="submit" class="btn"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="pull-right d-flex gap-16x">
+            <button class="btn btn-primary-lg" (click)="pridListDownload()"><i class="fas fa-download"></i>
+              Download</button>
+            <button class="btn btn-primary-lg" data-toggle="modal" data-target="#checkExistPrid">Create
+              New PRID <i class="fas fa-plus cta-plus-btn border-0"></i></button>
+          </div>
+        </div>
+      </div>
+      <table class="table table-striped text-center">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>PayRowID</th>
+            <th>Merchant ID</th>
+            <th>Transaction Value</th>
+            <th>Action</th>
+            <th>Activation Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of getPagePrid() | filter:searchText">
+            <td>{{data.firstName}}</td>
+            <td>
+              <div>
+                <button class="dialog" (click)="openDialog(data.payRowId)">
+                  <div class="bi-card-list"></div>
+                </button>
+              </div>
+              <app-contact-dialog *ngIf="showDialog" [dialogData]="dialogData"
+                (close)="closeDialog()"></app-contact-dialog>
+            </td>
+            <!-- <td><span data-tooltip="top" role="tooltip"
+        attr.aria-label="{{data.city}},{{data.addressDetails}},{{data.emailId}}"><i
+          class="bi-card-list"></i></span>
+    </td> -->
+            <td>{{data.payRowId}}</td>
+            <td><button class="btn btn-sm btn-sm-cust btn-outline-dark"
+                (click)="getMidbyPrid(data.payRowId)">Details</button></td>
+            <td>{{data.transValue}}</td>
+            <td><button class="btn btn-sm create" (click)="onEditPridAcrion(data.payRowId)">
+                <i class="bi bi-pencil-square"></i></button></td>
+            <td>{{data.createdDate | date}}</td>
+
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="pridList.length==0">
+        <p style="text-align: center; margin-top: 10%;">No Data Found!!!</p>
+      </div>
+      <app-pagination [totalItems]="pridList.length" [itemsPerPage]="itemsPerPage"
+        (pageChange)="onPridPageChange($event)"></app-pagination>
+
+    </div>
+
+    <!-- create PayRowID form -->
+    <div *ngIf="isAddPrid">
+      <div class="section-header mb-4">
+        <h5 class="formheader">Create new PayRowID</h5>
+        <button class="btn btn-default-normal" (click)="backToPrIdList()">Cancel <i
+            cl1ass="fas fa-plus rotate-45"></i></button>
+      </div>
+      <app-prid-form typeOfCustomer="{{typeOfCustomer}}" idProof="{{idProof}}" [pridData]="pridData"></app-prid-form>
+      <!-- <div class="row">
+        <div class="d-flex gap-16x justify-content-end">
+          <button *ngIf="!isShow" class="btn btn-default-md-fill" (click)="submit()">Save</button>
+          <button *ngIf="isShow" class="btn btn-default-md-fill" (click)="submit()" data-dismiss="modal">Update</button>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- List of MID -->
+    <div class="row" *ngIf="(isMid && !isTid && !isMngr && !isService && !isAddMid && !mainMer)">
+      <div class="section-header mb-4">
+        <div class="pull-left d-flex gap-16x">
+          <div class="search-holder">
+            <form action="">
+              <div class="input-group">
+                <input type="search" autocomplete="off" [(ngModel)]="searchText" placeholder="Search"
+                  aria-describedby="button-addon5" class="form-control" [ngModelOptions]="{standalone: true}">
+                <div class="input-group-append">
+                  <button id="button-addon5" type="submit" class="btn"><i class="fa fa-search"></i></button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <button class="btn btn-default-fill" (click)="onMidDetails()"> Back</button>
+        </div>
+        <div class="pull-right d-flex gap-16x">
+          <button class="btn btn-primary-lg" (click)="MidListDownload()"><i class="fas fa-download"></i>
+            Download</button>
+          <button class="btn btn-primary-lg" (click)="onCreateMidAction()">Create MID <i
+              class="fas fa-plus cta-plus-btn border-0"></i></button>
+        </div>
+      </div>
+      <div class="table_data">
+        <div class="table-responsive">
+          <table class="table table-striped text-center">
+            <thead>
+              <tr>
+                <th>MID</th>
+                <th>Address</th>
+                <th>Activation Date</th>
+                <th>Transaction Value</th>
+                <th>Service List</th>
+                <th>TID</th>
+                <th class="text-center">Credentials</th>
+                <th>Action</th>
+                <th>Status</th>
+
+              </tr>
+            </thead>
+            <tbody class="align-baseline">
+              <tr *ngFor="let data of getPageMid() | filter:searchText">
+                <td>{{data.mainMerchantId}}</td>
+                <td>
+                  <div>
+                    <button class="dialog" (click)="openDialogMid(data._id)">
+                      <div class="bi-card-list"></div>
+                    </button>
+                  </div>
+                  <app-contact-dialog *ngIf="showDialog" [dialogData]="dialogData"
+                    (close)="closeDialog()"></app-contact-dialog>
+                </td>
+                <td>{{data.joiningDate | date}}</td>
+                <td>{{data.transvalue}}</td>
+                <td>
+                  <button class="btn btn-sm btn-sm-cust btn-outline-dark" [ngClass]="{'disabled':data.disable == true}"
+                    (click)="onServList(data.mainMerchantId)">Details</button>
+                </td>
+
+                <td><button class="btn btn-sm btn-sm-cust btn-outline-dark"
+                    [ngClass]="{'disabled':data.disable == true}"
+                    (click)="getTidbyMidList(data.mainMerchantId)">Details</button></td>
+                    <td class="text-center"><button class="btn btn-sm btn-sm-cust btn-outline-dark"
+                      (click)="merMastersList(data.mainMerchantId)">Details</button></td>
+                <td><button class="btn btn-sm create" (click)="onEditMidAction(data._id)">
+                    <i class="bi bi-pencil-square"></i></button></td>
+                <td>
+                  <span *ngIf="data.status=='Active'" class="badge badge-success">Active</span>
+                  <span *ngIf="data.status=='In-Active'" class="badge badge-danger">In-Active</span>
+                  <span *ngIf="data.status=='Ongoing'" class="badge badge-warning">Ongoing</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div *ngIf="merchantList.length==0">
+            <p style="text-align: center; margin-top: 10%;">No Data Found!!!</p>
+          </div>
+          <app-pagination [totalItems]="merchantList.length" [itemsPerPage]="itemsPerPage"
+            (pageChange)="onMidPageChange($event)"></app-pagination>
+        </div>
+      </div>
+    </div>
+
+    <!-- List of TID -->
+    <div class="row" *ngIf="isTid">
+      <div class="section-header mb-4">
+        <div class="pull-left d-flex gap-16x">
+          <div class="search-holder">
+            <form action="">
+              <div class="input-group">
+                <input type="search" autocomplete="off" [(ngModel)]="searchText" placeholder="Search"
+                  aria-describedby="button-addon5" class="form-control" [ngModelOptions]="{standalone: true}">
+                <div class="input-group-append">
+                  <button id="button-addon5" type="submit" class="btn"><i class="fa fa-search"></i></button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <button class="btn btn-default-fill" (click)="onTidList()"> Back</button>
+        </div>
+        <div class="pull-right d-flex gap-16x">
+          <button class="btn btn-primary-lg" (click)="tidListDownload()"><i class="fas fa-download"></i>
+            Download</button>
+          <button class="btn btn-primary-lg" data-toggle="modal" data-target="#createTid"
+            (click)="onCreateTidAction()">Create TID
+            <i class="fas fa-plus cta-plus-btn border-0"></i></button>
+        </div>
+      </div>
+      <div class="table_data">
+        <div class="table-responsive">
+          <table class="table table-striped text-center">
+            <thead>
+              <tr>
+                <th>TID</th>
+                <th>IMEI NUMBER</th>
+                <th>Activation Date</th>
+                <th>Transaction Value</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody class="align-baseline">
+              <tr *ngFor="let data of getPageTid() | filter:searchText">
+                <td>{{data.terminalId}}</td>
+                <td>{{data.deviceIMEINumber}}</td>
+                <td>{{data.createdDate | date}}</td>
+                <td>{{data.transValue | number}}</td>
+                <td>
+                  <span *ngIf="data.status=='Active'" class="badge badge-success">Active</span>
+                  <span *ngIf="data.status=='In-Active'" class="badge badge-danger">In-Active</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div *ngIf="tidList.length==0">
+            <p style="text-align: center; margin-top: 10%;">No Data Found!!!</p>
+          </div>
+          <app-pagination [totalItems]="tidList.length" [itemsPerPage]="itemsPerPage"
+            (pageChange)="onTidPageChange($event)"></app-pagination>
+        </div>
+      </div>
+    </div>
+    <!-- Branch Manager List -->
+    <div class="row" *ngIf="isMngr">
+      <div class="section-header mb-4">
+        <div class="pull-left d-flex gap-16x">
+          <div class="search-holder">
+            <form action="">
+              <div class="input-group">
+                <input type="search" autocomplete="off" [(ngModel)]="searchText" placeholder="Search"
+                  aria-describedby="button-addon5" class="form-control" [ngModelOptions]="{standalone: true}">
+                <div class="input-group-append">
+                  <button id="button-addon5" type="submit" class="btn"><i class="fa fa-search"></i></button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <button class="btn btn-default-fill" (click)="onMngrList()"> Back</button>
+        </div>
+        <div class="pull-right d-flex gap-16x">
+          <button class="btn btn-primary-lg" (click)="reportDownload()"><i class="fas fa-download"></i>
+            Download</button>
+          <button class="btn btn-primary-lg" data-toggle="modal" data-target="#createTid" (click)="owner()">Create
+            Manager
+            <i class="fas fa-plus cta-plus-btn border-0"></i></button>
+        </div>
+      </div>
+      <!-- <div class="pull-right d-flex gap-16x mb-4">
+  <button class="btn btn-default-fill" (click)="staff()"> Back</button>
+</div> -->
+      <div class="table_data">
+        <div class="table-responsive">
+          <table class="table table-striped table_cust-with-buttons text-center">
+            <thead>
+              <tr>
+                <th class="cur_Header">Manager ID</th>
+                <th>NAME</th>
+                <th>CONTACT</th>
+                <th>ACTIVATION DATE</th>
+                <th>STATUS</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody class="align-baseline">
+              <tr *ngFor="let data of branchMngrList | filter:searchText">
+                <!-- <td>{{distributor.storeId}}</td> -->
+                <td>{{data.mngrId}}</td>
+                <td>{{data.name}}</td>
+                <td>{{data.contact}}</td>
+                <td>{{data.dateOfJoining | date}}</td>
+                <td>
+                  <span *ngIf="data.status=='Active'" class="badge badge-success">Active</span>
+                  <span *ngIf="data.status=='In-Active'" class="badge badge-danger">In-Active</span>
+                </td>
+                <td><button class="btn btn-sm create">
+                    <i class="bi bi-pencil-square"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- service List -->
+    <div class="row" *ngIf="isService">
+      <div class="pull-right d-flex gap-16x mb-4">
+
+        <button class="btn btn-default-fill" (click)="backtoMid()"><i
+            class="fas fa-long-arrow-alt-left"></i>Back</button>
+        <button class="btn btn-primary-lg" data-toggle="modal" data-target="#addService">Add Service <i
+            class="fas fa-plus cta-plus-btn border-0"></i></button>
+      </div>
+      <div class="table_data">
+        <div class="table-responsive">
+          <table class="table table-striped text-center">
+            <thead style="border-bottom: 1px solid #dee2e6;">
+              <tr>
+                <th>SERVICE ID</th>
+                <!-- <th>ITEM ID</th> -->
+                <th>SERVICE NAME</th>
+                <th>UNIT PRICE </th>
+                <th>SEQUENCE</th>
+                <th>AVERAGE</th>
+                <th>ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of merServices | filter:searchText">
+                <td>{{data.serviceId}}</td>
+                <!-- <td>{{data.itemCode}}</td> -->
+                <td>{{data.serviceName}}</td>
+                <td>{{data.unitPrice}}</td>
+                <td>20</td>
+                <td> {{data.avarage}} </td>
+                <td data-toggle="modal" data-target="#delUser">
+                  <button class="icn_btn"  (click)="getServDetails(data.serviceId)"><i class='bi bi-trash-fill'></i></button>
+              </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- posUsers List -->
+    <div class="row" *ngIf="mainMer">
+      <div class="table-containerz">
+          <div class="section-header mb-4">
+              <div class="pull-left d-flex gap-16x">
+                  <div class="search-holder">
+                      <form action="">
+                          <div class="input-group">
+                              <input type="search" autocomplete="off" [(ngModel)]="searchText"
+                                  placeholder="Search" aria-describedby="button-addon5" class="form-control"
+                                  [ngModelOptions]="{standalone: true}">
+                              <div class="input-group-append">
+                                  <button id="button-addon5" type="submit" class="btn"><i
+                                          class="fa fa-search"></i></button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+                  <button class="btn btn-default-fill" (click)="back()"> Back</button>
+              </div>
+              <div class="pull-right d-flex gap-16x">
+                  <button class="btn btn-primary-lg" (click)="reportDownload()"><i
+                          class="fas fa-download"></i>
+                      Download</button>
+                  <button class="btn btn-primary-lg" data-toggle="modal" data-target="#addPosUser"
+                      (click)="resetForm()">
+                      Add POS User <i class="fas fa-plus cta-plus-btn border-0"></i></button>
+              </div>
+          </div>
+          <!-- <div class="section-header mb-4">
+              <h4></h4>
+              <div class="pull-right d-flex gap-16x">
+                  <button class="btn btn-default-fill" (click)="back()">Back</button>
+                  <button class="btn btn-primary-lg" data-toggle="modal" data-target="#addGatewayUser"
+                      (click)="resetForm()">
+                      Add Gateway User <i class="fas fa-plus cta-plus-btn border-0"></i></button>
+              </div>
+          </div> -->
+          <div class="table_data">
+              <div class="table-responsive">
+                  <table class="table table-striped text-center">
+                      <thead>
+                          <tr>
+                              <th class="text-center">Main Merchant ID</th>
+                              <th class="text-center">Username</th>
+                              <th class="text-center">Edit</th>
+                              <th class="text-center">Delete</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let data of posUsersData | filter:searchText">
+                              <td class="text-center">{{data.posMerchantId}}</td>
+                              <td class="text-center">{{data.username}}</td>
+                              <td class="text-center"><button class="icn_btn"
+                                      (click)="getposUserByID(data.posMerchantId)">
+                                      <i class="bi bi-pencil-square" data-toggle="modal"
+                                          data-target="#addPosUser"></i></button></td>
+                              <td class="text-center"><button class="icn_btn"
+                                      (click)="getposUserByID(data.posMerchantId)" data-toggle="modal"
+                                      data-target="#delUser"><i class="bi bi-trash-fill"></i></button></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+    <!-- Create MID Form -->
+    <div class="row" *ngIf="isAddMid">
+      <div class="section-header mb-4">
+        <h4>Creat New MID</h4>
+        <button class="btn btn-default-normal" (click)="backtoMidList()">back <i
+            class="fas fa-plus rotate-45"></i></button>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist"
+            aria-orientation="vertical">
+            <!-- <a class="nav-link mb-3 p-3 shadow active" id="v-pills-basic2-tab" data-toggle="pill" href="#v-pills-basic2"
+              role="tab" aria-controls="v-pills-basic2" aria-selected="true">
+              <i class="fas fa-at tabIcn"></i><span class="font-weight-bold small text-uppercase">Basinpmc</span></a>
+            <a class="nav-link mb-3 p-3 shadow" id="v-pills-personal2-tab" data-toggle="pill" href="#v-pills-personal2"
+              role="tab" aria-controls="v-pills-personal2" aria-selected="false">
+              <i class="fas fa-user tabIcn"></i><span class="font-weight-bold small text-uppercase">Personal</span></a> -->
+            <a class="nav-link mb-3 p-3 shadow active" id="v-pills-licence2-tab" data-toggle="pill"
+              href="#v-pills-licence2" role="tab" aria-controls="v-pills-licence2" aria-selected="true">
+              <i class="fas fa-certificate tabIcn"></i><span
+                class="font-weight-bold small text-uppercase">License</span></a>
+            <a class="nav-link mb-3 p-3 shadow" id="v-pills-card2-tab" data-toggle="pill" href="#v-pills-card2"
+              role="tab" aria-controls="v-pills-card2" aria-selected="false">
+              <i class="fas fa-credit-card tabIcn"></i><span
+                class="font-weight-bold small text-uppercase">SettlementAccount</span></a>
+            <a class="nav-link mb-3 p-3 shadow" id="v-pills-admin2-tab" data-toggle="pill" href="#v-pills-admin2"
+              role="tab" aria-controls="v-pills-admin2" aria-selected="true">
+              <i class="fas fa-credit-card tabIcn"></i><span class="font-weight-bold small text-uppercase">Admin
+                Details</span></a>
+            <a class="nav-link mb-3 p-3 shadow" id="v-pills-manager2-tab" data-toggle="pill" href="#v-pills-manager2"
+              role="tab" aria-controls="v-pills-manager2" aria-selected="true">
+              <i class="fas fa-credit-card tabIcn"></i><span class="font-weight-bold small text-uppercase">Store
+                Manager</span></a>
+            <a class="nav-link mb-3 p-3 shadow" id="v-pills-address2-tab" data-toggle="pill"
+              href="#v-pills-storeAddress" role="tab" aria-controls="v-pills-storeAddress" aria-selected="false">
+              <i class="fas fa-address-card tabIcn"></i><span class="font-weight-bold small text-uppercase">Store
+                Address</span></a>
+
+            <a class="nav-link mb-3 p-3 shadow" id="v-pills-business2-tab" data-toggle="pill" href="#v-pills-business2"
+              role="tab" aria-controls="v-pills-business2" aria-selected="false">
+              <i class="fas fa-certificate tabIcn"></i><span
+                class="font-weight-bold small text-uppercase">Business</span></a>
+            <a class="nav-link mb-3 p-3 shadow" id="v-pills-staff2-tab" data-toggle="pill" href="#v-pills-staff2"
+              role="tab" aria-controls="v-pills-staff2" aria-selected="false">
+              <i class='fas fa-users tabIcn'></i><span class="font-weight-bold small text-uppercase">Staff</span></a>
+            <!-- <a class="nav-link mb-3 p-3 shadow" id="v-pills-staff2-tab" data-toggle="pill" href="#v-pills-businessType"
+              role="tab" aria-controls="v-pills-businessType" aria-selected="false">
+              <i class='fas fa-users tabIcn'></i><span class="font-weight-bold small text-uppercase">Service
+                Catalogue</span></a> -->
+            <!-- <a class="nav-link mb-3 p-3 shadow" id="v-pills-terms2-tab" data-toggle="pill" href="#v-pills-terms2"
+              role="tab" aria-controls="v-pills-terms2" aria-selected="false">
+              <i class="fas fa-exclamation-triangle tabIcn"></i><span
+                class="font-weight-bold small text-uppercase">Terms & Conditions</span></a>
+            <a class="nav-link mb-3 p-3 shadow" id="v-pills-bank2-tab" data-toggle="pill" href="#v-pills-bank2"
+              role="tab" aria-controls="v-pills-bank2" aria-selected="false">
+              <i class='fas fa-landmark tabIcn'></i><span class="font-weight-bold small text-uppercase">Bank</span></a> -->
+            <a class="nav-link mb-3 p-3 shadow" id="v-pills-agreement2-tab" data-toggle="pill"
+              href="#v-pills-agreement2" role="tab" aria-controls="v-pills-agreement2" aria-selected="false"
+              (click)="ongetAgreement()">
+              <i class='fas fa-users tabIcn'></i><span
+                class="font-weight-bold small text-uppercase">Agreement</span></a>
+          </div>
+        </div>
+        <!-- fieldsets -->
+        <div class="col-md-9" [formGroup]="storeOwnerForm">
+          <div class="tab-content" id="v-pills-tabContent">
+            <!-- <div class="tab-pane fade shadow rounded tab1 bg-white" id="v-pills-basic2" role="tabpanel"
+              aria-labelledby="v-pills-basic2-tab">
+              <div class="container" formGroupName="basic">
+                <div class="col-12">
+                  <h5 class="formheader">BASIC</h5>
+                </div>
+              </div>
+            </div> -->
+            <!-- <div class="tab-pane fade shadow rounded tab1 bg-white" id="v-pills-personal2" role="tabpanel"
+              aria-labelledby="v-pills-personal2-tab">
+              <div class="card-body">
+                <h5 class="formheader">PERSONAL DETAILS</h5>
+                <app-personal [prsnlAD]="prsnlAD" formControlName="personalDetails">
+                </app-personal>
+              </div>
+            </div> -->
+            <div class="tab-pane fade shadow rounded tab1 bg-white show active" id="v-pills-licence2" role="tabpanel"
+              aria-labelledby="v-pills-licence2-tab">
+              <div class="card-body">
+                <h5 class="formheader">LICENCE DETAILS</h5>
+                <app-licence-form formControlName="licenseDetails" [merchantData]="merchantData"></app-licence-form>
+                <button class="btn btn-default-md-fill" style="float:right;margin: 5px;"
+                  (click)="createMerchant()">Save</button>
+                <!-- <h5 class="formheader">Share Holders Information</h5>
+                <form [formGroup]="ShareHolderForm" class="container mb-3" (ngSubmit)="addSHRow()">
+                  <div class="row">
+                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                      <div class="form-group form-floating">
+                        <input type="text" class="form-control" formControlName="name" id="name"
+                          placeholder="Enter Name" />
+                        <label for="name">Shareholder's Name</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                      <div class="form-group form-floating">
+                        <input type="text" class="form-control" formControlName="email" id="email"
+                          placeholder="Enter Email ID" />
+                        <label for="email">Email ID</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                      <div class="form-group form-floating">
+                        <input type="text" class="form-control" formControlName="mobileNumber" id="mobileNumber"
+                          placeholder="Enter mobileNumber" />
+                        <label for="mobileNumber">Mobile Number</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                      <div class="form-group form-floating">
+                        <input type="text" class="form-control" formControlName="sharesPer" id="sharesPer"
+                          placeholder="Enter Shares Percentage" />
+                        <label for="sharesPer">Share Percentage (%)</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                      <div class="form-group form-floating">
+                        <input type="text" class="form-control" formControlName="nationality" id="nationality"
+                          placeholder="Enter Nationality" />
+                        <label for="nationality">Nationality</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                      <div class="form-group form-floating">
+                        <input type="text" class="form-control" formControlName="address" id="address"
+                          placeholder="Enter Address" />
+                        <label for="address">Address</label>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-default-md-fill mb-3" style="float:right;margin: 5px;" type="submit"
+                    [disabled]="!ShareHolderForm.valid">Add
+                    Row</button>
+                </form>
+
+                <div class="table_data">
+                  <table class="table text-center">
+                    <thead>
+                      <tr>
+                        <th>Shareholder Name</th>
+                        <th>No.of Shares(%)</th>
+                        <th>Nationality</th>
+                        <th>Residence</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of shareHolderData">
+                        <td>{{ data.name }}</td>
+                        <td>{{ data.sharesPer }}</td>
+                        <td>{{ data.nationality }}</td>
+                        <td>{{ data.address }}</td>
+                        <td><button class="btn btn-default-md-fill mb-3" type="submit">Edit</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div> -->
+
+              </div>
+            </div>
+            <div class="tab-pane fade shadow rounded tab1 bg-white show" id="v-pills-card2" role="tabpanel"
+              aria-labelledby="v-pills-card2-tab">
+              <h5 class="formheader">BANK DETAILS</h5>
+              <app-bank-form formControlName="bankDetails" [merchantData]="merchantData">
+              </app-bank-form>
+              <button class="btn btn-default-md-fill" style="float:right;margin: 5px;"
+                (click)="updateBankDetails()">Save</button>
+            </div>
+            <div class="tab-pane fade shadow rounded tab1 bg-white show" id="v-pills-admin2" role="tabpanel"
+              aria-labelledby="v-pills-admin2-tab">
+              <!-- <div class="card-body"> -->
+              <!-- <h4 class="font-italic ">Personnal Details</h4> -->
+              <div class="container" *ngIf="(!isAddAdmin && !isupdateAdmin)">
+                <!-- <div class="row"> -->
+                <button class="btn btn-primary-lg float-right mb-3" (click)="onAddAdmin()">Add
+                  Admin<i class="fas fa-plus cta-plus-btn border-0"></i></button>
+                <!-- </div> -->
+                <div class="table_data">
+                  <table class="table table-striped text-center">
+                    <thead>
+                      <tr>
+                        <th>Admin ID</th>
+                        <th>Name</th>
+                        <th>Details</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of adminList; let index=index;">
+                        <td>{{data.adminId}}</td>
+                        <td>{{data.adminName}}</td>
+                        <td>
+                          <div class="content" style="margin-left: 4px;" data-toggle="modal" data-target="#userinfo">
+                            <div class="bi-card-list"></div>
+                          </div>
+                        </td>
+                        <td>
+                          <span *ngIf="data.status=='Active'" class="badge badge-success">Active</span>
+                          <span *ngIf="data.status=='In-Active'" class="badge badge-danger">In-Active</span>
+                        </td>
+                        <td><button class="btn btn-sm create" (click)="onUpdateAdminAction(data.adminId)">
+                            <i class="bi bi-pencil-square"></i></button>
+                        </td>
+                      </tr>
+                      <tr *ngIf="adminList.length<=0">
+                        No Data Found!!!
+                      </tr>
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+              <app-admin-form formControlName="adminDetails" [selectedAdmin]="selectedAdmin"
+                *ngIf="(isAddAdmin || isupdateAdmin)"></app-admin-form>
+              <!-- <app-admin-details *ngIf="isAdmin" formControlName="adminDetails">
+                </app-admin-details> -->
+              <!-- <app-admin-form [selectedAdmin]="selectedAdmin" *ngIf="isupdateAdmin" formControlName="adminDetails">
+              </app-admin-form> -->
+              <div class="row">
+                <div class="d-flex gap-16x justify-content-end">
+                  <!-- <button class="btn btn-default-sm-primary" (click)="onAddAdmin()">Cancel</button>
+                  <button class="btn btn-default-md-fill" (click)="createAdmin()">Save</button> -->
+                  <button class="btn btn-default-sm-primary" *ngIf="(isAddAdmin || isupdateAdmin)"
+                    (click)="backtoAdminList()">Cancel</button>
+                  <button *ngIf="isAddAdmin" class="btn btn-default-md-fill" (click)="createAdmin()">Save</button>
+                  <button *ngIf="isupdateAdmin" class="btn btn-default-md-fill" (click)="updateAdmin()">Update</button>
+                  <button *ngIf="isupdateAdmin" class="btn btn-sm create"><i class='bi bi-trash-fill'></i></button>
+                </div>
+              </div>
+              <!-- <button *ngIf="isAdmin" class="btn btn-default-md-fill"
+                    style="float:right;margin: 5px;"
+                    (click)="createAdmin()">Save</button> -->
+              <!-- </div> -->
+              <!-- <h5 class="formheader">Store Manager DETAILS</h5> -->
+              <!-- <app-store-manager></app-store-manager> -->
+            </div>
+            <div class="tab-pane fade shadow rounded tab1 bg-white show" id="v-pills-manager2" role="tabpanel"
+              aria-labelledby="v-pills-manager2-tab">
+              <!-- <div class="card-body"> -->
+              <!-- <h4 class="font-italic ">Personnal Details</h4> -->
+              <div class="container" *ngIf="(!isStoreMngr && !isupdateMngr)">
+                <!-- <div class="row"> -->
+                <button class="btn btn-primary-lg float-right mb-3" (click)="onCreateStoreMngr()">Add
+                  Store Manager<i class="fas fa-plus cta-plus-btn border-0"></i></button>
+                <!-- </div> -->
+                <div class="table_data">
+                  <table class="table table-striped text-center">
+                    <thead>
+                      <tr>
+                        <th>Store Manager ID</th>
+                        <th>Name</th>
+                        <th>Details</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of storeMngrList; let index=index;">
+                        <td>{{data.managerId}}</td>
+                        <td>{{data.managerName}}</td>
+                        <td>
+                          <div class="content" style="margin-left: 4px;" data-toggle="modal" data-target="#userinfo">
+                            <div class="bi-card-list"></div>
+                          </div>
+                        </td>
+                        <td>
+                          <span *ngIf="data.status=='Active'" class="badge badge-success">Active</span>
+                          <span *ngIf="data.status=='In-Active'" class="badge badge-danger">In-Active</span>
+                        </td>
+                        <td><button class="btn btn-sm create" (click)="onUpdateMngrAction(data.managerId)">
+                            <i class="bi bi-pencil-square"></i></button>
+                        </td>
+                      </tr>
+                      <tr *ngIf="storeMngrList.length<=0">
+                        No Data Found!!!
+                      </tr>
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+              <app-store-manager formControlName="storeManagerDetails" [selectedMngr]="selectedMngr"
+                *ngIf="(isStoreMngr || isupdateMngr)"></app-store-manager>
+              <!-- <app-store-manager formControlName="storeManagerDetails" [selectedMngr]="selectedMngr" *ngIf="isupdateMngr"></app-store-manager> -->
+
+              <!-- <app-admin-details *ngIf="isAdmin" formControlName="adminDetails">
+                </app-admin-details>
+                <app-admin-details [adminData]="adminData" *ngIf="isupdateAdmin" formControlName="adminDetails">
+                </app-admin-details> -->
+              <div class="row">
+                <div class="d-flex gap-16x justify-content-end">
+                  <!-- <button class="btn btn-default-sm-primary" (click)="onCreateStoreMngr()">Cancel</button>
+                  <button class="btn btn-default-md-fill" (click)="createManager()">Save</button> -->
+                  <button class="btn btn-default-sm-primary" *ngIf="(isStoreMngr || isupdateMngr)"
+                    (click)="backtoMngrList()">Cancel</button>
+                  <button *ngIf="isStoreMngr" class="btn btn-default-md-fill" (click)="createManager()">Save</button>
+                  <button *ngIf="isupdateMngr" class="btn btn-default-md-fill" (click)="updateMngr()">Update</button>
+                  <button *ngIf="isupdateMngr" class="btn btn-sm create"><i class='bi bi-trash-fill'></i></button>
+                </div>
+              </div>
+              <!-- <button *ngIf="isAdmin" class="btn btn-default-md-fill"
+                    style="float:right;margin: 5px;"
+                    (click)="createAdmin()">Save</button> -->
+              <!-- </div> -->
+              <!-- <h5 class="formheader">Store Manager DETAILS</h5> -->
+              <!-- <app-store-manager></app-store-manager> -->
+            </div>
+            <div class="tab-pane fade shadow rounded tab1 bg-white" id="v-pills-storeAddress" role="tabpanel"
+              aria-labelledby="v-pills-storeAddress-tab">
+              <div class="container" *ngIf="(!isAddStore && !isupdateStore)">
+                <!-- <div class="row"> -->
+                <button class="btn btn-primary-lg float-right mb-3" (click)="onCreateStore()">Add
+                  Store<i class="fas fa-plus cta-plus-btn border-0"></i></button>
+                <!-- </div> -->
+                <div class="table_data">
+                  <table class="table table-striped text-center">
+                    <thead>
+                      <tr>
+                        <th>Store ID</th>
+                        <th>Store Name</th>
+                        <th>Store Manager Name</th>
+                        <th>Details</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of storeList; let index=index;">
+                        <td>{{data.storeId}}</td>
+                        <td>{{data.storeName}}</td>
+                        <td>{{data.storeManagerName}}</td>
+                        <td>
+                          <div class="content" style="margin-left: 4px;" data-toggle="modal" data-target="#userinfo">
+                            <div class="bi-card-list"></div>
+                          </div>
+                        </td>
+                        <td>
+                          <span *ngIf="data.status=='Active'" class="badge badge-success">Active</span>
+                          <span *ngIf="data.status=='In-Active'" class="badge badge-danger">In-Active</span>
+                        </td>
+                        <td><button class="btn btn-sm create" (click)="onUpdateStoreAction(data.storeId)">
+                            <i class="bi bi-pencil-square"></i></button>
+                        </td>
+                      </tr>
+                      <tr *ngIf="storeList.length<=0">
+                        No Data Found!!!
+                      </tr>
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+              <app-address-form formControlName="addressDetails" [storeMngrList]="storeMngrList"
+                *ngIf="(isAddStore || isupdateStore)" [selectedStore]="selectedStore"></app-address-form>
+              <!-- <app-address-form formControlName="addressDetails" [storeMngrList]="storeMngrList"
+               [selectedStore]="selectedStore" *ngIf="isupdateStore"></app-address-form> -->
+              <div class="row">
+                <div class="d-flex gap-16x justify-content-end">
+                  <!-- <button class="btn btn-default-sm-primary" (click)="onCreateStore()">Cancel</button>
+                  <button class="btn btn-default-md-fill" (click)="createStore()">Save</button> -->
+                  <button class="btn btn-default-sm-primary" *ngIf="(isAddStore || isupdateStore)"
+                    (click)="backtoStoreList()">Cancel</button>
+                  <button *ngIf="isAddStore" class="btn btn-default-md-fill" (click)="createStore()">Save</button>
+                  <button *ngIf="isupdateStore" class="btn btn-default-md-fill" (click)="updateStore()">Update</button>
+                  <button *ngIf="isupdateStore" class="btn btn-sm create"><i class='bi bi-trash-fill'></i></button>
+                </div>
+              </div>
+              <!-- <h5 class="formheader">STORE DETAILS</h5>
+              <app-address-form formControlName="addressDetails"></app-address-form>
+              <div class="">
+                <button class="btn btn-default-primary float-right" (click)="addStore()">Save <i
+                    class="fas fa-download"></i></button>
+              </div> -->
+
+            </div>
+
+            <div class="tab-pane fade shadow rounded tab1 bg-white" id="v-pills-business2" role="tabpanel"
+              aria-labelledby="v-pills-business2-tab">
+              <div class="card-body">
+                <h5 class="formheader">BUSINESS DETAILS</h5>
+                <app-business-form formControlName="businessDetails" [merchantData]="merchantData"></app-business-form>
+                <button class="btn btn-default-md-fill" style="float:right;margin: 5px;"
+                  (click)="businessDetails()">Save</button>
+                  <!-- <h5 class="formheader">Company's Source of Income</h5>
+                <form [formGroup]="incomeSourceForm" class="container mb-3" (ngSubmit)="addincomeRow()">
+                  <div class="row">
+                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                      <div class="form-group form-floating">
+                        <input type="text" class="form-control" formControlName="country" id="country"
+                          placeholder="Enter country" />
+                        <label for="country">Country</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                      <div class="form-group form-floating">
+                        <input type="text" class="form-control" formControlName="activityDet" id="activityDet"
+                          placeholder="Enter activityDet" />
+                        <label for="activityDet">Details of Activity</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                      <div class="form-group form-floating">
+                        <input type="text" class="form-control" formControlName="incomeSource" id="incomeSource"
+                          placeholder="Enter incomeSource" />
+                        <label for="incomeSource">Source of Initial Capital/Income</label>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-default-md-fill mb-3" style="float:right;margin: 5px;" type="submit"
+                    [disabled]="!incomeSourceForm.valid">Add
+                    Row</button>
+                </form>
+
+                <div class="table_data">
+                  <table class="table text-center">
+                    <thead>
+                      <tr>
+                        <th>Country</th>
+                        <th>Details of Activity</th>
+                        <th>	Source of Initial Capital/Income</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of incomeSouceData">
+                        <td>{{ data.country }}</td>
+                        <td>{{ data.activityDet }}</td>
+                        <td>{{ data.incomeSource }}</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                </div> -->
+              </div>
+            </div>
+            <div class="tab-pane fade shadow rounded tab1 bg-white" id="v-pills-staff2" role="tabpanel"
+              aria-labelledby="v-pills-staff2-tab">
+              <div class="container" *ngIf="(!isAddStaff && !isupdateStaff)">
+                <!-- <div class="row"> -->
+                <button class="btn btn-primary-lg float-right mb-3" (click)="onAddStaff()">Add
+                  Staff<i class="fas fa-plus cta-plus-btn border-0"></i></button>
+                <!-- </div> -->
+                <div class="table_data">
+                  <table class="table table-striped text-center">
+                    <thead>
+                      <tr>
+                        <th>Staff ID</th>
+                        <th>Name</th>
+                        <!-- <th>Role</th> -->
+                        <th>Contact</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of staffList; let index=index;">
+                        <td>{{data.staffId}}</td>
+                        <td>{{data.firstName}}</td>
+                        <td>{{data.mobileNumber}}</td>
+                        <td>
+                          <span *ngIf="data.status=='Active'" class="badge badge-success">Active</span>
+                          <span *ngIf="data.status=='In-Active'" class="badge badge-danger">In-Active</span>
+                        </td>
+                        <td><button class="btn btn-sm create" (click)="onUpdateStaffAction(data.staffId)">
+                            <i class="bi bi-pencil-square"></i></button>
+                        </td>
+                      </tr>
+                      <tr *ngIf="staffList.length<=0">
+                        No Data Found!!!
+                      </tr>
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+              <app-staff-form formControlName="staffDetails" [selectedStaff]="selectedStaff"
+                *ngIf="(isAddStaff || isupdateStaff)"></app-staff-form>
+              <div class="row">
+                <div class="d-flex gap-16x justify-content-end">
+                  <!-- <button class="btn btn-default-sm-primary" (click)="onAddStaff()">Cancel</button>
+                  <button class="btn btn-default-md-fill" (click)="createStaff()">Save</button> -->
+                  <button class="btn btn-default-sm-primary" *ngIf="(isAddStaff || isupdateStaff)"
+                    (click)="backtoStaffList()">Cancel</button>
+                  <button *ngIf="isAddStaff" class="btn btn-default-md-fill" (click)="createStaff()">Save</button>
+                  <button *ngIf="isupdateStaff" class="btn btn-default-md-fill" (click)="updateStaff()">Update</button>
+                  <button *ngIf="isupdateStaff" class="btn btn-sm create"><i class='bi bi-trash-fill'></i></button>
+                </div>
+              </div>
+              <!-- <h5 class="formheader">STAFF DETAILS</h5>
+              <app-staff-form formControlName="staffDetails"></app-staff-form>
+              <div class="">
+                <button class="btn btn-default-primary float-right" (click)="addStaff()">Save <i
+                    class="fas fa-download"></i></button>
+              </div>
+              <div class="row ml-3 mt-5" style="width: inherit;">
+                <table class="table table-striped text-center">
+                  <thead>
+                    <tr>
+                      <th>Staff ID</th>
+                      <th>Name</th>
+                      <th>Role</th>
+                      <th>Contact</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let data of staffList">
+                      <td>{{data.userId}}</td>
+                      <td>{{data.firstName}}</td>
+                      <td>{{data.staffRole}}</td>
+                      <td>{{data.mobileNumber}}</td>
+                      <td>{{data.staffStatus}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div> -->
+            </div>
+            <div class="tab-pane fade shadow rounded tab1 bg-white" id="v-pills-businessType" role="tabpanel"
+              aria-labelledby="v-pills-businessType-tab">
+              <h5 class="formheader">SELECT CATEGORY</h5>
+              <div class="row">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                  <div class="form-group form-floating">
+                    <!-- <div class="select"> -->
+                    <select class="form-control" [(ngModel)]="selectedCat" (change)='onSelectCat($event)'
+                      [ngModelOptions]="{standalone: true}">
+                      <option disabled>Select Category</option>
+                      <option value="{{cat.categoryId}}" *ngFor="let cat of categoryList">{{cat.categoryName}}</option>
+                    </select>
+                    <label class="selectedCat">Select Category</label>
+                    <!-- </div> -->
+                  </div>
+                </div>
+                <!-- <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12" *ngIf="selectedCat ==='SMB'">
+                  <div class="select_drpDown">
+                    <ng-multiselect-dropdown [placeholder]="'select Items'" [data]="businesstypes"
+                      [(ngModel)]="selectCategory" [ngModelOptions]="{standalone: true}" [settings]="dropdownSettings"
+                      (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"
+                      (onDeSelect)="onItemDeSelect($event)" [required]='requiredField'>
+                    </ng-multiselect-dropdown>
+                  </div>
+                </div> -->
+              </div>
+              <section class="content mt-3">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-12 pl-0 pr-0">
+                      <div class="table-container">
+                        <div class="table_data">
+                          <div class="table-responsive">
+                            <table class="table table-striped text-center" id="total_items_table">
+                              <thead style="border-bottom: 1px solid #dee2e6;">
+                                <tr>
+                                  <th>SELECT</th>
+                                  <th>SERVICE ID</th>
+                                  <th>
+                                    SERVICE NAME
+                                  </th>
+                                  <!-- <th>SERVICE ID</th> -->
+                                  <!-- <th>DESCRIPTION</th> -->
+                                  <!-- <th>SEQUENCE</th> -->
+                                  <!-- <th>AVERAGE</th> -->
+                                  <th>UNIT PRICE</th>
+                                  <th>EDIT PRICE</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let data of services; let i=index">
+                                  <td><input type="checkbox" (click)="oncheckSrvc(data)">
+                                  </td>
+                                  <td>{{data.serviceId}}</td>
+                                  <td>
+                                    {{data.serviceName}}
+                                  </td>
+                                  <!-- <td *ngIf="selectedCat ==='Enterprise' || selectedCat ==='Govt'">
+                                    {{data.serviceName}}
+                                  </td> -->
+                                  <!-- <td *ngIf="selectedLanguage == 'Arabic'">{{data.itemName}}</td> -->
+                                  <!-- <td *ngIf="selectedLanguage == 'Hindi'">{{data.itemName}}</td> -->
+                                  <!-- <td>{{data.serviceId}}</td> -->
+                                  <!-- <td data-tooltip="top" role="tooltip" attr .aria-label={{data.desc}}><i
+                                      class="bi bi-info-circle-fill"></i>
+                                  </td> -->
+                                  <!-- <td>{{data.sequence}}</td> -->
+                                  <!-- <td>{{data.avg}}</td> -->
+                                  <td *ngIf="!data.showEdit">{{data.unitPrice}}</td>
+                                  <td *ngIf="data.showEdit"><input type="text" class="form-control create"
+                                      [(ngModel)]="price" [ngModelOptions]="{standalone: true}" /></td>
+                                  <td><button class="btn btn-sm create" *ngIf="!data.showEdit"
+                                      (click)="oneditClick(data.serviceId)">
+                                      <i class="bi bi-pencil-square"></i></button>
+                                    <button class="btn btn-sm btn-sm-cust btn-outline-dark" *ngIf="data.showEdit"
+                                      (click)="oneditPrice(data.serviceId)">Done</button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <button class="btn btn-default-md-fill" style="float:right;margin: 5px;"
+                (click)="addServtoMerchant()">Save</button>
+            </div>
+            <div class="tab-pane fade shadow rounded tab1 bg-white" id="v-pills-terms2" role="tabpanel"
+              aria-labelledby="v-pills-terms2-tab">
+              <h4 class="font-italic ">Terms & Conditions</h4>
+              <div class="card-body">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12 mt-3">
+                      <div class="tAndC">
+                        <p class="tAndCPara">Lorem Ipsum is simply dummy text of
+                          the
+                          printing and typesetting industry. Lorem Ipsum has
+                          been
+                          the
+                          industry's standard dummy text ever since the 1500s,
+                          when an
+                          unknown printer took a galley of type and scrambled
+                          it
+                          to
+                          make a type specimen book. It has survived not only
+                          five
+                          centuries, but also the leap into electronic
+                          typesetting,
+                          remaining essentially unchanged.
+                        </p>
+                      </div>
+                      <div style="float:left; width: 51%;">
+                        <span><input type="checkbox" id="TandC" name="tAndC" value="tandc"
+                            style="display:inline; width:4%"
+                            onchange="document.getElementById('submit').disabled = !this.checked;">
+                          By signing up I agree to the terms and conditions &
+                          Privacy
+                          Policy</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="row">
+                        <div class="col">
+                            <input (click)="next()" type="button" id="submit"
+                                class="submit action-button" value="Next" disabled />
+                            <input (click)="previous()" type="button" name="previous"
+                                class="previous action-button-previous" value="Previous" />
+                        </div>
+                        </div> -->
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade shadow rounded tab1 bg-white" id="v-pills-bank2" role="tabpanel"
+              aria-labelledby="v-pills-bank2-tab">
+              <div class="row">
+                <div class="col-md-4 col-sm">
+                  <!-- <label class="">SELECT Form: </label> -->
+                  <select class="form-control" [(ngModel)]="selected" (change)='onSelectBank($event)'
+                    [ngModelOptions]="{standalone: true}">
+                    <option selected disabled>Select Bank</option>
+                    <option *ngFor="let bank of bankList" [value]="bank">{{bank}}
+                    </option>
+                  </select>
+                </div>
+                <div class="col-md-4 col-sm">
+                  <input type="file" placeholder="" class="form-control chooseBank">
+                </div>
+              </div>
+              <app-ni-form *ngIf="isNI" [captureData]="totalData"></app-ni-form>
+              <app-nbq-form *ngIf="isNbq" [captureData]="totalData"></app-nbq-form>
+              <app-mid-req-form *ngIf="isMashreq" [captureData]="totalData">
+              </app-mid-req-form>
+              <div *ngIf="isAbudhabi">
+                <p>You have selected ABU DHABI page</p>
+              </div>
+            </div>
+            <div class="tab-pane fade shadow rounded tab1 bg-white" id="v-pills-agreement2" role="tabpanel"
+              aria-labelledby="v-pills-agreement2-tab" *ngIf="isagreement">
+              <!-- <h4 class="font-italic ">Staff</h4> -->
+              <!-- <app-nbq-form></app-nbq-form> -->
+              <a href="https://payrow.ae/merchant/merchantAgreement" style="width: auto;height: auto;"></a>
+              <app-merchant-agreement [merchantData]="merchantData" [pridData]="pridData">
+              </app-merchant-agreement>
+            </div>
+            <!-- <div class="row">
+              <div class="col-12 pull-right d-flex gap-16x justify-content-end">
+                <button class="btn btn-default-primary" (click)="previous()"> <i class="fas fa-long-arrow-alt-left"></i>
+                  Previous</button>
+                <button class="btn btn-default-fill" (click)="next()">Next <i
+                    class="fas fa-long-arrow-alt-right"></i></button>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- old code -->
+
+</div>
+<!-- Remarks Model -->
+
+
+<div class="modal fade" id="addService" tabindex="-1" aria-labelledby="addService" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content alert">
+      <div class="modal-body">
+        <div class="row">
+          <!-- <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+            <div class="form-group form-floating">
+              <select class="form-control" [(ngModel)]="selectedCat" (change)='onSelectCat($event)'
+                [ngModelOptions]="{standalone: true}">
+                <option disabled>Select Category</option>
+                <option value="{{cat.categoryId}}" *ngFor="let cat of categoryList">{{cat.categoryName}}</option>
+              </select>
+              <label class="selectedCat">Select Category</label>
+            </div>
+          </div> -->
+          <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+            <div class="">
+              <!-- id="one" -->
+              <ng-multiselect-dropdown [placeholder]="'Select Category'" [data]="categoryList"
+                [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onDeSelect)="onItemDeSelect($event)"
+                (onSelect)="onSelectCat($event)" (onSelectAll)="onSelectAll($event)"
+                (onDeSelectAll)="onDeSelectAll($event)">
+              </ng-multiselect-dropdown>
+              <!-- <ng-multiselect-dropdown [placeholder]="'select Items'" [data]="merServices"
+        [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+        (onSelect)="onSelectCat($event)" (onSelectAll)="onSelectAll($event)"
+        (onDeSelect)="onItemDeSelect($event)">
+      </ng-multiselect-dropdown> -->
+            </div>
+          </div>
+        </div>
+        <section class="content mt-3">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12 pl-0 pr-0">
+                <div class="table-container">
+                  <div class="table_data">
+                    <div class="table-responsive">
+                      <table class="table table-striped text-center" id="total_items_table">
+                        <thead style="border-bottom: 1px solid #dee2e6;">
+                          <tr>
+                            <th>SELECT</th>
+                            <th>SERVICE ID</th>
+                            <th>
+                              SERVICE NAME
+                            </th>
+                            <!-- <th>SERVICE ID</th> -->
+                            <!-- <th>DESCRIPTION</th> -->
+                            <!-- <th>SEQUENCE</th> -->
+                            <!-- <th>AVERAGE</th> -->
+                            <th>UNIT PRICE</th>
+                            <th>EDIT PRICE</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let data of services; let i=index">
+                            <td><input type="checkbox" [checked]="data.isChecked" [disabled]="data.isExist"
+                                (click)="onSelService(data.serviceId)">
+                            </td>
+                            <td>{{data.serviceId}}</td>
+                            <td>
+                              {{data.serviceName}}
+                            </td>
+                            <!-- <td *ngIf="selectedCat ==='Enterprise' || selectedCat ==='Govt'">
+                              {{data.serviceName}}
+                            </td> -->
+                            <!-- <td *ngIf="selectedLanguage == 'Arabic'">{{data.itemName}}</td> -->
+                            <!-- <td *ngIf="selectedLanguage == 'Hindi'">{{data.itemName}}</td> -->
+                            <!-- <td>{{data.serviceId}}</td> -->
+                            <!-- <td data-tooltip="top" role="tooltip" attr .aria-label={{data.desc}}><i
+                                class="bi bi-info-circle-fill"></i>
+                            </td> -->
+                            <!-- <td>{{data.sequence}}</td> -->
+                            <!-- <td>{{data.avg}}</td> -->
+                            <td *ngIf="!data.showEdit">{{data.unitPrice}}</td>
+                            <td *ngIf="data.showEdit"><input type="text" class="form-control edit" [(ngModel)]="price"
+                                [ngModelOptions]="{standalone: true}" /></td>
+                            <td><button class="btn btn-sm create" *ngIf="!data.showEdit"
+                                (click)="oneditClick(data.serviceId)">
+                                <i class="bi bi-pencil-square"></i></button>
+                              <button class="btn btn-sm btn-sm-cust btn-outline-dark" *ngIf="data.showEdit"
+                                (click)="oneditPrice(data.serviceId)">Done</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+        <button class="btn btn-default-md-fill" style="float:right;margin: 5px;" (click)="addServtoMerchant()"
+          data-dismiss="modal">Save</button>
+        <!-- <button type="button" class="btn btn-success serv_btn" data-dismiss="modal"
+          (click)="onMerchantService()">Save</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- new Models -->
+<!-- .check existingCustomer -->
+<div id="checkExistPrid" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5> Create New PRID</h5>
+        <button style="float:right;" type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="">
+          <div class="form-group form-floating">
+            <select class="form-control" id="typeOfCustomer" (change)="onSelMerchantType($event)">
+              <option value="Government" selected disabled>Select Customer Type</option>
+              <option value="Government">Government</option>
+              <option value="Non-Government">Non-Government</option>
+            </select>
+            <label for="typeOfCustomer">Type of Customer</label>
+          </div>
+          <div class="form-group form-floating" *ngIf="typeOfCustomer === 'Non-Government'">
+            <input type="text" class="form-control" id="emiratesId" [(ngModel)]=idProof>
+            <label for="emiratesId">Emirates ID</label>
+          </div>
+          <div class="form-group form-floating" *ngIf="typeOfCustomer === 'Government'">
+            <input type="text" class="form-control" id="degreeNum" [(ngModel)]=idProof>
+            <label for="degreeNum">Degree Number</label>
+          </div>
+          <!-- <div class="form-group" *ngIf="selectedUser === 'existingUser'">
+            <label>Enter EmiratesId</label>
+            <input type="text" class="form-control" placeholder="emiratesId" [(ngModel)]=emId value="emId" />
+          </div> -->
+        </div>
+      </div>
+      <div class="modal-footer footer">
+        <button type="button" class="btn btn-secondary btn-sm float-right" data-dismiss="modal">Cancel</button>
+        <button class="btn btn-default-fill" (click)="onAddPridAction()" style="float: right;"
+          data-dismiss="modal">Click</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- create TID -->
+<div id="createTid" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+        <h4 class="modal-title">CREATE TERMINAL ID</h4>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="terminalIdForm">
+          <div class="">
+            <div class="form-group form-floating">
+              <input type="text" class="form-control" formControlName="terminalId" id="terminalId"
+                placeholder="Enter Terminal Id" (input)="onInputChange($event)" />
+              <label for="terminalId">Terminal ID</label>
+            </div>
+            <div class="form-group form-floating">
+              <select class="form-select" formControlName="managerId" id="managerId">
+                <option selected disabled>Select Manager</option>
+                <option *ngFor="let mngr of storeMngrList" value="{{mngr.managerId}}">{{mngr.managerId}}</option>
+              </select>
+              <label for="managerId">Manager ID</label>
+            </div>
+            <p class="text-center">or</p>
+            <div class="form-group form-floating">
+              <input type="file" class="form-control fileupload" formControlName="file" id="file"
+                (change)="onFileSelected($event)" />
+              <label for="file">Upload File</label>
+            </div>
+          </div>
+        </form>
+        <!-- <p>Some text in the modal.</p> -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default-primary" data-dismiss="modal" (click)="close()">Close</button>
+        <button type="button" class="btn btn-default-primary submit" data-dismiss="modal"
+          (click)="createTid()">Submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- del service -->
+<div class="modal fade" id="delUser" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content alert">
+          <div class="modal-body">
+              <h6>Are you sure you want to delete?</h6>
+          </div>
+          <div class="modal-footer pull-right d-flex gap-16x">
+              <button class="btn btn-default-md-fill" data-dismiss="modal">No</button>
+              <button class="btn btn-default-md-fill" style="background-color:#e90707;" data-dismiss="modal"
+                  (click)="delUser()">Yes</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="addPosUser" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content alert">
+          <div class="modal-body">
+              <form [formGroup]="posUserForm">
+                  <div class="row">
+                      <!-- <div class="col-md-6 col-sm"> -->
+                      <div class="form-group">
+                          <label for="username">User Name</label>
+                          <input type="text" class="form-control" formControlName="username" id="username">
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="form-group">
+                          <label for="PasswordHash">Password</label>
+                          <input type="password" class="form-control" formControlName="PasswordHash"
+                              id="PasswordHash">
+                      </div>
+                      <!-- </div> -->
+                  </div>
+                  <div class="row">
+                      <div class="form-group">
+                          <label for="posMerchantId">POS Merchant ID</label>
+                          <input type="text" class="form-control" value="{{mid}}"
+                              formControlName="posMerchantId" id="posMerchantId">
+                      </div>
+                      <!-- </div> -->
+                  </div>
+              </form>
+          </div>
+          <div class="modal-footer pull-right d-flex gap-16x">
+              <button class="btn btn-default-sm-primary" data-dismiss="modal">Cancel <i
+                      class="fas fa-minus"></i></button>
+              <button class="btn btn-default-md-fill" (click)="createPosUser()" *ngIf="isCreate && !isEdit"
+                  data-dismiss="modal">Save</button>
+              <button class="btn btn-default-md-fill" (click)="updateUser()" data-dismiss="modal"
+                  *ngIf="!isCreate && isEdit">Update</button>
+              <button class="btn btn-default-md-fill" (click)="edit()" data-dismiss="modal"
+                  *ngIf="!isCreate && !isEdit">Edit</button>
+          </div>
+      </div>
+  </div>
+</div>

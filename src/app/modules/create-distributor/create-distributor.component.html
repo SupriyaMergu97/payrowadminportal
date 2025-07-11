@@ -1,0 +1,740 @@
+<div class="content-wrapper main-section-container">
+    <!-- <app-create-ac-menus></app-create-ac-menus> -->
+
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 pl-0 pr-0">
+                    <div class="row" *ngIf="!isForm && !isAcntMngr">
+                        <div class="container-fluid mb-4">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section-header">
+                                        <div class="pull-left d-flex gap-16x">
+                                            <div class="search-holder">
+                                                <form action="">
+                                                    <div class="input-group">
+                                                        <input type="search" autocomplete="off" [(ngModel)]="searchText"
+                                                            placeholder="Search" aria-describedby="button-addon5"
+                                                            class="form-control" [ngModelOptions]="{standalone: true}">
+                                                        <div class="input-group-append">
+                                                            <button id="button-addon5" type="submit" class="btn"><i
+                                                                    class="fa fa-search"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <!-- <button class="btn btn-primary-lg" (click)="acntMnger()"><i
+                                                class="fas fa-bars icon-select"></i>Account Manager List</button> -->
+                                        </div>
+
+                                        <div class="pull-right d-flex gap-16x">
+                                            <button class="btn btn-primary-lg down"
+                                                (click)="reportDownload()">Download <i
+                                                    class="fas fa-download"></i></button>
+                                            <button class="btn btn-primary-lg" data-toggle="modal"
+                                                data-target="#typeOfDist">Create Distributor <i
+                                                    class="fas fa-plus cta-plus-btn border-0"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_data">
+                            <table class="table table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Distributor ID</th>
+                                        <th>Name</th>
+                                        <th>Address</th>
+                                        <th>Account Manager</th>
+                                        <th>No.of MID</th>
+                                        <!-- <th>No.of TID</th> -->
+                                        <th>Activation Date</th>
+                                        <!-- <th>Agreement</th> -->
+                                        <th>Action</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let data of getPageDist() | filter:searchText">
+                                        <td>{{data.distributorId}}</td>
+                                        <td>{{data.firstName}}</td>
+                                        <td>
+                                            <div>
+                                                <button class="dialog" (click)="openDialog(data.distributorId)"><div class="bi-card-list"></div></button>
+                                            </div>
+                                            <app-contact-dialog *ngIf="showDialog" [dialogData]="dialogData" (close)="closeDialog()"></app-contact-dialog>
+                                        </td>
+                                        <!-- <td data-tooltip="top" role="tooltip"
+                                                attr.aria-label="{{data.email}},{{data.mobileNumber}}">
+                                                <i class="bi bi-info-circle-fill"></i>
+                                            </td> -->
+                                        <td>{{data.regionalManagerID}}</td>
+                                        <td>{{data.noOfMerchants}}</td>
+                                        <!-- <td>10</td> -->
+                                        <td>{{data.createdDate | date}}</td>
+                                        <!-- <td>
+                                            <span>
+                                                <i class="bi bi-paperclip" data-toggle="modal" data-target="#myModal"
+                                                    (click)="openDialog()"></i>
+                                            </span>
+                                        </td> -->
+                                        <td><button class="btn btn-sm create"
+                                                (click)="onupdateAction(data.distributorId)">
+                                                <i class="bi bi-pencil-square"></i></button></td>
+                                        <!-- <td><i class="bi bi-paperclip" data-toggle="modal"
+                                            data-target="#attachment"></i></td> -->
+                                            <td>
+                                                <span *ngIf="data.status=='Active'" class="badge badge-success">Active</span>
+                                                <span *ngIf="data.status=='In-Active'" class="badge badge-danger">In-Active</span>
+                                                <span *ngIf="data.status=='Ongoing'" class="badge badge-warning">Ongoing</span>
+                                              </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div *ngIf="distributorData.length==0">
+                                <p style="text-align: center; margin-top: 10%;">No Data Found!!!</p>
+                            </div>
+                            <app-pagination [totalItems]="distributorData.length" [itemsPerPage]="itemsPerPage"
+                                (pageChange)="onDistPageChange($event)"></app-pagination>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="isForm">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <button class="btn btn-default-primary mb-3" (click)="add()">Back</button>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-md-offset-3">
+                            <form [formGroup]="accountForm" id="msform" (ngSubmit)="onSubmit()">
+                                <!-- progressbar -->
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab"
+                                            role="tablist" aria-orientation="vertical">
+                                            <a class="nav-link mb-3 p-3 shadow active" id="v-pills-basic2-tab"
+                                                *ngIf="typeofDist =='Non-Government'" data-toggle="pill"
+                                                href="#v-pills-basic2" role="tab" aria-controls="v-pills-basic2"
+                                                aria-selected="true">
+                                                <i class="fas fa-at tabIcn"></i>
+                                                <span class="font-weight-bold small text-uppercase">Account
+                                                    owner</span></a>
+                                            <a class="nav-link mb-3 p-3 shadow active" id="v-pills-basic2-tab"
+                                                data-toggle="pill" href="#v-pills-basic2" role="tab"
+                                                *ngIf="typeofDist =='Government'" aria-controls="v-pills-basic2"
+                                                aria-selected="true">
+                                                <i class="fas fa-at tabIcn"></i>
+                                                <span class="font-weight-bold small text-uppercase">Entity information
+                                                </span></a>
+
+                                            <a class="nav-link mb-3 p-3 shadow" id="v-pills-personal2-tab"
+                                                data-toggle="pill" href="#v-pills-personal2" role="tab"
+                                                aria-controls="v-pills-personal2" aria-selected="false">
+                                                <i class="fas fa-user tabIcn"></i>
+                                                <span class="font-weight-bold small text-uppercase">Owner
+                                                    Documents</span></a>
+
+                                            <a class="nav-link mb-3 p-3 shadow" id="v-pills-admin2-tab"
+                                                data-toggle="pill" href="#v-pills-admin2" role="tab"
+                                                aria-controls="v-pills-admin2" aria-selected="false">
+                                                <i class='fas fa-landmark tabIcn'></i>
+                                                <span class="font-weight-bold small text-uppercase">Admin
+                                                    Details</span></a>
+
+                                            <a class="nav-link mb-3 p-3 shadow" id="v-pills-card2-tab"
+                                                data-toggle="pill" href="#v-pills-card2" role="tab"
+                                                aria-controls="v-pills-card2" aria-selected="false">
+                                                <i class="fas fa-credit-card tabIcn"></i>
+                                                <span class="font-weight-bold small text-uppercase">Settlement
+                                                    Account</span></a>
+
+                                            <!-- <a class="nav-link mb-3 p-3 shadow" id="v-pills-bank2-tab"
+                                                    data-toggle="pill" href="#v-pills-bank2" role="tab"
+                                                    aria-controls="v-pills-bank2" aria-selected="false">
+                                                    <i class='fas fa-landmark tabIcn'></i>
+                                                    <span class="font-weight-bold small text-uppercase">Bank</span></a> -->
+
+                                            <!-- <a class="nav-link mb-3 p-3 shadow" id="v-pills-address2-tab"
+                                                    data-toggle="pill" href="#v-pills-address2" role="tab"
+                                                    aria-controls="v-pills-address2" aria-selected="false">
+                                                    <i class="fas fa-address-card tabIcn"></i>
+                                                    <span class="font-weight-bold small text-uppercase">Store
+                                                        Address</span></a> -->
+
+                                            <a class="nav-link mb-3 p-3 shadow" id="v-pills-licence2-tab"
+                                                data-toggle="pill" href="#v-pills-licence2" role="tab"
+                                                aria-controls="v-pills-licence2" aria-selected="false"
+                                                *ngIf="typeofDist =='Non-Government'">
+                                                <i class="fas fa-certificate tabIcn"></i>
+                                                <span class="font-weight-bold small text-uppercase">License</span></a>
+
+                                            <a class="nav-link mb-3 p-3 shadow" id="v-pills-business2-tab"
+                                                data-toggle="pill" href="#v-pills-business2" role="tab"
+                                                aria-controls="v-pills-business2" aria-selected="false">
+                                                <i class="fas fa-certificate tabIcn"></i>
+                                                <span class="font-weight-bold small text-uppercase">Business</span></a>
+
+                                            <!-- <a class="nav-link mb-3 p-3 shadow" id="v-pills-staff2-tab"
+                                                    data-toggle="pill" href="#v-pills-staff2" role="tab"
+                                                    aria-controls="v-pills-staff2" aria-selected="false">
+                                                    <i class='fas fa-users tabIcn'></i>
+                                                    <span class="font-weight-bold small text-uppercase">Sales</span></a> -->
+
+                                            <!-- <a class="nav-link mb-3 p-3 shadow" id="v-pills-terms2-tab"
+                                                data-toggle="pill" href="#v-pills-terms2" role="tab"
+                                                aria-controls="v-pills-terms2" aria-selected="false">
+                                                <i class="fas fa-exclamation-triangle tabIcn"></i>
+                                                <span class="font-weight-bold small text-uppercase">Terms &
+                                                    Conditions</span></a> -->
+
+                                            <a class="nav-link mb-3 p-3 shadow" id="v-pills-agreement2-tab"
+                                                data-toggle="pill" href="#v-pills-agreement2" role="tab"
+                                                aria-controls="v-pills-agreement2" aria-selected="false" (click)="onAgreement()">
+                                                <i class='fas fa-users tabIcn' ></i>
+                                                <span class="font-weight-bold small text-uppercase">Agreement</span></a>
+                                        </div>
+                                    </div>
+                                    <!-- fieldsets -->
+                                    <div class="col-md-9">
+                                        <div class="tab-content" id="v-pills-tabContent">
+                                            <div class="tab-pane fade shadow rounded tab1 bg-white show active"
+                                                id="v-pills-basic2" role="tabpanel"
+                                                aria-labelledby="v-pills-basic2-tab">
+                                                <div class="container" formGroupName="basic">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-sm-12 col-md-12 col-xl-12 col-xs-12">
+                                                            <div class="form-group float-left">
+                                                                <div class="picture-container">
+                                                                    <div class="picture" style="margin: 1rem auto 0">
+                                                                        <div class="picture2">
+                                                                            <img src="{{profileImg}}" class="picture-src" id="editPicturePreview"
+                                                                                title="">
+                                                                            <input type="file" id="edit-profile-picture" class=""
+                                                                                (change)="onProfileSelected($event)" />
+                                                                        </div>
+                                                                        <div class="upload-btn">
+                                                                            <div class="file-upload">
+                                                                                <input type="file" (change)="onProfileSelected($event)" /><i
+                                                                                    class="fa fa-arrow-up"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" *ngIf="typeofDist =='Non-Government'">
+                                                        <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                                            <div class="form-group form-floating">
+                                                                <select class="form-control" formControlName="title"
+                                                                    placeholder="">
+                                                                    <option value="" selected disabled>Select Title
+                                                                    </option>
+                                                                    <option value="Mr">Mr.</option>
+                                                                    <option value="Mrs">Mrs.</option>
+                                                                </select>
+                                                                <label for="title" [ngClass]="{'is-invalid': accountForm.get('basic.title').invalid && accountForm.get('basic.title').touched,
+                                                                'is-valid': accountForm.get('basic.title').valid}">
+                                                                    Title<span>&nbsp;*</span></label>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                                            <div class="form-group form-floating">
+                                                                <input type="text" formControlName="firstName"
+                                                                    id="firstName" class="form-control"
+                                                                    placeholder="First Name" />
+                                                                <label for="firstName" [ngClass]="{'is-invalid': accountForm.get('basic.firstName').invalid && accountForm.get('basic.firstName').touched,
+                                                                'is-valid': accountForm.get('basic.firstName').valid}">
+                                                                    First Name<span>&nbsp;*</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                                            <div class="form-group form-floating">
+                                                                <input type="text" formControlName="lastName"
+                                                                    class="form-control" placeholder="Last Name" />
+                                                                <label for="lastName" [ngClass]="{'is-invalid': accountForm.get('basic.lastName').invalid && accountForm.get('basic.lastName').touched,
+                                                                'is-valid': accountForm.get('basic.lastName').valid}">
+                                                                    Last Name<span>&nbsp;*</span></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" *ngIf="typeofDist =='Non-Government'">
+
+                                                        <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                                            <div class="form-group form-floating">
+                                                                <select rows="1" class="form-control"
+                                                                    formControlName="gender" placeholder="">
+                                                                    <option value="" selected disabled>Select Gender
+                                                                    </option>
+                                                                    <option value="Male">Male</option>
+                                                                    <option value="Female">Female</option>
+                                                                </select>
+                                                                <label for="gender" [ngClass]="{'is-invalid': accountForm.get('basic.gender').invalid && accountForm.get('basic.gender').touched,
+                                                            'is-valid': accountForm.get('basic.gender').valid}">
+                                                                    Gender<span>&nbsp;*</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                                            <div class="form-group form-floating">
+                                                                <input type="date" formControlName="dateOfBirth"
+                                                                    class="form-control" placeholder="dob" [max]="maxDate"/>
+                                                                <label for="dateOfBirth"
+                                                                    [ngClass]="{'is-invalid': accountForm.get('basic.dateOfBirth').invalid && accountForm.get('basic.dateOfBirth').touched,
+                                                                'is-valid': accountForm.get('basic.dateOfBirth').valid}">
+                                                                    Date of Birth<span>&nbsp;*</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                                            <div class="form-group form-floating">
+                                                                <select rows="1" class="form-control"
+                                                                    formControlName="regionalManagerID" placeholder="">
+                                                                    <option value="" selected disabled>Select Regional
+                                                                        Manager
+                                                                    </option>
+                                                                    <option *ngFor="let data of mngrList"
+                                                                        value="{{data.empId}}">{{data.empName}}</option>
+                                                                    <!-- <option value="Mr">Supriya</option>
+                                                                    <option value="Mrs">Khaja</option> -->
+                                                                </select>
+                                                                <label for="regionalManagerID"
+                                                                    [ngClass]="{'is-invalid': accountForm.get('basic.regionalManagerID').invalid && accountForm.get('basic.regionalManagerID').touched,
+                                                                'is-valid': accountForm.get('basic.regionalManagerID').valid}">
+                                                                    Regional Manager<span>&nbsp;*</span></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                                            *ngIf="typeofDist =='Government'">
+                                                            <div class="form-group form-floating">
+                                                                <input type="text" formControlName="firstName"
+                                                                    class="form-control" placeholder="Entity Name" />
+                                                                <label for="firstName" [ngClass]="{'is-invalid': accountForm.get('basic.firstName').invalid && accountForm.get('basic.firstName').touched,
+                                                                'is-valid': accountForm.get('basic.firstName').valid}">
+                                                                    Entity Name<span>&nbsp;*</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                                            <div class="form-group form-floating">
+                                                                <input type="email" formControlName="emailId"
+                                                                    class="form-control" placeholder="Email" />
+                                                                <label for="emailId" [ngClass]="{'is-invalid': accountForm.get('basic.emailId').invalid && accountForm.get('basic.emailId').touched,
+                                                                'is-valid': accountForm.get('basic.emailId').valid}">
+                                                                    Email ID<span>&nbsp;*</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                                            <div class="form-group form-floating">
+                                                                <input type="text" formControlName="mobileNumber"
+                                                                    class="form-control" placeholder="Mobile Number" />
+                                                                <label for="mobileNumber"
+                                                                    [ngClass]="{'is-invalid': accountForm.get('basic.mobileNumber').invalid && accountForm.get('basic.mobileNumber').touched,
+                                                                'is-valid': accountForm.get('basic.mobileNumber').valid}">
+                                                                    Mobile Number<span>&nbsp;*</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                                            *ngIf="typeofDist =='Non-Government'">
+                                                            <div class="form-group form-floating">
+                                                                <input type="Password" formControlName="password"
+                                                                    class="form-control" placeholder="Password" />
+                                                                <label for="password" [ngClass]="{'is-invalid': accountForm.get('basic.password').invalid && accountForm.get('basic.password').touched,
+                                                                'is-valid': accountForm.get('basic.password').valid}">
+                                                                    Password<span>&nbsp;*</span></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                                            *ngIf="typeofDist =='Government'">
+                                                            <div class="form-group form-floating">
+                                                                <input type="Password" formControlName="password"
+                                                                    class="form-control" placeholder="Password" />
+                                                                <label for="password" [ngClass]="{'is-invalid': accountForm.get('basic.password').invalid && accountForm.get('basic.password').touched,
+                                                                'is-valid': accountForm.get('basic.password').valid}">
+                                                                    Password<span>&nbsp;*</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                                            <div class="form-group form-floating">
+                                                                <input type="password" formControlName="cnfPassword"
+                                                                    class="form-control"
+                                                                    placeholder="Confirm Password" />
+                                                                <label for="cnfPassword"
+                                                                    [ngClass]="{'is-invalid': accountForm.get('basic.cnfPassword').invalid && accountForm.get('basic.cnfPassword').touched,
+                                                                'is-valid': accountForm.get('basic.cnfPassword').valid}">
+                                                                    Confirm Password<span>&nbsp;*</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12"
+                                                            *ngIf="typeofDist =='Government'">
+                                                            <div class="form-group form-floating">
+                                                                <select rows="1" class="form-control"
+                                                                    formControlName="regionalManagerID" placeholder="">
+                                                                    <option value="" selected disabled>Select Regional
+                                                                        Manager
+                                                                    </option>
+                                                                    <option *ngFor="let data of mngrList"
+                                                                        value="{{data.empId}}">{{data.empId}}
+                                                                        &nbsp;{{data.empName}}</option>
+
+                                                                    <!-- <option value="Mr">Supriya</option>
+                                                                    <option value="Mrs">Khaja</option> -->
+                                                                </select>
+                                                                <label for="regionalManagerID"
+                                                                    [ngClass]="{'is-invalid': accountForm.get('basic.regionalManagerID').invalid && accountForm.get('basic.regionalManagerID').touched,
+                                                                'is-valid': accountForm.get('basic.regionalManagerID').valid}">
+                                                                    Regional Manager<span>&nbsp;*</span></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn btn-default-md-fill" (click)="addOwner()"
+                                                        style="float: right;" *ngIf="!isUpdateDist">save</button>
+                                                    <button class="btn btn-default-md-fill" (click)="updateBasic()"
+                                                        style="float: right;" *ngIf="isUpdateDist">Update</button>
+                                                </div>
+                                            </div>
+
+                                            <!-- <div [formGroup]="accountForm"> -->
+                                            <div class="tab-pane fade shadow rounded tab1 bg-white"
+                                                id="v-pills-personal2" role="tabpanel"
+                                                aria-labelledby="v-pills-personal2-tab">
+                                                <div class="card-body">
+                                                    <!-- <h4 class="font-italic ">Personnal Details</h4> -->
+                                                    <app-dist-personal [distData]="distData" typeofDist="{{typeofDist}}"
+                                                        formControlName="personalDetails">
+                                                    </app-dist-personal>
+                                                    <button class="btn btn-default-md-fill"
+                                                        style="float:right;margin: 5px;" (click)="updatePersonalInfo()"
+                                                        *ngIf="!isUpdateDist">Save</button>
+                                                        <button class="btn btn-default-md-fill"
+                                                        style="float:right;margin: 5px;" (click)="updatePersonalInfo()"
+                                                        *ngIf="isUpdateDist">Update</button>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade shadow rounded tab1 bg-white" id="v-pills-admin2"
+                                                role="tabpanel" aria-labelledby="v-pills-admin2-tab">
+                                                <div class="card-body">
+                                                    <!-- <h4 class="font-italic ">Personnal Details</h4> -->
+                                                    <div class="container" *ngIf="(!isAdmin && !isupdateAdmin)"
+                                                        style="margin-top: -55px;">
+                                                        <!-- <div class="row"> -->
+                                                        <button class="btn btn-primary-lg float-right mb-3"
+                                                            (click)="onCreateAdmin()">Add
+                                                            Admin<i
+                                                                class="fas fa-plus cta-plus-btn border-0"></i></button>
+                                                        <!-- </div> -->
+                                                        <div class="table_data">
+                                                            <table class="table table-striped text-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Admin ID</th>
+                                                                        <th>Admin Name</th>
+                                                                        <th>Status</th>
+                                                                        <th>Actions</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr
+                                                                        *ngFor="let data of adminList; let index=index;">
+                                                                        <td>{{data.adminId}}</td>
+                                                                        <td>{{data.adminName}}</td>
+                                                                        <td>
+                                                                            <span *ngIf="data.status=='Active'"
+                                                                                class="badge badge-success">Active</span>
+                                                                            <span *ngIf="data.status=='In-Active'"
+                                                                                class="badge badge-danger">In-Active</span>
+                                                                        </td>
+                                                                        <td><button class="btn btn-sm create"
+                                                                                (click)="onUpdateAdmin(data._id)">
+                                                                                <i
+                                                                                    class="bi bi-pencil-square"></i></button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <!-- <tr *ngIf="adminList.length<=0">
+                                                                        No Data Found!!!
+                                                                    </tr> -->
+                                                                </tbody>
+
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <app-admin-details *ngIf="isAdmin" formControlName="adminDetails">
+                                                    </app-admin-details>
+                                                    <app-admin-details [adminData]="adminData" *ngIf="isupdateAdmin"
+                                                        formControlName="adminDetails">
+                                                    </app-admin-details>
+                                                    <div class="row">
+                                                        <div class="d-flex gap-16x justify-content-end">
+                                                            <button class="btn btn-default-sm-primary"
+                                                                *ngIf="(isAdmin || isupdateAdmin)"
+                                                                (click)="backtoAdminList()">Cancel</button>
+                                                            <button *ngIf="isAdmin" class="btn btn-default-md-fill"
+                                                                (click)="createAdmin()">Save</button>
+                                                            <button *ngIf="isupdateAdmin"
+                                                                class="btn btn-default-md-fill"
+                                                                (click)="updateAdminInfo()">Update</button>
+                                                            <button *ngIf="isupdateAdmin" class="btn btn-sm create"><i
+                                                                    class='bi bi-trash-fill'></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <button *ngIf="isAdmin" class="btn btn-default-md-fill"
+                                                        style="float:right;margin: 5px;"
+                                                        (click)="createAdmin()">Save</button> -->
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane fade shadow rounded tab1 bg-white" id="v-pills-card2"
+                                                role="tabpanel" aria-labelledby="v-pills-card2-tab">
+                                                <div class="card-body">
+                                                    <app-dist-bank-form [distData]="distData" formControlName="bankDetails">
+                                                    </app-dist-bank-form>
+                                                    <!-- <app-card-form formControlName="cardDetails"
+                                                                *ngIf="isPersonal">
+                                                            </app-card-form> -->
+                                                    <button class="btn btn-default-md-fill"
+                                                        style="float:right;margin: 5px;"*ngIf="!isUpdateDist"
+                                                        (click)="updateBankInfo()">Save</button>
+                                                        <button class="btn btn-default-md-fill"
+                                                        style="float:right;margin: 5px;"*ngIf="isUpdateDist"
+                                                        (click)="updateBankInfo()">Update</button>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="tab-pane fade shadow rounded tab1 bg-white p-5"
+                                                    id="v-pills-bank2" role="tabpanel"
+                                                    aria-labelledby="v-pills-bank2-tab">
+                                                    <h4 class="font-italic ">Bank</h4>
+                                                    <app-bank-form formControlName="bankDetails">
+                                                    </app-bank-form>
+                                                     </div> -->
+                                            <!-- <div class="tab-pane fade shadow rounded tab1 bg-white p-5"
+                                                        id="v-pills-address2" role="tabpanel"
+                                                        aria-labelledby="v-pills-address2-tab">
+                                                        <div class="card-body">
+                                                            <h4 class="font-italic ">Address</h4>
+                                                            <app-address-form formControlName="addressDetails">
+                                                            </app-address-form>
+                                                            <button class="btn btn-default-md-fill"
+                                                                style="float:right;margin: 5px;"
+                                                                (click)="updateStoreInfo()">Save</button>
+                                                        </div>
+                                                    </div> -->
+                                            <div class="tab-pane fade shadow rounded tab1 bg-white"
+                                                id="v-pills-licence2" role="tabpanel"
+                                                aria-labelledby="v-pills-licence2-tab">
+                                                <div class="card-body">
+                                                    <!-- <h4 class="font-italic ">Licence</h4> -->
+                                                    <app-dist-licence-form [distData]="distData"
+                                                        formControlName="licenseDetails">
+                                                    </app-dist-licence-form>
+                                                    <button class="btn btn-default-md-fill"
+                                                        style="float:right;margin: 5px;"*ngIf="!isUpdateDist"
+                                                        (click)="updateLicenceInfo()">Save</button>
+                                                        <button class="btn btn-default-md-fill"
+                                                        style="float:right;margin: 5px;"*ngIf="isUpdateDist"
+                                                        (click)="updateLicenceInfo()">Update</button>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade shadow rounded tab1 bg-white"
+                                                id="v-pills-business2" role="tabpanel"
+                                                aria-labelledby="v-pills-business2-tab">
+                                                <div class="card-body">
+                                                    <!-- <h4 class="font-italic ">Licence</h4> -->
+                                                    <app-dist-business-form [distData]="distData"
+                                                        formControlName="businessDetails">
+                                                    </app-dist-business-form>
+                                                    <button class="btn btn-default-md-fill"
+                                                        style="float:right;margin: 5px;"*ngIf="!isUpdateDist"
+                                                        (click)="updateBusinessInfo()">Save</button>
+                                                        <button class="btn btn-default-md-fill"
+                                                        style="float:right;margin: 5px;"*ngIf="isUpdateDist"
+                                                        (click)="updateBusinessInfo()">Update</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane fade shadow rounded tab1 bg-white"
+                                                id="v-pills-agreement2" role="tabpanel"
+                                                aria-labelledby="v-pills-agreement2-tab" *ngIf="isAgreement">
+                                                <!-- <h4 class="font-italic ">Staff</h4> -->
+                                                <!-- <app-nbq-form></app-nbq-form> -->
+                                                <app-onboarding-form [distData]="distData">
+                                                </app-onboarding-form>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <button (click)="add()" type="button" id="ownerSubmit"
+                                                            class="btn btn-default-md-fill float-right"
+                                                            disabled>Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+
+                        </div>
+                    </div>
+
+                    <!-- font-family: system-ui; -->
+                    <div id="typeOfDist" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body" style="padding-top: 30px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label>Type of Distributor</label>
+                                                <select rows="1" class="form-control" placeholder=""
+                                                    style="margin: 0px;" (change)="onSelTypeofDist($event)">
+                                                    <option value="" selected disabled>Select Type of Distributor
+                                                    </option>
+                                                    <option value="Government">Government</option>
+                                                    <option value="Non-Government">Non-Government</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer footer">
+                                    <button class="btn btn-default-sm-primary float-right" data-dismiss="modal">Cancel<i
+                                            class="bi bi-x"></i></button>
+                                    <button class="btn btn-default-md-fill" style="float: right;" data-dismiss="modal"
+                                        (click)="add()">Continue</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- create account manager Modal -->
+                    <div class="modal fade" id="AddAcntMnger" role="dialog">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content alert">
+                                <div class="modal-body">
+                                    <form [formGroup]="acntManagerForm">
+                                        <div class="row">
+                                            <div class="form-group form-floating">
+                                                <label for="name">Name</label>
+                                                <input type="text" class="form-control" formControlName="name"
+                                                    id="name">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group form-floating">
+                                                <label for="emailId">Email Id</label>
+                                                <input type="text" class="form-control" formControlName="emailId"
+                                                    id="emailId">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group form-floating">
+                                                <label for="mobileNumber">Mobile Number</label>
+                                                <input type="text" class="form-control" formControlName="mobileNumber"
+                                                    id="mobileNumber">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group form-floating">
+                                                <label for="address">Address</label>
+                                                <input type="text" class="form-control" formControlName="address"
+                                                    id="address">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between gap-16x">
+                                            <button *ngIf="isShow" class="btn btn-sm create" data-toggle="modal"
+                                                data-target="#delUser"><i class='bi bi-trash-fill trash'></i></button>
+                                            <div class="d-flex gap-16x justify-content-end">
+                                                <button class="btn btn-default-sm-primary"
+                                                    data-dismiss="modal">Cancel</button>
+                                                <button *ngIf="isShow" class="btn btn-default-md-fill"
+                                                    data-dismiss="modal">Update</button>
+                                                <button *ngIf="!isShow" class="btn btn-default-md-fill"
+                                                    data-dismiss="modal">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- 
+                                <div class="modal-footer pull-right d-flex gap-16x">
+                                    <button class="btn btn-default-sm-primary" data-dismiss="modal">Cancel</button>
+                                    <button class="btn btn-default-md-fill" data-dismiss="modal">Save</button>
+                                    <button class="btn btn-sm create" data-toggle="modal"
+                                                data-target="#delUser"><i class='bi bi-trash-fill'></i></button>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Attachment modal -->
+                    <div class="modal fade" id="attachment" role="dialog">
+                        <div class="modal-dialo modal-dialog-centeredg">
+                            <div class="modal-content alert">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">List of Documents</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row d-flex justify-content-between">
+                                        <span class="col-md-8 col-sm">Terms and Conditions Form &nbsp; :</span>
+                                        <button class=" col-md-3 btn btn-default-primary download">Download
+                                            <i class="fas fa-download"></i></button>
+                                    </div>
+                                    <div class="row d-flex justify-content-between">
+                                        <span class="col-md-8 col-sm">NDA Form &nbsp; :</span>
+                                        <button class="col-md-3 btn btn-default-primary download">Download
+                                            <i class="fas fa-download"></i></button>
+                                    </div>
+                                    <div class="row d-flex justify-content-between">
+                                        <span class="col-md-8 col-sm">AGGREMENT &nbsp; :</span>
+                                        <button class="col-md-3 btn btn-default-primary download">Download
+                                            <i class="fas fa-download"></i></button>
+                                    </div>
+                                    <!-- <div class="row">
+                                        <div class="col-md-8 col-sm">
+                                            <p>Terms and Conditions Form &nbsp; :</p>
+                                            <p>NDA Form &nbsp; :</p>
+                                            <p>AGGREMENT &nbsp; :</p>
+                                        </div>
+                                        <div class="col-md-2 col-sm">
+                                            <p> <button class="btn btn-default-primary download">Download
+                                                 <i class="fas fa-download"></i></button></p>
+                                            <p> <button class="btn btn-default-primary download">Download
+                                                 <i class="fas fa-download"></i></button></p>
+                                            <p> <button class="btn btn-default-primary download">Download
+                                                 <i class="fas fa-download"></i></button></p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div class="modal-footer pull-right d-flex gap-16x">
+                                    <button class="btn btn-default-sm-primary" data-dismiss="modal">Cancel</button>
+                                    <!-- <button class="btn btn-default-md-fill" data-dismiss="modal">Save</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- delete manager -->
+                    <div class="modal fade" id="delUser" role="dialog">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content alert">
+                                <div class="modal-body">
+                                    <h6>Are you sure you want to delete?</h6>
+                                </div>
+                                <div class="modal-footer pull-right d-flex gap-16x">
+                                    <button class="btn btn-default-md-fill" data-dismiss="modal">No</button>
+                                    <button class="btn btn-default-md-fill" style="background-color:#e90707;"
+                                        data-dismiss="modal" (click)="delete()">Yes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>

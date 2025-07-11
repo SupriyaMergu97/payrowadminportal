@@ -1,0 +1,83 @@
+.salesChart{
+    position: relative;
+    top: 5px;
+    font-size: 13px;
+    line-height: 2;
+    padding: 0px;
+}
+
+.saleChart_val{
+    text-align: left;
+}
+
+.saleChart_val2{
+    text-align: right;
+}
+
+.saleIcn{
+    margin-top: 31px;
+    margin-left: 32px;
+}
+
+// table{
+//     line-height: 2;
+// }
+
+// .table thead th {
+//     border-bottom: 1px solid #dee2e6 !important;
+//     border-top: none !important;
+//     font-size: 13px;
+// }
+
+input.search-hero {
+    float: right;
+    width: 25%;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    margin-left: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #2c3e50;
+    font-size: 13px;
+    background-color: #fcfcfd;
+    position: relative;
+    bottom: 7px;
+    height: 35px;
+  }
+  
+  input.search-hero:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #72ac47;
+    outline-width: 0;
+    transition: All 0.5s ease-in;
+    -webkit-transition: All 0.5s ease-in;
+    -moz-transition: All 0.5s ease-in;
+    -o-transition: All 0.5s ease-in;
+  }
+
+  .hr-tag {
+    margin-top: 41px;
+  }
+  .table_data {
+    margin-top: -63px;
+  }
+
+.current-status-dropdown {
+    color: #72ac47;
+    border: none;
+    width:auto;
+    background-color: transparent;
+}
+.current-status-dropdown:focus{-webkit-box-shadow: none;}
+
+.current-status-dropdown option {
+    color:#7e7f80;
+  }
+.current-status-dropdown option:checked {
+    color:#ffffff;
+    background-color: #72ac47;
+}

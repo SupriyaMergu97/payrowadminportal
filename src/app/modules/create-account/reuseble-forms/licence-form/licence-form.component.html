@@ -1,0 +1,154 @@
+<ng-container>
+    <div class="container">
+        <!-- <h5 style="color: #72AC47; font-family: Roboto;">LICENCE DETAILS</h5> -->
+        <div [formGroup]="licenceForm">
+            <div class="row">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="companyName" class="form-control"
+                            placeholder="Company Name" />
+                        <label for="companyName">Company Name</label>
+                        <!-- <div *ngIf="licenceForm.controls['companyName'].invalid && (licenceForm.controls['companyName'].dirty || licenceForm.controls['companyName'].touched)"
+                            class="alert">
+                            <div *ngIf="licenceForm.controls['companyName'].errors.required">
+                                <p class="error-msg">
+                                    Please Enter Company Name
+                                </p>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="companyShortName" class="form-control"
+                            placeholder="Enter companyShortName" />
+                        <label for="companyShortName">Company Short Name</label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="nameOnReceipt" class="form-control"
+                            placeholder="Enter your nameOnReceipt" />
+                        <label for="nameOnReceipt">Name on Receipt</label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="ecNumber" class="form-control"
+                            placeholder="Establishment Card Number" />
+                        <label for="ecNumber">Establishment Card Number</label>
+                        <!-- <div *ngIf="licenceForm.controls['ecNumber'].invalid && (licenceForm.controls['ecNumber'].dirty || licenceForm.controls['ecNumber'].touched)"
+                            class="alert">
+                            <div *ngIf="licenceForm.controls['ecNumber'].errors.required">
+                                <p class="error-msg">
+                                    Please Enter Establishment Card Number
+                                </p>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="date" formControlName="ecExpiry" class="form-control"
+                            placeholder="select Expiry Date" [min]="minExpiryDate"/>
+                        <label for="ecExpiry">EC Expiry Date</label>
+                        <!-- <div *ngIf="licenceForm.controls['ecExpiry'].invalid && (licenceForm.controls['ecExpiry'].dirty || licenceForm.controls['ecExpiry'].touched)"
+                            class="alert">
+                            <div *ngIf="licenceForm.controls['ecExpiry'].errors.required">
+                                <p class="error-msg">
+                                    Please Enter Licence Expiry Date
+                                </p>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="file" class="form-control fileupload" formControlName="ecDocument"
+                            placeholder="Attach EC Copy" (change)="uploadEcfile($event)" />
+                        <label for="ecDocument">Attach EC Copy</label>
+                        <!-- <div *ngIf="licenceForm.controls['ecDocument'].invalid && (licenceForm.controls['ecDocument'].dirty || licenceForm.controls['ecDocument'].touched)"
+                            class="alert">
+                            <div *ngIf="licenceForm.controls['ecDocument'].errors.required">
+                                <p class="error-msg">
+                                    Please Attach EC Copy
+                                </p>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="licenseNumber" class="form-control"
+                            placeholder="License Number" />
+                        <label for="licenseNumber">License Number</label>
+                        <!-- <div *ngIf="licenceForm.controls['licenseNumber'].invalid && (licenceForm.controls['licenseNumber'].dirty || licenceForm.controls['licenseNumber'].touched)"
+                            class="alert">
+                            <div *ngIf="licenceForm.controls['licenseNumber'].errors.required">
+                                <p class="error-msg">
+                                    Please Enter Licence Number
+                                </p>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="date" formControlName="licenseExpiry" class="form-control"
+                            placeholder="select Expiry Date" [min]="minExpiryDate"/>
+                        <label for="licenseExpiry">Licence Expiry Date</label>
+                        <!-- <div *ngIf="licenceForm.controls['licenseExpiry'].invalid && (licenceForm.controls['licenseExpiry'].dirty || licenceForm.controls['licenseExpiry'].touched)"
+                            class="alert">
+                            <div *ngIf="licenceForm.controls['licenseExpiry'].errors.required">
+                                <p class="error-msg">
+                                    Please Enter Licence Expiry Date
+                                </p>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="file" class="form-control fileupload" formControlName="licenseDocument"
+                            placeholder="License Copy" (change)="uploadLicencefile($event)" />
+                        <label for="licenseDocument">License Copy</label>
+                        <!-- <div *ngIf="licenceForm.controls['licenseDocument'].invalid && (licenceForm.controls['licenseDocument'].dirty || licenceForm.controls['licenseDocument'].touched)"
+                            class="alert">
+                            <div *ngIf="licenceForm.controls['licenseDocument'].errors.required">
+                                <p class="error-msg">
+                                    Please Attach Licence Document
+                                </p>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <!-- <label>Company Name</label> -->
+                        <input type="File" formControlName="companyLogo" class="form-control fileupload"
+                            placeholder="Company Name" (change)="uploadLogofile($event)"/>
+                        <label for="companyLogo" [ngClass]="{'is-invalid': licenceForm.controls['companyLogo'].invalid && licenceForm.controls['companyLogo'].touched,
+            'is-valid': licenceForm.controls['companyLogo'].valid}">
+                            Company Logo<span>&nbsp;*</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                    <div class="form-group form-floating">
+                        <input type="text" formControlName="natureOfBusiness" class="form-control"
+                            placeholder="License Number" />
+                        <label for="natureOfBusiness">Type of Business</label>
+                        <!-- <div *ngIf="licenceForm.controls['natureOfBusiness'].invalid && (licenceForm.controls['natureOfBusiness'].dirty || licenceForm.controls['natureOfBusiness'].touched)"
+                            class="alert">
+                            <div *ngIf="licenceForm.controls['natureOfBusiness'].errors.required">
+                                <p class="error-msg">
+                                    Please Enter Licence Number
+                                </p>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

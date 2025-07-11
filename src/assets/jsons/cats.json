@@ -1,0 +1,907 @@
+[
+  {
+    "groupNameAsWrap": "Enterprise Catalogue",
+    "categories": [
+      {
+        "Name": "DED",
+        "serviceCode": "600000001",
+        "services": [
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10000,
+            "serviceName": "License administrative cancellation fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10001,
+            "serviceName": "Percentage of the capital",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10003,
+            "serviceName": "Consumer Protection Complaint",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10004,
+            "serviceName": "Arabic trade name fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10005,
+            "serviceName": "Partner fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10006,
+            "serviceName": "Civil company contract",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10007,
+            "serviceName": "Non-Arabic trade name fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10008,
+            "serviceName": "Service agent",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10009,
+            "serviceName": "Consumer Protection Complaint",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10010,
+            "serviceName": "Rental contract attestation fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10012,
+            "serviceName": "Partnership contract attestation",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10013,
+            "serviceName": "Responsible manager",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10014,
+            "serviceName": "Advertisement fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10015,
+            "serviceName": "Payment order fee for license dissolution",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10016,
+            "serviceName": "Payment order fee to erase the company's registration",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10017,
+            "serviceName": "Issuance of security approvals to provide security services",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10018,
+            "serviceName": "License cancellation fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10019,
+            "serviceName": "Service Agent Withdrawal fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10020,
+            "serviceName": "Civil company contract",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10021,
+            "serviceName": "License amendment fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10022,
+            "serviceName": "Commercial Register Certificate",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10023,
+            "serviceName": "Service agent contract fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10024,
+            "serviceName": "Writing service agent contract",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10025,
+            "serviceName": "Commercial Register Certificate",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10026,
+            "serviceName": "Delay penalties",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10027,
+            "serviceName": "Security Monitoring System Fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10028,
+            "serviceName": "Security Requirements Fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10029,
+            "serviceName": "Chamber of Commerce fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10030,
+            "serviceName": "Inspection fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10031,
+            "serviceName": "Print MOA appendix fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10032,
+            "serviceName": "Print MOA fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10033,
+            "serviceName": "Health returns fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10034,
+            "serviceName": "MOA appendix fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10035,
+            "serviceName": "Partnership Contract Amendment Fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10036,
+            "serviceName": "Partnership Contract Terminate Fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10037,
+            "serviceName": "Electronic service fee ",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10038,
+            "serviceName": "Administrative fees",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10039,
+            "serviceName": "Security Requirements Fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10040,
+            "serviceName": "Board",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10041,
+            "serviceName": "Signature form attestation",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10042,
+            "serviceName": "Cancellation certificate fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10042,
+            "serviceName": "Rental contract fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10043,
+            "serviceName": "To Whom It May Concern Certificate Fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10046,
+            "serviceName": "Percentage of the capital",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10047,
+            "serviceName": "Activity fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10048,
+            "serviceName": "For whom it may concern fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10049,
+            "serviceName": "Permit Cancelation Fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10051,
+            "serviceName": "Ad banner fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10052,
+            "serviceName": "Ad cloth fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10053,
+            "serviceName": "Billboard Design",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10054,
+            "serviceName": "Billboard Design fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10055,
+            "serviceName": "Box rental fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10056,
+            "serviceName": "Branch fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10057,
+            "serviceName": "Distribution card fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10058,
+            "serviceName": "Electronic fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10060,
+            "serviceName": "Office fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10061,
+            "serviceName": "Permit fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10062,
+            "serviceName": "Poster fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10063,
+            "serviceName": "Prize showroom fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10064,
+            "serviceName": "Prize stage fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10065,
+            "serviceName": "Rental contract percentage fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10066,
+            "serviceName": "Site fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10067,
+            "serviceName": "Slogan fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10068,
+            "serviceName": "Ticket percentage fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10069,
+            "serviceName": "Trademark fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000001,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "servicecode": 10070,
+            "serviceName": "Withdrawal fee",
+            "shortName":""
+          }
+        ]
+      },
+      {
+        "Name": "PayBlue",
+        "contact": "9274234183",
+        "serviceCode": "600000002",
+        "services": [
+          {
+            "merchantId": 600000002,
+            "servicecode": 10045,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "serviceName": "PayBlue Service charge",
+            "shortName":""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "groupNameAsWrap": "Government Catalogue",
+    "categories": [
+      {
+        "Name": "Ministry of Economy",
+        "contact": "9232424928",
+        "serviceCode": "600000003",
+        "services": [
+          {
+            "merchantId": 600000003,
+            "servicecode": 10002,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "serviceName": "Ministry of Economy fee",
+            "shortName":""
+          },
+          {
+            "merchantId": 600000003,
+            "servicecode": 10011,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "serviceName": "Ministry of Economy fee",
+            "shortName":""
+          }
+        ]
+      },
+      {
+        "Name": "Smart government services fee",
+        "contact": "8348242245",
+        "serviceCode": "600000004",
+        "services": [
+          {
+            "merchantId": 600000004,
+            "servicecode": 10044,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "serviceName": "E-Serive Fee",
+            "shortName":""
+          }
+        ]
+      },
+      {
+        "Name": "Municipality - Health Department",
+        "contact": "9532346289",
+        "serviceCode": "600000005",
+        "services": [
+          {
+            "merchantId": 600000005,
+            "servicecode": 10059,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "serviceName": "Municipality fee",
+            "shortName":""
+          }
+        ]
+      },
+      {
+        "Name": "Police Department",
+        "contact": "8253472462",
+        "serviceCode": "600000006",
+        "services": [
+          {
+            "merchantId": 600000006,
+            "servicecode": 10050,
+            "unitPrice": 3000,
+            "desc": "ytuyt",
+            "seq": "84377",
+            "avg": 477654,
+            "serviceName": "Police fee",
+            "shortName":""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "groupNameAsWrap": "SMB Catalogue",
+    "categories": [
+      {
+        "serviceCode": "1234",
+        "Name": "ELECTRICAL CONTRACTORS",
+        "services": [
+          {
+            "serviceName": "Apprentice Electrician",
+            "shortName":"",
+            "unitPrice": "100",
+            "avg": "2371",
+            "desc": ""
+          },
+          {
+            "serviceName": "Journeyman Electrician",
+            "shortName":"",
+            "unitPrice": "100",
+            "avg": "2371",
+            "desc": ""
+          },
+          {
+            "serviceName": "Estimator",
+            "shortName":"",
+            "unitPrice": "100",
+            "avg": "2371",
+            "desc": ""
+          },
+          {
+            "serviceName": "Project Supervisor",
+            "shortName":"",
+            "unitPrice": "100",
+            "avg": "2371",
+            "desc": ""
+          }
+        ]
+      },
+      {
+        "serviceCode": "4215",
+        "Name": "COURIER SERVICES AIR OR GROUND AND FREIGHT FORWARD",
+        "services": [
+          {
+            "serviceName": "Airfreight service",
+            "shortName":"",
+            "unitPrice": "100",
+            "avg": "2371",
+            "desc": ""
+          },
+          {
+            "serviceName": "Land freight service",
+            "shortName":"",
+            "unitPrice": "100",
+            "avg": "2371",
+            "desc": ""
+          },
+          {
+            "serviceName": "Motorcycle curier service",
+            "shortName":"",
+            "unitPrice": "100",
+            "avg": "2371",
+            "desc": ""
+          },
+          {
+            "serviceName": "Oceam freight service",
+            "shortName":"",
+            "unitPrice": "100",
+            "avg": "2371",
+            "desc": ""
+          }
+        ]
+      },
+      {
+        "serviceCode": "4722",
+        "Name": "TRAVEL AGENCIES AND TOUR OPERATORS",
+        "services": [
+          {
+            "serviceName": "Independent travel agents",
+            "shortName":"",
+            "unitPrice": "100",
+            "avg": "2371",
+            "desc": ""
+          },
+          {
+            "serviceName": "online travel agents",
+            "shortName":"",
+            "unitPrice": "100",
+            "avg": "2371",
+            "desc": ""
+          },
+          {
+            "serviceName": "visitor information centers",
+            "shortName":"",
+            "unitPrice": "100",
+            "avg": "2371",
+            "desc": ""
+          },
+          {
+            "serviceName": "Inbound tour operators",
+            "shortName":"",
+            "unitPrice": "100",
+            "avg": "2371",
+            "desc": ""
+          }
+        ]
+      },
+      {
+        "serviceCode": "4812",
+        "Name": "TELECOMMUNICATIONS EQUIPMENT AND TELEPHONE SALES",
+        "services": [
+          {
+            "serviceName": "public swithcing equipment",
+            "shortName":"",
+            "unitPrice": "100",
+            "avg": "2371",
+            "desc": ""
+          },
+          {
+            "serviceName": "transmission equipment",
+            "shortName":"",
+            "unitPrice": "100",
+            "avg": "2371",
+            "desc": ""
+          },
+          {
+            "serviceName": "customer premises equipment",
+            "shortName":"",
+            "unitPrice": "100",
+            "avg": "2371",
+            "desc": ""
+          }
+        ]
+      }
+    ]
+  }
+]

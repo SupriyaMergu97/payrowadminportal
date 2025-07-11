@@ -1,0 +1,476 @@
+<div class="content-wrapper main-section-container">
+
+    <!-- <app-sc-menus></app-sc-menus> -->
+
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="table-containerz pl-0 pr-0">
+                    <div class="row" *ngIf="!isItems">
+                        <!-- <div class="col-md-12 col-sm"> -->
+                        <div class="section-header d-flex align-items-center justify-content-between mb-4">
+                            <div class="pull-left">
+                                <div class="search-holder">
+                                    <form action="">
+                                        <div class="input-group">
+                                            <input type="search" autocomplete="off" [(ngModel)]="searchText"
+                                                placeholder="Search" aria-describedby="button-addon5"
+                                                class="form-control" [ngModelOptions]="{standalone: true}">
+                                            <div class="input-group-append">
+                                                <button id="button-addon5" type="submit" class="btn"><i
+                                                        class="fa fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- <button class="btn btn-default-fill" (click)="itemDetails()"> Back</button> -->
+                            </div>
+                            <div class="pull-right d-flex gap-16x">
+                                <!-- <div class=" col-sm drpdn"> -->
+                                <div class="select gap-16x">
+                                    <!-- <label>Type of Catalogue: </label> -->
+                                    <select rows="1" class="seldrpdwn form-control" placeholder=""
+                                        [(ngModel)]="selectedCatalogue" (change)='onSelCatalogue($event)'>
+                                        <option selected>All Catalogues</option>
+                                        <option *ngFor="let cat of catalogues" value="{{cat}}">{{cat}}</option>
+                                    </select>
+                                </div>
+                                <!-- <div class="tooltip-wrapper" >
+                                    <button class="btn" disabled title="Please select ">button disabled</button>
+                                  </div> -->
+                                <!-- </div> -->
+                                <div class="tooltip-wrapper">
+                                    <button class="btn btn-primary-lg" data-toggle="modal" data-target="#addCategory"
+                                        *ngIf="!isDisable" (click)="onCreateCat()">Add
+                                        Category<i class="fas fa-plus cta-plus-btn border-0"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table_data">
+                            <table class="table table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Category ID</th>
+                                        <th>Category Name</th>
+                                        <!-- <th>Description</th> -->
+                                        <!-- <th>Unit Price</th> -->
+                                        <!-- <th>Avg Price</th> -->
+                                        <th>Status</th>
+                                        <th>Service List</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let data of getPageCat() | filter:searchText">
+                                        <td>{{data.categoryId}}</td>
+                                        <td>{{data.categoryName}}</td>
+                                        <!-- <td data-tooltip="top" role="tooltip"
+                                                attr.aria-label="{{data.desc}}"><i
+                                                    class="bi bi-info-circle-fill"></i></td> -->
+                                        <!-- <td>{{data.unitPrice}}</td> -->
+                                        <td>
+                                            <span *ngIf="data.status=='Active'"
+                                                class="badge badge-success">Active</span>
+                                            <span *ngIf="data.status=='In-Active'"
+                                                class="badge badge-danger">In-Active</span>
+                                        </td>
+                                        <!-- <td>{{data.status}}</td> -->
+                                        <td><button class="btn btn-sm btn-sm-cust btn-outline-dark"
+                                                (click)="getServbyCat(data.categoryId)">Details</button></td>
+                                        <td><button class="btn btn-sm create" (click)="onUpdateAction(data.categoryId)"
+                                                data-toggle="modal" data-target="#addCategory"><i
+                                                    class="bi bi-pencil-square"></i></button>
+                                            <!-- <button class="btn btn-sm create" data-toggle="modal"
+                                                data-target="#delUser"><i class='bi bi-trash-fill'></i></button> -->
+                                        </td>
+                                        <!-- <td> <img
+                                                    src="https://htmlstream.com/preview/unify-v2.6/assets/img-temp/400x450/img5.jpg"
+                                                    alt="">
+                                            </td> -->
+                                    </tr>
+                                    <!-- <tr *ngIf="sortedCatList.length<0">
+                                        No Data Found!!!
+                                    </tr> -->
+                                </tbody>
+
+                            </table>
+                            <div *ngIf="sortedCatList.length==0">
+                                <p style="text-align: center; margin-top: 10%;">No Data Found!!!</p>
+                            </div>
+                            <app-pagination [totalItems]="sortedCatList.length" [itemsPerPage]="itemsPerPage"
+                                (pageChange)="onCatPageChange($event)"></app-pagination>
+                        </div>
+                        <div class="loading" *ngIf="isLoading">
+                            <div id="loader"><!-- Animated logo --><img src="/admin/assets/images/loaderGreen.png" alt="Loading Logo"
+                                    class="logo">
+                                <div class="spinner-border" role="status"></div>
+                                <p>Loading, please wait...</p>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+                    <div class="row" *ngIf="(isItems && !isAddService)">
+                        <div class="section-header d-flex align-items-center justify-content-between mb-4">
+                            <div class="pull-left d-flex gap-16x">
+                                <div class="search-holder">
+                                    <form action="">
+                                        <div class="input-group">
+                                            <input type="search" autocomplete="off" [(ngModel)]="searchText"
+                                                placeholder="Search" aria-describedby="button-addon5"
+                                                class="form-control" [ngModelOptions]="{standalone: true}">
+                                            <div class="input-group-append">
+                                                <button id="button-addon5" type="submit" class="btn"><i
+                                                        class="fa fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <button class="btn btn-default-fill" (click)="back()"> Back</button>
+                            </div>
+                            <div class="pull-right d-flex gap-16x">
+                                <button class="btn btn-primary-lg" (click)="downloadCSV()">Download
+                                    <i class="fas fa-download"></i></button>
+                                <button class="btn btn-primary-lg" *ngIf="!isDisable" (click)="onaddServAction()">Add
+                                    Service<i class="fas fa-plus cta-plus-btn border-0"></i></button>
+                            </div>
+                        </div>
+                        <div class="table_data">
+                            <table class="table table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Service ID</th>
+                                        <th>Service Name</th>
+                                        <th>Service Short Name</th>
+                                        <th *ngIf="selectedCatalogue=='Non-Government Catalogue'">Service Type</th>
+                                        <!-- <th>Unit Price</th> -->    
+                                        <!-- <th>Avg Price</th> -->
+                                        <th>Status</th>
+                                        <th>Image</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let data of getPageServ() | filter:searchText">
+                                        <td>{{data.serviceId}}</td>
+                                        <td>{{data.serviceName}}</td>
+                                        <td>{{data.shortServiceName}}</td>
+                                        <td *ngIf="selectedCatalogue=='Non-Government Catalogue'">{{data.serviceType}}</td>
+                                        <!-- <td>{{data.avg}}</td> -->
+                                        <td>
+                                            <span *ngIf="data.status=='Active'"
+                                                class="badge badge-success">Active</span>
+                                            <span *ngIf="data.status=='In-Active'"
+                                                class="badge badge-danger">In-Active</span>
+                                        </td>
+                                        <!-- <td>{{data.status}}</td> -->
+                                        <!-- <td> <img class="profile"
+                                                src="https://htmlstream.com/preview/unify-v2.6/assets/img-temp/400x450/img5.jpg"
+                                                alt="">
+                                        </td> -->
+                                        <td>
+                                            <div class="image-container">
+                                                <img class="profile"
+                                                    src="{{data.serviceImage}}"
+                                                    alt="image">
+                                                <div class="tooltip">
+                                                    <img src="{{data.serviceImage}}"
+                                                        alt="Image">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-sm create"
+                                                (click)="onServUpdateAction(data.serviceId)">
+                                                <i class="bi bi-pencil-square"></i></button>
+                                            <!-- <button class="btn btn-sm create" data-toggle="modal"
+                                                data-target="#delUser"><i class='bi bi-trash-fill'></i></button> -->
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div *ngIf="sortedCatList.length==0">
+                                <p style="text-align: center; margin-top: 10%;">No Data Found!!!</p>
+                            </div>
+                            <app-pagination [totalItems]="sortedServList.length" [itemsPerPage]="itemsPerPage"
+                                (pageChange)="onServPageChange($event)"></app-pagination>
+                            <!-- <div class="d-flex justify-content-center" *ngIf="sortedServList.length==0">
+                                <div class="spinner-border" role="status">
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div> -->
+                        </div>
+                        <div class="loading" *ngIf="isLoadingServ">
+                            <div id="loader"><!-- Animated logo --><img src="/admin/assets/images/loaderGreen.png" alt="Loading Logo"
+                                    class="logo">
+                                <div class="spinner-border" role="status"></div>
+                                <p>Loading, please wait...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- create service -->
+                    <div class="row" *ngIf="isAddService">
+                        <h5 class="formheader">Create Service</h5>
+                        <form action="" [formGroup]="serviceForm">
+                            <!-- <div class="col-12"> -->
+                            <div class="row">
+                                <div class="col-md-2 col-sm">
+                                    <!-- <div class="row"> -->
+                                    <!-- <div class="col-lg-12 col-sm-12 col-md-12 col-xl-12 col-xs-12"> -->
+                                    <div class="form-group">
+                                        <div class="picture-container">
+                                            <div class="picture" style="margin: 1rem auto 0">
+                                                <div class="picture2">
+                                                    <img src="{{servImage}}" class="picture-src" id="editPicturePreview"
+                                                        title="">
+                                                    <input type="file" id="edit-profile-picture" class=""
+                                                        (change)="onFileSelected($event)" />
+                                                </div>
+                                                <div class="upload-btn">
+                                                    <div class="file-upload">
+                                                        <input type="file" (change)="onFileSelected($event)" /><i
+                                                            class="fa fa-arrow-up"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="picture" style="margin: 1rem auto 0">
+                                                <div class="picture2">
+                                                    <img src="admin/assets/images/profile1.jpeg" class="picture-src"
+                                                        id="wizardPicturePreview" title="">
+                                                </div>
+                                                <div class="upload-btn">
+                                                    <div class="file-upload">
+                                                        <input type="file" /><i class="fa fa-arrow-up"></i>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                </div>
+                                <div class="col-md-10 col-sm">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                            <div class="form-group form-floating">
+                                                <input type="text" class="form-control" formControlName="serviceId"
+                                                    id="serviceId" placeholder="Service ID">
+                                                <label for="serviceId">Service ID</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12" *ngIf="isShow">
+                                            <div class="form-group form-floating">
+                                                <input type="text" class="form-control" formControlName="categoryId"
+                                                    id="categoryId" placeholder="category Id">
+                                                <label for="categoryId">Category ID</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                            <div class="form-group form-floating">
+                                                <input type="text" class="form-control" formControlName="serviceName"
+                                                    id="serviceName" placeholder="Service Name">
+                                                <label for="serviceName">Service Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                            <div class="form-group form-floating">
+                                                <input type="text" class="form-control"
+                                                    formControlName="shortServiceName" id="shortServiceName"
+                                                    placeholder="Service Description">
+                                                <label for="shortServiceName">Service Short Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                            <div class="form-group form-floating">
+                                                <select class="form-control" formControlName="serviceType"
+                                                    id="serviceType">
+                                                    <!-- <option selected disabled>Select T</option> -->
+                                                    <option selected value="F">Fixed</option>
+                                                    <option value="D">Dynamic</option>
+                                                </select>
+                                                <label for="serviceType">Service Type</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                            <div class="form-group form-floating">
+                                                <input type="text" class="form-control"
+                                                    formControlName="englishDescription" id="englishDescription"
+                                                    placeholder="Service Description">
+                                                <label for="englishDescription">Service Description</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                            <div class="form-group form-floating">
+                                                <input type="text" class="form-control" formControlName="catalogueType"
+                                                    id="catalogueType" placeholder="Service Name">
+                                                <label for="catalogueType">Selected Catalogue</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                            <div class="form-group form-floating">
+                                                <input type="text" class="form-control" formControlName="priceType"
+                                                    id="priceType" placeholder="priceType">
+                                                <label for="priceType">Price Type</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                            <div class="form-group form-floating">
+                                                <input type="text" class="form-control" formControlName="currency"
+                                                    id="currency" placeholder="Currency">
+                                                <label for="currency">Currency</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                            <div class="form-group form-floating">
+                                                <select class="form-control" formControlName="taxCode" id="taxCode"
+                                                    (change)="taxCodes($event)">
+                                                    <option selected disabled>Select TaxCode</option>
+                                                    <option *ngFor="let tax of taxes" value="{{tax._id}}">
+                                                        {{tax.taxCode}}</option>
+                                                </select>
+                                                <label for="taxCode" class="floating-labels">taxCode</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                            <div class="form-group form-floating">
+                                                <select class="form-control" formControlName="taxApplicable"
+                                                    id="taxApplicable">
+                                                    <!-- <option selected disabled>Select T</option> -->
+                                                    <option selected value="true">True</option>
+                                                    <option value="false">False</option>
+                                                </select>
+                                                <label for="taxApplicable">Tax Applicable</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12" *ngIf="isShow">
+                                            <div class="form-group form-floating">
+                                                <select class="form-control" formControlName="status" id="status">
+                                                    <option *ngFor="let status of statuses" value="{{status}}">
+                                                        {{status}}</option>
+                                                    <!-- <option value="false">DeActive</option> -->
+                                                </select>
+                                                <label for="status">status</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="d-flex gap-16x justify-content-end">
+                                            <!-- <div class="d-flex gap-16x"> -->
+                                            <button class="btn btn-default-sm-primary"
+                                                (click)="onaddServAction()">Cancel</button>
+                                            <button *ngIf="!isShow" class="btn btn-default-md-fill"
+                                                (click)="createService()">Save</button>
+                                            <button *ngIf="isShow" class="btn btn-default-md-fill"
+                                                (click)="updateService()" data-dismiss="modal">Update</button>
+                                            <!-- <button class="btn btn-sm create" click="onDEl()">d<i class='bi bi-trash-fill trash'></i></button> -->
+
+                                            <button *ngIf="isShow" class="btn btn-sm create" data-toggle="modal"
+                                                data-target="#delService"><i class='bi bi-trash-fill'></i></button>
+                                            <!-- </div> -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </form>
+                        <!-- <button class="btn btn-default-md-fill">Save <i class="fas fa-download"></i></button> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Create Service Modal -->
+
+
+
+
+
+    <!-- Add Category -->
+    <div class="modal fade" id="addCategory" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content alert">
+                <div class="modal-body">
+                    <form [formGroup]="categoryForm">
+                        <div class="" *ngIf="isShow">
+                            <div class="form-group form-floating">
+                                <input type="text" class="form-control" formControlName="categoryId" id="categoryId">
+                                <label for="categoryId">Category ID</label>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group form-floating">
+                                <input type="text" class="form-control" formControlName="categoryName"
+                                    id="categoryName">
+                                <label for="categoryName">Category Name</label>
+                            </div>
+                        </div>
+                        <div class="">
+                            <!-- <div class="col-md-6 col-sm"> -->
+                            <div class="form-group form-floating">
+                                <select class="form-control" formControlName="catalogueType" id="catalogueType">
+                                    <option selected *ngFor="let cat of catalogues" value="{{cat}}">{{cat}}</option>
+                                </select>
+                                <label for="catalogueType">Selected Catalogue</label>
+                            </div>
+                        </div>
+                        <div class="" *ngIf="isShow">
+                            <div class="form-group form-floating">
+                                <select class="form-control" formControlName="status" id="status">
+                                    <option *ngFor="let status of statuses" value="{{status}}">{{status}}</option>
+                                    <!-- <option value="false">DeActive</option> -->
+                                </select>
+                                <label for="status">status</label>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between gap-16x">
+                            <button *ngIf="isShow" class="btn btn-sm create" data-toggle="modal"
+                                data-target="#delCategory"><i class='bi bi-trash-fill trash'></i></button>
+                            <div class="d-flex gap-16x justify-content-end">
+                                <button class="btn btn-default-sm-primary" data-dismiss="modal">Cancel</button>
+                                <button *ngIf="isShow" class="btn btn-default-md-fill" (click)="updateCategory()"
+                                    data-dismiss="modal">Update</button>
+                                <button *ngIf="!isShow" class="btn btn-default-md-fill" (click)="createCategory()"
+                                    data-dismiss="modal">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- <div class="modal-footer d-flex justify-content-between gap-16x">
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="delService" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content alert">
+                <div class="modal-body">
+                    <h6>Are you sure you want to delete?</h6>
+                </div>
+                <div class="modal-footer pull-right d-flex gap-16x">
+                    <button class="btn btn-default-md-fill" data-dismiss="modal">No</button>
+                    <button class="btn btn-default-md-fill" style="background-color:#e90707;" data-dismiss="modal"
+                        (click)="onDelServ()">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="delCategory" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content alert">
+                <div class="modal-body">
+                    <h6>Are you sure you want to delete?</h6>
+                </div>
+                <div class="modal-footer pull-right d-flex gap-16x">
+                    <button class="btn btn-default-md-fill" data-dismiss="modal">No</button>
+                    <button class="btn btn-default-md-fill" style="background-color:#e90707;" data-dismiss="modal"
+                        (click)="onDelCat()">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

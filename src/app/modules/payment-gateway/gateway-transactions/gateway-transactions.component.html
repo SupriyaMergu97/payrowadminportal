@@ -1,0 +1,103 @@
+<div class="content-wrapper main-section-container">
+
+    <app-gatway-menus></app-gatway-menus>
+    <section class="content">
+        <div class="container-fluid p-0">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="section-title d-flex align-items-center justify-content-end">
+                        <div class="col-md-3 d-flex gap-16x">
+                            <div class="select">
+                                <!-- <label class="m-3">SORT BY:</label> -->
+                                <select rows="1" class="form-control" placeholder="">
+                                    <option *ngFor="let status of statusArray">{{status}}</option>
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-3 col-sm d-flex gap-16x">
+                            <div class="select">
+                                <select rows="1" class="form-control" placeholder="" [(ngModel)]="selected"
+                                    (change)='onSelectMonth($event)'>
+                                    <option *ngFor="let j of months" [value]="j.month">{{j.month}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm d-flex gap-16x">
+                            <button class="btn btn-default-primary" (click)="downloadCSV()">Download <i
+                                    class="fas fa-download"></i></button>
+
+                            <div class="p-2 bd-highlight">
+                                <div class="report" data-tooltip="top" role="tooltip" aria-label="report download"
+                                    (click)="downloadCSV()">
+                                    Download : <i class="bi bi-download" style="font-size: 1rem;"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pull-left d-flex gap-16x">
+                            <div class="search-holder">
+                                <form action="">
+                                    <div class="input-group">
+                                        <input type="text" autocomplete="off" name="search" [(ngModel)]="searchText"
+                                            placeholder="Search..." aria-describedby="button-addon5"
+                                            class="form-control">
+                                        <div class="input-group-append">
+                                            <button id="button-addon5" type="submit" class="btn"><i
+                                                    class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div> -->
+
+                    </div>
+                </div>
+                <div class="col-12 table_data">
+                    <div class="table-responsive">
+                        <table class="table table_cust" style="text-align: center;">
+                            <!-- <div class="spinner-border m-5" role="status">  <span class="sr-only">Loading...</span></div> -->
+                            <thead>
+                                <tr>
+                                    <th>MAIN MERCHANT ID</th>
+                                    <th>NAME</th>
+                                    <!-- <th>TID</th> -->
+                                    <!-- <th>ITEM</th> -->
+                                    <th>EMAIL</th>
+                                    <th>MOBILE</th>
+                                    <th>ORDER NO</th>
+                                    <th>TOTAL AMOUNT</th>
+                                    <!-- <th>VAT</th> -->
+                                    <!-- <th>SEQUENCE NO</th> -->
+                                    <th>DATE</th>
+                                    <!-- <th>TIME</th> -->
+                                    <th>STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of transactions">
+
+                                    <td>{{data.mainMerchantId}}</td>
+                                    <td>{{data.customerName}}</td>
+                                    <!-- <td>{{data.posId}}</td> -->
+                                    <!-- <td data-tooltip="top" role="tooltip" attr.aria-label="{{data.typeOfOrder}}">
+                                        <i class="bi bi-info-circle"></i></td> -->
+                                    <td data-tooltip="top" role="tooltip" attr.aria-label="{{data.customerEmail}}">
+                                        <i class="bi-envelope"></i>
+                                    </td>
+                                    <td>{{data.customerPhone}}</td>
+                                    <td>{{data.orderNumber}}</td>
+                                    <td>AED {{data.amount | shortNum}}</td>
+                                    <!-- <td>{{data.vat}}</td> -->
+                                    <!-- <td>{{data.invoiceNumber}}</td> -->
+                                    <td>{{data.paymentDate | date}}</td>
+                                    <!-- <td>{{data.paymentDate | date:'mediumTime'}}</td> -->
+                                    <td>{{data.checkoutStatus}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

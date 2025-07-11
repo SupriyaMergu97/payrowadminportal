@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payrow-admin-frontend
+  labels:
+    app: payrow-admin-frontend
+    visualize: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payrow-admin-frontend
+      serving: "true"
+  template:
+    metadata:
+      labels:
+        app: payrow-admin-frontend
+        version: "latest"
+        serving: "true"
+        visualize: "true"
+    spec:
+      containers:
+      - name: payrow-admin-frontend
+        image: payrow.azurecr.io/payrow-admin-frontend:latest
+        imagePullPolicy: Always
+        env:
+         - name: baseApi
+           value: https://payrowqa.payrow.ae
+
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+        ports:
+        - name: http
+          containerPort: 80

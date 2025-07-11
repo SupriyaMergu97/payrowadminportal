@@ -1,0 +1,883 @@
+<div class="content-wrapper main-section-container">
+    <section class="content">
+        <div class="container-fluid p-0" *ngIf="!isAddEmp">
+            <div class="row mb-4">
+                <!-- Merchant List -->
+                <div class="section-header">
+                    <!-- <h4>Create</h4> -->
+                    <div class="pull-left d-flex gap-16x">
+                        <div class="search-holder">
+                            <form action="">
+                                <div class="input-group">
+                                    <input type="text" autocomplete="off" name="search" [(ngModel)]="searchText"
+                                        placeholder="Search Employee" aria-describedby="button-addon5"
+                                        class="form-control">
+                                    <div class="input-group-append">
+                                        <button id="button-addon5" type="submit" class="btn"><i
+                                                class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="pull-right d-flex gap-16x">
+                        <button class="btn btn-primary-lg" *ngIf="!isdisplay" (click)="onCreateDept()"
+                            data-toggle="modal" data-target="#addDepartment">
+                            Add Department<i class="fas fa-plus cta-plus-btn border-0"></i></button>
+                        <button class="btn btn-primary-lg" *ngIf="isdisplay" (click)="onCreateEmpAction()">
+                            Add Employee<i class="fas fa-plus cta-plus-btn border-0"></i></button>
+                        <!-- <button class="btn btn-default-normal">Cancel <i class="fas fa-plus rotate-45"></i></button> -->
+                        <!-- <button class="btn btn-default-primary" *ngIf="isShow" id="submit" (click)="submit()" [disabled]="!salesForm.valid">Save <i class="fas fa-download"></i></button>  -->
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th>Department ID</th>
+                        <th>Department Name</th>
+                        <th>Contact</th>
+                        <th>No of Employees</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let data of getPageDept() | filter:searchText let i=index; let even=even">
+                        <tr class="tid-data-row" [ngClass]="{'tid-even': even}" [class.active]="data.showDetail">
+                            <td>{{data.deptId}}</td>
+                            <td>{{data.deptName}}</td>
+                            <td>
+                                <div>
+                                    <button class="dialog" (click)="openDialog(data.deptId)"><div class="bi-card-list"></div></button>
+                                </div>
+                                <app-contact-dialog *ngIf="showDialog" [dialogData]="dialogData" (close)="closeDialog()"></app-contact-dialog>
+                                <!-- <div class="content" style="margin-left: 4px;" data-toggle="modal"
+                                    data-target="#userinfo">
+                                    <div class="bi-card-list"></div>
+                                </div> -->
+                            </td>
+                            <td>{{data.noOfEmp}}</td>
+                            <td>
+                                <span *ngIf="data.status=='Active'" class="badge badge-success">Active</span>
+                                <span *ngIf="data.status=='In-Active'" class="badge badge-danger">In-Active</span>
+                            </td>
+                            <td><button class="btn btn-sm create" (click)="onUpdateDept(data.deptId)"
+                                    data-toggle="modal" data-target="#addDepartment">
+                                    <i class="bi bi-pencil-square"></i></button></td>
+                            <td>
+                                <button class="cta-plus-btn border-0" *ngIf="!data.showDetail"
+                                    (click)="onOpenEmp(data.deptId)"><i class="fas fa-plus"></i></button>
+                                <button class="cta-plus-btn border-0" *ngIf="data.showDetail"
+                                    (click)="[data.showDetail = !data.showDetail ,  isdisplay=!isdisplay]"><i
+                                        class="fas fa-minus-circle"></i></button>
+                            </td>
+                        </tr>
+                        <div class="loading" *ngIf="isLoading">
+                            <div id="loader"><!-- Animated logo --><img src="/admin/assets/images/loaderGreen.png" alt="Loading Logo"
+                                    class="logo">
+                                <div class="spinner-border" role="status"></div>
+                                <p>Loading, please wait...</p>
+                            </div>
+                        </div>
+                        <tr class="tid-detail-row" *ngIf="data.showDetail" [class.active]="data.showDetail">
+                            <td colspan="8" style="padding-top: 12px;">
+                                <table class="table table-striped text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>EMP ID</th>
+                                            <th> Address</th>
+                                            <th>Joining Date</th>
+                                            <th>Leave</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                            <!-- <th>Attachment</th> -->
+                                            <!-- <th>Delay</th> -->
+                                            <!-- <th>Reassign</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let data of getPageEmp() | filter:searchText">
+                                            <!-- <td> <img class="profile" src="{{data.path}}" alt="">
+                                            </td> -->
+                                            <td>
+                                                <div class="image-container">
+                                                    <img class="profile"
+                                                        src="{{data.empImageId}}"
+                                                        alt="image">
+                                                    <div class="tooltip">
+                                                        <img src="{{data.empImageId}}"
+                                                            alt="Image">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>{{data.empName}}</td>
+                                            <td>{{data.empId}}</td>
+                                            <td>
+                                                <div>
+                                                    <button class="dialog" (click)="openDialogForEmp(data.empId)"><div class="bi-card-list"></div></button>
+                                                </div>
+                                                <app-contact-dialog *ngIf="showDialog" [dialogData]="dialogData"
+                                                    (close)="closeDialog()"></app-contact-dialog>
+                                                <!-- <div class="content" style="margin-left: 4px;" data-toggle="modal"
+                                                    data-target="#userinfo">
+                                                    <div class="bi-card-list"></div>
+                                                </div> -->
+                                            </td>
+                                            <td>{{data.dateOfJoining | date}}</td>
+                                            <td><button class="btn btn-sm btn-sm-cust btn-outline-dark"
+                                                    data-toggle="modal" data-target="#applyleave"
+                                                    (click)="getId(data.empId,data.sickLeaves,data.annualLeaves)">Apply</button>
+                                            </td>
+                                            <td>
+                                                <span *ngIf="data.status=='Active'"
+                                                    class="badge badge-success">Active</span>
+                                                <span *ngIf="data.status=='In-Active'"
+                                                    class="badge badge-danger">In-Active</span>
+                                            </td>
+                                            <td><button class="btn btn-sm create"
+                                                    (click)="onupdateEmpAction(data.empId)">
+                                                    <i class="bi bi-pencil-square"></i></button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div *ngIf="empList.length==0">
+                                    <p style="text-align: center; margin-top: 2%;">No Data Found!!!</p>
+                                </div>
+                                <app-pagination [totalItems]="empList.length" [itemsPerPage]="itemsPerEmpPage"
+                                    (pageChange)="onEmpPageChange($event)"></app-pagination>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+            <div *ngIf="departmentList.length==0">
+                <p style="text-align: center; margin-top: 10%;">No Data Found!!!</p>
+            </div>
+            <app-pagination [totalItems]="departmentList.length" [itemsPerPage]="itemsPerDeptPage"
+                (pageChange)="onDeptPageChange($event)"></app-pagination>
+        </div>
+
+        <!-- NEW CODE EMPLOYEE CARDS -->
+        <div class="row" *ngIf="isAddEmp">
+            <form action="" [formGroup]="empForm">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-md-2 col-sm">
+                            <!-- <div class="row"> -->
+                            <!-- <div class="col-lg-12 col-sm-12 col-md-12 col-xl-12 col-xs-12"> -->
+                            <div class="form-group">
+                                <div class="picture-container">
+                                    <div class="picture" style="margin: 1rem auto 0">
+                                        <div class="picture2">
+                                            <img src="{{profileImg}}" class="picture-src" id="editPicturePreview"
+                                                title="">
+                                            <input type="file" id="edit-profile-picture" class=""
+                                                (change)="onFileSelected($event)" />
+                                        </div>
+                                        <div class="upload-btn">
+                                            <div class="file-upload">
+                                                <input type="file" (change)="onFileSelected($event)" /><i
+                                                    class="fa fa-arrow-up"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                        <div class="col-md-10 col-sm">
+                            <div class="row">
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12" *ngIf="isShow">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="empId" id="empId"
+                                            placeholder="Service ID">
+                                        <label for="empId">Employee ID</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12" *ngIf="isShow">
+                                    <div class="form-group form-floating">
+                                        <select class="form-control" formControlName="deptId" id="deptId"
+                                            (change)="departments($event)">
+                                            <option selected disabled>Select Department</option>
+                                            <option *ngFor="let dept of departmentList" value="{{dept.deptId}}">
+                                                {{dept.deptName}}</option>
+                                        </select>
+                                        <label for="deptId" class="floating-labels">Select
+                                            Department</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12" *ngIf="isShow">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="dateOfJoining"
+                                            id="dateOfJoining" placeholder="Date of Joining">
+                                        <label for="dateOfJoining">Date of Joining</label>
+                                    </div>
+                                </div>
+                                <!-- <div class="row" *ngIf="!isShow">
+                                <div class="col-lg-8 col-sm-8 col-md-8 col-xl-8 col-xs-12 d-flex">
+                                    <label for="deptId" class="floating-labels"
+                                        style="width: auto;margin-top: 16px;">Select
+                                        Department &nbsp;:&nbsp;</label>
+                                    <div class="form-group" style="width: 55%;">
+                                        <select class="form-control" formControlName="deptId" id="deptId"
+                                            (change)="departments($event)">
+                                            <option selected disabled>Select Department</option>
+                                            <option *ngFor="let dept of departmentList" value="{{dept.deptId}}">
+                                                {{dept.deptName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> -->
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="empName" id="empName"
+                                            placeholder="Employee Name">
+                                        <label for="empName">Employee Name</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="emailId" id="emailId"
+                                            placeholder="Email Id">
+                                        <label for="emailId">Email ID</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="mobileNumber"
+                                            id="mobileNumber" placeholder="Mobile Number">
+                                        <label for="mobileNumber">Mobile Number</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                    <div class="form-group form-floating">
+                                        <select class="form-control" formControlName="gender" id="gender">
+                                            <!-- <option selected disabled>Select T</option> -->
+                                            <option selected value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                        <label for="gender">Gender</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                    <div class="form-group form-floating">
+                                        <select class="form-control" formControlName="nationality" id="nationality">
+                                            <option value="" disabled>Select Nationality</option>
+                                            <option value="India">India</option>
+                                            <option value="U.A.E">U.A.E</option>
+                                        </select>
+                                        <label for="nationality">Select Nationality</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12" *ngIf="!isShow">
+                                    <div class="form-group form-floating">
+                                        <select class="form-control" formControlName="deptId" id="deptId"
+                                            (change)="departments($event)">
+                                            <option selected disabled>Select Department</option>
+                                            <option *ngFor="let dept of departmentList" value="{{dept.deptId}}">
+                                                {{dept.deptName}}</option>
+                                        </select>
+                                        <label for="deptId">Selected Department</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12" *ngIf="isShow">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="leaveBalance"
+                                            id="leaveBalance" placeholder="Leave Balances">
+                                        <label for="leaveBalance">Leave Balances</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="empGrade" id="empGrade"
+                                            placeholder="Employee Grade">
+                                        <label for="empGrade">Employee Grade</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="jobTitle" id="jobTitle"
+                                            placeholder="Job Title">
+                                        <label for="jobTitle">Job Title</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="jobDesc" id="jobDesc"
+                                            placeholder="Job Description">
+                                        <label for="jobDesc">Job Description</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="salary" id="salary"
+                                            placeholder="Salary">
+                                        <label for="salary">Salary</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="acntNumber"
+                                            id="acntNumber" placeholder="Account Number">
+                                        <label for="acntNumber">Account Number</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                    <div class="form-group form-floating">
+                                        <input type="date" class="form-control" formControlName="dateOfBirth"
+                                            id="dateOfBirth" placeholder="Date of Birth" [max]="maxDate">
+                                        <label for="dateOfBirth">Date of Birth</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                    <div class="form-group form-floating">
+                                        <input type="text" class="form-control" formControlName="nationalId"
+                                            id="nationalId" placeholder="National Id">
+                                        <label for="nationalId">National Id</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                    <div class="form-group form-floating">
+                                        <input type="date" formControlName="idExpireDate" class="form-control"
+                                            placeholder="Expiry Date" [min]="minExpiryDate" />
+                                        <label for="idExpireDate" [ngClass]="{'is-invalid': empForm.controls['idExpireDate'].invalid && empForm.controls['idExpireDate'].touched,
+                                    'is-valid': empForm.controls['idExpireDate'].valid}">
+                                            Emirates expiry date<span>&nbsp;*</span></label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                    <div class="form-group form-floating">
+                                        <input type="file" class="form-control fileupload"
+                                            formControlName="nationalIdFile" id="nationalIdFile"
+                                            placeholder="National Id File" (change)="onIdFileSelected($event)">
+                                        <label for="nationalIdFile">Upload National ID</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                                    <div class="form-group form-floating">
+                                        <input type="password" class="form-control" formControlName="password"
+                                            id="password" placeholder="Password">
+                                        <label for="password">Password</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-sm-8 col-md-8 col-xl-8 col-xs-12">
+                                    <div class="form-group form-floating">
+                                        <textarea type="text" class="form-control textLabel" formControlName="address"
+                                            id="address" placeholder="Complete Address"></textarea>
+                                        <label for="address">Complete Address</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12" *ngIf="isShow">
+                                    <div class="form-group form-floating">
+                                        <select class="form-control" formControlName="status" id="status">
+                                            <option *ngFor="let status of statuses" value="{{status}}">
+                                                {{status}}</option>
+                                            <!-- <option value="false">DeActive</option> -->
+                                        </select>
+                                        <label for="status">status</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="d-flex gap-16x justify-content-end">
+                                    <!-- <div class="d-flex gap-16x"> -->
+                                    <button class="btn btn-default-sm-primary"
+                                        (click)="onCreateEmpAction()">Cancel</button>
+                                    <button *ngIf="!isShow" class="btn btn-default-md-fill"
+                                        (click)="submit()">Save</button>
+                                    <button *ngIf="isShow" class="btn btn-default-md-fill" (click)="submit()"
+                                        data-dismiss="modal">Update</button>
+                                    <!-- <button class="btn btn-sm create" click="onDEl()">d<i class='bi bi-trash-fill trash'></i></button> -->
+
+                                    <button *ngIf="isShow" class="btn btn-sm create" data-toggle="modal"
+                                        data-target="#delEmp"><i class='bi bi-trash-fill'></i></button>
+                                    <!-- </div> -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- <button class="btn btn-default-md-fill">Save <i class="fas fa-download"></i></button> -->
+        </div>
+
+
+        <!-- NEW CODE EMPLOYEE CARDS -->
+        <!-- <br> -->
+        <!-- <br> -->
+        <!-- <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row cust-emp-card">
+                            <div class="col-3" style="max-width: 25%;"
+                                *ngFor="let emp of employeeDetails | filter:searchText">
+                                <div class="card card-employee">
+                                    <div class="card-body p-0">
+                                        <div class="avatar-container d-flex">
+                                            <div class="editProf" data-toggle="modal" data-target="#myModal2"
+                                                (click)="getDetails(emp)">
+                                                <i class="bi bi-three-dots" style="position:relative; top: 1px;"></i>
+                                            </div>
+                                            <div
+                                                class="contact-container d-flex align-items-center justify-content-center flex-column text-center">
+                                                <div class="picture-container">
+                                                    <div class="picture">
+                                                        <div class="picture2">
+                                                            <img src="admin/assets/images/Ellipse 13.jpg"
+                                                                class="picture-src" id="wizardPicturePreview" title="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="contact-details">
+                                                    <div class="label-name"></div>
+                                                    <div class="person-name">{{emp.empName}}</div>
+                                                </div>
+                                                <div class="contact-details">
+                                                    <div class="label-name">Employee ID</div>
+                                                    <div class="person-name">{{emp.empId}}</div>
+                                                </div>
+                                                <div class="contact-details">
+                                                    <div class="label-name">Job Title</div>
+                                                    <div class="person-name">{{emp.jobTitle}}</div>
+                                                </div>
+                                                <div class="card-footer d-flex flex-wrap justify-content-center">
+                                                    <button type="button" class="btns btn-wps" data-toggle="modal"
+                                                        data-target="#salary" (click)="getDetails(emp)">Wps</button>
+                                                    <button type="button" class="btn btn-secondary" data-toggle="modal"
+                                                        data-target="#applyleave" (click)="getDetails(emp)">Apply
+                                                        Leave</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+    </section>
+
+    <div class="modal fade" id="addDepartment" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content alert">
+                <div class="modal-body">
+                    <form [formGroup]="deptForm">
+                        <div class="" *ngIf="isShow">
+                            <div class="form-group form-floating">
+                                <input type="text" class="form-control" formControlName="deptId" id="deptId">
+                                <label for="deptId">Department ID</label>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group form-floating">
+                                <input type="text" class="form-control" formControlName="deptName" id="deptName">
+                                <label for="deptName">Department Name</label>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group form-floating">
+                                <input type="text" class="form-control" formControlName="emailId" id="emailId">
+                                <label for="emailId">Email ID</label>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form-group form-floating">
+                                <input type="text" class="form-control" formControlName="mobileNumber"
+                                    id="mobileNumber">
+                                <label for="mobileNumber">Mobile Number</label>
+                            </div>
+                        </div>
+                        <div class="" *ngIf="isShow">
+                            <div class="form-group form-floating">
+                                <select class="form-control" formControlName="status" id="status">
+                                    <option *ngFor="let status of statuses" value="{{status}}">{{status}}</option>
+                                    <!-- <option value="false">DeActive</option> -->
+                                </select>
+                                <label for="status">status</label>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between gap-16x">
+                            <button *ngIf="isShow" class="btn btn-sm create" data-toggle="modal"
+                                data-target="#delDept"><i class='bi bi-trash-fill trash'></i></button>
+                            <div class="d-flex gap-16x justify-content-end">
+                                <button class="btn btn-default-sm-primary" data-dismiss="modal">Cancel</button>
+                                <button *ngIf="isShow" class="btn btn-default-md-fill" (click)="updateDept()"
+                                    data-dismiss="modal">Update</button>
+                                <button *ngIf="!isShow" class="btn btn-default-md-fill" (click)="createDepartment()"
+                                    data-dismiss="modal">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- <div class="modal-footer d-flex justify-content-between gap-16x">
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="delDept" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content alert">
+                <div class="modal-body">
+                    <h6>Are you sure you want to delete?</h6>
+                </div>
+                <div class="modal-footer pull-right d-flex gap-16x">
+                    <button class="btn btn-default-md-fill" data-dismiss="modal">No</button>
+                    <button class="btn btn-default-md-fill" style="background-color:#e90707;" data-dismiss="modal"
+                        (click)="removeDept()">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="delEmp" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content alert">
+                <div class="modal-body">
+                    <h6>Are you sure you want to delete?</h6>
+                </div>
+                <div class="modal-footer pull-right d-flex gap-16x">
+                    <button class="btn btn-default-md-fill" data-dismiss="modal">No</button>
+                    <button class="btn btn-default-md-fill" style="background-color:#e90707;" data-dismiss="modal"
+                        (click)="removeEmp()">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Apply Leave Modal -->
+    <!-- <div class="container"> -->
+    <div class="modal fade" id="applyleave" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Apply Leave</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="margin: 8px;">
+                    <form [formGroup]="leaveForm">
+                        <div class="d-flex justify-content-between mb-3">
+                            <label for="remarks">Sick Leaves &nbsp;: &nbsp;{{sickLeaves}}</label>
+                            <label for="remarks">Annual Leaves &nbsp;: &nbsp;{{annualLeaves}}</label>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="form-group form-floating" style="width: 100%; margin-right: 10px;">
+                                <input type="date" class="form-control" formControlName="fromDate" id="fromDate">
+                                <label for="fromDate">From Date</label>
+                            </div>
+                            <div class="form-group form-floating" style="width: 100%;">
+                                <input type="date" class="form-control" formControlName="toDate" id="toDate">
+                                <label for="toDate">To Date</label>
+                            </div>
+                        </div>
+                        <div class="form-group form-floating">
+                            <select class="form-control" formControlName="typeOfLeave" id="typeOfLeave">
+                                <option selected disabled>Select Leave Type</option>
+                                <option value="sickLeaves">Sick Leave</option>
+                                <option value="annualLeaves">Annual Leave</option>
+                            </select>
+                            <label for="typeOfLeave">Select Leave Type</label>
+                        </div>
+                        <div class="form-group form-floating">
+                            <textarea class="form-control textLabel" formControlName="remarks" id="remarks"
+                                placeholder="Remarks"></textarea>
+                            <label for="remarks">Remarks</label>
+                        </div>
+                        <div class="d-flex justify-content-end gap-16x">
+                            <button class="btn btn-default-sm-primary" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-default-md-fill" (click)="applyLeaves()"
+                                [disabled]="!leaveForm.valid">Apply</button>
+                        </div>
+                    </form>
+                </div>
+
+
+
+                <!-- <div class="modal-body">
+                    <select class="form-control" formControlName="catalogueType" id="catalogueType">
+                        <option selected *ngFor="let cat of catalogues" value="{{cat}}">{{cat}}</option>
+                    </select>
+                    <label for="catalogueType">Selected Catalogue</label>
+
+                    <div class="form-group form-floating">
+                        <input type="text" class="form-control" formControlName="categoryName" id="categoryName">
+                        <label for="categoryName">Category Name</label>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="d-flex justify-content-between">
+                            <label for="remarks">Sick Leaves &nbsp;: &nbsp;{{sickLeaves}}</label>
+                            <label for="remarks">Annual Leaves &nbsp;: &nbsp;{{annualLeaves}}</label>
+                        </div>
+                        <div class="col-sm-6 my-3 form-group">
+                            <label for="from_date">From date</label>
+                            <input type="date" id="from_date" formControlName="fromDate" class="form-control"
+                                style="height: 48px;" placeholder="Select date">
+                        </div>
+                        <div class="col-sm-6 my-3 form-group">
+                            <label for="to_date">To date</label>
+                            <input type="date" id="to_date" formControlName="toDate" class="form-control"
+                                style="height: 48px;" placeholder="Select date">
+                        </div>
+
+                        <div class="col-sm-12 my-3 form-group">
+                            <label for="leave">Select Leave Type</label>
+                            <select class="form-control" style="height: 48px;" id="leave" formControlName="typeOfLeave"
+                                style="color:#999">
+                                <option value="">Select Leave Type</option>
+                                <option value="sickLeaves">Sick Leave</option>
+                                <option value="annualLeaves">Annual Leave</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-12 my-3 form-group">
+                            <label for="remarks">Remarks</label>
+                            <textarea class="form-control" style="height: 48px;" formControlName="remarks" rows="5"
+                                id="remarks" placeholder="Remarks"></textarea>
+                        </div>
+                        <div class="col-sm-12 d-flex justify-content-end gap-16x">
+                            <button class="btn btn-default-sm-primary" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-default-md-fill" (click)="applyLeaves()"
+                                [disabled]="!leaveForm.valid">Apply</button>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+        </div>
+    </div>
+
+    <!-- </div> -->
+
+
+
+
+
+
+
+
+
+
+
+    <!-- extra code -->
+    <!-- SATHYA UPDATE DESIGN -->
+    <!-- ADD EMP & SAVE -->
+    <!-- ALL EMPLOYEES CARD -->
+
+    <!-- MODAL POPUP -->
+
+    <!-- Employee details Modal -->
+    <div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel2" style="   margin-left: 9px">Employee Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="container">
+
+                        <form id="edit_employee_form" [formGroup]="editEmpForm">
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <div class="picture-container" style="margin-bottom: 28px;">
+                                            <div class="picture">
+                                                <div class="picture2">
+                                                    <img src="{{oneEmpDetails.path}}" class="picture-src"
+                                                        id="editPicturePreview" title="">
+                                                    <input type="file" id="edit-profile-picture" class=""
+                                                        (change)="onFileSelected($event)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="picture-label text-center">
+                                            <label for="edit-profile-picture" style="padding: 18px 17px 14px;">Upload
+                                                Profile Picture</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ROW 1 -->
+                            <div class="row">
+                                <div class="col-4 my-3">
+                                    <div class="form-group">
+                                        <label for="inputEmployeeNames">Employee Name</label>
+                                        <input type="text" id="inputEmployeeNames" name="employee_name"
+                                            formControlName="empName" class="form-control" style="height: 48px;"
+                                            [(ngModel)]="oneEmpDetails.empName" value='{{oneEmpDetails.empName}}'>
+                                    </div>
+                                </div>
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputJobTitles">Job Title</label>
+                                        <input type="text" id="inputJobTitles" name="job_title" class="form-control"
+                                            style="height: 48px;" formControlName="jobTitle"
+                                            [(ngModel)]="oneEmpDetails.jobTitle" value="{{oneEmpDetails.jobTitle}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ROW 2 -->
+                            <div class="row">
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputSalarys">Salary</label>
+                                        <input type="text" id="inputSalarys" name="salary" class="form-control"
+                                            formControlName="salary" [(ngModel)]="oneEmpDetails.salary"
+                                            value="{{oneEmpDetails.salary}}">
+                                    </div>
+                                </div>
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputEmployeeName">Employee ID</label>
+                                        <input type="text" id="inputEmployeeName" name="employee_name"
+                                            formControlName="empId" class="form-control" style="height: 48px;" disabled
+                                            [(ngModel)]="oneEmpDetails.empId" value="{{oneEmpDetails.empId}}" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ROW 3 -->
+                            <div class="row">
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputJobTitle">Employee Grad</label>
+                                        <input type="text" id="inputJobTitle" name="job_title" class="form-control"
+                                            style="height: 48px;" formControlName="empGrade"
+                                            [(ngModel)]="oneEmpDetails.empGrade" value="{{oneEmpDetails.empGrade}}">
+                                    </div>
+                                </div>
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputSalary">Applicable Leaves</label>
+                                        <input type="text" id="inputSalary" name="salary" class="form-control"
+                                            style="height: 48px;" formControlName="leaveBalance"
+                                            [(ngModel)]="oneEmpDetails.leaveBalance"
+                                            value="{{oneEmpDetails.leaveBalance}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ROW - 4 -->
+                            <div class="row">
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputJobDesc">Job Description</label>
+                                        <input type="text" id="inputJobDesc" name="jobDesc" formControlName="jobDesc"
+                                            class="form-control" style="height: 48px;"
+                                            [(ngModel)]="oneEmpDetails.jobDesc" value="{{oneEmpDetails.jobDesc}}">
+                                    </div>
+                                </div>
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputJobTitlee">Qualification</label>
+                                        <input type="text" id="inputJobTitlee" name="job_title" class="form-control"
+                                            style="height: 48px;" formControlName="personalInfo" autocomplete="off"
+                                            value="{{oneEmpDetails.personalInfo}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 my-3">
+                                    <div class="form-group">
+                                        <label for="inputSalaryy">Date of Joining</label>
+                                        <input type="text" id="inputSalaryy" name="salary" class="form-control"
+                                            style="height: 48px;" formControlName="endService"
+                                            [(ngModel)]="oneEmpDetails.endService" autocomplete="off"
+                                            value="{{oneEmpDetails.endService}}">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-center" style="margin: 74px 0px 0px 123px;">
+                                        <button class="btn btn-default-fill"
+                                            (click)="updateOne(oneEmpDetails)">UPDATE</button>
+
+                                        <!-- <button type="button" class="btn btn-submit btn-secondary btn-update"
+                                            id="btn_submit" (click)="updateOne(oneEmpDetails)">Update</button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Salary (WPS) Details Modal -->
+    <div class="container">
+        <div class="modal right fade" id="salary" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <form [formGroup]="wpsDetails">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">WPS Details</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6 my-3 form-group">
+                                    <label for="basic_salary">Basic Salary</label>
+                                    <input type="text" id="basic_salary" class="form-control" style="height: 48px;"
+                                        [(ngModel)]="wpsData.basic" formControlName="basic" placeholder="Basic Salary">
+                                </div>
+                                <div class="col-sm-6 my-3 form-group">
+                                    <label for="house_allownce">Hosue Allowance</label>
+                                    <input type="text" id="house_allownce" class="form-control" style="height: 48px;"
+                                        formControlName="hra" [(ngModel)]="wpsData.hra" placeholder="Hosue Allowance">
+                                </div>
+                                <div class="col-sm-6 my-3 form-group">
+                                    <label for="transport">Transport</label>
+                                    <input type="text" id="transport" class="form-control" style="height: 48px;"
+                                        placeholder="transport" [(ngModel)]="wpsData.transport"
+                                        formControlName="transport">
+                                </div>
+                                <div class="col-sm-6 my-3 form-group">
+                                    <label for="join_date">Joining date</label>
+                                    <input type="date" id="join_date" class="form-control" style="height: 48px;"
+                                        placeholder="Joining date" [(ngModel)]="wpsData.dateOfJoining"
+                                        formControlName="dateOfJoining">
+                                </div>
+                                <div class="col-sm-6 my-3 form-group">
+                                    <label for="bonus">Bonus</label>
+                                    <input type="text" id="bonus" class="form-control" style="height: 48px;"
+                                        placeholder="Bonus" [(ngModel)]="wpsData.bonus" formControlName="bonus">
+                                </div>
+                                <div class="col-sm-6 my-3 form-group">
+                                    <label for="acNum">Account Number</label>
+                                    <input type="text" id="acNum" class="form-control" style="height: 48px;"
+                                        [(ngModel)]="wpsData.acNum" placeholder="Enter Account Number"
+                                        formControlName="acNum">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary close-btn"
+                                data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-success" (click)="wps(oneEmpDetails)"
+                                [disabled]="!wpsDetails.value">Submit</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>

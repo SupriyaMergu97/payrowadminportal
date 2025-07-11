@@ -1,0 +1,23 @@
+.count-box{
+  display: flex;
+  flex-direction: column;
+  .cbox-text{
+    padding: 6px 12px;
+  }
+}
+.product{
+  padding: 0px;
+}
+.cbox-text{
+  h5{font-size: 14px !important;}
+  h4{font-size: 16px !important; margin-bottom: 0px;}
+}
+.cc-content-area{
+  span{font-size: 10px;}
+}
+.container-fluid{
+  margin-top: 28px;
+}
+.content{
+  border-bottom: 10px solid gainsboro;
+}

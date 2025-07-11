@@ -1,0 +1,254 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper main-section-container">
+
+	<app-dashboard-menus></app-dashboard-menus>
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row" style="margin-bottom: 20px;">
+				<div class="col-12 pl-0 pr-0">
+					<div class="chart-container" style="border: 0px; padding: 0px;">
+						<div class="mytextdiv">
+							<div class="mytexttitle">
+								MARKET TODAY
+							</div>
+							<div class="divider"></div>
+							<button class="btn btn-primary-lg" data-toggle="modal" data-target="#uploadImage">
+								Upload Image <i class="fas fa-plus cta-plus-btn border-0"></i></button>
+							<!-- <button class="btn btn-sm uploadImg float-right" data-toggle="modal"
+								data-target="#uploadImage">Upload Image</button> -->
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal" id="uploadImage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+
+				<div class="row h-100">
+					<div class="col-sm-12 my-auto">
+						<div class="card card-block w-50 shadow-none rounded-0 cardImg">
+							<div class="card-header">
+								Image Upload
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+							</div>
+							<form [formGroup]="uploadForm" (ngSubmit)="submitImage()">
+								<div class="card-body">
+
+									<div class="row">
+										<div class="col-6 form-group">
+											<label for="firstImg">
+												<p class="font-weight-normal imgtext1">Upload From Computer</p>
+											</label>
+											<div class="imgtext2">
+												<p class="font-weight-light">(Max Image size is 2Mb)</p>
+											</div>
+											<input type="file" accept="image/*" id="firstImg" name=""
+												style="display: none;" (change)="onFileSelected($event)">
+										</div>
+										<div class="col-6">
+											<div *ngIf="imageUrl && imageUrl !== ''">
+												<img src={{imageUrl}} [alt]="uploadForm.value.name"
+													class="img-thumbnail">
+												<div class="imgtext3">
+													<p>{{fileSelected}}</p>
+												</div>
+
+											</div>
+
+										</div>
+									</div>
+
+								</div>
+								<div class="card-footer text-center">
+									<button class="btn btn-sm btn-secondary" (click)="submitImage()" type="submit"
+										data-dismiss="modal">Save
+										Image</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12 pl-0 pr-0">
+						<!-- <div class="chart-container"> -->
+						<div id="chart-container">
+							<img src={{mtimage}} class="img-fluid"
+								style="width: 100%; height: 300px; border-radius:1%;">
+							<div class="bottom-right">
+								Market <span>Today</span></div>
+						</div>
+						<!-- </div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 pl-0 pr-0">
+					<div class="" style="border: 0px;margin-top: -7px;">
+						<div class="mytextdiv d-flex align-items-center justify-content-star">
+							<!-- <div class="mytexttitle">
+								<div class="d-flex align-items-center justify-content-start"> -->
+							<div class="col-md-3 col-sm">
+								<div class="select">
+									<select rows="1" class="form-control" placeholder="" [(ngModel)]="prod"
+										(change)='onSelectProd($event)'>
+										<option *ngFor="let p of products" [value]="p">{{p}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm">
+								<div class="select">
+									<select rows="1" class="form-control" placeholder="" [(ngModel)]="selectedType"
+										(change)='onSelectType($event)'>
+										<option *ngFor="let type of serviceTypes" [value]="type">{{type}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm">
+								<div class="select">
+									<select rows="1" class="form-control" placeholder="" [(ngModel)]="selectedItem"
+										(change)='onSelectItem($event)'>
+										<option aria-selected="true" value="All Services">All Services</option>
+										<option *ngFor="let cat of filteredItems" [value]="cat.serviceName">
+											{{cat.serviceName}}</option>
+									</select>
+								</div>
+							</div>
+							<!-- <select class="form-select"
+										aria-label="Default select example" [(ngModel)]="selectedProduct"
+										(change)='onSelectProd($event)'>
+										<option *ngFor="let prod of products" [value]="prod">{{prod}}
+										</option>
+									</select>
+									<select class="form-select current-status-dropdown"
+										aria-label="Default select example" [(ngModel)]="selectedType"
+										(change)='onSelectType($event)'>
+										<option *ngFor="let type of serviceTypes" [value]="type">{{type}}
+										</option>
+									</select>
+									<select class="form-select current-status-dropdown"
+										aria-label="Default select example" [(ngModel)]="selected"
+										(change)='onSelectItem($event)'>
+										<option *ngFor="let cat of marketDataStore" [value]="cat.item">{{cat.item}}
+										</option>
+									</select> -->
+
+							<!-- </div>
+							</div> -->
+							<!-- <div class="divider"></div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 pl-0 pr-0">
+					<div class="chart-container">
+						<div id="chart-container">
+							<!-- <app-bar-chart [primaryXAxis]="prXAxis" [primaryYAxis]="prYAxis" [data]="chartData"
+								[tooltip]="tooltip" [name]="nameOntoolTip"></app-bar-chart> -->
+
+							<ejs-chart style='display:block;' [chartArea]='chartArea' [legendSettings]='legend'
+								[width]='width' align='right' [primaryXAxis]='prXAxis' [primaryYAxis]='prYAxis'
+								[tooltip]='tooltip' [palettes]='palette' (loaded)='onChartLoad($event)'
+								[height]="'300px'" [width]="'98%'">
+								<e-series-collection>
+									<e-series [dataSource]='chartData' type='StackingColumn' xName='x' yName='y'
+										width='2' columnWidth=.40 [cornerRadius]='radius'></e-series>
+								</e-series-collection>
+							</ejs-chart>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 pl-0 pr-0">
+					<div class="chart-container" style="border: 0px">
+						<div class="mytextdiv">
+							<div class="mytexttitle">CURRENT STATUS</div>
+							<div class="divider hr_tag"></div>
+							<div class="col-md-2 col-sm">
+								<div class="select">
+									<select rows="1" class="seldrpdwn form-control" placeholder=""
+										[(ngModel)]="currentYear" (change)='onSelectMonth($event)'>
+										<option *ngFor="let y of years" [value]="y.year">{{y.year}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<ng-multiselect-dropdown [placeholder]="'Select Items'" [data]="multiSelectorData"
+									[(ngModel)]="selectedItems" [settings]="dropdownSettings"
+									(onDeSelect)="onItemDeSelect($event)" (onSelect)="onItemSelect($event)"
+									(onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)">
+								</ng-multiselect-dropdown>
+								<!-- <ng-multiselect-dropdown [placeholder]="'select Items'" [data]="multiSelectorData"
+									[(ngModel)]="selectedItems" [settings]="dropdownSettings"
+									(onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"
+									(onDeSelect)="onItemDeSelect($event)" [required]='requiredField'>
+								</ng-multiselect-dropdown> -->
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- </section> -->
+		<div style="margin-top: -8px;">
+			<!-- <section class="my-3"> -->
+			<div class="chart-content-holder">
+				<div class="row" [ngStyle]="bgStyle" *ngIf="selectedItems.length > 0">
+					<div class="col-12-sm chartSt">
+
+						<!-- <ejs-chart style='display:block' id='chartcontainer'  [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis1'
+						[title]='title' [tooltip]='tooltip' (load)='load($event)'>
+							<e-series-collection>
+								<e-series [dataSource]='selectedItems' type='Bar' xName='x' yName='y' [marker]="marker"
+								[columnWidth]="columnWidth"> </e-series>    
+							</e-series-collection>
+							</ejs-chart> -->
+
+
+						<ejs-chart [chartArea]='chartArea' [width]='width' align='center' id='chart-container'
+							[height]='height' [primaryXAxis]='primaryXAxis1' [primaryYAxis]='primaryYAxis1'
+							[title]='title' [tooltip]='tooltip' (load)='load($event)'
+							(pointRender)='pointRender($event)' [palettes]='palette'>
+							<e-series-collection>
+								<e-series [dataSource]='selectedItems' type='Bar' xName='x' yName='y' [marker]="marker"
+									[columnWidth]="columnWidth">
+								</e-series>
+							</e-series-collection>
+						</ejs-chart>
+					</div>
+				</div>
+				<div class="row mb-2 float-center" style="height: 100px;" *ngIf="selectedItems.length === 0">
+					<div class="col-12-sm" style="text-align: center;margin-top: 36px;">
+						<p>No Data Available</p>
+					</div>
+				</div>
+			</div>
+			<!-- </section> -->
+		</div>
+	</section>
+	<div class="loading" *ngIf="isLoading">
+		<div id="loader"><!-- Animated logo --><img src="/admin/assets/images/loaderGreen.png" alt="Loading Logo"
+				class="logo">
+			<div class="spinner-border" role="status"></div>
+			<p>Loading, please wait...</p>
+		</div>
+	</div>
+</div>

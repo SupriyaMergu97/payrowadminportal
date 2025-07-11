@@ -1,0 +1,54 @@
+<ng-container [formGroup]="cardform">
+    <div class="card-body" id="msform">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Bank Name</label>
+                        <input type="text" formControlName="bankName" class="form-control"  placeholder="Bank Name"/>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                    <div class="form-group">
+                        <div class="form-check form-check-inline">
+                            <input  type="radio" formControlname="cardType" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1"><img src="assets/images/visa.png" style="width:40px;margin-top: -59px;margin-left: 61px;"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" formControlName="cardNumber" class="form-control"  placeholder="Card Number"/>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Joining Date</label>
+                        <input type="date"formControlName="cardExpiry" class="form-control datetimepicker-input" data-target="#cardExpiry" placeholder="Joining Date" name="Joining Date">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                    <div class="form-group">
+                        <label>Card Holder Name</label>
+                        <input type="text" formControlName="nameOnCard" class="form-control"  placeholder="Card Holder Name"/>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                    <div class="form-group">
+                        <label>IBAN Number</label>
+                        <input type="text" formControlName="ibanNum" class="form-control"  placeholder="IBAN Number"/>
+                    </div>
+                </div>
+            </div>
+            <!-- <button class="btn btn-sm btn-success edit_btn" style="float:right;">Save</button> -->
+        </div>
+    </div>
+</ng-container>

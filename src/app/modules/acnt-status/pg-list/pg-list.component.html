@@ -1,0 +1,376 @@
+<div class="content-wrapper main-section-container">
+    <app-acnt-status-menu></app-acnt-status-menu>
+
+    <section class="content" *ngIf="(!isStaff)">
+        <!-- <div class="content"> -->
+            <!-- <h4>Store Owner List</h4> -->
+            <div class="table_data">
+                <div class="table-responsive">
+                    <table class="table table-striped text-center">
+                        <thead>
+                            <tr>
+                                <!-- <th class="cur_Header">NAME</th> -->
+                                <th>NAME</th>
+                                <!-- <th>EMAIL</th> -->
+                                <!-- <th>ADDRESS</th> -->
+                                <th>ADDRESS</th>
+                                <th class="cur_Header">MERCHANT ID</th>
+                                <th>Catalogue Type</th>
+                                <th class="cur_Header">ACTIVATION DATE</th>
+                                <th>TRANSACTION VALUE</th>
+                                <th>SERVICE LIST</th>
+                                <th>ACCOUNT STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody class="align-baseline">
+                            <tr *ngFor="let user of merchantList">
+                                <!-- <td>{{user.storeId}}</td> -->
+                                <td>{{user.merchantName}}</td>
+                                <td class="remarks_one" data-tooltip="top" role="tooltip"
+                                    attr.aria-label="{{user.city}},{{user.addressDetails}}"><i class="bi-card-list"></i>
+                                </td>
+                                <td>{{user.merchantId}}</td>
+                                <!-- <td>{{user.bankMID}}</td> -->
+                                <td>{{user.selectedCatalogue}}</td>
+                                <td>{{user.updatedAt | date}}</td>
+                                <td>2,00,000</td>
+                                <td><button class="btn btn-sm btn-sm-cust btn-outline-dark"
+                                        (click)="getMerchantServices(user.merchantId,user.selectedCatalogue)">Details</button>
+                                </td>
+                                <td>
+                                    <div class="status form-control">
+                                        <select class="status_auditor select" placeholder=""
+                                            (change)="onChangeStatus($event,user)">
+                                            <option value="Active" *ngIf="user.status.status==='Ongoing' || Deactive">
+                                                Active
+                                            </option>
+                                            <option value="Deactive" *ngIf="user.status.status==='Ongoing' || Deactive"
+                                                selected>
+                                                Deactive</option>
+                                            <option value="Active" *ngIf="user.status.status==='Active'" selected>
+                                                Active</option>
+                                            <option value="Deactive" *ngIf="user.status.status==='Active'">
+                                                Deactive
+                                            </option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <!-- </div> -->
+    </section>
+    <section class="content" *ngIf="(isStaff && !isAddServ && !isFee)">
+        <div class="pull-right d-flex gap-16x">
+            <button class="btn btn-default-fill" (click)="staff()"><i
+                    class="fas fa-long-arrow-alt-left"></i>Back</button>
+            <button class="btn btn-primary-lg" (click)="merService()">Add Service <i
+                    class="fas fa-plus cta-plus-btn border-0"></i></button>
+        </div>
+        <div class="table_data">
+            <div class="table-responsive">
+                <table class="table table-striped text-center">
+                    <thead>
+                        <tr>
+                            <!-- <th>Merchant ID</th> -->
+                            <th>SERVICE CODE</th>
+                            <th>SERVICE NAME</th>
+                            <th *ngIf="catalogue !== 'SMB Catalogue'">SERVICE NAME ARABIC</th>
+                            <th>UNIT PRICE </th>
+                            <th>DESCRIPTION</th>
+                            <th>FEE MASTER</th>
+                            <th>EDIT</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of merServices">
+                            <!-- <td *ngIf="catalogue !== 'SMB Catalogue'">{{data.distributorId}}</td> -->
+                            <!-- <td *ngIf="catalogue !== 'SMB Catalogue'">{{data.merchantId}}</td> -->
+                            <td *ngIf="catalogue === 'SMB Catalogue'">{{data.serviceCode}}</td>
+                            <td *ngIf="catalogue !== 'SMB Catalogue'">{{data.serviceId}}</td>
+                            <td *ngIf="catalogue === 'SMB Catalogue'">{{data.itemName}}</td>
+                            <td *ngIf="catalogue !== 'SMB Catalogue'">{{data.serviceName}}</td>
+                            <td *ngIf="catalogue !== 'SMB Catalogue'">{{data.serviceNameArabic}}</td>
+
+                            <td>{{data.unitPrice}}</td>
+                            <td *ngIf="catalogue !== 'SMB Catalogue'" data-tooltip="top" role="tooltip"
+                                attr.aria-label="{{data.englishDescription}}"><i class="bi bi-info-circle-fill"></i>
+                            </td>
+                            <td *ngIf="catalogue === 'SMB Catalogue'" data-tooltip="top" role="tooltip"
+                                attr.aria-label="{{data.itemDescription}}"><i class="bi bi-info-circle-fill"></i></td>
+                            <td *ngIf="data.fee === false"><button class="btn btn-sm btn-sm-cust btn-outline-dark"
+                                    (click)="addFee(data.serviceId)">ADD</button></td>
+                            <td *ngIf="data.fee === true"><button class="btn btn-sm btn-sm-cust btn-outline-dark"
+                                    (click)="getFeeDetails(data.serviceId)">Details</button></td>
+                            <td><button class="icn_btn" (click)="getServDetails(data.serviceId)">
+                                    <i class="bi bi-pencil-square"></i></button></td>
+                            <td data-toggle="modal" data-target="#delUser">
+                                <button class="icn_btn"><i class='bi bi-trash-fill'></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class="content" *ngIf="isAddServ">
+        <div class="pull-right d-flex gap-16x">
+            <button class="btn btn-default-normal" (click)="merService()">Cancel <i
+                    class="fas fa-plus rotate-45"></i></button>
+        </div>
+        <form class="mb-4 mt-4" [formGroup]="mServiceForm">
+            <div class="row">
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="merchantId">Merchant ID</label> -->
+                        <input type="text" class="form-control" placeholder="Merchant ID" formControlName="merchantId"
+                            id="merchantId">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="service_id">Main MerchantId</label> -->
+                        <input type="text" class="form-control" placeholder="Main Merchant ID"
+                            formControlName="mainMerchantId" id="mainMerchantId">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="serviceId">Service ID</label> -->
+                        <input type="text" class="form-control" placeholder="Service ID" formControlName="serviceId"
+                            id="serviceId">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="serviceName">Service Name</label> -->
+                        <input type="text" class="form-control" placeholder="Service Name" formControlName="serviceName"
+                            id="serviceName">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="serviceNameArabic">ServiceName Arabic</label> -->
+                        <input type="text" class="form-control" placeholder="Service Name Arabic"
+                            formControlName="serviceNameArabic" id="serviceNameArabic">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="unitPrice">Unit Price</label> -->
+                        <input type="text" class="form-control" placeholder="Unit Price" formControlName="unitPrice"
+                            id="unitPrice">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="englishDescription">English Description</label> -->
+                        <input type="text" class="form-control" placeholder="English Description"
+                            formControlName="englishDescription" id="englishDescription">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="arabicDescription">Arabic Description</label> -->
+                        <input type="text" class="form-control" placeholder="Arabic Description"
+                            formControlName="arabicDescription" id="arabicDescription">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="currency">Currency</label> -->
+                        <input type="text" class="form-control" placeholder="Currency" formControlName="currency"
+                            id="currency">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="taxCode">taxCode</label> -->
+                        <!-- <input type="text" class="form-control" formControlName="taxCode"
+                                        id="taxCode"> -->
+
+                        <select class="form-control" formControlName="taxCode" id="taxCode"  (change)="taxCodes($event)">
+                            <option selected disabled>Select TaxCode</option>
+                            <option *ngFor="let tax of taxes" value="{{tax.taxCode}}">
+                                {{tax.taxCode}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="bankServiceId">BankService Id</label> -->
+                        <input type="text" class="form-control" placeholder="Bank Service ID"
+                            formControlName="bankServiceId" id="bankServiceId">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="priceType">Price Type</label> -->
+                        <input type="text" class="form-control" placeholder="Price Type" formControlName="priceType"
+                            id="priceType">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="taxApplicable">Tax Applicable</label> -->
+                        <select class="form-control" formControlName="taxApplicable" id="taxApplicable">
+                            <!-- <option value="" disabled>Select Tax Applicable</option> -->
+                            <option selected value="true">True</option>
+                            <option value="false">False</option>
+                        </select>
+                        <!-- <input type="text" class="form-control" formControlName="taxApplicable"
+                                        id="taxApplicable"> -->
+                    </div>
+                </div>
+            </div>
+        </form>
+       
+        <div class="float-right">
+            <!-- <button type="button" class="btn btn-default-fill" (click)="addService()">Save<i
+                    class="fas fa-download"></i></button> -->
+            <button class="btn btn-default-md-fill" *ngIf="isCreate && !isEdit" (click)="addService()">
+                Save<i class="fas fa-download"></i></button>
+            <button class="btn btn-default-md-fill" (click)="update()" *ngIf="!isCreate && isEdit">Update</button>
+            <button class="btn btn-default-md-fill" *ngIf="!isCreate && !isEdit" (click)="edit()">Edit</button>
+        </div>
+    </section>
+    <section class="content" *ngIf="isFee">
+        <div class="pull-right d-flex gap-16x">
+            <button class="btn btn-default-normal" (click)="back()">Cancel <i
+                    class="fas fa-plus rotate-45"></i></button>
+        </div>
+        <form class="mb-4 mt-4" [formGroup]="feeForm">
+            <div class="row">
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Fee ID" formControlName="feeId" id="feeId">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="serviceId">Service ID</label> -->
+                        <input type="text" class="form-control" placeholder="Service ID" formControlName="serviceId"
+                            id="serviceId">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="service_id">Main MerchantId</label> -->
+                        <input type="text" class="form-control" placeholder="Merchant ID" formControlName="merchantId"
+                            id="merchantId">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="serviceName">Service Name</label> -->
+                        <input type="text" class="form-control" placeholder="Charge Type" formControlName="chargeType"
+                            id="chargeType">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="serviceNameArabic">ServiceName Arabic</label> -->
+                        <input type="text" class="form-control" placeholder="Charge Value" formControlName="chargeValue"
+                            id="chargeValue">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="unitPrice">Unit Price</label> -->
+                        <input type="text" class="form-control" placeholder="Charge Name" formControlName="chargeName"
+                            id="chargeName">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="englishDescription">English Description</label> -->
+                        <input type="text" class="form-control" placeholder="Charge Arabic Name"
+                            formControlName="chargeArabicName" id="chargeArabicName">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <select class="form-control" formControlName="taxCode" id="taxCode" (change)="taxCodes($event)">
+                            <option selected disabled>Select TaxCode</option>
+                            <option *ngFor="let tax of taxes" value="{{tax.taxCode}}">
+                                {{tax.taxCode}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="currency">Currency</label> -->
+                        <input type="text" class="form-control" placeholder="Bank Service Id"
+                            formControlName="bankServiceId" id="bankServiceId" />
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="English Description"
+                            formControlName="englishDescription" id="englishDescription" />
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="bankServiceId">BankService Id</label> -->
+                        <input type="text" class="form-control" placeholder="Arabic Description"
+                            formControlName="arabicDescription" id="arabicDescription">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm">
+                    <div class="form-group">
+                        <!-- <label for="taxApplicable">Tax Applicable</label> -->
+                        <select class="form-control" formControlName="taxApplicable" id="taxApplicable">
+                            <!-- <option selected disabled>Select T</option> -->
+                            <!-- <option value="" disabled>Select Tax Applicable</option> -->
+                            <option selected value="true">True</option>
+                            <option value="false">False</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+        <div class="float-right pull-right d-flex gap-16x">
+            <!-- <button type="button" class="btn btn-default-fill" (click)="addFeeDetails()">Save<i
+                    class="fas fa-download"></i></button> -->
+            <button class="btn btn-default-md-fill" *ngIf="isCreate && !isEdit" (click)="addFeeDetails()">
+                Save<i class="fas fa-download"></i></button>
+            <button class="btn btn-default-md-fill" *ngIf="!isCreate"  data-toggle="modal" data-target="#delUser">
+                Delete<i class="fas fa-trash"></i></button>
+            <button class="btn btn-default-md-fill" (click)="update()" *ngIf="!isCreate && isEdit">Update</button>
+            <button class="btn btn-default-md-fill" *ngIf="!isCreate && !isEdit" (click)="edit()">Edit</button>
+        </div>
+    </section>
+
+    <div class="modal fade" id="delUser" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content alert">
+                <div class="modal-body">
+                    <h6>Are you sure you want to delete?</h6>
+                </div>
+                <div class="modal-footer pull-right d-flex gap-16x">
+                    <button class="btn btn-default-md-fill" data-dismiss="modal">No</button>
+                    <button class="btn btn-default-md-fill" style="background-color:#e90707;"
+                        data-dismiss="modal" (click)="delete()">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW CODE FOR TABLES -->
+</div>

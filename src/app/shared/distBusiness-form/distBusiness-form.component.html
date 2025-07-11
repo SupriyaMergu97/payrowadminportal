@@ -1,0 +1,52 @@
+<ng-container [formGroup]="businessForm">
+    <div class="container">
+        <!-- <h5 style="color: #72AC47; font-family: Roboto;">BUSINESS DETAILS</h5> -->
+        <div class="row">
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="yearsInBusiness" class="form-control"
+                        placeholder="Years in Business" />
+                        <label for="yearsInBusiness" [ngClass]="{'is-invalid': businessForm.controls['yearsInBusiness'].invalid && businessForm.controls['yearsInBusiness'].touched,
+                        'is-valid': businessForm.controls['yearsInBusiness'].valid}">
+                        Years in Business<span>&nbsp;*</span></label>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="annualTurnOver" class="form-control"
+                        placeholder="Annual Turnover" />
+                        <label for="annualTurnOver" [ngClass]="{'is-invalid': businessForm.controls['annualTurnOver'].invalid && businessForm.controls['annualTurnOver'].touched,
+                        'is-valid': businessForm.controls['annualTurnOver'].valid}">
+                        Annual TurnOver<span>&nbsp;*</span></label>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="noOfEmployees" class="form-control"
+                        placeholder="No.of Employees" />
+                        <label for="noOfEmployees" [ngClass]="{'is-invalid': businessForm.controls['noOfEmployees'].invalid && businessForm.controls['noOfEmployees'].touched,
+                        'is-valid': businessForm.controls['noOfEmployees'].valid}">
+                        No.of Employees<span>&nbsp;*</span></label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="noOfOutlets" class="form-control" placeholder="No.of Outlets" />
+                    <label for="noOfOutlets" [ngClass]="{'is-invalid': businessForm.controls['noOfOutlets'].invalid && businessForm.controls['noOfOutlets'].touched,
+                        'is-valid': businessForm.controls['noOfOutlets'].valid}">
+                        No.of Outlets<span>&nbsp;*</span></label>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="domain" class="form-control" placeholder="Enter your domain" />
+                    <label for="domain" [ngClass]="{'is-invalid': businessForm.controls['domain'].invalid && businessForm.controls['domain'].touched,
+                        'is-valid': businessForm.controls['domain'].valid}">
+                        Domain<span>&nbsp;*</span></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

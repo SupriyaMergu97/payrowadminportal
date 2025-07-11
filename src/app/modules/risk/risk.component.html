@@ -1,0 +1,479 @@
+<div class="content-wrapper main-section-container">
+    <div class="row pt-3">
+        <div class="col-md-12 pl-0">
+
+            <div>
+                <a routerLink="/create-account/ac-user"><button class="btn btn-sm back_btn"><i
+                            class="fas fa-arrow-circle-left"></i>&nbsp;Back</button></a>
+
+                <!-- TABS START -->
+
+                <!-- New code -->
+
+                <section>
+
+                    <div class="container py-2">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <!-- Tabs nav -->
+                                <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist"
+                                    aria-orientation="vertical">
+                                    <a class="nav-link mb-3 p-3 shadow active" id="v-pills-basic1-tab"
+                                        data-toggle="pill" href="#v-pills-basic1" role="tab"
+                                        aria-controls="v-pills-basic1" aria-selected="true">
+                                        <i class="fas fa-at tabIcn"></i>
+                                        <span class="font-weight-bold small text-uppercase">Basic</span>
+                                    </a>
+
+                                    <a class="nav-link mb-3 p-3 shadow" id="v-pills-personal1-tab" data-toggle="pill"
+                                        href="#v-pills-personal1" role="tab" aria-controls="v-pills-personal1"
+                                        aria-selected="false">
+                                        <i class="fas fa-user tabIcn"></i>
+                                        <span class="font-weight-bold small text-uppercase">Personal</span>
+                                    </a>
+
+                                    <a *ngIf="storeCatData?.cardDetails" class="nav-link mb-3 p-3 shadow"
+                                        id="v-pills-card1-tab" data-toggle="pill" href="#v-pills-card1" role="tab"
+                                        aria-controls="v-pills-card1" aria-selected="false">
+                                        <i class="fas fa-credit-card tabIcn"></i>
+                                        <span class="font-weight-bold small text-uppercase">PERSONAL ACCOUNT</span>
+                                    </a>
+
+
+                                    <a *ngIf="storeCatData?.bankDetails" class="nav-link mb-3 p-3 shadow"
+                                        id="v-pills-bank1-tab" data-toggle="pill" href="#v-pills-bank1" role="tab"
+                                        aria-controls="v-pills-bank1" aria-selected="false">
+                                        <i class='fas fa-landmark tabIcn'></i>
+                                        <span class="font-weight-bold small text-uppercase">BUSINESS ACCOUNT</span>
+                                    </a>
+
+                                    <a class="nav-link mb-3 p-3 shadow" id="v-pills-address1-tab" data-toggle="pill"
+                                        href="#v-pills-address1" role="tab" aria-controls="v-pills-address1"
+                                        aria-selected="false">
+                                        <i class="fas fa-address-card tabIcn"></i>
+                                        <span class="font-weight-bold small text-uppercase">Store Address</span>
+                                    </a>
+                                    <a class="nav-link mb-3 p-3 shadow" id="v-pills-address1-tab" data-toggle="pill"
+                                        href="#v-pills-business1" role="tab" aria-controls="v-pills-business1"
+                                        aria-selected="false">
+                                        <i class="fas fa-address-card tabIcn"></i>
+                                        <span class="font-weight-bold small text-uppercase">Business</span>
+                                    </a>
+
+                                    <a class="nav-link mb-3 p-3 shadow" id="v-pills-licence1-tab" data-toggle="pill"
+                                        href="#v-pills-licence1" role="tab" aria-controls="v-pills-licence1"
+                                        aria-selected="false">
+                                        <i class="fas fa-certificate tabIcn"></i>
+                                        <span class="font-weight-bold small text-uppercase">Licence</span>
+                                    </a>
+
+                                    <a class="nav-link mb-3 p-3 shadow" id="v-pills-staff1-tab" data-toggle="pill"
+                                        href="#v-pills-staff1" role="tab" aria-controls="v-pills-staff1"
+                                        aria-selected="false">
+                                        <i class='fas fa-users tabIcn'></i>
+                                        <span class="font-weight-bold small text-uppercase">Staff</span>
+                                    </a>
+
+                                    <a class="nav-link mb-3 p-3 shadow" id="v-pills-terms1-tab" data-toggle="pill"
+                                        href="#v-pills-terms1" role="tab" aria-controls="v-pills-terms1"
+                                        aria-selected="false">
+                                        <i class="fas fa-exclamation-triangle tabIcn"></i>
+                                        <span class="font-weight-bold small text-uppercase">Terms &
+                                            Conditions</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col-md-9" style="padding: 0px;">
+                                <div class="tab-content" id="v-pills-tabContent">
+                                    <div class="tab-pane fade shadow rounded bg-white show active p-5"
+                                        id="v-pills-basic1" role="tabpanel" aria-labelledby="v-pills-basic1-tab">
+                                        <div class="row">
+                                            <!-- <h4 class="font-italic ">Basic</h4> -->
+                                            <div class="col-lg-2 col-sm-2 col-md-2 col-xl-2 col-xs-12"
+                                                style="margin-top: 65px;">
+                                                <div class="form-group">
+                                                    <div class="picture-container">
+                                                        <div class="picture">
+                                                            <div class="picture2">
+                                                                <img src="assets/images/profile1.jpeg"
+                                                                    class="picture-src" id="wizardPicturePreview"
+                                                                    title="">
+                                                                <input type="file" id="wizard-picture" class="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="picture-label text-center">
+                                                        <label for="wizard-picture">Upload Profile Picture</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-10 col-sm-10 col-md-10 col-xl-10 col-xs-12">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label>Title</label>
+                                                            <input type="text" class="form-control"
+                                                                [value]='storeCatData?.title'
+                                                                placeholder="Title" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                        <div class="radio_css">
+                                                            <label class="radio-inline" style="padding-left:0px;">
+                                                                <input type="radio" name="title"
+                                                                    style="padding-left:15px;"
+                                                                    checked><span>Accept</span>
+                                                            </label>
+                                                            <label class="radio-inline" style="padding-left:15px;">
+                                                                <input type="radio" name="title"
+                                                                    style="padding-left:15px;"><span>Decline</span>
+                                                            </label>
+                                                            <button type="button" class="btn btn-sm btn-secondary"
+                                                                data-toggle="modal"
+                                                                data-target=".bd-creataccount3-modal-lg">Remark</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label>Full Name</label>
+                                                            <input type="text" class="form-control"
+                                                                [value]='storeCatData?.firstName+ " " + storeCatData?.lastName'
+                                                                placeholder="Full Name" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                        <div class="radio_css">
+                                                            <label class="radio-inline" style="padding-left:0px;">
+                                                                <input type="radio" name="approve1"
+                                                                    style="padding-left:15px;"
+                                                                    checked><span>Accept</span>
+                                                            </label>
+                                                            <label class="radio-inline" style="padding-left:15px;">
+                                                                <input type="radio" name="approve1"
+                                                                    style="padding-left:15px;"><span>Decline</span>
+                                                            </label>
+                                                            <button type="button" class="btn btn-sm btn-secondary"
+                                                                data-toggle="modal"
+                                                                data-target=".bd-creataccount3-modal-lg">Remark</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label>Date Of Birth</label>
+                                                            <input type="text" class="form-control"
+                                                                [value]='storeCatData?.dateOfBirth | date'
+                                                                placeholder="DOB" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                        <div class="radio_css">
+                                                            <label class="radio-inline" style="padding-left:0px;">
+                                                                <input type="radio" name="dob"
+                                                                    style="padding-left:15px;"
+                                                                    checked><span>Accept</span>
+                                                            </label>
+                                                            <label class="radio-inline" style="padding-left:15px;">
+                                                                <input type="radio" name="dob"
+                                                                    style="padding-left:15px;"><span>Decline</span>
+                                                            </label>
+                                                            <button type="button" class="btn btn-sm btn-secondary"
+                                                                data-toggle="modal"
+                                                                data-target=".bd-creataccount3-modal-lg">Remark</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label>Email</label>
+                                                            <input type="email" class="form-control"
+                                                                [value]='storeCatData?.emailId'
+                                                                placeholder="Email" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                        <div class="radio_css">
+                                                            <label class="radio-inline" style="padding-left:0px;">
+                                                                <input type="radio" name="your_email1"
+                                                                    style="padding-left:15px;"
+                                                                    checked><span>Accept</span>
+                                                            </label>
+                                                            <label class="radio-inline" style="padding-left:15px;">
+                                                                <input type="radio" name="your_email1"
+                                                                    style="padding-left:15px;"><span>Decline</span>
+                                                            </label>
+                                                            <button type="button" class="btn btn-sm btn-secondary"
+                                                                data-toggle="modal"
+                                                                data-target=".bd-creataccount3-modal-lg">Remark</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label>Pin</label>
+                                                            <input type="text" class="form-control"
+                                                                [value]='storeCatData?.merchantPIN'
+                                                                placeholder="Pin" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                        <div class="radio_css">
+                                                            <label class="radio-inline" style="padding-left:0px;">
+                                                                <input type="radio" name="pin"
+                                                                    style="padding-left:15px;"
+                                                                    checked><span>Accept</span>
+                                                            </label>
+                                                            <label class="radio-inline" style="padding-left:15px;">
+                                                                <input type="radio" name="pin"
+                                                                    style="padding-left:15px;"><span>Decline</span>
+                                                            </label>
+                                                            <button type="button" class="btn btn-sm btn-secondary"
+                                                                data-toggle="modal"
+                                                                data-target=".bd-creataccount3-modal-lg">Remark</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label>Gender</label>
+                                                            <input type="text" class="form-control"
+                                                                [value]='storeCatData?.gender'
+                                                                placeholder="Gender" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                                                        <div class="radio_css">
+                                                            <label class="radio-inline" style="padding-left:0px;">
+                                                                <input type="radio" name="password1"
+                                                                    style="padding-left:15px;"
+                                                                    checked><span>Accept</span>
+                                                            </label>
+                                                            <label class="radio-inline" style="padding-left:15px;">
+                                                                <input type="radio" name="password1"
+                                                                    style="padding-left:15px;"><span>Decline</span>
+                                                            </label>
+                                                            <button type="button" class="btn btn-sm btn-secondary"
+                                                                data-toggle="modal"
+                                                                data-target=".bd-creataccount3-modal-lg">Remark</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="button" style="width: 60px;"
+                                                class="btn btn-sm btn-success edit_btn" data-toggle="modal"
+                                                data-target=".bd-example3-modal-lg">Edit</button>
+
+                                        </div>
+                                        <!--Create remarks Start -->
+                                        <div class="modal fade bd-creataccount3-modal-lg" tabindex="-1" role="dialog"
+                                            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                <div class="modal-content riskmodel-edit-form-modal">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <div class="container">
+                                                        <form id="edit_riskmodules_form">
+                                                            <div class="col-11">
+                                                                <div class="row">
+                                                                    <div class="form-group">
+                                                                        <label for="remark"></label>
+                                                                        <textarea class="form-control" rows="5"
+                                                                            id="comment"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-12 text-center">
+                                                                        <button type="button" class="btn btn-submit"
+                                                                            id="btn_submit">Update</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal fade bd-example3-modal-lg" tabindex="-1" role="dialog"
+                                            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                <div class="modal-content employee-edit-form-modal">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <div class="container">
+                                                        <form id="edit_employee_form">
+
+                                                            <div class="row">
+
+                                                                <div class="col-2">
+                                                                    <div class="form-group">
+                                                                        <div class="picture-container">
+                                                                            <div class="picture">
+                                                                                <div class="picture2">
+                                                                                    <img src="assets/images/profile1.jpeg"
+                                                                                        class="picture-src"
+                                                                                        id="editPicturePreview"
+                                                                                        title="">
+                                                                                    <input type="file"
+                                                                                        id="edit-profile-picture"
+                                                                                        class="">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="picture-label text-center">
+                                                                            <label for="edit-profile-picture">Upload
+                                                                                Profile Picture</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-4 my-2">
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label for="your_name">Your Name</label>
+                                                                            <input
+                                                                                [value]='storeCatData?.firstName+ " " + storeCatData?.lastName'
+                                                                                type="text" id="your_name"
+                                                                                name="your_name" class="form-control"
+                                                                                autocomplete="off">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label for="your_email">Your Email</label>
+                                                                            <input type="text" id="your_email"
+                                                                                [value]='storeCatData?.ownerEmail'
+                                                                                name="your_email" class="form-control"
+                                                                                autocomplete="off">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-4 my-2">
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label for="your_password">Your
+                                                                                Password</label>
+                                                                            <input type="text" id="your_password"
+                                                                                name="your_password"
+                                                                                [value]='storeCatData?.ownerPassword'
+                                                                                class="form-control" autocomplete="off">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label for="cnf_password">Confirm
+                                                                                Password</label>
+                                                                            <input type="text" id="cnf_password"
+                                                                                name="cnf_password" class="form-control"
+                                                                                autocomplete="off" value="********">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-12 text-center">
+                                                                    <button type="button" class="btn btn-submit"
+                                                                        id="btn_submit">Update</button>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-personal1"
+                                        role="tabpanel" aria-labelledby="v-pills-personal1-tab">
+                                        <!-- <h4 class="font-italic ">Personnal Details</h4> -->
+                                        <app-risk-personal [storeCatData]="storeCatData"></app-risk-personal>
+                                    </div>
+                                    <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-card1"
+                                        role="tabpanel" aria-labelledby="v-pills-card1-tab">
+                                        <!-- <h4 class="font-italic ">Card</h4> -->
+                                        <app-risk-card [storeCatData]="storeCatData"></app-risk-card>
+                                    </div>
+                                    <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-bank1"
+                                        role="tabpanel" aria-labelledby="v-pills-bank1-tab">
+                                        <!-- <h4 class="font-italic ">Bank</h4> -->
+                                        <app-risk-bank [storeCatData]="storeCatData"></app-risk-bank>
+                                    </div>
+                                    <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-address1"
+                                        role="tabpanel" aria-labelledby="v-pills-address1-tab">
+                                        <!-- <h4 class="font-italic ">Address</h4> -->
+                                        <app-risk-address></app-risk-address>
+                                    </div>
+                                    <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-business1"
+                                        role="tabpanel" aria-labelledby="v-pills-business1-tab">
+                                        <!-- <h4 class="font-italic ">Address</h4> -->
+                                        <app-risk-business [storeCatData]="storeCatData"></app-risk-business>
+                                    </div>
+                                    <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-licence1"
+                                        role="tabpanel" aria-labelledby="v-pills-licence1-tab">
+                                        <!-- <h4 class="font-italic ">Licence</h4> -->
+                                        <app-risk-license [storeCatData]="storeCatData"></app-risk-license>
+                                    </div>
+                                    <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-staff1"
+                                        role="tabpanel" aria-labelledby="v-pills-staff1-tab">
+                                        <!-- <h4 class="font-italic ">Staff</h4> -->
+                                        <app-risk-staff [storeCatData]="storeCatData"></app-risk-staff>
+                                    </div>
+                                    <div class="tab-pane fade shadow rounded bg-white p-5" id="v-pills-terms1"
+                                        role="tabpanel" aria-labelledby="v-pills-terms1-tab">
+                                        <!-- <h4 class="font-italic ">Terms & Conditions</h4> -->
+                                        <div class="container">
+
+                                            <div class="row">
+
+                                                <div class="col-12 mt-3">
+                                                    <div class="tAndC">
+                                                        <p class="tAndCPara">Lorem Ipsum is simply dummy text of the
+                                                            printing and typesetting industry. Lorem Ipsum has
+                                                            been the industry's standard dummy text ever since the
+                                                            1500s, when an unknown printer took a galley of
+                                                            type and scrambled it to make a type specimen book. It has
+                                                            survived not only five centuries, but also the leap into
+                                                            electronic
+                                                            typesetting, remaining essentially unchanged.</p>
+                                                    </div>
+                                                    <div style="float:left; width: 55%;">
+                                                        <span><input type="checkbox" id="TandC" name="tAndC"
+                                                                value="tandc" style="display:inline; width:4%"
+                                                                onchange="document.getElementById('ownerSubmit').disabled = !this.checked;">
+                                                            By signing up I agree to the
+                                                            terms and conditions &
+                                                            Privacy Policy</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col">
+                                                    <button (click)="goBack()" type="button" id="ownerSubmit"
+                                                        class="btn btn-sm btn-success edit_btn float-right"
+                                                        disabled>Submit</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

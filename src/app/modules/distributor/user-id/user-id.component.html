@@ -1,0 +1,398 @@
+<div class="content-wrapper main-section-container">
+    <app-distributor-menus></app-distributor-menus>
+    <!-- <div class="row pt-3" >
+        <div class="col-md-12 pl-0">
+            <div *ngIf="nextTab === undefined">
+                <div class="card title_card" >
+                    <div class="card-body" style="text-align: center;
+                    ">
+                        <div class="row">
+                        
+                            <div class="col-sm-10">
+                                <div class="content" style="margin-left: 4px;">
+                                    <div class="input-group userNum">
+                                        <div class="pr-2 user-ownerId" style="color: rgb(42, 41, 43);
+                                        margin-top: -10px;">STORE ID :</div>
+                                        <input type="text" class="form-control search-hero" aria-describedby="basic-addon2"  [(ngModel)]="searchId">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="basic-addon2" style="margin-top: -10px;
+                                            height: 26px;" (click)="posDetailsFunc(searchId)"><i class="fas fa-arrow-right fa-fw" style="margin-left: -5px;"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <button class="btn btn-sm"(click)="downloadReport('Stores')"><img class="btn_dwn" src="assets/images/download.png"></button>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+
+                <section class="content mt-3">
+                    <div class="container-fluid">
+                        <div class="col-12 pl-0 pr-0">
+                            <div class="table-container">
+                                <div>
+                                    <input class="form-control search-item" type="text" name="search"
+                                    [(ngModel)]="searchText" autocomplete="off" placeholder="Search...">
+                                </div>
+                                <div class="table_data">
+                                    <div class="hr-tag">
+                                        <hr />
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table_cust text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th class="cur_Header">STORE ID</th>
+                                                    <th>MERCHANT ID</th>
+                                                    <th>NAME</th>
+                                                    <th>EMAIL</th>
+                                                    <th>ADDRESS</th>
+                                                    <th>TRANSACTION VALUE</th>
+                                                    <th class="cur_Header">
+                                                        REPORT
+                                                    </th>
+                                                    <th>EXPLORE</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="align-baseline">
+                                                <tr *ngFor="let store of storeData | filter:searchText">
+                                                    <td>{{store.storeId}}</td>
+                                                    <td>{{store.merchantId}}</td>
+                                                    <td>{{store.storeName}}</td>
+                                                    <td data-tooltip="top" role="tooltip" attr.aria-label="{{store.sEmail}}"><i
+                                                            class="bi-envelope-open"></i></td>
+                                                    <td class="remarks_one" data-tooltip="top" role="tooltip" attr.aria-label="{{store.storeAddress}}"><i class="bi-card-list"
+                                                            ></i></td>
+                                                    <td>{{store.totalTransction}}</td>
+                                                    <td>
+                                                        <button class="btn btn-sm"(click)="downloadReport('Store',store.storeId)"><i class="fas fa-download"></i></button>
+                                                        
+                                                    
+                                                        
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm uploadImg float-right"(click)="posDetailsFunc(store.storeId)">POS Details</button>
+                                                    </td>
+                                                
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+
+            <div *ngIf="nextTab !== undefined" >
+                <div *ngFor="let data of storeCatData;let i =index;">
+                    <div class="card card_cnt">
+                        <div class="card-header" style="height: 36px">
+                            <div class="row">
+                                <div class="col-11 sidemenu-form">                                   
+                                    
+                                    <div class="input-group userNum">
+                                        <div class="pr-2 user-ownerId">STORE ID : {{data.storeId}}</div>
+                                    
+                                    </div>
+                                </div>
+                                <div class="col-1 text-right" style="cursor: pointer;">
+                                    <button class="btn btn-sm"(click)="downloadReport('Categories')"><img class="btn_cat_dwn" src="assets/images/download.png"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm col-md-3">
+                                    Name : <b>{{data.storeName}}</b>
+                                </div>
+                                <div class="col-sm col-md-3">Store ID :  <b>{{data.storeId}}</b></div>
+                                <div class="col-sm col-md-3">Merchant ID :  <b>{{data.merchantId}}</b></div>
+                                
+                                
+                                <div class="col-sm col-md-3 float-right"> Transaction Value : <b>{{data.totalTransction}}</b>
+                                
+                                </div>
+                                
+                            </div>
+                        
+                        </div> 
+                            
+                    </div>
+                    <div>
+                    
+                        <div class="float-right">
+                            <button class="btn btn-sm back_btn float-right"(click)="goBack()"><i class="fas fa-arrow-circle-left"></i>&nbsp;Back to Store</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <section class="content mt-3">
+                    <div class="container-fluid">
+                        <div class="col-12 pl-0 pr-0">
+                            <div class="table-container tbl_cnt">
+                            
+                                <div class="table_data">
+                                    
+                                    <div class="table-responsive">
+                                        <table class="table table_cust">
+                                            <thead>
+                                                <tr>
+                                                    <th class="cur_Header">TID</th>
+                                                    <th>STORE MANAGER CONTACT</th> 
+                                                    <th>ACTIVATION DATE</th>
+                                                    <th class="cur_Header">TOTAL TRANSACTION VALUE</th>
+                                                    <th>REPORT</th>
+                                                    <th>STATUS</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="align-baseline">
+                                                <tr *ngFor="let cat of catFData">
+                                                    <td>{{cat.posId}}</td>
+                                                    <td>{{cat.posMobile}}</td>
+                                                    <td>{{cat.transDate | date}}</td>
+                                                    <td *ngIf="cat.amount.cashValue">{{cat.amount.cashValue}}</td>
+                                                    <td *ngIf="cat.amount.tapValue">{{cat.amount.tapValue}}</td>
+                                                    <td>
+                                                        <button class="btn btn-sm"(click)="downloadReport('Category',cat.tid)"><i class="fas fa-download"></i></button>
+                                                    \
+                                                        
+                                                    </td>
+                                                    <td>
+                                                        <select class="status-option"
+                                                        (change)="onChangeStatus($event,cat)">
+                                                        <option value="Active" *ngIf="cat.status==='Active'" selected>Active</option>
+                                                        <option value="inActive"*ngIf="cat.status==='Active'">inActive</option>
+                                                        <option value="Active"*ngIf="cat.status==='inActive'">Active</option>
+                                                        <option value="inActive"*ngIf="cat.status==='inActive'" selected>inActive</option>
+                                                    </select>
+                                                    </td>
+                                                
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div> -->
+
+
+
+    <!-- NEW CODE FOR TABLE -->
+    <section class="content" *ngIf="nextTab === undefined">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="section-title d-flex align-items-center justify-content-end">
+                        <!-- <h1></h1> -->
+                        <div class="pull-left d-flex gap-16x">
+                            <div class="search-holder">
+                                <form action="">
+                                    <div class="input-group">
+                                        <input type="text" autocomplete="off" name="search" [(ngModel)]="searchText"
+                                            placeholder="Search..." aria-describedby="button-addon5"
+                                            class="form-control">
+                                        <div class="input-group-append">
+                                            <button id="button-addon5" type="submit" class="btn"><i
+                                                    class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="table-resposive">
+                        <table class="table table_cust text-center">
+                            <thead>
+                                <tr>
+                                    <th>STORE ID</th>
+                                    <th>MERCHANT ID</th>
+                                    <th>NAME</th>
+                                    <th>EMAIL</th>
+                                    <th>ADDRESS</th>
+                                    <th>TRANSACTION VALUE</th>
+                                    <th>REPORT</th>
+                                    <th>EXPLORE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let store of storeData | filter:searchText">
+                                    <td>{{store.storeId}}</td>
+                                    <td>{{store.merchantId}}</td>
+                                    <td class="right-align">{{store.storeName}}</td>
+                                    <td class="center-align"><span data-tooltip="top" role="tooltip"
+                                            attr.aria-label="{{store.email}}"><i class="bi-envelope-open"></i></span>
+                                    </td>
+                                    <td class="center-align remarks_one"><span data-tooltip="top" role="tooltip"
+                                            attr.aria-label="{{store.storeAddress}}"><i class="bi-card-list"></i></span>
+                                    </td>
+                                    <td class="right-align">{{store.totalTransction}}</td>
+                                    <td class="center-align"><button class="btn btn-sm"
+                                            (click)="downloadReport('Store',store.storeId)"><i
+                                                class="fas fa-download"></i></button></td>
+                                    <td><button class="btn btn-sm btn-sm-cust btn-outline-dark"
+                                            (click)="posDetailsFunc(store.storeId)">Details</button></td>
+                                    <!-- <td class="center-align"><button class="btn btn-sm uploadImg float-right"(click)="posDetailsFunc(store.storeId)">POS Details</button></td> -->
+                                    <!-- <button class="btn btn-sm uploadImg float-right"(click)="posDetailsFunc(store.storeId)">POS Details</button> -->
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="content" *ngIf="nextTab !== undefined">
+        <!-- <div class="container-fluid"> -->
+            <div *ngFor="let data of storeCatData;let i =index;">
+                
+                <div class="section-title d-flex align-items-center justify-content-between">
+                    <div class="col-md-3 col-sm gap-8x">
+                        Name : <b>{{data.storeName}}</b>
+                    </div>
+                    <div class="col-md-3 col-sm gap-8x">
+                        Store ID : <b>{{data.storeId}}</b>
+                    </div>
+                    <div class="col-md-3 col-sm gap-8x">
+                        Merchant ID : <b>{{data.merchantId}}</b>
+                    </div>
+                    <div class="col-md-3 col-sm gap-8x">
+                        Transaction Value :<b>172929180</b>
+                    </div>
+                    <!-- <div class="col-md-2 col-sm gap-8x">
+                        <button class="btn btn-default-primary float-right" (click)="downloadReport('Categories')">Download <i
+                                class="fas fa-download"></i></button>
+                    </div> -->
+                    <!-- <div class="pull-left d-flex gap-16x">
+                        <div class="search-holder">
+                            <form action="">
+                                <div class="input-group">
+                                    <input type="text" autocomplete="off" name="search" [(ngModel)]="searchText"
+                                        placeholder="Search..." aria-describedby="button-addon5"
+                                        class="form-control">
+                                    <div class="input-group-append">
+                                        <button id="button-addon5" type="submit" class="btn"><i
+                                                class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div> -->
+
+                </div>
+                <hr/>
+                <div class="section-title d-flex align-items-center justify-content-between mb-4">
+                    <button class="btn btn-default-fill" (click)="goBack()"> <i
+                            class="fas fa-long-arrow-alt-left"></i>Back to Store</button>
+                    <div class="d-flex gap-8x">
+                        <button class="btn btn-default-primary float-right"
+                            (click)="downloadReport('Categories')">Download <i class="fas fa-download"></i></button>
+                    </div>
+                    <div class="pull-left d-flex gap-16x">
+                        <div class="search-holder">
+                            <form action="">
+                                <div class="input-group">
+                                    <input type="text" autocomplete="off" name="search" [(ngModel)]="searchText"
+                                        placeholder="Search..." aria-describedby="button-addon5"
+                                        class="form-control">
+                                    <div class="input-group-append">
+                                        <button id="button-addon5" type="submit" class="btn"><i
+                                                class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <section class="content">
+                <!-- <div class="container-fluid"> -->
+                    <!-- <div class="col-12 pl-0 pr-0"> -->
+                        <!-- <div class="table-container tbl_cnt"> -->
+                            <!-- <div>
+								<input class="form-control search-item" type="text" name="search"
+								[(ngModel)]="searchText" autocomplete="off" placeholder="Search...">
+							</div> -->
+                            <div class="table_data">
+                                <!-- <div class="hr-tag">
+									<hr />
+								</div> -->
+                                <div class="table-responsive">
+                                    <table class="table table_cust text-center">
+                                        <thead>
+                                            <tr>
+                                                <th class="cur_Header">TID</th>
+                                                <th>STORE MANAGER CONTACT</th>
+                                                <th>ACTIVATION DATE</th>
+                                                <th class="cur_Header">TOTAL TRANSACTION VALUE</th>
+                                                <th>REPORT</th>
+                                                <th>STATUS</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="align-baseline">
+                                            <tr *ngFor="let cat of catFData | filter:searchText">
+                                                <td>{{cat.posId}}</td>
+                                                <td>{{cat.posMobile}}</td>
+                                                <td>{{cat.transDate | date}}</td>
+                                                <td *ngIf="cat.amount.cashValue">{{cat.amount.cashValue}}</td>
+                                                <td *ngIf="cat.amount.tapValue">{{cat.amount.tapValue}}</td>
+                                                <td>
+                                                    <button class="btn btn-sm"
+                                                        (click)="downloadReport('Category',cat.tid)"><i
+                                                            class="fas fa-download"></i></button>
+                                                    <!-- <span [ngStyle]="{'color':complaint.color}"><i
+															class="fas fa-bars icon-select"></i>
+													</span>
+													<select class="status-option status_complaint"
+														(change)="changeStatus($event.target.value)"[(ngModel)]=complaint.status>
+														
+														<option *ngFor="let i of status" [value]="complaint.status">
+															{{i.key}}
+														</option>
+													</select> -->
+
+                                                </td>
+                                                <td>
+                                                    <select class="status-option" (change)="onChangeStatus($event,cat)">
+                                                        <!-- <option selected>{{auditor.status}}</option> -->
+                                                        <option value="Active" *ngIf="cat.status==='Active'" selected>
+                                                            Active</option>
+                                                        <option value="inActive" *ngIf="cat.status==='Active'">inActive
+                                                        </option>
+                                                        <option value="Active" *ngIf="cat.status==='inActive'">Active
+                                                        </option>
+                                                        <option value="inActive" *ngIf="cat.status==='inActive'"
+                                                            selected>inActive</option>
+                                                    </select>
+                                                </td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+            </section>
+        <!-- </div> -->
+    </section>
+</div>

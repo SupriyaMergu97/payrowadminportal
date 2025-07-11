@@ -1,0 +1,375 @@
+<div class="content-wrapper main-section-container">
+    <app-vat-menus></app-vat-menus>
+
+    
+    <!-- Auditors contents -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 pl-0 pr-0">
+                    <div>
+
+                        <div class="table-header">
+
+                            <div>
+                                <!-- <div class="pull-right d-flex gap-16x" *ngIf="!isShow" style="margin-top:10px ;">
+                                    <button class="btn btn-primary-lg" (click)="addItem()" style="margin-top: -12px;">
+                                        Add Auditor<i class="fas fa-plus cta-plus-btn border-0"></i></button>
+                                </div> -->
+                                <div class="col-12" *ngIf="!isShow">
+                                    <div class="section-title d-flex align-items-center justify-content-between">
+                                        <div class="pull-left d-flex gap-16x">
+                                            <div class="search-holder">
+                                                <form action="">
+                                                    <div class="input-group">
+                                                        <input type="text" name="search" autocomplete="off"
+                                                            [(ngModel)]="searchText" placeholder="search"
+                                                            aria-describedby="button-addon5" class="form-control">
+                                                        <div class="input-group-append">
+                                                            <button id="button-addon5" type="submit" class="btn"><i
+                                                                    class="fa fa-search"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary-lg" (click)="addItem()">
+                                            Add Auditor<i class="fas fa-plus cta-plus-btn border-0"></i></button>
+                                    </div>
+                                </div>
+                                <!-- <div class="pull-right d-flex gap-16x" *ngIf="isShow" style="margin:10px ;">
+                                    <button class="btn btn-default-sm-primary" (click)="addItem()">Cancel <i
+                                            class="fas fa-minus"></i></button>
+                                    <button class="btn btn-default-md-fill" (click)="submit()">Save</button>
+                                </div> -->
+                                <!-- <button class="btn btn-sm addItem" *ngIf="isShow" (click)="submit()" [disabled]="!auditorForm.valid">SAVE</button>
+                                <button class="btn btn-default-sm-primary" *ngIf="isShow" (click)="addItem()">Cancel <i
+                                    class="fas fa-minus"></i></button> -->
+                                <div *ngIf="isShow" class="container">
+
+                                    <form [formGroup]="auditorForm" id="msform">
+                                        <div class="section-title d-flex align-items-center justify-content-between" style="margin-bottom: 16px;">
+                                            <h5>Add Auditor</h5>
+                                            <div class="pull-right d-flex gap-16x">
+                                                <button class="btn btn-default-sm-primary" (click)="addItem()">Cancel <i
+                                                        class="fas fa-minus"></i></button>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <!-- <div class="col-md-3 my-2"> -->
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="inputEmployeeName" class="float-left">Auditor
+                                                        Name</label>
+                                                    <input type="text" formControlName="auditorName"
+                                                        id=" inputEmployeeName" name="employee_name"
+                                                        class="form-control" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="phNum" class="float-left">Contact</label>
+                                                    <input type="text" formControlName="phNum" id="phNum" name="phNum"
+                                                        class="form-control" autocomplete="off">
+                                                    <!-- <div *ngIf="auditorForm.controls['jobTitle'].invalid && (auditorForm.controls['jobTitle'].dirty || auditorForm.controls['jobTitle'].touched)"
+                                                        class="alert">
+                                                        <div *ngIf="auditorForm.controls['jobTitle'].errors.required">
+                                                            <p class="error-msg">
+                                                                Job Title is required
+                                                            </p>
+                                                        </div>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="email" class="float-left">Email</label>
+                                                    <input type="text" formControlName="email" id="email" name="email"
+                                                        class="form-control" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="city" class="float-left">city</label>
+                                                    <input type="text" formControlName="city" id="city" name="city"
+                                                        class="form-control" autocomplete="off">
+                                                </div>
+                                            </div>
+
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="jod" class="float-left">Joining
+                                                        Date</label>
+                                                    <input formControlName="jod" type="date" id="jod" name="jod"
+                                                        class="form-control" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="file" class="float-left">Agreement</label>
+                                                    <input #inputFile type="file" (change)="onFileSelected($event)"
+                                                        id="file" class="form-control" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="row"> -->
+                                        <div class="d-flex gap-16x justify-content-end" *ngIf="isShow">
+                                            <button class="btn btn-default-md-fill" (click)="submit()">Save<i class="fas fa-download"></i></button>
+                                        </div>
+                                        <!-- </div> -->
+                                    </form>
+                                    <hr />
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <!-- <div class=""> -->
+                            <!-- <div class="hr-tag">
+                                <hr />
+                            </div> -->
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">Auditor Name</th>
+                                            <th class="text-center">City</th>
+                                            <th class="text-center">Contact</th>
+                                            <th class="text-center">Email</th>
+                                            <th class="text-center">Joining Date</th>                                    
+                                            <th class="text-center">Agreement</th>
+                                            <th class="text-center">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr *ngFor="let data of auditorsList">
+                                              <td class="text-center">{{data.auditorName}}</td>
+                                              <td class="text-center">{{data.city}}</td>
+                                              <td class="text-center">{{data.phNum }}</td>
+                                              <td class="text-center" data-tooltip="top" role="tooltip" attr.aria-label="{{data.email}}">
+                                                <i class="bi-envelope-open"></i>
+                                            </td>
+                                              <td class="text-center">{{data.jod | date: 'dd/MM/yyyy'}}</td>
+                                              <td class="text-center" role="tooltip" attr.aria-label="{{data.file}}"><i
+                                                class='bi bi-paperclip' style='font-size: 1rem;' role="tooltip"></i>
+                                            </td>
+                                              <td class="text-center"><div class="status status-green form-control">                                            
+                                                <select class="status-option status_auditor select"
+                                                    (change)="onChangeStatus($event,auditor)">
+                                                    <!-- <option selected>{{auditor.status}}</option> -->
+                                                    <option value="Active" *ngIf="data.status==='Deactive'">Active
+                                                    </option>
+                                                    <option value="Deactive" *ngIf="data.status==='Deactive'"
+                                                        selected>Deactive</option>
+                                                    <option value="Active" *ngIf="data.status==='Active'" selected>
+                                                        Active</option>
+                                                    <option value="Deactive" *ngIf="data.status==='Active'">Deactive
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                          </tr>
+                                    </tbody>
+                                  </table>             
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- NEW CODE FOR TABLES -->
+    <!-- <section class="content mt-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title d-flex align-items-center justify-content-between">
+                        <h1>Table Samples</h1>
+                        <div class="pull-left d-flex gap-16x">
+                            <div class="search-holder">
+                                <form action="">
+                                    <div class="input-group">
+                                        <input type="search" autocomplete="off" [(ngModel)]="searchText"
+                                            placeholder="search" aria-describedby="button-addon5" class="form-control">
+                                        <div class="input-group-append">
+                                            <button id="button-addon5" type="submit" class="btn"><i
+                                                    class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" *ngIf="isShow" class="container-fluid">
+                    <form [formGroup]="auditorForm" id="msform" (ngSubmit)="submit()">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="inputEmployeeName" class="float-left">Auditor Name</label>
+                                    <input type="text" formControlName="auditorName" id="inputEmployeeName"
+                                        name="employee_name" class="form-control" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="phNum" class="float-left">Contact</label>
+                                    <input type="text" formControlName="phNum" id="phNum" name="phNum"
+                                        class="form-control" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="email" class="float-left">Email</label>
+                                    <input type="text" formControlName="email" id="email" name="email"
+                                        class="form-control" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="city" class="float-left">city</label>
+                                    <input type="text" formControlName="city" id="city" name="city" class="form-control"
+                                        autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="jod" class="float-left">Joining Date</label>
+                                    <input formControlName="jod" type="date" id="jod" name="jod" class="form-control"
+                                        autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="file" class="float-left">Agreement</label>
+                                    <input #inputFile type="file" (change)="onFileSelected($event)" id="file"
+                                        class="form-control" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm addItem" *ngIf="isShow" (click)="submit()"
+                            [disabled]="!auditorForm.valid">SAVE</button>
+                    </form>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="table-resposive">
+                        <table class="table table_cust">
+                            <thead>
+                                <tr>
+                                    <th class="cur_Header">
+                                        <a [href]="" (click)="sortOrders('cust_name')">AUDITOR NAME NEW
+                                            <span *ngIf="sortType == 'cust_name' && !sortReverse"
+                                                class="fa fa-caret-down"></span>
+                                            <span *ngIf="sortType == 'cust_name' && sortReverse"
+                                                class="fa fa-caret-up"></span>
+                                        </a>
+                                    </th>
+                                    <th>CITY</th>
+                                    <th>CONTACT</th>
+                                    <th class="center-align">EMAIL</th>
+                                    <th class="cur_Header">
+                                        <a [href]="" (click)="sortOrders('date')">JOINING DATE
+                                            <span *ngIf="sortType == 'date' && !sortReverse"
+                                                class="fa fa-caret-down"></span>
+                                            <span *ngIf="sortType == 'date' && sortReverse"
+                                                class="fa fa-caret-up"></span>
+                                        </a>
+                                    </th>
+                                    <th>AGGREEMENT</th>
+                                    <th>STATUS</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="align-baseline">
+                                <tr *ngFor="let auditor of auditorsList | filter:searchText">
+                                    <td>{{auditor.auditorName}}</td>
+                                    <td>{{auditor.city}}</td>
+                                    <td>{{auditor.phNum}}</td>
+                                    <td class="center-align"><span data-tooltip="top" role="tooltip"
+                                            attr.aria-label="{{auditor.email}}"><i
+                                                class="bi bi-envelope-open"></i></span></td>
+                                    <td>{{auditor.jod | date: 'dd/MM/yyyy'}}</td>
+                                    <td><span data-tooltip="top" role="tooltip" attr.aria-label="{{auditor.file}}"><i
+                                                class="bi bi-paperclip"></i></span></td>
+                                    <td>
+                                        <div class="status status-green">
+                                            <select class="status-option status_auditor"
+                                                (change)="onChangeStatus($event,auditor)">
+                                                <option value="Active" *ngIf="auditor.status==='Deactive'">Active
+                                                </option>
+                                                <option value="Deactive" *ngIf="auditor.status==='Deactive'" selected>
+                                                    Deactive</option>
+                                                <option value="Active" *ngIf="auditor.status==='Active'" selected>Active
+                                                </option>
+                                                <option value="Deactive" *ngIf="auditor.status==='Active'">Deactive
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+</div>
+
+<!-- Remarks Model -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="width: 130%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <p class="small text-center" *ngFor="let remarks of remarksData">{{remarks.date}}
+            </p>
+            <div class="modal-body" style="margin-top: -34px;">
+                <!-- Mobile remarks -->
+                <div class="row mobileRemark" *ngFor="let remarks of remarksData">
+                    <div class="col-1"><i class='fas fa-user-alt bg-light remarkPerson'></i>
+                    </div>
+
+                    <div class=" col-11 bg-light rounded">
+                        <p>{{remarks.name}}</p>
+                        <p class="text-small text-muted">{{remarks.data}}</p>
+                    </div>
+                </div>
+                <!-- Web Remarks -->
+                <div *ngFor="let remarks of remarksoutData">
+                    <p class="small text-center">{{remarks.date}}</p>
+                    <div class="row webRemark">
+                        <!-- <div class="col-2"></div> -->
+                        <div class=" col-11 bg-light rounded1">
+                            <p class="webRemark">{{remarks.name}}</p>
+                            <p class="text-small text-muted webRemark">{{remarks.data}}</p>
+
+                        </div>
+                        <div class="col-1"><i class='fas fa-user-alt bg-light remarkPerson'></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer footer">
+                <div class="col-md-12 remarkBox">
+                    <textarea id="remarks" placeholder="Enter Remarks here.." [(ngModel)]="remarksMsg"></textarea>
+                </div>
+                <button class="update" (click)="updateRemarks(remarksMsg)">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

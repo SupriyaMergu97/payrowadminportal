@@ -1,0 +1,166 @@
+<div class="card-body" style="line-height: 3;">
+    <form>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="businessYears3" class="col-form-label">Business Years</label>
+                <input type="text" [value]="storeCatData?.businessDetails?.yearsInBusiness" class="form-control"
+                    id="businessYears3" placeholder="Business Years">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="businessYears3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="businessYears3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-business-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="annuTurnover" class="col-form-label">Annual Turnover</label>
+                <input type="text" [value]="storeCatData?.businessDetails?.annualTurnOver" class="form-control"
+                    id="annuTurnover" placeholder="Annual Turnover">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="annuTurnover" style="padding-left:15px;"
+                            [checked]="storeCatData?.businessDetails?.annuTurnover"><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="annuTurnover" style="padding-left:15px;"
+                            [checked]="!storeCatData?.businessDetails?.annuTurnover"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-business-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="employees3" class="col-form-label">Employees</label>
+                <input [value]="storeCatData?.businessDetails?.noOfEmployees" type="text" class="form-control"
+                    id="employees3" placeholder="Employees">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="employees3" style="padding-left:15px;"
+                            [checked]="storeCatData?.businessDetails?.employees"><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="employees3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-business-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="outlets" class="col-form-label">Outlets</label>
+                <input [value]="storeCatData?.businessDetails?.noOfOutlets" type="text" class="form-control" id="outlets"
+                    placeholder="Outlets">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="outlets" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="outlets" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-business-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <button type="button" class="btn btn-sm btn-success edit_btn" data-toggle="modal"
+        data-target=".bd-business3-modal-lg">Edit</button>
+
+
+    <!-- POPUP -->
+    <div class="modal fade bd-business-owner3-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content riskmodel-edit-form-modal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="container">
+                    <form id="edit_riskmodules_form">
+                        <div class="col-11">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="remark"></label>
+                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <button type="button" class="btn btn-submit" id="btn_submit">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bd-business3-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content riskmodel-edit-form-modal">
+                <div class="container">
+                    <form id="edit_riskmodules_form">
+                        <div class="col-11">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="address">Business Years</label>
+                                        <input type="text" [value]="storeCatData?.businessDetails?.businessYears"
+                                            class="form-control" id="businessYears3" placeholder="Business Years">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cpt_loc">Annual Turnover</label>
+                                        <input type="text" [value]="storeCatData?.businessDetails?.annuTurnover"
+                                            class="form-control" id="annuTurnover" placeholder="Annual Turnover">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cnt1">No.of Employees</label>
+                                        <input [value]="storeCatData?.businessDetails?.employees" type="text"
+                                            class="form-control" id="employees3" placeholder="Employees">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cnt2">No.Of Outlets</label>
+                                        <input [value]="storeCatData?.businessDetails?.outlets" type="text"
+                                            class="form-control" id="outlets" placeholder="Outlets">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <button type="button" class="btn btn-submit" id="btn_submit">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

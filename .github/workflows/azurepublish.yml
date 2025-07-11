@@ -1,0 +1,20 @@
+name: Deploy payrow web
+##on:
+  ##push:
+    ##paths:
+      ##- 'backend/**'
+on:
+  release:
+    types: [published]
+
+env:
+  IMAGENAME: ${{ secrets.IMAGE_NAME }}
+  REGISTRY : ${{ secrets.REGISTRY }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print environment variables
+  run: |
+    echo "IMAGENAME: $IMAGENAME"
+    echo "REGISTRY: $REGISTRY"

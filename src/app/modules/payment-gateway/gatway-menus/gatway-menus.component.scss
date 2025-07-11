@@ -1,0 +1,59 @@
+.active{
+    
+    border: 1px solid #dee2e6;
+    padding: 0px -0px 0px 0px;
+    border-radius: 3px;
+    margin-left:-2px;
+    //background-color: rgb(247, 247, 247);
+}
+
+.market{
+    margin-left:3px
+}
+
+.expenMenu{
+    width: 20px;
+      margin-right: 5px;
+      position: relative;
+      bottom: 2px;
+  }
+  
+  .serviceMenu{
+    width: 25px;
+      margin-right: 5px;
+  }
+  
+  // .nav_item{
+  //   width: 150px;
+  // }
+
+  // .dash-tab{
+  //   font-size: 14px;
+  // }
+  
+  // .menuIcons{
+  //   width: 18px;
+  //     color: gray;
+  //     margin-right: 10px;
+  //     position: relative;
+  //     bottom: 2px;
+  // }
+  
+  // .gray{
+  //   margin-right: 10px;
+  // }
+  
+  // .cashinv{
+  //   width: 22px;
+  //     position: relative;
+  //     /* top: -2px; */
+  //     bottom: 2px;
+  //     margin-right: 5px;
+  // }
+  
+
+  @media (min-width: 1400px){
+    .container {
+      max-width: 1390px;
+  }
+}

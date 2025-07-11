@@ -1,0 +1,256 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper main-section-container">
+
+    <app-gatway-menus></app-gatway-menus>
+    <section class="content mt-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 pl-0 pr-0">
+                    <div class="chart-container" style="border: 0px;">
+                        <div class="mytextdiv">
+                            <div class="mytexttitle">
+                                SERVICE TYPE HISTORY
+                            </div>
+                            <div class="divider"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content mt-1">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 pl-0 pr-0">
+                    <div class="chart-container">
+                        <div id="chart-container">
+                            <app-bar-charts [primaryXAxis]="prXAxis" [primaryYAxis]="prYAxis" [dataSource]="mainData"
+                                [tooltip]="tooltip"></app-bar-charts>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content mt-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 pl-0 pr-0">
+                    <div class="chart-container" style="border: 0px;margin-top: -7px;">
+                        <div class="mytextdiv">
+                            <div class="mytexttitle">
+                                TARGET VS ACTUAL
+                            </div>
+                            &nbsp;
+                            <div class="mytexttitle">
+                                <select class="form-select current-status-dropdown" aria-label="Default select example"
+                                    [(ngModel)]="selected" (change)='onSelectItem()'>
+                                    <option *ngFor="let service of servData" [value]="service.category">
+                                        {{service.category}}</option>
+                                </select>
+                            </div>
+                            <div class="divider"></div>
+                            <button class="btn btn-sm ed_btn float-right" *ngIf="toggleButton ===true"
+                        (click)="enable('target')">Update</button>
+                    <button class="btn btn-sm ed_btn float-right" *ngIf="toggleButton ===false"
+                        (click)="Save('target')">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- 
+    <section class="average-content-section mt-2 mb-2">
+        <div class="row">
+            <div class=" col-sm tvTitle">TARGET</div>
+            <div class="col-sm brl" *ngFor="let yrData of finalData; let i=index;">
+                <div class="crt-val" *ngIf="toggleButton" data-tooltip="top" role="tooltip"
+                    attr.aria-label="{{yrData.target | number}}" style="padding: 4px;"> 
+                    {{yrData.target | shortNumbers}}
+                </div>
+                <div class="crt-val" *ngIf="!toggleButton">
+                    <input type="text" class="form-control tgt" id="inputId" value="{{yrData.target}}"
+                        [(ngModel)]="yrData.target" [disabled]='toggleButton' (change)="update(yrData)" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="average-content-section mt-3 mb-2">
+        <div class="row">
+            <div class="col-sm tvTitle">ACTUAL</div>
+            <div class="col-sm brl" *ngFor="let yrData of finalData">
+                <div class="crt-val" data-tooltip="top" role="tooltip" attr.aria-label="{{yrData.actual | number}}">
+                    {{yrData.actual | shortNumbers}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="average-content-section mt-3 mb-4">
+        <div class="row">
+            <div class="col-sm tvTitle">PERCENT</div>
+            <div class="col-sm brl" *ngFor="let yrData of finalData">
+                <div class="crt-val">
+                    {{yrData.percent}}%
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- NEW CODE TARGET VS ACTUAL -->
+    <section class="average-content-section">
+        <div class="row d-flex align-items-center">
+            <div class="col-sm title_row btn-edit mb-3">
+                <button class="btn" *ngIf="toggleButton ===true" (click)="enable('target')">TARGET &nbsp;<i class="far fa-edit"></i></button>
+                <button class="btn" *ngIf="toggleButton ===false" (click)="Save('target')">Update &nbsp;&nbsp;<i class="far fa-edit"></i></button>
+            </div>
+            <div class="col-sm label_value mb-3" *ngFor="let yrData of finalData; let i=index;">
+                <div class="crt-val" *ngIf="toggleButton" data-tooltip="top" role="tooltip" attr.aria-label="{{yrData.target | number}}"><label>{{yrData.target | shortNumbers}}</label></div>
+                <div class="crt-val" *ngIf="!toggleButton">
+                    <input type="text" class="form-control" id="inputId" value="{{yrData.target}}" [(ngModel)]="yrData.target" [disabled]='toggleButton' (change)="update(yrData)" />
+                </div>
+            </div>
+        </div> 
+        <div class="row d-flex align-items-center">
+            <div class="col-sm title_row mb-3">ACTUAL</div>
+            <div class="col-sm label_value mb-3" *ngFor="let yrData of finalData">
+                <div class="crt-val" data-tooltip="top" role="tooltip" attr.aria-label="{{yrData.actual | number}}"><label>{{yrData.actual | shortNumbers}}</label></div>
+            </div>
+        </div>
+        <div class="row d-flex align-items-center">
+            <div class="col-sm title_row mb-3">PERCENT</div>
+            <div class="col-sm label_value mb-3" *ngFor="let yrData of finalData">
+                <div class="crt-val"><label>{{yrData.percent}}% <i class="fas fa-caret-down"></i></label></div> 
+            </div>
+        </div>
+    </section>
+
+    <section class="content mt-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 pl-0 pr-0">
+                    <div class="chart-container" style="border: 0px;margin-top: -8px;">
+                        <div class="mytextdiv">
+                            <div class="mytexttitle">
+                                QUARTER TARGETS
+                            </div>
+                            <div class="divider"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="round-chart-value-section mb-4 q-status">
+        <div class="row">
+            <div class="col-md-3 col-sm brl" style="height:85px" *ngFor="let quarter of quarterData">
+                <div class="row">
+                    <div class="col content-1">
+                        <div class="title" style="font-family: Arial, Helvetica, sans-serif">
+                            <h2 class="queue">{{quarter.quarterTitle}}</h2>
+                        </div>
+                    </div>
+                    <div class="col content-2 mt-2" style="margin:0px !important; padding-bottom: 5px;">
+                        <div class="col content">
+                            <div class="title targetTitle">TARGET</div>
+                            <span *ngIf="!toggleQuater">
+                                <input type="text" class="form-control value q_value tgt q_tgt" id="inputId"
+                                    value="{{quarter.target}}" [(ngModel)]="quarter.target" [disabled]='toggleQuater'
+                                    (change)='updateQuarter(quarter)' />
+                            </span>
+                            <span class="float-left" data-tooltip="top" role="tooltip"
+                                attr.aria-label="{{quarter.target | number}}" *ngIf="toggleQuater">
+                                {{quarter.target | shortNumbers}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="Q-hr" />
+                <div class="row">
+                    <div class="col content-3 c-red act_vals">
+                        <div class="title percent">ACTUAL</div>
+                        <span data-tooltip="top" role="tooltip" attr.aria-label="{{quarter.actual | number}}">
+                            <div class="value t_amt">{{quarter.actual | shortNumbers}}</div>
+                        </span>
+                    </div>
+                    <div class="col content-4 c-red">
+                        <div class="title percent">PERCENTAGE</div>
+                        <div class="value newVal"><i class="fas fa-caret-down"></i> {{quarter.percent}}%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content mt-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 pl-0 pr-0">
+                    <div class="chart-container" style="border: 0px;margin-top: -8px;">
+                        <div class="mytextdiv">
+                            <div class="mytexttitle">
+                                CURRENT STATUS
+                            </div>
+                            <div class="divider"></div>
+                            <button class="btn btn-sm ed_btn float-right" *ngIf="toggleStatus ===true"
+                                (click)="enable('current')">Update</button>
+                            <button class="btn btn-sm ed_btn float-right" *ngIf="toggleStatus ===false"
+                                (click)="Save('current')">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div *ngIf="finalDonutchart">
+        <section class="my-3">
+            <div class="chart-content-holder">
+                <div class="row">
+                    <div class="col-sm col-md-3 text-center" *ngFor="let data of finalDonutchart" style="margin-bottom: 50px; height: 200px;">
+                        <div class="box-chart" style="height: 115%;">
+                            <div class="box-title">{{data.dounttitle}}</div>
+                            <div class="chart_svg">
+                                <img class="chart_img1" src={{data.svgImg}}>
+                            </div>
+                            <div>
+								<div class="svg-item">
+                                    <svg width="90px" height="90px" viewBox="0 0 40 40" class="donut">
+                                        <circle class="donut-hole" cx="20" cy="20" r="16" fill="#fff"></circle>
+                                        <circle class="donut-ring" cx="20" cy="20" r="16" fill="transparent" stroke-width="5"></circle>
+                                      
+                                      <circle class="donut-segment donut-segment-2" cx="20" cy="20" r="16" fill="transparent" [attr.stroke]=data.color stroke-width="5" [attr.stroke-dasharray]=data.doNut stroke-dashoffset="0"></circle>
+                                    </svg>
+                                </div>
+                                
+                            </div>
+                            <div class="row round-chart-value chart_row ">
+                                <div class="col content-1 chart_title chart_dash">
+                                    <div class="title">TARGET</div>
+                                    <div class="title">ACTUAL</div>
+                                    <div class="title">PERCENT</div>
+                                </div>
+                                <div class="col content-2 c-green chart_val chart_dash">
+                                    
+                                    <div class="title" *ngIf="toggleStatus ===true">
+                                        {{data.target | number}}
+                                    </div>
+                                    <div class="title" *ngIf="toggleStatus ===false">                              
+                                        <input type="text" class="form-control tgt" id="inputId" value="{{data.target}}" [(ngModel)]="data.target"
+                                        />										
+                                    </div>
+                                    <div class="title">{{data.actual | number}}</div>
+                                    <div class="value" ><i class="fas fa-caret-up"></i>{{data.percent}}%
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

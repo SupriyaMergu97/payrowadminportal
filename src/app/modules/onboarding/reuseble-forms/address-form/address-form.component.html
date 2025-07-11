@@ -1,0 +1,72 @@
+<div class="container" [formGroup]="addressForm">
+    <!-- <h5 style="color: #72AC47; font-family: Roboto;">STORE DETAILS</h5> -->
+    <div class="row">
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+            <div class="form-group form-floating">
+                <input type="text" formControlName="storeName" class="form-control" placeholder="Store Name" />
+                <label for="storeName">Store Name</label>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+            <div class="form-group form-floating">
+                <input type="text" formControlName="mobileNumber" class="form-control" placeholder="Mobile Number" />
+                <label for="mobileNumber">Mobile Number</label>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+            <div class="form-group form-floating">
+                <select rows="1" class="form-control" formControlName="storeManagerId" placeholder="">
+                    <option value="" selected disabled>Select store Manager Id
+                    </option>
+                    <option *ngFor="let mngr of storeMngrList" value="{{mngr.managerId}}">{{mngr.managerId}}</option>
+                    <!-- <option value="Female">Female</option> -->
+                </select>
+                <label for="storeManagerId">Store Manager ID</label>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+            <div class="form-group form-floating">
+                <input type="text" formControlName="storeAddress" class="form-control" placeholder="Address" />
+                <label for="storeAddress">Address</label>
+                <!-- <div *ngIf="!addressForm?.get('storeAddress.storeAddress').valid && (addressForm?.get('storeAddress.storeAddress').dirty || addressForm?.get('storeAddress.storeAddress').touched)"
+                    class="alert">
+                    <div *ngIf="addressForm?.get('storeAddress.storeAddress').errors.required">
+                        <p class="error-msg">
+                            Please Enter Complete address
+                        </p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <!-- <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+            <div class="form-group form-floating">
+                <label for="">Fax Number</label>
+                <input type="text" formControlName="faxNumber" class="form-control" placeholder="Fax Number" />
+                <div *ngIf="addressForm.controls['faxNumber'].invalid && (addressForm.controls['faxNumber'].dirty || addressForm.controls['faxNumber'].touched)"
+                    class="alert">
+                    <div *ngIf="addressForm.controls['faxNumber'].errors.required">
+                        <p class="error-msg">
+                            Please Enter Store Fax Number
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+            <div class="form-group form-floating" formGroupName="storeAddress">
+                <label for="">Location</label>
+                <input type="text" formControlName="latitude" class="form-control" placeholder="Location" />
+                <div *ngIf="!addressForm?.get('storeAddress.latitude').valid && (addressForm?.get('storeAddress.latitude').dirty || addressForm?.get('storeAddress.latitude').touched)"
+                    class="alert">
+                    <div *ngIf="addressForm?.get('storeAddress.latitude').errors.required">
+                        <p class="error-msg">
+                            Please Enter Location
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+    </div>
+</div>

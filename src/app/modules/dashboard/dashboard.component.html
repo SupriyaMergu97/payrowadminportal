@@ -1,0 +1,153 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper main-section-container">
+	<app-dashboard-menus></app-dashboard-menus>
+	<section class="content">
+		<div class="mb-3" style="border: 0px;">
+			<div class="mytextdiv d-flex align-items-center justify-content-between">
+				<div class="mytexttitle">
+					PAYMENT HISTORY
+				</div>
+				<div class="divider"></div>
+				<div class="col-md-2 col-sm ">
+					<div class="select gap-16x">
+						<!-- <label>Type of Catalogue: </label> -->
+						<select rows="1" class="seldrpdwn form-control" placeholder="" [(ngModel)]="currentYear"
+							(change)='onSelectMonth($event)'>
+							<option selected>All Catalogues</option>
+							<option *ngFor="let y of years" value="{{y.year}}">{{y.year}}</option>
+						</select>
+					</div>
+					<!-- <div class="select">
+						<select rows="1" class="form-control" placeholder="" [(ngModel)]="currentYear"
+							(change)='onSelectMonth($event)'>
+							<option *ngFor="let y of years" [value]="y.year">{{y.year}}</option>
+						</select>
+					</div> -->
+				</div>
+			</div>
+			<!-- <div class="mytextdiv">
+				<div class="mytexttitle">
+					PAYMENT HISTORY
+				</div>
+				<div class="divider"></div>
+			</div> -->
+		</div>
+		<!-- bar chart -->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 pl-0 pr-0">
+					<div class="chart-container">
+						<div id="chart-container">
+
+							<!-- <app-bar-chart [primaryXAxis]="prXAxis" [primaryYAxis]="prYAxis" [data]="data"
+								[marker]="marker"></app-bar-chart> -->
+							<ejs-chart style='display:block;' [chartArea]='chartArea' [legendSettings]='legend'
+								[width]='width' align='right' [primaryXAxis]='prXAxis' [primaryYAxis]='prYAxis'
+								[tooltip]='tooltip' [palettes]='palette' (loaded)='onChartLoad($event)'
+								[height]="'300px'" [width]="'98%'">
+								<e-series-collection>
+									<e-series [dataSource]='data' type='StackingColumn' xName='x' yName='y' width='2'
+										columnWidth=.40 [cornerRadius]='radius'></e-series>
+								</e-series-collection>
+							</ejs-chart>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="content">
+
+		<!-- NEW CODE TARGET VS ACTUAL -->
+		<div class="average-content-section">
+			<div class="row d-flex align-items-center">
+				<!-- <div class="col-sm title_row btn-edit mb-3"> -->
+				<div class="col-sm title_row mb-3">TARGET</div>
+				<!-- <div class="col-sm title_row mb-3" *ngIf="toggleButton ===true" (click)="enable('target')">
+					TARGET &nbsp;<i class="far fa-edit"></i>
+				</div>
+				<div class="col-sm title_row mb-3" *ngIf="toggleButton ===false" (click)="Save('target')">
+					Update &nbsp;<i class="far fa-edit"></i>
+				</div> -->
+				<div class="col-sm label_value mb-3" *ngFor="let yrData of finalData; let i=index;">
+					<div class="crt-val" *ngIf="toggleButton" data-tooltip="top" role="tooltip"
+						attr.aria-label="{{yrData.target | number}}"><label>{{yrData.target | shortNum}}</label></div>
+					<div class="crt-val" *ngIf="!toggleButton">
+						<input type="text" class="form-control" id="inputId" value="{{yrData.target}}"
+							[(ngModel)]="yrData.target" [disabled]='toggleButton' (change)="update(yrData)" />
+					</div>
+				</div>
+			</div>
+			<div class="row d-flex align-items-center">
+				<div class="col-sm title_row mb-3">ACTUAL</div>
+				<div class="col-sm label_value mb-3" *ngFor="let yrData of finalData">
+					<div class="crt-val" data-tooltip="top" role="tooltip" attr.aria-label="{{yrData.actual | number}}">
+						<label>{{yrData.actual | shortNum}}</label>
+					</div>
+				</div>
+			</div>
+			<div class="row d-flex align-items-center">
+				<div class="col-sm title_row">PERCENT</div>
+				<div class="col-sm label_value" *ngFor="let yrData of finalData">
+					<div class="crt-val"><label>{{yrData.percent}}% <i class="fas fa-caret-down"></i></label></div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+	<!-- quarter targets -->
+	<section class="">
+		<div class="mytexttitle">
+			QUARTER TARGETS
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<!-- New Code -->
+				<div class="col-3" *ngFor="let quarter of finalQuarterData">
+					<div class="card-circle">
+						<div class="cc-content">
+							<div class="cc-icon">
+								<div class="text">
+									{{quarter.quarterTitle}}
+								</div>
+							</div>
+							<div class="count-box">
+								<div class="cbox-text">
+									<h6>Target</h6>
+									<h5 data-tooltip="top" role="tooltip" attr.aria-label="{{quarter.target | number}}"
+										*ngIf="toggleQuater">{{quarter.target | shortNum}}</h5>
+								</div>
+								<div class="cbox-text">
+									<h6>Actual</h6>
+									<h4 data-tooltip="top" role="tooltip" attr.aria-label="{{quarter.actual | number}}">
+										{{quarter.actual | shortNum}}</h4>
+								</div>
+							</div>
+						</div>
+						<div class="circle-bar">
+							<svg viewBox="0 0 36 36" class="circular-chart green">
+								<path class="circle-bg"
+									d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+								<path class="circle" [attr.stroke]=quarter.color [attr.stroke-dasharray]=quarter.doNut
+									d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+							</svg>
+							<div class="cc-content-area">
+								<div class="value newVal" [ngStyle]="{'color':data.color}">{{quarter.percent}} %<i
+										class="fas fa-caret-down"></i></div>
+								<span>Percent</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="loading" *ngIf="isLoading">
+		<div id="loader"><!-- Animated logo --><img src="/admin/assets/images/loaderGreen.png" alt="Loading Logo"
+				class="logo">
+			<div class="spinner-border" role="status"></div>
+			<p>Loading, please wait...</p>
+		</div>
+	</div>
+</div>

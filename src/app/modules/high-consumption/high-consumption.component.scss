@@ -1,0 +1,47 @@
+label.importButton input[type=file] {
+    position: fixed;
+    top: -1000px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+ 
+  #file,
+  .importButton:valid+span {
+    display: inline-block;
+    color: #F1F7ED;
+    padding: 0.25rem 0.5rem;
+    font-size: 14px;
+  }
+
+  .importButton{
+    display: inline-block;
+    padding: 0.45rem 0.5rem;
+    color: var(--color_1) !important;
+    border: #F1F7ED;
+    background: #F1F7ED;
+    border-radius: var(--br-14x);
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-5);
+  }
+
+  .importButton:active,
+  .importButton:hover,
+  .importButton:invalid+span {
+    cursor: pointer;
+    background: #F1F7ED;
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+  }
+ 
+  .importButton:valid+span {
+    margin: 5px;
+    padding: 6px 12px;
+    border: #F1F7ED;
+    border-radius: 2px;
+    background:#F1F7ED;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  .dialog{
+    border: none;
+    background:none;
+    }

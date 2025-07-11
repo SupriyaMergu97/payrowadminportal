@@ -1,0 +1,6 @@
+<div class="outlined">
+    <button (click)="previousPage()" class="arrows" [disabled]="currentPage === 1">Previous</button>
+    <button *ngFor="let page of pageNumbers" class="pageButton" (click)="onPageChange(page)"
+        [disabled]="currentPage === page">{{ page }}</button>
+    <button (click)="nextPage()" class="arrows" [disabled]="currentPage === totalPages">Next</button>
+</div>

@@ -1,0 +1,172 @@
+<div class="content-wrapper main-section-container">
+    <app-allocation-menus></app-allocation-menus>
+    <section class="content">
+        <div class="container-fluid p-0">
+            <div class="row">
+                <div class="col-12" *ngIf="!(isTrack || isForm)">
+                    <div class="pull-left d-flex gap-16x mb-4"> 
+                        <div class="search-holder"> 
+                            <!-- <form action=""> -->
+                                <div class="input-group">
+                                    <input type="search" autocomplete="off" [(ngModel)]="searchText" placeholder="search" aria-describedby="button-addon5" class="form-control">
+                                    <div class="input-group-append">
+                                        <button id="button-addon5" type="submit" class="btn"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            <!-- </form> -->
+                        </div>
+                    </div>  
+                    <div class="table-responsive">
+                        <table class="table table_cust table_cust-with-buttons text-center">
+                            <thead>
+                                <tr>
+                                    <!-- <th>S.NO</th> -->
+                                    <th class="cur_Header">MID</th>
+                                    <th class="cur_Header">TID</th>
+                                    <th>IMEI NUMBER</th>
+                                    <th>ADDRESS</th>
+                                    <th class="cur_Header">ACTIVATION DATE</th>
+                                    <th class="cur_Header">SALES PERSON NAME</th>
+                                    <th>TID ALLOCATION</th>
+                                    <!-- <th>TRANSACTION RATE</th> -->
+                                </tr>
+                            </thead>
+                            <tbody class="align-baseline">
+                                <tr *ngFor="let tIDdata of tidData | filter:searchText">
+                                    <td>{{tIDdata.mid}}</td>
+                                    <td>{{tIDdata.tid}}</td>
+                                    <td>{{tIDdata.sNo}}</td>
+                                    <td class="remarks_one" data-tooltip="top" role="tooltip"
+                                        attr.aria-label="{{tIDdata.address}}"><i class="bi-card-list"></i></td>
+                                    <td>{{tIDdata.joiningDate}}</td>
+                                    <td data-tooltip="top" role="tooltip"
+                                        attr.aria-label="{{tIDdata.salesPerAdd}},{{tIDdata.address}}">
+                                        {{tIDdata.salesPerName}}</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-sm-cust btn-outline-dark"
+                                        (click)="userDetailsFunc(tIDdata.sNo)">Process</button>
+                                        </td>
+                                        <!-- <td *ngIf="tIDdata.isAllocated===true"><span>Done!</span></td> -->
+                                    <!-- <td>
+                                        <button class="btn btn-sm btn-success edit_btn" (click)="showForm()">Details</button>
+                                    </td> -->
+        
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> 
+
+                <!-- BACK BUTTON -->
+                <div class="col-12"  *ngIf="isTrack">
+                    <div *ngFor="let data of tidPerData;let i =index;">
+                        <div class="card card_cnt">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm">
+                                        <button class="btn btn-sm back_btn" (click)="backToList()"><i
+                                                class="fas fa-arrow-circle-left"></i>&nbsp;Back</button>
+                                    </div>
+                                    <div class="col-sm col-md-3">
+                                        Name : {{data.name}}
+                                    </div>
+                                    <div class="col-sm col-md-3"> TID : {{data.tid}}</div>
+                                    <div class="col-sm col-md-3">Email : {{data.email}}</div>
+                                </div>
+                            </div>
+                        </div>
+            
+            
+                        <div class="card row" style="box-shadow: 0px 1px 7px -5px grey; border: none;">
+                            <div class="p-4 text-lg rounded-top"><span class="text-uppercase trackerTitle">TID Activation
+                                    Tracker</span>
+                                <div class="trackerTitle" style="float: right;position: relative;top: 4px;"><span
+                                        class="text-medium">Status:</span> Document Submited</div>
+                            </div>
+            
+            
+                            <div class="card-body">
+                                <div
+                                    class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
+                                    <div class="step completed">
+                                        <div class="step-icon-wrap">
+                                            <div class="step-icon"><i class="pe-7s-user stepIcn"></i></div>
+                                        </div>
+                                        <h4 class="step-title">Customer request <br>12-04-2022</h4>
+                                    </div>
+                                    <div class="step">
+                                        <div class="step-icon-wrap">
+                                            <div class="step-icon"><i class="pe-7s-check stepIcn"></i></div>
+                                        </div>
+                                        <h4 class="step-title">Send Authentication code</h4>
+                                    </div>
+                                    <div class="step">
+                                        <div class="step-icon-wrap">
+                                            <div class="step-icon"><i class="pe-7s-phone stepIcn"></i></div>
+                                        </div>
+                                        <h4 class="step-title">Send Information to Youcloud</h4>
+                                    </div>
+                                    
+                                    <div class="step">
+                                        <div class="step-icon-wrap">
+                                            <div class="step-icon"><i class="pe-7s-phone stepIcn"></i></div>
+                                        </div>
+                                        <h4 class="step-title">Account activation by Wizzit</h4>
+                                    </div>
+                                    <div class="step">
+                                        <div class="step-icon-wrap">
+                                            <div class="step-icon"><i class="pe-7s-phone stepIcn"></i></div>
+                                        </div>
+                                        <h4 class="step-title">TID Allocation</h4>
+                                    </div>
+                                    <div class="step">
+                                        <div class="step-icon-wrap">
+                                            <div class="step-icon"><i class="pe-7s-play stepIcn"></i></div>
+                                        </div>
+                                        <h4 class="step-title">Awareness Video</h4>
+                                    </div>
+                                </div>
+                                <div class="form-check" style="margin-top: 25px;">
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        <label class="form-check-label pendingStatus" for="flexCheckChecked">
+                                            Click here to Confirm MID
+                                        </label>
+                                        <span>123456</span>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        <label class="form-check-label pendingStatus" for="flexCheckChecked">
+                                            Click here to Confirm TID
+                                        </label>
+                                        <input type="text" placeholder="Enter TID" style="margin-left: 13px">
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        <label class="form-check-label pendingStatus" for="flexCheckChecked">
+                                            Click here to send Awareness Video
+                                        </label>
+                                    </div>
+                                    <button class="btn btn-sm back_btn float-right"
+                                        (click)="sendAuthentication(data.mid)">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FORM TABS START -->
+                <div class="col-12" *ngIf="isForm">
+                    <div class="kycForms">
+                        <div class="row backForm">
+                            <button class="btn btn-sm btn-success edit_btn" (click)="back()">Back</button>
+                        </div>
+                        <div class="card" id="pills-tabContent">
+                            <app-risk-transaction></app-risk-transaction>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

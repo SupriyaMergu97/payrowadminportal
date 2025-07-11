@@ -1,0 +1,358 @@
+<div class="card-body" style="line-height: 2;">
+    <div *ngIf="!isStore" class="table-responsive">
+        <table class="table table_cust">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>StoreId</th>
+                    <th>Conatct</th>
+                    <th>Risk</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let staff of storeCatData">
+                    <td>{{staff.staffName}}</td>
+                    <td>{{staff.emiratesId}}</td>
+                    <td>{{staff.mobileNumber}}</td>
+                    <td><button class="btn btn-sm btn-success" (click)="details(staff.emiratesId)">Details</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <form *ngIf="isStore">
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <button class="btn btn-sm btn-success" (click)="back()">Back</button>
+                <!-- <select class="chooseBank" aria-label="Default select example">
+                    <option selected disabled>Select Store</option>
+                    <option>store1</option>
+                    <option>store2</option>
+                    <option>store3</option>
+                    <option>store4</option>
+                </select> -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="storeName3" class="col-form-label">Store Name</label>
+                <input type="text" [value]="storeCatData?.addressDetails?.storeName" class="form-control"
+                    id="storeName3" placeholder="Name">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="storeName3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="storeName3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-address-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="address3" class="col-form-label">Address</label>
+                <input type="text" [value]="storeCatData?.addressDetails?.address" class="form-control" id="address3"
+                    placeholder="Address">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="address3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="address3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-address-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="capture_loc3" class="col-form-label">Capture Location</label>
+                <input type="text" [value]="storeCatData?.addressDetails?.location" class="form-control"
+                    id="capture_loc3" placeholder="Capture Location">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="capture_loc3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="capture_loc3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-address-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="contact3" class="col-form-label">Mobile Number</label>
+                <input [value]="storeCatData?.addressDetails?.contact" type="text" class="form-control" id="contact3"
+                    placeholder="Mobile Number">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="contact3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="contact3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-address-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="faxNumber3" class="col-form-label">Fax Number</label>
+                <input [value]="storeCatData?.addressDetails?.faxNumber" type="text" class="form-control"
+                    id="faxNumber3" placeholder="Fax Number">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="faxNumber3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="faxNumber3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-address-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="website3" class="col-form-label">Website</label>
+                <input [value]="storeCatData?.addressDetails?.website" type="text" class="form-control" id="website3"
+                    placeholder="Website">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="website3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="website3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-address-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="name3" class="col-form-label">Name</label>
+                <input [value]="storeCatData?.addressDetails?.name" type="text" class="form-control" id="name3"
+                    placeholder="Website">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="name3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="name3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-address-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="bankName3" class="col-form-label">Bank Name</label>
+                <input [value]="storeCatData?.addressDetails?.bankName" type="text" class="form-control" id="bankName3"
+                    placeholder="Bank Name">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="bankName3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="bankName3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-address-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="acntNum3" class="col-form-label">Account Number</label>
+                <input [value]="storeCatData?.addressDetails?.acntNum" type="text" class="form-control" id="acntNum3"
+                    placeholder="Account Number">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="acntNum3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="acntNum3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-address-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <label for="ibanNum3" class="col-form-label">IBAN Number</label>
+                <input [value]="storeCatData?.addressDetails?.ibanNum" type="text" class="form-control" id="ibanNum3"
+                    placeholder="Website">
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                <div class="radio_css">
+                    <label class="radio-inline">
+                        <input type="radio" name="ibanNum3" style="padding-left:15px;" checked><span>Accept</span>
+                    </label>
+                    <label class="radio-inline" style="padding-left:15px;">
+                        <input type="radio" name="ibanNum3" style="padding-left:15px;"><span>Decline</span>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-secondary" style="margin-left: 35px;"
+                        data-toggle="modal" data-target=".bd-address-owner3-modal-lg">Remark</button>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-sm btn-success edit_btn" data-toggle="modal"
+            data-target=".bd-address3-modal-lg">Edit</button>
+    </form>
+
+
+    <!-- POPUP -->
+    <div class="modal fade bd-address-owner3-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content riskmodel-edit-form-modal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="container">
+                    <form id="edit_riskmodules_form">
+                        <div class="col-11">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="remark"></label>
+                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <button type="button" class="btn btn-submit" id="btn_submit">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bd-address3-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content riskmodel-edit-form-modal">
+                <div class="container">
+                    <form id="edit_riskmodules_form">
+                        <div class="col-11">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="address">Store Name</label>
+                                        <input type="text" [value]="storeCatData?.addressDetails?.storeName"
+                                            class="form-control" id="storeName3" placeholder="Store Name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="address">Address</label>
+                                        <input type="text" [value]="storeCatData?.addressDetails?.address"
+                                            class="form-control" id="address3" placeholder="Address">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cpt_loc">Capture Location</label>
+                                        <input type="text" [value]="storeCatData?.addressDetails?.location"
+                                            class="form-control" id="capture_loc3" placeholder="Capture Location">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cnt1">Mobile Number</label>
+                                        <input [value]="storeCatData?.addressDetails?.contact" type="text"
+                                            class="form-control" id="contact3" placeholder="Mobile Number">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cnt2">Fax Number</label>
+                                        <input [value]="storeCatData?.addressDetails?.faxNumber" type="text"
+                                            class="form-control" id="faxNumber3" placeholder="Fax Number">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="website">Website</label>
+                                        <input [value]="storeCatData?.addressDetails?.website" type="text"
+                                            class="form-control" id="website3" placeholder="Website">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="website">Name</label>
+                                        <input [value]="storeCatData?.addressDetails?.name" type="text"
+                                            class="form-control" id="name3" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="website">Bank Name</label>
+                                        <input [value]="storeCatData?.addressDetails?.bankName" type="text"
+                                            class="form-control" id="bankName3" placeholder="Bank Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="website">Account Number</label>
+                                        <input [value]="storeCatData?.addressDetails?.acntNum" type="text"
+                                            class="form-control" id="acntNum3" placeholder="Account Number">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="website">IBAN Number</label>
+                                        <input [value]="storeCatData?.addressDetails?.ibanNum" type="text"
+                                            class="form-control" id="ibanNum3" placeholder="IBAN Number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <button type="button" class="btn btn-submit" id="btn_submit">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

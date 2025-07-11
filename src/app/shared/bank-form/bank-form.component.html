@@ -1,0 +1,59 @@
+<ng-container [formGroup]="bankForm">
+    <div class="container">
+        <!-- <h5 style="color: #72AC47; font-family: Roboto;">BANK DETAILS</h5> -->
+        <div class="row">
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="bankName" class="form-control" placeholder="Bank Name" />
+                    <label for="bankName" [ngClass]="{'is-invalid': bankForm.controls['bankName'].invalid && bankForm.controls['bankName'].touched,
+                        'is-valid': bankForm.controls['bankName'].valid}">
+                            Bank Name<span>&nbsp;*</span></label>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="branchName" class="form-control" placeholder="Branch Name" />
+                    <label for="branchName" [ngClass]="{'is-invalid': bankForm.controls['branchName'].invalid && bankForm.controls['branchName'].touched,
+                        'is-valid': bankForm.controls['branchName'].valid}">
+                        Branch Name<span>&nbsp;*</span></label>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="accountNumber" class="form-control"
+                        placeholder="Bank Ac Number" />
+                        <label for="accountNumber" [ngClass]="{'is-invalid': bankForm.controls['accountNumber'].invalid && bankForm.controls['accountNumber'].touched,
+                        'is-valid': bankForm.controls['accountNumber'].valid}">
+                        Account Number<span>&nbsp;*</span></label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="ibanNumber" class="form-control" placeholder="IBAN Number" />
+                    <label for="ibanNumber" [ngClass]="{'is-invalid': bankForm.controls['ibanNumber'].invalid && bankForm.controls['ibanNumber'].touched,
+                        'is-valid': bankForm.controls['ibanNumber'].valid}">
+                            IBAN Number<span>&nbsp;*</span></label>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="vatNumber" class="form-control" placeholder="Vat Number" />
+                    <label for="vatNumber" [ngClass]="{'is-invalid': bankForm.controls['vatNumber'].invalid && bankForm.controls['vatNumber'].touched,
+                        'is-valid': bankForm.controls['vatNumber'].valid}">
+                        Vat Number<span>&nbsp;*</span></label>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="trn" class="form-control" placeholder="Vat Number" />
+                    <label for="trn" [ngClass]="{'is-invalid': bankForm.controls['trn'].invalid && bankForm.controls['trn'].touched,
+                        'is-valid': bankForm.controls['trn'].valid}">
+                        TRN<span>&nbsp;*</span></label>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</ng-container>

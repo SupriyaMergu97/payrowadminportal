@@ -1,0 +1,178 @@
+// .current-status-dropdown {
+//   color: grey;
+//   border: none;
+//   background-color: #fcfcfd;
+//   border: 1px solid lightgray;
+//   font-size: 13px;
+//   width: auto;
+// }
+// .current-status-dropdown:focus{-webkit-box-shadow: none;}
+
+// .current-status-dropdown option {
+//     color:#7e7f80;
+//   }
+// .current-status-dropdown option:checked {
+//     color:#ffffff;
+//     background-color: grey;
+// }
+
+//   .ng-select .ng-has-value .ng-placeholder, .ng-select.ng-select-opened .ng-placeholder{
+//       transform: none;
+//   }
+.btn-primary-lg {
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+.uploadImg {
+  display: inline;
+  background-color: #72ac47;
+  color: white;
+  width: 100px;
+  position: relative;
+  top: 0px;
+  right: -3px;
+}
+// .img{
+//   padding: 0px;
+// }
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  color: whitesmoke;
+  width: 275px;
+  height: 52px;
+  right: 32px;
+  bottom: 32px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 52px;
+  span{
+    font-weight: 300;
+  }
+}
+.cardImg {
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+.imgtext1 {
+  color: purple;
+  cursor: pointer;
+}
+.imgtext2 {
+  color: rgb(209, 209, 206);
+  margin-top: -10px;
+}
+.imgtext3 {
+  color: purple;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.select_drpDown {
+  width: 20%;
+  float: right;
+  margin-left: 10px;
+  font-size: 13px;
+}
+.hr_tag {
+  width: 1px;
+}
+.multiselect-dropdown .dropdown-btn {
+  padding: 3px 12px !important;
+}
+.multiselect-dropdown .dropdown-btn .selected-item-container .selected-item {
+  border: 1px solid lightgray !important;
+  margin-right: 4px !important;
+  background: lightgray !important;
+  padding: 0 5px !important;
+  color: #fff !important;
+  border-radius: 2px !important;
+  float: left !important;
+  //max-width: 80% !important;
+  width: 177px !important;
+  height: 22px !important;
+  font-size: 13px !important;
+}
+
+.multiselect-item-checkbox input[type="checkbox"] + div:before {
+  box-sizing: content-box;
+  content: "";
+  color: lightgray;
+  position: absolute;
+  top: 53%;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  margin-top: -9px;
+  border: 2px solid lightgray;
+  text-align: center;
+  transition: 0.4s;
+}
+
+.chartSt {
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.circular_image {
+  float: left;
+  margin-left: 125px;
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%; /* Modified*/
+  /*overflow:hidden;*/
+  background-color: blue;
+}
+.content{
+  border-bottom: 10px solid gainsboro;
+}
+// Media queries
+
+@media screen and (min-width: 1400px) {
+  .mytextdiv {
+    width: 100% !important;
+  }
+}
+
+// Mobile Responsive
+
+@media (min-width: 360px) {
+  .current-status-dropdown {
+    width: 100%;
+  }
+  .dropdown-list {
+    right: 0% !important;
+    width: 300px !important;
+  }
+}
+
+@media (min-width: 375px) {
+  .dropdown-list {
+    right: 0% !important;
+    width: 300px !important;
+  }
+}
+
+@media (min-width: 280px) {
+  .nav_item {
+    width: 50%;
+  }
+  .current-status-dropdown {
+    width: 100%;
+  }
+  .dropdown-list {
+    right: 0% !important;
+    width: 225px !important;
+  }
+}

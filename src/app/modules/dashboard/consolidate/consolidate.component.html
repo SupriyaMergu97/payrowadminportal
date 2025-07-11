@@ -1,0 +1,153 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<div class="content-wrapper main-section-container">
+    <app-dashboard-menus></app-dashboard-menus>
+    <section class="content">
+        <div class="col-12 mb-4">
+            <div class="section-title d-flex align-items-center justify-content-between">
+                <div class="mytexttitle" style="margin-left: 6px;">
+                    CONSOLIDATED REPORT
+                </div>
+                <div class="divider"></div>
+                <div class="col-md-2 col-sm ">
+                    <div class="select">
+                        <select rows="1" class="seldrpdwn form-control" placeholder="" [(ngModel)]="currentYear"
+                            (change)='onSelectMonth($event)'>
+                            <option *ngFor="let y of years" [value]="y.year">{{y.year}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="card card-box">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-3 sidemenu-form">
+                    <div class="input-group userNum">
+                        <div style="float: left;" class="pr-2">MERCHANT ID :</div>
+                        <input type="text" class="form-control" placeholder="Sponser ID" aria-describedby="basic-addon2"
+                            value="232111">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2"><i
+                                    class="fas fa-arrow-right fa-fw"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10 col-sm" style="padding-top: 3px;">
+                    Name : Aravind Kishore
+                </div>
+                <div class="col-md-2 col-sm">
+                    <div class="mytexttitle">
+                        <select class="form-select current-status-dropdown" aria-label="Default select example"
+                            [(ngModel)]="selected" (change)='onSelectMonth($event)'>
+                            <option *ngFor="let j of months" [value]="j.month">{{j.month}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div> -->
+
+        <!-- new code for donuts -->
+
+        <!-- <div class=""> -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3" *ngFor="let data of consolidatedData; let i =index" style="margin-bottom: 24px;">
+                    <div class="card-circle card-circle2">
+                        <div class="card-title">
+                            <h2 class="m-0">{{data.type}}</h2>
+                        </div>
+                        <div class="cc-content">
+                            <!-- <div class="cc-icon">
+                                <div class="text"><button class="btn btn-edit"><i class="fas fa-download"></i></button>
+                                </div>
+                            </div> -->
+                            <div class="count-box">
+                                <div class="cbox-text">
+                                    <h6>Target</h6>
+                                    <h5>{{data.target | shortNum}}</h5>
+                                </div>
+                                <div class="cbox-text">
+                                    <h6>Actual</h6>
+                                    <h4>{{data.actual | shortNum }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="circle-bar">
+                            <svg viewBox="0 0 36 36" class="circular-chart blue">
+                                <path class="circle-bg"
+                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path class="circle" [attr.stroke]=data.color [attr.stroke-dasharray]=data.doNut
+                                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            </svg>
+                            <div class="cc-content-area">
+                                <div class="value newVal" [ngStyle]="{'color':data.color}">{{data.percent}} %<i
+                                        class="fas fa-caret-down"></i></div>
+                                <span>Percent</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- </div> -->
+
+
+
+    <!-- end -->
+
+    <section class="mt-1">
+        <div class="mb-3" style="border: 0px;">
+            <div class="mytextdiv row">
+                <div class="mytexttitle col-12">
+                    PRODUCT COMPARISION CHART
+                </div>
+                <div class="divider"></div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 pl-0 pr-0">
+                    <div class="chart-container border-0">
+                        <div id="chart-container">
+
+                            <ejs-chart style='display:block;' id='chartcontainer' [chartArea]='chartArea' align='center'
+                                [primaryXAxis]='prXAxis' [primaryYAxis]='prYAxis' [title]='title' [tooltip]='tooltip'
+                                [palettes]='palette' [legendSettings]='legend' [height]="'300px'" [width]="'98%'">
+                                <e-series-collection>
+                                    <e-series [dataSource]='chartData1' type='StackingColumn' xName='x' yName='y'
+                                        name='Cash' width='2' columnWidth=.40 columnSpacing=.40></e-series>
+                                    <e-series [dataSource]='chartData2' type='StackingColumn' xName='x' yName='y'
+                                        name='Paybylink' width='2' columnWidth=.40 columnSpacing=.40></e-series>
+                                    <e-series [dataSource]='chartData3' type='StackingColumn' xName='x' yName='y'
+                                        name='generateQR' width='2' columnWidth=.40 columnSpacing=.40></e-series>
+                                    <e-series [dataSource]='chartData4' type='StackingColumn' xName='x' yName='y'
+                                        name='Card' width='2' columnWidth=.40 columnSpacing=.40
+                                        [cornerRadius]='radius'></e-series>
+                                    <e-series [dataSource]='chartData5' type='StackingColumn' xName='x' yName='y'
+                                        name='generateQR' width='2' columnWidth=.40 columnSpacing=.40
+                                        [cornerRadius]='radius'></e-series>
+                                </e-series-collection>
+                            </ejs-chart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="loading" *ngIf="isLoading">
+        <div id="loader"><!-- Animated logo --><img src="/admin/assets/images/loaderGreen.png" alt="Loading Logo"
+                class="logo">
+            <div class="spinner-border" role="status"></div>
+            <p>Loading, please wait...</p>
+        </div>
+    </div>
+</div>

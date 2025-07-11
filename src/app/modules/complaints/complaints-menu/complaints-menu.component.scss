@@ -1,0 +1,35 @@
+.active{
+    
+    border: 1px solid #dee2e6;
+    padding: 0px -0px 0px 0px;
+    border-radius: 3px;
+    margin-left:-2px;
+    //background-color: rgb(247, 247, 247);
+}
+
+.icon_margin{
+    margin-left:5px;
+}
+
+.dist_nav{
+    width: 20%;
+}
+
+.dist-tab{
+  font-size: 14px;
+}
+
+
+  // Media queries
+
+  @media (min-width: 1400px){
+    .container{
+        max-width: 1383px !important;
+      }
+    }
+
+    @media (min-width: 1500px){
+        .container{
+            max-width: 1490px !important;
+          }
+        }

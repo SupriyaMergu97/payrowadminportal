@@ -1,0 +1,430 @@
+<div class="content-wrapper main-section-container">
+    <div class="tab-content" id="v-pills-tabContent">
+        <div class="row">
+            <div class="col-md-2">
+                <a routerLink='/create-account/ac-user'><button
+                        class="btn btn-sm btn-success edit_btn">Back</button></a>
+            </div>
+            <div class="col-md-10">
+                <button class="btn btn-sm action_btn" [ngClass]="step>=1 ? 'active' : 'inactive'"
+                        (click)="next()" style="float: right;">
+                        Next</button>
+                <button class="btn btn-sm action_btn" [ngClass]="step>=2 ? 'active' : 'inactive'"
+                        (click)="previous()" style="float: right;" autofocus>Previous</button>
+            </div>
+        </div>
+        <div class="tab-pane fade rounded bg-white show active p-5">
+            <!-- <div class="row"> -->
+                <div class="" *ngIf="step == 1">
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Sub Merchant</label>
+                            <input type="text" class="form-control" placeholder="Sub Merchant" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="subMerchant" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="subMerchant" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Full Name</label>
+                            <input type="text" class="form-control" placeholder="Full Name" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="fullName" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="fullName" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>EI Number</label>
+                            <input type="text" class="form-control" placeholder="EI Number" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="eiNum" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="eiNum" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Attach EI Copy</label>
+                            <input type="text" class="form-control" placeholder="Attach EI Copy" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="eiCopy" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="eiCopy" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Driving Licence Number</label>
+                            <input type="text" class="form-control" placeholder="Driving Licence Number" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="licenceNum" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="licenceNum" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Passport Number</label>
+                            <input type="text" class="form-control" placeholder="Passport Number" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="passportNum" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="passportNum" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Passport File</label>
+                            <input type="text" class="form-control" placeholder="Passport File" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="passportCopy" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="passportCopy" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Visa Number</label>
+                            <input type="text" class="form-control" placeholder="Visa Number" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="visaNum" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="visaNum" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Visa Copy</label>
+                            <input type="text" class="form-control" placeholder="Visa Copy" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="visaCopy" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="visaCopy" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Contact</label>
+                            <input type="text" class="form-control" placeholder="Contact" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="contact" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="contact" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="" *ngIf="step == 2">
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Manager POS ID</label>
+                            <input type="text" class="form-control" placeholder="Manager POS ID" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="manPosId" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="manPosId" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Store ID</label>
+                            <input type="text" class="form-control" placeholder="Store ID" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="storeId" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="storeId" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Sales Person ID</label>
+                            <input type="text" class="form-control" placeholder="Sales Person ID" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="salesPosId" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="salesPosId" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Merchant ID</label>
+                            <input type="text" class="form-control" placeholder="Merchant ID" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="merchantId" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="merchantId" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Group ID</label>
+                            <input type="text" class="form-control" placeholder="Group ID" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="groupId" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="groupId" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Name of Establishment</label>
+                            <input type="text" class="form-control" placeholder="Name of Establishment" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="nameOfEst" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="nameOfEst" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Receipt printed Name</label>
+                            <input type="text" class="form-control" placeholder="Receipt printed Name" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="recPrintedName" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="recPrintedName" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Name of Owner</label>
+                            <input type="text" class="form-control" placeholder="Name of Owner" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="ownerName" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="ownerName" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fieldipt">
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <label>Pin</label>
+                            <input type="text" class="form-control" placeholder="Pin" />
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-xs-12">
+                            <div class="radio_css">
+                                <label class="radio-inline" style="padding-left:0px;">
+                                    <input type="radio" name="pin" style="padding-left:15px;"
+                                        checked><span>Accept</span>
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="pin" style="padding-left:15px;"><span>Decline</span>
+                                </label>
+                                <button type="button" class="btn btn-sm btn-secondary remarkbtn" data-toggle="modal"
+                                    data-target=".bd-creataccount3-modal-lg">Remark</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- </div> -->
+        </div>
+        <div class="modal fade bd-creataccount3-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content riskmodel-edit-form-modal">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="container">
+                        <form id="edit_riskmodules_form">
+                            <div class="col-11">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="remark"></label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <button type="button" class="btn btn-sm btn-success edit_btn" id="btn_submit">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

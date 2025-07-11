@@ -1,0 +1,280 @@
+<div class="content-wrapper main-section-container">
+	<section class="content">
+		<div class="container-fluid p-0 pb-24x"> 
+			<div class="row"> 
+				<div class="col-md-12">
+					<div class="section-title  d-flex align-items-center justify-content-between"> 
+                        <div class="pull-left"> 
+                            <div class="search-holder"> 
+                                <form action="">
+                                    <div class="input-group">
+                                        <input type="search" autocomplete="off" [(ngModel)]="searchText" placeholder="Search" aria-describedby="button-addon5" class="form-control" [ngModelOptions]="{standalone: true}">
+                                        <div class="input-group-append">
+                                            <button id="button-addon5" type="submit" class="btn"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="pull-right d-flex gap-16x"> 
+                            <button class="btn btn-primary-lg" (click)="reportDownload()"><i class="fas fa-download"></i> Download</button> 
+                            <!-- <div class="select">
+                                <select rows="1" class="form-control" placeholder="" [(ngModel)]="month" (change)='onSelectMonth($event)'>
+									<option value="" selected>Select Month</option>
+									<option *ngFor="let j of months" [value]="j.month">{{j.month}}</option>
+								</select>
+                            </div> -->
+                        </div>
+                    </div>  
+					<!-- <div class="section-header"> 
+						<div class="pull-left d-flex gap-16x"> 
+							<div class="search-holder"> 
+								<form action="">
+									<div class="input-group">
+										<input type="search" autocomplete="off" [(ngModel)]="searchText" placeholder="Search" aria-describedby="button-addon5" class="form-control" [ngModelOptions]="{standalone: true}">
+										<div class="input-group-append">
+											<button id="button-addon5" type="submit" class="btn"><i class="fa fa-search"></i></button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>                       
+
+						<div class="pull-right d-flex gap-16x"> 
+							<button class="btn btn-default-primary"  (click)="reportDownload()"><i class="fas fa-download"></i> Download</button> 
+							<div class="select min-w-200x">
+								<select rows="1" class="form-control" placeholder="" [(ngModel)]="month" (change)='onSelectMonth($event)'>
+									<option value="" selected>Select Month</option>
+									<option *ngFor="let j of months" [value]="j.month">{{j.month}}</option>
+								</select>
+							</div> 
+						</div>
+					</div>                         -->
+				</div>
+			</div>
+		</div> 
+		<table class="table table-striped text-center">
+			<thead>
+				<tr>
+					<th>Merchant ID</th>
+					<th>Merchant Name</th>
+					<th>Terminal ID</th>
+					<th>Address</th>
+					<th>Value</th>
+					<th>Average</th>
+					<th>Sequence No</th>
+					<!-- <th></th> -->
+				</tr>
+			</thead>
+			<tbody>
+				<ng-container *ngFor="let data of getPage() | filter:searchText; let index=index; let even=even">
+					<tr class="tid-data-row"
+					  [ngClass]="{'tid-even': even}" [class.active]="data.showDetail">
+					  <td>{{data.mainMerchantId}}</td>
+					  <td>{{data.name}}</td>
+					  <td>{{data._id}}</td>
+					  <td>
+						<div>
+							<button class="dialog" (click)="openDialog(data._id)">
+								<div class="bi-card-list"></div>
+							</button>
+						</div>
+						<app-contact-dialog *ngIf="showDialog" [dialogData]="dialogData"
+							(close)="closeDialog()"></app-contact-dialog>
+					</td>
+					  <td>{{data.totalAmount | number}}</td>
+					  <td>{{data.average | number}}</td>
+					  <td>{{data.count}}</td>
+					<!-- <td>
+						<button class="cta-plus-btn border-0" *ngIf="!data.showDetail" (click)="data.showDetail = !data.showDetail"><i class="fas fa-plus"></i></button>
+						<button class="cta-plus-btn border-0" *ngIf="data.showDetail" (click)="data.showDetail = !data.showDetail"><i class="fas fa-minus-circle"></i></button>
+					</td> -->
+				  </tr>
+				  <tr class="tid-detail-row"
+					 *ngIf="data.showDetail" [class.active]="data.showDetail">
+					<td colspan="8">
+					  <div>
+						<aw-wizard [navBarLocation] = "'left'" [navBarLayout]="'small'" [defaultStepIndex]="0" [awNavigationMode] navigateBackward="deny">
+							<aw-wizard-step stepTitle="Notification">
+								<ng-template awWizardStepSymbol let-wizardStep="wizardStep">
+									<p *ngIf="!wizardStep.completed"> 1 </p>
+									<i *ngIf="wizardStep.completed" class="fas fa-check"></i>
+								  </ng-template>
+								<div class="row">
+									<div class="col-3">
+										<div class="card">
+											<div class="card-body">
+												<i><img src="../../../admin/assets/images/Sucess_tickmark.svg" alt=""></i>
+												<div>												
+													<div class="img-box img-box-svg mt-2">
+														<img src="admin/assets/images/Stand-high.svg" alt=""  height="60" width="60">
+													</div>
+													<p class="text-uppercase mt-3 customize-text">High Consumption</p>
+													<p class="small mt-2 customize-plain-text"> Please Contact Ghanim</p>   
+													<p class="small mt-2 customize-plain-text">Mobile : 1234567890</p>                               
+												</div> 
+											</div>
+										  </div>								  
+									</div>
+									<div class="col-3">
+										<div class="card">
+											<div class="card-body">
+												<div>
+													<div class="img-box mt-2">
+														<img src="admin/assets/images/letter.png" alt="appriciation letter" height="70" width="70"> 
+														<!-- <i class="triangle-exclamation">
+															<img src="../../../admin/assets/images/triangle-exclamationi.svg" alt="">
+														</i> -->
+													</div>
+													<p class="text-uppercase mt-4 customize-text" >Warning Letter</p>
+													<p  class="small mt-1 customize-plain-text" >trolly@gmail.com</p>
+													<label class="importButton btn-info margin-btn mb-0">
+														<input #tagsFile type="file" id="upload" (change)="fileChange($event)" />
+														Upload Letter
+														<span class="fa fa-upload center">&nbsp;</span>
+													</label>                         
+												</div> 
+											</div>
+										  </div>								  
+									</div>
+									<div class="col-6">
+										<div class="card">
+											<div class="card-body">
+												<div class="text-left mt-1"> 
+													<p class="text-uppercase customize-text">Negotiate Remarks</p>
+													<div class="nd-box d-flex align-items-center justify-content-between">
+														<p class="small mt-2 fw-bold customize-plain-text">Sathya</p>
+														<p class="small mt-2 customize-plain-text">01/11/2021, 12:00 PM</p>
+													</div>
+													<div class="nd-box pb-0">
+														<textarea class="form-control" id="exampleFormControlTextarea5" rows="2" placeholder="Enter Remarks.."></textarea>
+													</div>
+												</div>
+												<div class="mt-3">
+													<button type="button" class="btn btn-secondary btn-sm float-right" [awGoToStep]="{stepIndex: 3}">Next &nbsp;<i class="bi bi-arrow-right"></i></button>  
+												</div>											
+											</div>
+										  </div>								  
+									</div>								 
+								  </div>
+							</aw-wizard-step>
+							<aw-wizard-step stepTitle="Warning Letter" awOptionalStep>
+								<ng-template awWizardStepSymbol let-wizardStep="wizardStep">
+									<p *ngIf="!wizardStep.completed"> 2 </p>
+									<i *ngIf="wizardStep.completed" class="fas fa-check"></i>
+								  </ng-template>
+							</aw-wizard-step>
+							<aw-wizard-step stepTitle="Remarks" awOptionalStep>
+								<ng-template awWizardStepSymbol let-wizardStep="wizardStep">
+									<p *ngIf="!wizardStep.completed"> 3 </p>
+									<i *ngIf="wizardStep.completed" class="fas fa-check"></i>
+								  </ng-template>
+							  </aw-wizard-step>
+							  <aw-wizard-step stepTitle="Feedback" (stepEnter)="completeStep($event)">
+								<ng-template awWizardStepSymbol let-wizardStep="wizardStep">
+									<p *ngIf="!wizardStep.completed"> 4 </p>
+									<i *ngIf="wizardStep.completed" class="fas fa-check"></i>
+								  </ng-template>
+								<div class="row">
+									<div class="col-6">
+										<div class="card" style="overflow-y: scroll;height: 42vh;">
+											<div class="card-body">
+												<div class="text-left"> 
+													<p class="text-uppercase customize-text">Feedback</p>
+													<div class="nd-box d-flex align-items-center justify-content-between">                                        
+														<form>
+															<div class="form-group">
+																<div class="input-group">
+																	<input type="text" class="form-control" placeholder="Download Image" aria-label="Input group example" aria-describedby="btnGroupAddon" readonly>
+																	<div class="input-group-text" id="btnGroupAddon"><i class="bi bi-download"></i></div>															
+																  </div>
+															</div>
+															<div class="nd-box pb-0">
+																<p class="small mt-2 fw-bold customize-plain-text">Sathya</p>
+																<textarea class="form-control" id="exampleFormControlTextarea5" rows="1" placeholder="Enter Remarks.."></textarea>
+															</div>
+															<div class="nd-box pb-0 pl-5">
+																<p class="small mt-2 fw-bold customize-plain-text">Ghanim</p>
+																<textarea class="form-control" id="exampleFormControlTextarea5" rows="1" placeholder="Enter Remarks.."></textarea>
+															</div> 
+															<div class="nd-box pb-0">
+																<p class="small mt-2 fw-bold customize-plain-text">Sathya</p>
+																<textarea class="form-control" id="exampleFormControlTextarea5" rows="1" placeholder="Enter Remarks.."></textarea>
+															</div>                                           
+														</form> 
+													</div>
+												</div> 
+											</div>
+										  </div>								  
+									</div>
+									<div class="col-6">
+										<div class="card" style="height: 42vh;">
+											<div class="card-body">
+												<div class="text-left"> 
+													<p class="text-uppercase customize-text">Account Status</p>
+													<div class="nd-box d-flex align-items-center justify-content-between">
+														<div class="select min-w-200x">
+															<select rows="1" class="form-control" placeholder="">
+																<option value="" selected>Active</option> 
+															</select>
+														</div> 
+													</div>
+													<div class="text-right mt-4">
+														<p class="small mt-2 customize-plain-text">The status of the user is active</p>
+													</div>												
+												</div>	
+												<div class="row mt-5">
+													<div class="col-12">														
+														<button type="button" class="btn btn-secondary btn-sm float-right" awNextStep>Submit &nbsp;<i class="bi bi-arrow-right"></i></button>
+													</div>
+												</div>										
+											</div>
+										  </div>
+										    
+									</div>
+								  </div>
+							  </aw-wizard-step>
+							<aw-wizard-step stepTitle="Account Status">
+								<ng-template awWizardStepSymbol let-wizardStep="wizardStep">
+									<p *ngIf="!wizardStep.completed"> 5 </p>
+									<i *ngIf="wizardStep.completed" class="fas fa-check"></i>
+								  </ng-template>
+								<div class="card mt-5" style="background-color: white;">
+									<div class="card-body">
+										<div class="cta-btn-done text-center"><i><img src="../../../admin/assets/images/Sucess_tickmark.svg" alt=""></i> Done!</div>
+									</div>
+								  </div>
+							</aw-wizard-step>
+						  </aw-wizard>
+						</div>
+					</td>
+				  </tr>
+				  </ng-container>
+			</tbody>
+		  </table>
+		  <div *ngIf="highCustomers.length==0">
+			<p style="text-align: center; margin-top: 10%;">No Data Found!!!</p>
+		</div>
+		<app-pagination [totalItems]="highCustomers.length" [itemsPerPage]="itemsPerPage"
+			(pageChange)="onPageChange($event)"></app-pagination>
+	</section>
+	<div class="loading" *ngIf="isLoading">
+		<div id="loader"><!-- Animated logo --><img src="/admin/assets/images/loaderGreen.png" alt="Loading Logo"
+				class="logo">
+			<div class="spinner-border" role="status"></div>
+			<p>Loading, please wait...</p>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

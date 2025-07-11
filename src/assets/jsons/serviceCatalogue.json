@@ -1,0 +1,1614 @@
+[
+    {
+        "serviceId": "1731",
+        "Name": "ELECTRICAL CONTRACTORS",
+        "Services": [
+            {
+                "itemName": "Apprentice Electrician",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Journeyman Electrician",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Estimator",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Project Supervisor",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "1740",
+        "Name": "MASONRY STONEWORK TILE SETTING PLASTERING",
+        "Services": []
+    },
+    {
+        "serviceId": "4214",
+        "Name": "MOTOR FREIGHT CARRIERS AND TRUCKING LOCAL AND LONG",
+        "Services": []
+    },
+    {
+        "serviceId": "4215",
+        "Name": "COURIER SERVICES AIR OR GROUND AND FREIGHT FORWARD",
+        "Services": [
+            {
+                "itemName": "Airfreight service",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Land freight service",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Motorcycle curier service",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Oceam freight service",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "4722",
+        "Name": "TRAVEL AGENCIES AND TOUR OPERATORS",
+        "Services": [
+            {
+                "itemName": "Independent travel agents",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "online travel agents",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "visitor information centers",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Inbound tour operators",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "",
+        "Name": "wholesale travel agency"
+    },
+    {
+        "serviceId": "4812",
+        "Name": "TELECOMMUNICATIONS EQUIPMENT AND TELEPHONE SALES",
+        "Services": [
+            {
+                "itemName": "public swithcing equipment",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "transmission equipment",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "customer premises equipment",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "4816",
+        "Name": "COMPUTER NETWORK AND INFORMATION SERVICES",
+        "Services": [
+            {
+                "itemName": "PAN(Personal Area Network)",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "LAN(Local Area Network)",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "CAN(Campus area network)",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "WAN(Wide area network)",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "MAN(Metropolitan area network)",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "4900",
+        "Name": "UTILITIES ELECTRIC GAS WATER AND SANITARY",
+        "Services": []
+    },
+    {
+        "serviceId": "5013",
+        "Name": "MOTOR VEHICLE SUPPLIES AND NEW PARTS",
+        "Services": [
+            {
+                "itemName": "steel frame",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "transmission system",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "steering system, wheels",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "tyres and brakes",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5021",
+        "Name": "OFFICE AND COMMERCIAL FURNITURE",
+        "Services": [
+            {
+                "itemName": "wooden",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "bamboo",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "metal",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "plastic furnitures",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5045",
+        "Name": "COMPUTERS COMPUTER PERIPHERAL EQUIPMENT SOFTWARE",
+        "Services": [
+            {
+                "itemName": "mouse",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "keyboard",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "monitor",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "RAM",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5051",
+        "Name": "METAL SERVICE CENTERS AND OFFICES",
+        "Services": [
+            {
+                "itemName": "Aluminium bars",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "rods",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "bearing piles",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "pipes",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5094",
+        "Name": "JEWELRY",
+        "Services": [
+            {
+                "itemName": "temple jewellery",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "bead jewellery",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "bridal jewellery",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "handmade jewellery",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5111",
+        "Name": "STATIONERY OFFICE SUPPLIES AND PRINTING AND WRITIG",
+        "Services": [
+            {
+                "itemName": "paper shredder",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "laminating machines",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "printers",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "fax machines",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5137",
+        "Name": "MENS WOMENS AND CHILDRENS UNIFORMS GARMENTS",
+        "Services": [
+            {
+                "itemName": "school uniform",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "diplomatic uniform",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "prison uniform",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "military uniform",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5139",
+        "Name": "COMMERCIAL FOOTWEAR",
+        "Services": [
+            {
+                "itemName": "Boots",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Shoes",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Sandals",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Socks",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5192",
+        "Name": "BOOKS PERIODICALS AND NEWSPAPERS",
+        "Services": [
+            {
+                "itemName": "magazines",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "newspapers",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "trade journals",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "academic journals",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5193",
+        "Name": "FLORISTS SUPPLIES NURSERY STOCK AND FLOWERS",
+        "Services": [
+            {
+                "itemName": "bare root",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "balled and burlapped",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "container grown",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5200",
+        "Name": "HOME SUPPLY WAREHOUSE STORES",
+        "Services": [
+            {
+                "itemName": "public warehouses",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "private",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "bonded",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "cooperative",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "government",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5251",
+        "Name": "HARDWARE STORES",
+        "Services": [
+            {
+                "itemName": "plumbing",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "machinery",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "household",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "carpenter",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "electrical",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5271",
+        "Name": "MOBILE HOME DEALERS",
+        "Services": [
+            {
+                "itemName": "independent",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "factory direct",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "corporate",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5311",
+        "Name": "DEPARTMENT STORES",
+        "Services": [
+            {
+                "itemName": "junior departmental stores",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "warehouse stores",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "outlet stores",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "discount stores",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5331",
+        "Name": "VARIETY STORES",
+        "Services": [
+            {
+                "itemName": "discount department stores",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "wholesale clubs",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "supercenters",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "hypermarts",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5411",
+        "Name": "GROCERY STORES AND SUPERMARKETS",
+        "Services": [
+            {
+                "itemName": "Bakery",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Beverage",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "nonfood & pharmacy",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "meat",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5422",
+        "Name": "FREEZER AND LOCKER MEAT PROVISIONERS",
+        "Services": [
+            {
+                "itemName": "Hamburger",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "ground beef",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "chicken",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "pork",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5441",
+        "Name": "CANDY NUT AND CONFECTIONERY STORES",
+        "Services": []
+    },
+    {
+        "serviceId": "5462",
+        "Name": "BAKERIES",
+        "Services": [
+            {
+                "itemName": "wholesale bakeries",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "café bakery",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "bakery food truck",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "wedding cakes",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5499",
+        "Name": "MISCELLANEOUS FOOD STORES",
+        "Services": [
+            {
+                "itemName": "coffee stores",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "tea stores",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "egg dealers",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5511",
+        "Name": "CAR AND TRUCK DEALERS NEW AND USED SALES SERVICES",
+        "Services": [
+            {
+                "itemName": "Interim",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "full",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "major",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5533",
+        "Name": "AUTOMOTIVE PARTS AND ACCESSORIES STORES",
+        "Services": [
+            {
+                "itemName": "engine",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "fuel system",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "exhaust system",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "cooling system",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5571",
+        "Name": "MOTORCYCLE SHOPS AND DEALERS",
+        "Services": []
+    },
+    {
+        "serviceId": "5611",
+        "Name": "MEN AND BOYS CLOTHING AND ACCESSORIES STORES",
+        "Services": [
+            {
+                "itemName": "vintage",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "casual",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "traditional",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Artsy",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5631",
+        "Name": "WOMENS ACCESSORY AND SPECIALTY SHOPS",
+        "Services": [
+            {
+                "itemName": "costume jewellery store",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "handbag store",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "apparel accessory store",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "foundation garments",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5655",
+        "Name": "JWELLER",
+        "Services": [
+            {
+                "itemName": "temple jewellery",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "bead jewellery",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "bridal jewellery",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "handmade jewellery",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5697",
+        "Name": "ALTERATIONS MENDING SEAMSTRESSES TAILORS",
+        "Services": [
+            {
+                "itemName": "hemming with a blind stitch",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Taking in a seam",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "letting out a seam",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "adding darts",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5699",
+        "Name": "MISCELLANEOUS APPAREL AND ACCESSORY STORES",
+        "Services": []
+    },
+    {
+        "serviceId": "5712",
+        "Name": "Furniture Home Furnishings and Equipment Stores",
+        "Services": []
+    },
+    {
+        "serviceId": "5714",
+        "Name": "DRAPERY WINDOW COVERING AND UPHOLSTERY STORES",
+        "Services": []
+    },
+    {
+        "serviceId": "5719",
+        "Name": "MISCELLANEOUS HOME FURNISHING SPECIALTY STORES",
+        "Services": []
+    },
+    {
+        "serviceId": "5722",
+        "Name": "HOUSEHOLD APPLIANCE STORES",
+        "Services": [
+            {
+                "itemName": "small appliances",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "major appliances",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "white goods",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "consumer electronics",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5732",
+        "Name": "ELECTRONIC SALES",
+        "Services": [
+            {
+                "itemName": "business to business",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "consumer to consumer",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "business to consumer",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5733",
+        "Name": "MUSIC STORES MUSICAL INSTRUMENTS PIANOS",
+        "Services": [
+            {
+                "itemName": "electric guitars",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "piano",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "violin family",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "organ stores",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5811",
+        "Name": "CATERERS",
+        "Services": [
+            {
+                "itemName": "transport catering",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "airline catering",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "railway catering",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "ship catering",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5814",
+        "Name": "FAST FOOD RESTAURANTS",
+        "Services": [
+            {
+                "itemName": "Hamburger",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Cheeseburger",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "sandwich",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "muffin",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5912",
+        "Name": "DRUG STORES AND PHARMACIES",
+        "Services": []
+    },
+    {
+        "serviceId": "5921",
+        "Name": "PACKAGE STORES BEER WINE AND LIQUOR",
+        "Services": []
+    },
+    {
+        "serviceId": "5937",
+        "Name": "ANTIQUE REPRODUCTIONS",
+        "Services": []
+    },
+    {
+        "serviceId": "5971",
+        "Name": "ART DEALERS AND GALLERIES",
+        "Services": [
+            {
+                "itemName": "painting",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "sculpture",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "literature",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "music",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5976",
+        "Name": "ORTHOPEDIC GOODS AND PROSTHETIC DEVICES",
+        "Services": []
+    },
+    {
+        "serviceId": "5977",
+        "Name": "COSMETIC STORES",
+        "Services": [
+            {
+                "itemName": "oral care",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "skin care",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "sun care",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "hair care",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "5983",
+        "Name": "FUEL DEALERS FUEL OIL WOOD COAL AND LIQUEFIED",
+        "Services": []
+    },
+    {
+        "serviceId": "5998",
+        "Name": "TENT AND AWNING SHOPS",
+        "Services": []
+    },
+    {
+        "serviceId": "6010",
+        "Name": "FINANCIAL INSTITUTIONS MANUAL CASH DISBURSEMENTS",
+        "Services": []
+    },
+    {
+        "serviceId": "6012",
+        "Name": "FINANCIAL INSTITUTIONS MERCHANDISE AND SERVICES",
+        "Services": []
+    },
+    {
+        "serviceId": "7011",
+        "Name": "Lodging Hotels Motels and Resorts",
+        "Services": [
+            {
+                "itemName": "golf resort",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "beach resort",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "island resort",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "mountain resorts",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "7221",
+        "Name": "PHOTOGRAPHIC STUDIOS",
+        "Services": [
+            {
+                "itemName": "potrait photography",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "fashion",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "sports",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "architectural",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "7230",
+        "Name": "BARBER AND BEAUTY SHOPS",
+        "Services": [
+            {
+                "itemName": "common franchise",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "old school traditional",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "ethnic speciality",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "independent contemporary",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "7279",
+        "Name": "BANDS ORCHESTRAS AND MISCELLANEOUS ENTERTAINERS",
+        "Services": []
+    },
+    {
+        "serviceId": "7289",
+        "Name": "HEALTH AND BEAUTY SPAS",
+        "Services": [
+            {
+                "itemName": "ayurvedic spa",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "bootcamp spa",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "club spa",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "dental spa",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "7379",
+        "Name": "COMPUTER MAINTENANCE AND REPAIR SERVICES",
+        "Services": [
+            {
+                "itemName": "file cleanup",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "upgrading and installing new windows",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "general inspections",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "upgrading programs",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "7392",
+        "Name": "MANAGEMENT CONSULTING AND PUBLIC RELATIONS SERVICE",
+        "Services": []
+    },
+    {
+        "serviceId": "7534",
+        "Name": "TIRE RETREADING AND REPAIR SHOPS",
+        "Services": []
+    },
+    {
+        "serviceId": "7622",
+        "Name": "ELECTRONICS REPAIR SHOPS",
+        "Services": []
+    },
+    {
+        "serviceId": "7629",
+        "Name": "REPAIR SHOPS ELECTRICAL AND SMALL APPLIANCES",
+        "Services": []
+    },
+    {
+        "serviceId": "7911",
+        "Name": "DANCE HALLS STUDIOS AND SCHOOLS",
+        "Services": [
+            {
+                "itemName": "Ballet",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Contemporary",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Folk dance",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "Hip Hop",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "7997",
+        "Name": "MEMBERSHIP CLUBS SPORTS RECREATION ATHLETIC",
+        "Services": [
+            {
+                "itemName": "individual sport",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "dual sport",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "team sport",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "8043",
+        "Name": "OPTICIANS OPTICAL GOODS AND EYEGLASSES",
+        "Services": [
+            {
+                "itemName": "single vision",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "bifocals, trifocals",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "reading glasses",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "sunglasses",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "8062",
+        "Name": "HOSPITALS",
+        "Services": [
+            {
+                "itemName": "General medical and surgical hospitals",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "speciality hospitals",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "clinics",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "psychiatric hospitals",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "8099",
+        "Name": "MEDICAL SERVICES AND HEALTH PRACTITIONERS",
+        "Services": [
+            {
+                "itemName": "public health services",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "healthcare facilitates",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "managed care organization",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "rehabilitation",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "8220",
+        "Name": "COLLEGES UNIVERSITIES PROFESSIONAL SCHOOLS",
+        "Services": []
+    },
+    {
+        "serviceId": "8241",
+        "Name": "CORRESPONDENCE SCHOOLS",
+        "Services": []
+    },
+    {
+        "serviceId": "8299",
+        "Name": "SCHOOLS AND EDUCATIONAL SERVICES",
+        "Services": [
+            {
+                "itemName": "primary education service",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "secondary education service",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "higher(tertiary) education service",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "adult education",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "8911",
+        "Name": "ARCHITECTURAL ENGINEERING AND SURVEYING SERVICES",
+        "Services": [
+            {
+                "itemName": "Interior design",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "master planning 3D modelling",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "working drawings",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "specification",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    },
+    {
+        "serviceId": "9311",
+        "Name": "TAX PAYMENTS",
+        "Services": [
+            {
+                "itemName": "Income tax",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "sales tax",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "service tax",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            },
+            {
+                "itemName": "value added tax(VAT)",
+                "unitPrice": "100",
+                "avg": "2371",
+                "desc":""
+            }
+        ]
+    }
+]

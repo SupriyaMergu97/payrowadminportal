@@ -1,0 +1,227 @@
+.main-wallet-page{
+    display: flex;
+    justify-content: center;
+ height: 100vh;
+   
+}
+.wallet-welcome{
+    padding-right: 40px;
+}
+.wallet-up{
+    display: flex;
+    flex-direction: column;
+ 
+}
+
+
+.wallet-page{
+    max-width:360px;
+    max-height: 100vh;
+   
+
+.wallet-header{
+    display: flex;
+    margin-top: 6px;
+    margin-left: 6px;
+  
+    
+    .wallet-icon{
+        width: 14px;
+        height: 14px;
+        margin-right: 10px;
+        
+      
+    }
+}
+}
+.vector-gradient{
+    position: absolute;
+    top: 28px;
+    left: 138px;
+}
+.wallet-header-left {
+    display:flex;
+    flex: 1;
+    margin-right: 200px;
+    align-items: center!important;
+    justify-content: center!important;
+    margin-left: 10px;
+}
+
+.image-container{
+    position: relative;
+    text-align: center;
+    color: white;
+
+}
+.image-bg{
+   margin-left: 32px;
+    margin-top: 22px;
+    
+    width: 296px;
+    height: 156px;
+    border-radius: 8px;
+    
+    background: linear-gradient(180deg, #231123 0%, #558C8C 100%);
+}
+.wallet-donation{
+    position:absolute;
+    bottom: 119px;
+    left:46px;
+    font-family: Roboto;
+    font-weight: 700;
+}
+.accountant{
+    position:absolute;
+    bottom: 80px;
+    left:46px;
+    font-family: Roboto;
+}
+.wallet-text{
+   font-family: Roboto;
+   font-size: 12px;
+   font-weight: 400;
+   position: absolute;
+    bottom: 35px;
+    left: 46px; 
+}
+.order-number{
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    position: absolute;
+     bottom: 15px;
+     left: 46px; 
+}
+.wallet-pay{
+  
+    position: absolute;
+     bottom: 15px;
+     left: 266px;  
+}
+.payIcon{
+    position:absolute;
+    bottom: 120px;
+    left:268px;
+    width: 42px;
+    height: 22px;
+
+}
+.fees-details{
+    margin-left: 32px;
+    margin-top: 32px;
+    display: flex;
+  
+    align-items: center;
+width: 296px;
+height: 48px;
+    border: 1px solid #4B505066;
+    border-radius: 8px;
+}
+.pay-button{
+  background-color: #4B5050; 
+
+  margin-left: 32px;
+  width: 296px;
+height: 52px;
+margin-top: 120px;
+border-radius: 8px;
+display: flex;
+justify-content: space-between;
+border: none;
+@media only screen and (min-height: 500px) and (max-width: 599px)  {
+    margin-top: 20px;
+ }
+ @media only screen and (min-height: 600px) and (max-width: 699px)  {
+    margin-top: 40px;
+ }
+ @media only screen and (min-height: 700px) and (max-width: 799px)  {
+    margin-top: 75px;
+ }
+ @media only screen and (min-height: 800px) and (max-width: 899px)  {
+    margin-top: 75px;
+}
+
+@media only screen and (min-height: 900px) and (max-width: 1000px)  {
+   margin-top: 80px;
+}
+
+
+ 
+
+}
+.payIcons{
+    width: 54px;
+    height: 28px;
+    margin-right: 16px;
+    margin-top: 10px;
+    margin-left: 6px;
+}
+.copyright{
+    margin-top: 16px;
+    margin-left: 50px;
+    font-family: Roboto;
+font-size: small;
+}
+.fees-text{
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;  
+  margin-left: 16px;  
+  flex: 1;
+}
+.fees-amount{
+
+    font-family: Roboto;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 28px; 
+    margin-right: 4px; 
+  
+}
+.fees-text1{
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;  
+    margin-right: 16px;  
+  }
+  .next{
+    width: 24px;
+    height: 22px;
+    
+    margin-top: 15px;
+    margin-right: 6px;
+  
+
+  }
+ .girl-wallet{
+    width: 312px;
+    margin-left: 30px;
+    margin-top: 30px;
+    @media only screen and (min-height: 500px) and (max-width: 599px)  {
+        width: 230px;
+        margin-left: 70px;
+        margin-top: 20px;
+        margin-bottom: 0px;
+    }
+    @media only screen and (min-height: 600px) and (max-width: 699px)  {
+        width: 230px;
+        margin-left: 70px;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+    @media only screen and (min-height: 700px) and (max-width: 799px)  {
+        width: 250px;
+        margin-left: 60px;
+        margin-top: 60px;
+    }
+
+    @media only screen and (min-height: 800px) and (max-width: 899px)  {
+        width: 200px;
+        margin-left: 80px;
+    }
+   
+
+ }

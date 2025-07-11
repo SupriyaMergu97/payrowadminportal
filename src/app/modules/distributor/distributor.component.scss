@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+.act_vals {
+  left: 35px;
+}
+
+.left-title {
+  text-align: left;
+}
+
+#inputId[disabled] {
+  border: none;
+  background: none;
+}
+
+.tgt {
+  padding: 0px;
+  height: 22px;
+  width: 45px;
+  font-size: 13px;
+  text-align: center;
+  color: #5d5c5c;
+  float: right;
+  margin-left: 100%;
+}
+.tgt1{
+  width: 100px;
+}
+
+.ed_btn {
+  display: inline;
+  background-color: #72ac47;
+  color: white;
+  width: 100px;
+  margin-top: -37px;
+  margin-right: -10px;
+  float: right;
+  // font-size: 13px;
+  // padding: 3px 13px;
+  // background: #72ac47;
+  // border: none;
+  // display: inline;
+  //   width: 100px;
+  //   margin-top: -24px;
+  //   margin-right: -10px;
+  //   float: right;
+}
+
+.myTitle {
+  width: 90%;
+}
+
+.q_tgt {
+  width: 90px;
+  font-size: 13px !important;
+  text-align: left;
+}
+
+.ed_status {
+  margin-top: 0px;
+}
+
+/* Ripple effect */
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+.ripple:hover {
+  background: #739658 radial-gradient(circle, transparent 1%, #73a051 1%) center/15000%;
+}
+.ripple:active {
+  background-color: #86b661;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.svg-item {
+  width: 100%;
+  font-size: 16px;
+  margin: -30px -64px;
+  animation: donutfade 1s;
+}
+
+.box-chart svg {
+  /* position: absolute; */
+  vertical-align: middle;
+  // margin-top: 1px !important;
+  // margin-left: -56px !important;
+  border: 0px;
+  background: none;
+  text-align: center;
+  padding: 0px;
+  appearance: none;
+}
+
+.chart_img {
+  width: 30px;
+  margin-top: 12px;
+  margin-left: 0px !important;
+}
+.chart_val {
+  margin-top: -72px;
+}
+
+@keyframes donutfade {
+  /* this applies to the whole svg item wrapper */
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 992px) {
+  .svg-item {
+    width: 80%;
+  }
+}
+
+.donut-ring {
+  stroke: #ebebeb;
+}
+
+// .donut-segment {
+//     transform-origin: center;
+//     stroke: #FF6200;
+// }
+
+// .donut-segment-2 {
+//     stroke: aqua;
+//     animation: donut1 3s;
+// }
+
+.donut-segment-3 {
+  stroke: #d9e021;
+  animation: donut2 3s;
+}
+
+// .donut-segment-4 {
+//     stroke: #ed1e79;
+//     animation: donut3 3s;
+// }
+
+// .segment-1{fill:#ccc;}
+// .segment-2{fill:aqua;}
+// .segment-3{fill:#d9e021;}
+// .segment-4{fill:#ed1e79;}
+
+.donut-percent {
+  animation: donutfadelong 1s;
+}
+
+@keyframes donutfadelong {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.donut-text {
+  font-family: Arial, Helvetica, sans-serif;
+  fill: #ff6200;
+}
+.donut-text-1 {
+  fill: aqua;
+}
+
+.donut-label {
+  font-size: 0.28em;
+  font-weight: 700;
+  line-height: 1;
+  fill: #000;
+  transform: translateY(0.25em);
+}
+
+.donut-percent {
+  font-size: 0.5em;
+  line-height: 1;
+  transform: translateY(0.5em);
+  font-weight: bold;
+}
+
+.donut-data {
+  font-size: 0.12em;
+  line-height: 1;
+  transform: translateY(0.5em);
+  text-align: center;
+  text-anchor: middle;
+  color: #666;
+  fill: #666;
+  animation: donutfadelong 1s;
+}
+
+// Media query's
+
+@media only screen and (max-width: 1130px) {
+  .Q-hr {
+    width: 130px !important;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .content-3 {
+    left: 18px !important;
+  }
+}
+
+@media only screen and (max-width: 970px) {
+  .value {
+    font-size: 12px !important;
+  }
+}
+
+@media only screen and (max-width: 1220px) {
+  .chart_row {
+    top: 58px !important;
+  }
+  .chart_title {
+    font-size: 11px !important;
+  }
+  .chart_val {
+    font-size: 11px !important;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  html {
+    zoom: 0.8;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  html {
+    zoom: 0.9;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  html {
+    zoom: 1;
+  }
+}
+
+@media (min-width: 1400px) {
+  .act_vals {
+    left: 56px;
+  }
+}

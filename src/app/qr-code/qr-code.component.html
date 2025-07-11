@@ -1,0 +1,46 @@
+<div class="main-wallet-page">
+<div class="wallet-page">
+
+    <div class="wallet-up">
+      <div class="wallet-header">
+        <div class="wallet-header-left">
+            <img class="wallet-icon" (click)="closeClick()" src="../../admin/assets/images/clear.png" alt="clear" border="0">
+            <div class="wallet-close">Close</div>
+        </div>
+             <div class="wallet-welcome">Welcome</div>
+     </div>
+     <div class="image-container">
+        <div class="image-bg" alt="BG" border="0"> 
+            <img class ="vector-gradient" src="../../admin/assets/images/bg_ragphics.png" alt="bg-ragphics" border="0">
+         
+        <div class="accountant">Islamic Affairs & Charitable Activities</div> 
+        <div class="wallet-donation"> Donation</div>
+        <div class="wallet-text"> TRS No.</div>
+        <div    class="order-number">{{  transactionId}}</div>
+        <img class="wallet-pay" src="../../admin/assets/images/wallet-pay.png" alt="wallet-pay" border="0">
+        <img class="payIcon" src="../../admin/assets/images/payIcons.png" alt="payIcons" border="0">
+        </div>
+     </div>
+        <div class="fees-details">
+        <div class="fees-text">Donation Amount </div>
+        <div class="fees-amount">{{totalAmount}} </div>
+        <div class="fees-text1" >AED</div>
+    </div>
+    <img class='girl-wallet' src="../../admin/assets/images/donation_lady.png" alt="girl-wallet" border="0">
+    
+   </div>
+    
+    <div class="bottom-wallet">
+    
+    <button (click)="btnClick()" class="pay-button">
+        <img class="payIcons" src="../../admin/assets/images/payIcons.png" alt="payIcons" border="0">
+
+        <img class="next" src="../../admin/assets/images/nexts.png" alt="ic-Next" border="0">
+    </button>
+    <div class="copyright">
+        ©2022 PayRow Company. All rights reserved
+    </div>
+    </div>
+</div>
+
+</div>

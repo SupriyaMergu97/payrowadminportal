@@ -1,0 +1,37 @@
+<nav>
+    <div class="nav nav-tabs dash-tab" id="nav-tab" role="tablist">
+        <button class="col nav-link nav_item" id="market" data-bs-toggle="tab" data-bs-target="#nav-market"
+            type="button" role="tab" aria-controls="nav-market" aria-selected="true"
+            [routerLink]="['/payment-gateway']" [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]={exact:true}>Market Today
+        </button>
+            <!-- <img src="https://img.icons8.com/ios/50/000000/online-shop-card-payment.png" class="menuIcons" /> -->
+
+        <button class="col nav-link nav_item" id="govt" data-bs-toggle="tab" data-bs-target="#nav-govt"
+            type="button" role="tab" aria-controls="nav-govt" aria-selected="false"
+            [routerLink]="['/payment-gateway/govt']" [routerLinkActive]="['active']">Government
+        </button>
+                <!-- <img src="https://img.icons8.com/ios/50/000000/online-shop-card-payment.png"class="menuIcons" /> -->
+
+        <button class="col nav-link nav_item" id="enterprise" data-bs-toggle="tab"
+            data-bs-target="#nav-enterprise" type="button" role="tab" aria-controls="nav-enterprise"
+            aria-selected="false" [routerLink]="['/payment-gateway/enterprise']"
+            [routerLinkActive]="['active']"><img src="" class="cashinv" />Enterprise
+        </button>
+            <!-- <img src="https://img.icons8.com/ios/50/000000/online-shop-card-payment.png" class="menuIcons" /> -->
+
+        <button class="col nav-link nav_item" id="smb" data-bs-toggle="tab" data-bs-target="#nav-smb"
+            type="button" role="tab" aria-controls="nav-smb" aria-selected="false"
+            [routerLink]="['/payment-gateway/smb']" [routerLinkActive]="['active']">SMB
+        </button>
+
+        <button class="col nav-link nav_item" id="smb" data-bs-toggle="tab" data-bs-target="#nav-smb"
+            type="button" role="tab" aria-controls="nav-smb" aria-selected="false"
+            [routerLink]="['/payment-gateway/service-types']" [routerLinkActive]="['active']">Service Types
+        </button>
+        <button class="col nav-link nav_item" id="smb" data-bs-toggle="tab" data-bs-target="#nav-smb"
+            type="button" role="tab" aria-controls="nav-smb" aria-selected="false"
+            [routerLink]="['/payment-gateway/transactions']" [routerLinkActive]="['active']">Transactions
+        </button>
+    </div>
+</nav> 

@@ -1,0 +1,73 @@
+<ng-container [formGroup]="businessForm">
+    <div class="container">
+        <!-- <h5 style="color: #72AC47; font-family: Roboto;">BUSINESS DETAILS</h5> -->
+        <div class="row">
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="yearsInBusiness" class="form-control"
+                        placeholder="Years in Business" />
+                    <label for="yearsInBusiness">Years in Business</label>
+                    <div *ngIf="businessForm.controls['yearsInBusiness'].invalid && (businessForm.controls['yearsInBusiness'].dirty || businessForm.controls['yearsInBusiness'].touched)"
+                        class="alert">
+                        <div *ngIf="businessForm.controls['yearsInBusiness'].errors.required">
+                            <p class="error-msg">
+                                Please Enter Years in Business
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="noOfEmployees" class="form-control"
+                        placeholder="No.of Employees" />
+                    <label for="noOfEmployees">No. Of Employees</label>
+                    <div *ngIf="businessForm.controls['noOfEmployees'].invalid && (businessForm.controls['noOfEmployees'].dirty || businessForm.controls['noOfEmployees'].touched)"
+                        class="alert">
+                        <div *ngIf="businessForm.controls['noOfEmployees'].errors.required">
+                            <p class="error-msg">
+                                Please Enter No.of Employees
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="noOfOutlets" class="form-control" placeholder="No.of Outlets" />
+                    <label for="noOfOutlets">No. Of Outlets</label>
+                    <div *ngIf="businessForm.controls['noOfOutlets'].invalid && (businessForm.controls['noOfOutlets'].dirty || businessForm.controls['noOfOutlets'].touched)"
+                        class="alert">
+                        <div *ngIf="businessForm.controls['noOfOutlets'].errors.required">
+                            <p class="error-msg">
+                                Please Enter No.of Outlets
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="annualTurnOver" class="form-control"
+                        placeholder="Annual Turnover" />
+                    <label for="annualTurnOver">Annual Turnover</label>
+                    <div *ngIf="businessForm.controls['annualTurnOver'].invalid && (businessForm.controls['annualTurnOver'].dirty || businessForm.controls['annualTurnOver'].touched)"
+                        class="alert">
+                        <div *ngIf="businessForm.controls['annualTurnOver'].errors.required">
+                            <p class="error-msg">
+                                Please Enter Annual Turnover
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-xs-12">
+                <div class="form-group form-floating">
+                    <input type="text" formControlName="domain" class="form-control" placeholder="Enter your domain" />
+                    <label for="domain">Domain</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
