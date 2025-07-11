@@ -148,11 +148,12 @@ $(function () {
   });
 
   /* Chart.js Charts */
-  // Sales chart
-  var salesChartCanvas = document
-    .getElementById("revenue-chart-canvas")
-    .getContext("2d");
-  $("#revenue-chart").get(0).getContext("2d");
+  // Sales chart - only initialize if element exists
+  var revenueChartElement = document.getElementById("revenue-chart-canvas");
+  if (!revenueChartElement) {
+    return; // Exit early if chart elements don't exist
+  }
+  var salesChartCanvas = revenueChartElement.getContext("2d");
 
   var salesChartData = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
