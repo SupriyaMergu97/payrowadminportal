@@ -37,6 +37,7 @@ import { GlobalErrorHandler } from "./core/services/global-error-handler.service
       useClass: AppInterceptorService,
       multi: true,
     },
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
