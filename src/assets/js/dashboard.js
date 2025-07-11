@@ -216,7 +216,10 @@ $(function () {
     options: salesChartOptions,
   });
 
-  // Donut Chart
+  // Donut Chart - only initialize if element exists
+  if ($("#sales-chart-canvas").length === 0) {
+    return; // Exit early if chart elements don't exist
+  }
   var pieChartCanvas = $("#sales-chart-canvas").get(0).getContext("2d");
   var pieData = {
     labels: ["Instore Sales", "Download Sales", "Mail-Order Sales"],
